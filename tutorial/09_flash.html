@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<!--<head>
+<meta charset="utf-8">
+<title>flash_movie</title>
+</head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script type="text/javascript">swfobject.embedSWF("flash/bird.swf","bird","500","350","8.0.0");</script>
+<body>
+    <div id="bird"><p>An animation of a bird taking a shower</p></div>
+</body>
+    
+    
+    
+    
+    
+<head>
+    <title>Adding a flash video</title>    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+    <script type="text/javascript">
+        var flashvars = {};
+        var params = {movie:"../video/puppy.flv"};
+        swfobject.embedSWF("flash/splayer.swf", "snow", "400", "320", "8.0.0", flashvars, params);
+    </script>
+</head>
+<body>
+    <div id="snow"><p>A video of a puppy playing in the snow.</p></div>
+</body>
+
+    
+    
+    
+<head>
+    <title>adding html5 video</title>
+</head>
+<body>
+    <video src="video/puppy.mp4" poster="image/puppy.jpg" width="900" height="230" preload controls loop><p>a video of a puppy playing in the snow.</p></video>
+</body>
+    
+    
+<head>
+    <title>Multiple video sources</title>    
+</head>
+<body>
+    <video poster="images/puppy.jpg" width="300" height="340" preload controls loop>
+        <source src="video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+        <source src="video/puppy.webm" type='video/webm;codecs="vp8, vorbis"' />
+    </video>
+</body>
+    
+
+<head>
+    <title>add a flash mp3 player</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+    <script type="text/javascript">
+        var flashvars={};
+        var params = {mp3:"audio/test-audio.mp3"};
+        swfobject.embedSWF("flash/player_mp3_1.0.0.swf", "music-player", "200", "20", "8.0.0", flashvars, params);
+    </script>
+</head>
+<body>
+    <div id="music-player"><p>you cannot hear this track because this browser does not support our flash music player.</p></div>
+</body>
+    
+    
+<head><title>adding html5 audio</title></head>
+<body>
+    <audio src="audio/test-audio.ogg" controls autoplay>
+    <p>This browser does not support our audio format.</p>
+    </audio>
+        
+</body>
+
+
+    
+<head><title>multiple audio sources</title></head>
+<body>
+    <audio control autoplay>
+    <source src="audio/test-audio.ogg" />
+    <source src="audio/test-audio.mp3" />
+    <p>This browser does not support our audio format.</p>
+    </audio>
+</body>
+
+    
+
+<head><title>Flash, Video and Audio</title>
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+    <script type="text/javascript" >
+        var flashvars = {};
+        var params = {movie:"../video/puppy.flv"};
+        swfobject.embedSWF("flash/osplayer.swf", "snow","400", "320", "8.0.0", flashvars, params);
+    </script>
+    </head>
+<body>
+    <video poster="images/puppy.jpg" width="400" height="329" controls="controls">
+        <source src="video/puppy.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+        <source src="video/puppy.webm" type='video/webm;codecs="vp8, vorbis"' />
+        <div id="snow"><p>you cannot see this video of a puppy playing in the snow because this browser does not support our video formats.</p></div>
+    </video>
+</body>-->
+</html>
