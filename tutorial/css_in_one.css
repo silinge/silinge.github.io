@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+/* first part 
+body {
+    font-family: Arial, Verdana, sans-serif;
+}
+h1{
+    color:aqua;
+}
+
+p{
+    color: black;
+}
+
+
+second part
+
+body{
+    font-family: arial;
+    background-color: rgb(188, 177, 155);
+}
+h1{
+    color: rgb(255,255,255);
+}
+
+third part  级联
+
+*{
+    font-family: Arial, Verdana, sans-serif;
+}
+h1{
+    font-family: "Courier New", momospace;
+}
+i{
+    color:aqua;
+}
+i{
+    color: darkred;
+}
+
+b{
+    color: goldenrod;
+}
+
+p b{
+    color: gold!important;
+}
+
+p b{
+    color: navajowhite;
+}
+
+p#intro{
+    font-size: 100%;
+}
+
+p{
+    font-size: 60%;
+}
+
+inheritance*/
+body{
+    font-family: Arial, Verdana, sans-serif;
+    color: #664455;
+    padding: 20px;
+}
+.page{
+    border: 1px solid #665544;
+    background-color: #efefe0;
+    padding: inherit;
+}
