@@ -58,7 +58,7 @@ p{
     font-size: 60%;
 }
 
-inheritance*/
+inheritance
 body{
     font-family: Arial, Verdana, sans-serif;
     color: #664455;
@@ -68,4 +68,147 @@ body{
     border: 1px solid #665544;
     background-color: #efefe0;
     padding: inherit;
+}
+
+颜色
+p.one{
+    background-color: rgb(0, 0, 0);
+    opacity: 0.9;
+}
+p.two{
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.50);
+}
+body{
+    background-color: #c8c8c8;
+    background-color: hsl(0.0%, 77%;)
+}
+
+p {
+    background-color: #ffffff;
+    background-color: hsla(0,100%,100%,0.55)
+}
+
+
+body {
+    background-color: silver;
+    color: white;
+    padding:20px;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+h1 {
+    background-color: #ffffff;
+    background-color: hsla(0, 100%, 100%, 0.5);
+    color: #64645a;
+    padding: inherit;
+}
+
+p {
+    padding: 5px;
+    margin: 0px;
+}
+
+p.zero {
+    background-color: rgb(239, 64, 129);
+}
+p.one {
+    background-color: rgb(244, 90, 139);
+}
+p.two {background-color: rgb(243, 104, 152);}
+p.three {background-color: rgb(244, 123, 166);}
+p.four {background-color: rgb(245, 140, 178);}
+p.five {background-color: rgb(246, 159, 192);}
+p.six {background-color: rgb(245, 176, 204);}
+p.seven {background-color: rgb(0, 187, 136);}
+p.eight {background-color: rgb(140, 202, 242);}
+p.nine {background-color: rgb(114, 193, 240);}
+p.ten {background-color: rgb(84, 182, 237);}
+p.eleven {background-color: rgb(48, 170, 233);}
+p.twelve {background-color: rgb(0, 160, 230);}
+p.thirteen {background-color: rgb(0, 149, 226);}
+p.fourteen {background-color: rgb(0, 136, 221);}
+
+text 
+
+body {
+    font-family: Georgia, Times, serif;
+    font-size: 16px
+}
+h1, h2{
+    font-family: Arial, verdana, sans-serif;
+    font-size: 260%;
+}
+h2.headtwo {
+    font-size: 1.5em;
+}
+
+.credits {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2em
+}
+
+
+font-face 引入本地字体文件
+@font-face {
+    font-family: "Source Sans pro", sans-serif;
+    src:url("../css/SourceSansPro-Regular.ttf")
+        format('truetype')
+}
+h1, h2 {
+    font-family: inherit;
+}
+p {
+    font-family: "Source Sans pro", sans-serif;
+    font-size: 1.5em;
+}
+
+text example*/
+
+body {
+    padding: 20px;
+}
+h1, h2, h3, a{
+    font-weight: normal;
+    color: #0088dd;
+    margin: 0px;
+}
+h1 {
+    font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif", Times, serif;
+    font-size: 250%;
+    text-shadow: 2px 4px 3px #666662;
+    padding-bottom: 12px;
+}
+h2 {
+    font-family: "Gill Sans", Arial, sans-serif;
+    font-size: 90%;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+h3 {
+    font-size: 150%;
+}
+
+p {
+    font-family: Arial, Verdana, sans-serif;
+    line-height: 1.4em;
+    color: #667544;
+}
+p.intro:first-line {
+    font-weight:bold;
+}
+.credits {
+    font-style: italic;
+    text-align: right;
+}
+
+a {
+    text-decoration: overline;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:focus {
+    text-decoration: line-through;
 }

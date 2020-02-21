@@ -76,14 +76,119 @@ css 规则的应用方式 同一选择器两个以上规则 应用最后一个
 inheritance 从body继承属性值 写个inherit 就可以了。
 
 css test site 
-browsercam.com
-browserlab.adobe.com
-browsershots.org
-crossbrowsertesting.com
+browsercam.com 不能用
+browserlab.adobe.com 不能用
+browsershots.org 佛跳墙
+crossbrowsertesting.com trial
+
+css browser bug browserquirk
+quirksmode.org 查找css 功能
 p, h1, h2 {
     font-family:Arial;
     color:yellow;
 }
+
+颜色 rgb值 六位十六进制码 颜色名称 in css_examples.html
+选取颜色要综合考虑对比度 contrast
+对比度测试检查工具 https://snook.ca/technical/colour_contrast/colour.html
+
+透明度 opacity， rgba;  only for css3
+hue saturation lightness 色相 饱和度 亮度
+
+text in css_examples.html
+weight : light medium bold black
+style ： normal italic oblique
+stretch : condensed regular extended
+
+font-family : serif sans-serif monospace cursive fantasy
+font-face
+service-based font-face
+sifr the font is embedded into a flash movie and javascript replaces specified HTML text with a flash version of it
+cufon as sifr user javascript to create either an svg or vml version of the text
+font-size 16px or 150% or 1.3em 
+默认大小是16px 百分制就是乘以16  如果前面指定了font-size 就乘以它。
+an em is equlvalent to the width of a letter m
+百分制和em都是根据父级font-size属性定。
+举个例子
+h1 24px; h2 18px; h3 14px; body 12 px; 等于
+h1 200%; h2 150%; h3 117%; body 75%; 默认16px body一下变小了 其他的跟着变了
+h1 1.5em; h2 1.3em; h3 1.17em; body 75%; p 0.75em; 1em 还是16px body 应该还是75% 不是100
+
+font-face
+@font-face {
+    font-family:"Source Sans pro", sans-serif;
+    src:url('../css/SourceSansPro-Regular.ttf') 
+}
+../退回上一级 ../../退回上一级的上一级
+font-face website
+www.fontsquirrel.com
+www.fontex.org
+www.openfontlibrary.org these are free
+
+www.typekit.com
+www.kernest.com
+www.fontspring.com charge
+
+font-face formats
+@font-face {
+    font-family: 'ChunkFilveRegular';
+    src:url('fonts/chunkfive.eot');
+    src:url('fonts/chunkfive.eot?#iefix')
+        format('embedded-opentype'),
+        url('fonts/chunkfive.woff') format('woff'),
+        url('fonts/chunkfive.ttf') format('truetype'),
+        url('fonts/chunkfive.svg#ChunkFiveRegular') format('svg');
+}
+font-weight normal bold 
+font-style norm italic斜 oblique 斜体
+text-transform uppercase lowercase capitalize
+text-decoration   none 去掉装饰 underline overline line-through blink
+line-height line-height:1.5em;
+letter-spacing
+word-spacing
+text-align left right center justify(除了最后一行 其他行的词组匀乎开)
+vertical-align 文字去对齐图片 值 text-top baseline text-bottom sub super top middle bottom
+
+text-indent 缩缩
+
+text-shadow: 1px, 1px, 0px, green;
+:first-letter, :first-line 作用于指定目标的第一字母 第一句 例子
+p.one:first-letter {} p.two:first-line {font-size:200%}
+
+链接的样式
+a:link{
+    color:red;
+    text-decoration:none;
+}
+a.visited {
+color:black;
+text-decoration:underline;
+}
+a:hover {
+    color:deeppink;
+}
+
+a:active {
+    color:darkcyan;
+}
+
+responding to users
+:hover 
+:active 
+:focus 获得焦点元素 例如表单输入 当用户点击或触摸元素或通过键盘的tab键选择它时会被出发
+
+属性选择器
+existence [] 匹配特定属性 不管什么值 p[class] 指定任何带有class属性的p元素
+equality [=] 匹配特定属性且有特定值 p[class="apple"] 指定class为apple的p元素
+space [~=] 匹配特定属性有一组特定值空格隔开的某一个，p[class~='sp']指定class包含值里面有一个为sp值 sp是单独词组 不是字符串一部分
+
+prefix [^=] 匹配特定属性的值以某字符开头 p[attr^"d"] p元素里面有个属性值d开头的属性
+
+substring [*=] 匹配其中含有字符 p[attr*"do"] p元素里面有个属性值包含了字符do的属性
+
+suffix [$=] 类似prefix 匹配结尾 p[attr$"ing"] ing结尾的属性
+
+text-example in css in one
 -->
     
 <body>
