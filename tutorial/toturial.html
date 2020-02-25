@@ -189,6 +189,47 @@ substring [*=] 匹配其中含有字符 p[attr*"do"] p元素里面有个属性�
 suffix [$=] 类似prefix 匹配结尾 p[attr$"ing"] ing结尾的属性
 
 text-example in css in one
+
+overflowing content 
+overflow:hidden
+overflow:scroll
+
+border 分隔box 和 box, 边界可能不可见或者0px
+margin box和box之间的空隙
+padding box里面内容同border边缘的空隙
+
+border ; border-width:thin, medium, thick, ?px 属性值可以是像素 不能是百分比 也能单分出来 border-top-width border-right-width border-bottom-width border-left-width 也可以是按顺序 border-width: 2px 3px 4px 3px; !!!用border要设置box的宽和高 border的风格 点 线 dash线等 不设置什么都看不见
+border-left-style 风格 也能上下左右分。
+border-color:red white blue green 颜色也可以分上下左右
+
+padding 也分上下左右
+margin 也要分啊。
+
+change inline/block
+display inline/block/inline-block/none
+inline 同块内的元素排一条线 还有排不下的情况
+block 一条线的元素排成块
+inline-block 大概 根据页面宽度 块排成线 宽度有富裕就继续排 而不是用float对齐。
+none 藏起来 不显示
+
+visibility hidden/visible 可见不可见 位置在那儿。
+
+border-image
+p.one {
+-moz-border-image:url("image.gif") 11 11 11 11 stretch;
+-webkit-border-image:url("image.gif") 11 11 11 11 stretch;
+border-image:url("image.gif") 11 11 11 11 stretch;
+}
+
+box-shadow 5个参数 
+horizontal offset 水平偏移
+vertical offset 垂直偏移
+blur distance 模糊 可以不写 这时候是实线
+spread of shadow 阴影 正值外阴影 负值内阴影 可以不写 就是没有
+color 
+-moz-box-shadow; -webkit-box-shadow; box-shadow 写3个来兼容各大浏览器。
+
+border-radius 也要写三个来兼容 也能分上下左右开来写 分开来写造成不同的形状
 -->
     
 <body>
