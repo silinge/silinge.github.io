@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+}
+a:link{
+    color: black;
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none
+}
+a:hover{
+    color: firebrick;
+}
+.title{
+    border-width: 5px 0 5px 0;
+    width: auto;
+    height: 60px;
+}
+div.all{
+    text-align: center;    
+    float: left;
+    width: 20%;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+div.mark_line{
+    background-color: #f4f229;
+    width: auto;
+    height: 4px;
+    padding: 4px 0 0 0;
+}
+.one{
+    background-color: #ECDDDD;
+}
+.two{
+    background-color: #75a6fd;
+}
+.three{
+    background-color: #17dcd7;
+}
+.four{
+    background-color:#65a58a;
+}
+.five{
+    background-color: #F5591D;
+}
