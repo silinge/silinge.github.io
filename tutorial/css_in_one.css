@@ -413,7 +413,7 @@ p.three {
     -webkit-border-radius: 100px;
 }
 
-*/
+
 
 body {
     font-size: 80%;
@@ -467,4 +467,39 @@ a {
 a:hover, a.on{
     color:#cc4444;
     background-color: #ffffff;
+}
+ul {
+    list-style: inside circle;
+    width: 300px;
+}
+li{
+    margin: 10px 0 0 0;
+}*/
+body {
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+    color: #111111;
+}
+table {
+    width: 600px;
+}
+th, td{
+    padding: 7px 10px 10px 10px;
+}
+th {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 90%;
+    border-bottom: 2px solid #111111;
+    border-top: 1px solid #999;
+    text-align: left;
+}
+
+tr.even{
+    background-color: #efefef;
+}
+tr.hover{
+    background-color: #c3e4e6;
+}
+.money {
+    text-align: right;
 }
