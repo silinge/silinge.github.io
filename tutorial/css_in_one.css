@@ -88,8 +88,6 @@ p {
     background-color: #ffffff;
     background-color: hsla(0,100%,100%,0.55)
 }
-
-
 body {
     background-color: silver;
     color: white;
@@ -147,8 +145,6 @@ h2.headtwo {
     font-family: "Courier New", Courier, monospace;
     font-size: 2em
 }
-
-
 font-face 引入本地字体文件
 @font-face {
     font-family: "Source Sans pro", sans-serif;
@@ -212,9 +208,6 @@ a:hover {
 a:focus {
     text-decoration: line-through;
 }
-
-
-
 div.box {
     height:300px;
     width:300px;
@@ -226,9 +219,6 @@ p {
     width:75%;
     background-color: #0088dd;
 }
-
-
-
 td.description {
     min-width: 450px;
     max-width: 650px;
@@ -236,9 +226,6 @@ td.description {
     padding: 5px;
     margin:0px;
 }
-
-
-
 h2, p {
     width:400px;
     font-size: 90%;
@@ -254,8 +241,6 @@ p {
     min-height: 10px;
     max-height: 30px;
 }
-
-
 div {
     border-color: green;
     border-style: dashed;
@@ -270,14 +255,9 @@ div.one {
 div.two {
     border-width: thick;
 }
-
 div.three {
     border-width: 2px 3px 0px 3px;
 }
-
-
-
-
 p {
     width: 300px;
     height: 200px;
@@ -303,8 +283,6 @@ p {
 p.example {
     margin: 25px;
 }
-
-
 body {
     text-align: center;
 }
@@ -318,9 +296,6 @@ p.example {
     margin: 10px auto 10px auto;
     text-align: left;
 }
-
-
-
 li {
     display: inline;
     margin-right: 15px;
@@ -329,8 +304,6 @@ li {
 li.coming-soon {
     display: none;
 }
-
-
 li {
     display: inline;
     margin-right: 10px;
@@ -375,9 +348,6 @@ p.five {
     -webkit-box-shadow:inset 0 0 10px #8899bb ;
     box-shadow:inset 0 0 10px #8899bb ;
 }
-
-
-
 p.big_box {
     border:5px solid #bbbbff;
     padding: 25px;
@@ -387,8 +357,6 @@ p.big_box {
     -moz-border-radius:15px;
     -webkit-border-radius:15px;
 }
-
-
 p {
     width: 275px;
     height: 100px;
@@ -399,7 +367,6 @@ p.one {
     -moz-border-top-left-radius: 80px 50px;
     -webkit-border-top-left-radius: 80px 50px;
 }
-
 p.two {
     border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
     -moz-border-radius:1em 4em 1em 4em / 2em 1em 2em 1em;
@@ -412,9 +379,6 @@ p.three {
     -moz-border-radius: 100px;
     -webkit-border-radius: 100px;
 }
-
-
-
 body {
     font-size: 80%;
     font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
@@ -474,7 +438,7 @@ ul {
 }
 li{
     margin: 10px 0 0 0;
-}*/
+}
 body {
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
     color: #111111;
@@ -502,4 +466,42 @@ tr.hover{
 }
 .money {
     text-align: right;
+}
+ol{
+    list-style-type: lower-roman;
+}
+ul {
+    width:150px;
+}
+li {
+    margin: 10px;
+}
+ul.Illuminations{
+    list-style-position: outside;
+}
+ul.season {
+    list-style-position: inside;
+}
+
+td {
+    border:1px solid #0088ff;
+    padding: 15px;
+}
+table.one{
+    empty-cells: show;
+}
+table.two{
+    empty-cells: hide;
+}*/
+
+td {
+    background-color: cadetblue;
+    padding: 12px;
+    border:3px solid #ff2444;
+}
+table.one{
+    border-spacing: 5px 20px;
+}
+table.two{
+    border-collapse: collapse;
 }

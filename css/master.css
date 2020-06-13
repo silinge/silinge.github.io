@@ -2,6 +2,7 @@
 /* CSS Document */
 body{
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+    background-image: url("../img/bg_green_02-01.jpg")
 }
 a:link{
     color: black;
