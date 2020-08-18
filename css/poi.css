@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1,h2{
+	vertical-align: middle;
+	text-align: center;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+}
+div{
+	width: 100%;
+	height: 24px;
+	font-size: 18px;
+	vertical-align: middle;
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+}
+div.lines{
+	height: 5px;
+	background-color: black;
+}
+div.Harold{
+	background-color: cadetblue;
+}
+div.Reese{
+	background-color: darkgrey;
+}
+div.Carter{
+	background-color: brown;
+	color:antiquewhite
+}
+div.Lion{
+	background-color: lightyellow;
+}
+div.Root{
+	background-color: darkkhaki;
+}
+div.Shaw{
+	background-color: coral;
+}
+div.Machine{
+	background-color: deepskyblue;
+}
+div.Ilias{
+	background-color: goldenrod;
+}
+div.Smartisan{
+	background-color: mediumslateblue;
+}
+div.Victim{
+	background-color: green;
+	color:navajowhite;
+}
+div.Perpetrator{
+	background-color: navajowhite;
+}
