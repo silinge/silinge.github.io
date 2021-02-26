@@ -2,7 +2,7 @@
 /* CSS Document */
 body{
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-    background-image: url("../img/bg_green_02-01.jpg")
+/*    background-image: url("../img/bg_green_02-01.jpg")*/
 }
 a:link{
     color: black;
@@ -28,23 +28,23 @@ div.all{
     font-weight: bold;
 }
 div.mark_line{
-    background-color: #f4f229;
+    background-color: #00a03e;
     width: auto;
     height: 4px;
     padding: 4px 0 0 0;
 }
 .one{
-    background-color: #ECDDDD;
+    background-color: #f4f0e6;
 }
 .two{
-    background-color: #75a6fd;
+    background-color: #d9d9f3;
 }
 .three{
-    background-color: #17dcd7;
+    background-color: #ceefe4;
 }
 .four{
-    background-color:#65a58a;
+    background-color:#9dd3a8;
 }
 .five{
-    background-color: #F5591D;
+    background-color: #50C1E9;
 }
