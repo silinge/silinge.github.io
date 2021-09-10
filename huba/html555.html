@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <title>html5example</title>
+<!--
+	<script type="text/javascript">
+		function AlertSelectionDirection(){
+			var control=document.forms[0]['text'];
+			var Direction =control.selectionDirection;
+			alert(Direction)
+		}
+	</script>-->
 </head>
 
 <body>
@@ -10,6 +18,7 @@
 	<figcaption>PRC</figcaption>
 		<p>The People's Relpublic of China was born in 1949...</p>
 	</figure>
+<!--
 	<video src="movie.mov" controls="controls">video元素</video>
 	<audio src="audid.wav" controls="controls">audio元素</audio>
 	<embed src="嵌入元素.jpeg" />
@@ -18,35 +27,45 @@
 	<progress>用来显示javascr中耗费时间的函数的进程。</progress>
 	<meter>meter元素表示度量衡 仅用于已知最大值和最小值的度量 必须自定义度量范围 既可以在元素文本中也可以在min/max属性中定义</meter>
 	<time>time表示日期或时间也可以同时表示两者</time>
-	<ruby>汉<rt><rp>(</rp>what'<rp>)</rp></rt></ruby> <!-- ruby元素表示ruby注释（中文注音或字符） rt元素表示字符的解释或发音 中文注音或字符 rp元素在ruby注释中使用 以定义不支持rubyz元素的浏览器所显示的内容-->
+	<ruby>汉<rt><rp>(</rp>what'<rp>)</rp></rt></ruby>  ruby元素表示ruby注释（中文注音或字符） rt元素表示字符的解释或发音 中文注音或字符 rp元素在ruby注释中使用 以定义不支持rubyz元素的浏览器所显示的内容
+-->
+<!--
 	<p>To learn AJAX you must be fami<wbr>liar with the xmlhttp<wbr>软换行两头都是wbr requestobject.</p>
 	<canvas id="mycanvas" width="200" height="200">这是一块canvas啊</canvas>
+-->
 	<details>
 		<summary>和summary配合使用的details </summary>
 		一个显示缩略梗概 一个显示详情细节 展示就能看到作用。
 	</details>
-	<detalist></detalist> <!-- datalist 与input元素配合使用 可以制作输入值的下拉列表 -->
+<!--	<detalist></detalist>  datalist 与input元素配合使用 可以制作输入值的下拉列表 -->
+<!--
 	<datagrid>表示可选数据列表 它以树形列表的形式显示</datagrid>
 	<output>表示不同类型的输出 比如脚本的输出</output>
 	<dialog>表示对话框</dialog>
 	
 	<p>input 元素类型 email url number range表示必须输入一定范围内数字值的文本输入框 date 日月年 monthn 月年 
 	week 周和年 time选取时间小时和分钟 datetime 选取时间 日月年utc时间 datetime-local 选取日月年本地时间</p>
-	<p>contentEditable属性</p>
+-->
+<!--	<p>contentEditable属性</p>-->
+<!--
 	<ul contenteditable="true">
 	<li>1234</li>
 	<li>87652</li>
 	<li>11001102</li>
 	</ul>
+-->
+<!--
 	<p>spellcheck属性</p>
 	<textarea spellcheck="true"></textarea>
 	<input type="text" spellcheck="true">
 	<textarea spellcheck 这么写是不对的。></textarea>
 	<p>只监听一次事件</p>
 	<input type="button" value="点啊">
-	<script>document.getElementById("button").addEventListener("click",function(){alert("点了");},{once:true});</script>
+	<script type="text/javascript">document.getElementById("button").addEventListener("click",function(){alert("点了");},{once:true});</script>
 	
 	<p>article元素</p>
+-->
+<!--
 	<article>
 	<header>
 		<h1>orange</h1>
@@ -56,6 +75,8 @@
 		<footer><p><small>copyright with.</small></p></footer>
 	</article>
 	
+-->
+<!--
 	<article>
 	<header>
 		<h1>orange</h1>
@@ -86,7 +107,9 @@
 			</article>
 		</section>
 	</article>
+-->
 	
+<!--
 	<article>
 		<h1>my fruit spinner</h1>
 		<object>
@@ -95,6 +118,8 @@
 		</object>
 	</article>
 	
+-->
+<!--
 	<h1>技术资料</h1>
 	<nav>
 		<ul>
@@ -103,6 +128,8 @@
 			...more...
 		</ul>
 	</nav>
+-->
+<!--
 	<article>
 		<header>
 			<h1>html5 and css 3's history</h1>
@@ -131,17 +158,21 @@
 			</p>
 		</footer>
 	</article>
+-->
+<!--
 	<footer>
 		<p><small>版权所有：陆凌牛</small></p>
 	</footer>
+-->
 	
 	<p>aside 元素</p>
 	<header>f#入门</header>
+<!--
 	<article>
 		<h1>第四节 词法闭包</h1>
 		<p>lambda表达式可以创建词法闭包。。。（文章正文）</p>
 		<aside>
-<!--			因为这个aside元素被放置在一个article元素内部，所以分析器将这个aside元素的内容理解成是和article元素的内容相关联的。-->
+			因为这个aside元素被放置在一个article元素内部，所以分析器将这个aside元素的内容理解成是和article元素的内容相关联的。
 			<h1>名词解释</h1>
 			<d1>
 				<dt>f#</dt>
@@ -153,7 +184,329 @@
 			</d1>
 		</aside>
 	</article>
+-->
 	
+<!--
+	<article>
+		<header>
+			<h1>orange</h1>
+			<p>发布日期
+			<time datetime="20210715" pubdate>20210715</time>
+			</p>
+		</header>
+		<p>orange pineapple watermelon(文章正文正文正文)</p>。。。
+	</article>
+-->
+<!--
+	<main>
+		<h1>毕业</h1>
+		<nav>
+			<ul>
+				<li>33wwq422</li>
+				<li>34r22</li>
+				<li>34e22</li>
+				<li>342fd2</li>
+			</ul>
+		</nav>
+		<h2>kaishi</h2>
+		<p>jiushigepy</p>
+		<p>jiusigepy</p>
+		<p>jiushpy</p>
+		<p>jiushigep</p>
+		<h2 id="graduates">毕业生</h2>
+		<ul>
+			<li>williams</li>
+			<li>willams</li>
+			<li>williams</li>
+			<li>wiiams</li>
+			<li>willis</li>
+			<li>wil00liams</li>
+			<li>willi45757ams</li>
+		</ul>
+	</main>
+-->
+	<footer>copyright 2021玉宁软件</footer>
+	
+	<p>网页文档大纲</p>
+<!--
+	<section>
+		<h1>基础知识</h1>
+		<section>
+			<h2>html5概念</h2>
+			(正文)
+			<section>
+			 <h3>html5是什么</h3>
+			(正文)
+			</section>
+			<section>
+				<h3>html5中新增的API</h3>
+				(正文)
+			</section>
+		</section>
+		<section>
+			<h2>快速入门</h2>
+			(正文)
+			<section>
+				<h3>htmland xhtml</h3>
+			</section>
+		</section>
+	</section>
+-->
+	<p>form属性</p>
+<!--
+<form id="testform">-->
+<!--
+		<input type="text">
+	</form>
+-->
+<!--	<textarea form="testform">2504004</textarea>-->
+<!--	<p>formaction</p>-->
+<!--
+	<form id="testforms" action="serve.jsp">
+		<input type="submit" name="s1" value="v1" formaction="s1.jsp">提交到s1
+		<input type="submit" name="s2" value="v2" formaction="s2.jsp">提交到s2
+		<input type="submit" name="s3" value="v3" formaction="s3.jsp">提交到s3
+		<input type="submit" alt="200">
+	</form>
+-->
+<!--	<p>formmethod</p>-->
+<!--
+	<form id="testform1" action="serve.jsp">
+		姓名：<input type="text" name="name" /><br/>
+		<input type="submit" value="post方式提交" formmethod="post">
+		<input type="submit" value="get方式提交" formmethod="get">
+	</form>
+	<p>formtarget _blank _self _parent _top framename</p>
+	<p>autofocus 属性</p>
+	<p>labels属性</p>
+-->
+	<script type="text/javascipt">
+		function Validate(){
+		var txtName=document.getElementById("txt_name");
+		var button=document.getElementById("btnValidate");
+		var form=document.getElementById("testform");
+		if (txtName.value.trim()==""){
+		if(txtName.labels.length==1){
+		var label=document.createElement("label");
+		label.setAttribute("for", "txt_name");
+		form.insertBefore(label, button);
+		txtName.labels[1].setAttribute("style", "font-size:9px;color:red")
+		}
+		}
+		else if(txtName.labels.length>1)
+		form.removeChild(txtName.labels[1])
+		}
+	</script>
+	<form id="testform2">
+		<label id="label2" for="txt_name">姓名：</label>
+		<input id="txt_name">
+		<input type="button" value="验证" onClick="Validate()" />
+	</form>
+	
+<!--	control 设置默认值功能 placeholder效果-->
+<!--
+	<script type="text/javascript">
+		function setValue(){
+			var label3 = document.getElementById("label");
+			var textbox = label.control;
+			textbox.value = "213001";
+		}
+	</script>
+	<form>
+		<label id="label3">
+			邮编：
+			<input id="txt_zip" maxlength="6">
+			<small>请输入6位数字</small>
+		</label>
+		<input type="button" value="设置默认值" onClick="setValue()" />
+		<input type="text" placeholder="type here">
+	</form>
+-->
+<!--	文本框的list属性-->
+<!--	text:<input type="text" name="greeting" list="greetings" >-->
+<!--	使用style="display:none" 将datalist元素设定为不显示-->
+<!--
+	<datalist id="greetings" style="display: none">
+		<option value="bonjour"> 你好啊</option>
+		<option value="hello">bonjour</option>
+		<option value="你好">Hello world</option>
+		<option value="au revior"> salut</option>
+	</datalist>
+-->
+<!--	autocomplete属性-->
+<!--
+	<input type="text" name="greeting" autocomplete="on" list="greetings" >
+	<datalist id="greetings" style="display: none">
+		<option value="bonjour"> 你好啊</option>
+		<option value="hello">bonjour</option>
+		<option value="你好">Hello world</option>
+		<option value="au revior"> salut</option>
+	</datalist>
+-->
+<!--	文本框的pattern属性-->
+<!--
+	<form>
+		请输入指定格式的内容：<input pattern="[0-9][a-z]{3}" name="part">
+		<input type="submit">
+	</form>
+-->
+<!--	SelectionDirection属性的使用示例-->
+	
+<!--
+	<form>
+		<input type="text" name="text">
+		<input type="button" value="点击我啊" onClick="AlertSelectionDirection()">
+	</form>
+-->
+	表单内元素的form属性
+<!--
+<form id="testform1">
+	<input type="text">
+	</form>
+<textarea form="testform"></textarea>
+-->
+formmethod属性
+<!--
+<form id="testform" action="serve.jsp">
+		姓名：<input type="text" name="name/"><br/>
+	<input type="submit" value="post方式提交" formmethod="post">
+	<input type="submit" value="get方式提交" formmethod="get">
+	</form>
+-->
+formenctype属性
+<!--
+<form action="serve.jsp" method="post">
+	<input type="text" name="name" value="test"><br/>
+	文件：<input type="file" name="files">
+	<input type="submit" value="上传" formaction="uploadfile.jsp" formenctype="multipart/form-data">
+	<input type="submit" value="提交">
+	</form>
+-->
+formtarget属性
+<!--
+<form id="testform" action="serve.jsp">
+	<input type="submit" name="s1" value="v1" formaction="s1.jsp" formtarget="_self">提交到s1
+	<input type="submit" name="s2" value="v2" formaction="s2.jsp" formtarget="_blank">提交到s2
+	</form>
+-->
+autofocus属性
+<!--<input type="text" autofocus>-->
+required属性
+labels属性
+<!--
+<script type="text/javascript">
+	function Validate(){
+		var txtName=document.getElementById("txt_name");
+		var button=document.getElementById("btnValidate");
+		var form=document.getElementById("testform");
+		if(txtName.value.trim()==""){
+			if(txtName.labels.length==1)
+				{
+					var label=document.createElement("label");
+					label.setAttribute("for", "txt_name");
+					form.insertBefore(label, button);
+					txtName.labels[1].innerHTML="请输入姓名";
+					txtName.labels[1].setAttribute(
+					"style", "font-size:9px;color:red");
+				}
+		}
+		else if(txtName.labels.length>1)
+			form.removeChild(txtName.labels[1]);
+	}
+	</script>
+-->
+<!--
+	<form id="testform">
+		<label id="label" for="txt_name">姓名：</label>
+		<input id="txt_name">
+		<input type="button" value="验证" onClick="Validate()" />
+	</form>
+-->
+control属性
+<!--
+<script type="text/javascript">
+	function setValue(){
+		var label=document.getElementById("label");
+		var textbook=label.control;
+		textbook.value="233091";
+	}
+	</script>
+-->
+<!--
+<form>
+	<label id="label">
+	邮编：
+	<input id="txt_zip" maxlength="6">
+	<small>请输入六位数字</small>
+	</label>
+	<input type="button" value="设置默认值" onClick="setValue()" />
+	</form>
+-->
+文本框的placeholder属性
+<!--<input type="text" placeholder="写啊写">-->
+文本框的list属性
+<!--text:<input type="text" name="greeting" list="greetings">-->
+<!--使用style="display:none;"将datalist元素设定为不显示-->
+<!--
+<datalist id="greetings" style="display: none;">
+	<option value="GOODMORNING">GOod morning</option>
+	<option value="您好">hello</option>
+	<option value="good afternoon">早上好</option>
+	</datalist>
+-->
+autocomplete属性
+<!--<input type="text" name="greeting" autocomplete="on" list="greetings">-->
+文本框的pattern属性
+<!--
+<form >
+	请输入指定格式的内容：<input pattern="[0-9][A-Z]{3}" name="part">
+	<input type="submit">
+	</form>
+-->
+selectionDirection属性
+<!--
+<script>
+	function AlertSelectionDirection(){
+		var control=document.forms[0]['text'];
+		var Direction=control.selectionDirection;
+		alert(Direction);
+	}
+	</script>
+-->
+<!--
+<form>
+<input type="test" name="text">
+<input type="button" value="点我啊" onClick="AlertSelectionDirection()"></form>
+-->
+复选框的indeterminate属性
+<!--
+<input type="checkbox" indeterminate >indeterminate属性测试
+<script>
+	var cb = document.getElementById("cb");
+	//将indeterminate属性值设定为true
+	cb.indeterminate = ture;
+</script>
+-->
+IMAGE提交按钮的height和width属性
+textarea元素的maxlength和warp属性
+<!--
+<form action="test.php"	 method="post">
+    <textarea name="name" maxlength="100" rows="5" wrap="hard"></textarea>
+    <input type="submit" value="提交">
+    </form>
+-->
+input的url类型
+<!--<input name="url1" type="url" value="http://www.microsoft.com">-->
+email类型
+<!--<input name="email1" type="email" value="322323219@qq.com">-->
+date类型time类型 datetime-local类型 month类型 week类型（表示多少周）
+<!--
+<input name="date1" type="date" value="2010-01-4">
+<input name="time1" type="time" value="18:00">
+<input name="datetime-local1" type="datetime-local" value="2019-09-12">
+<input name="month1" type="month" value="2020-08">
+<input name="week1" type="week" value="2012-W52">
+-->
 </body>
 
 </html>
