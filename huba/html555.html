@@ -507,6 +507,32 @@ date类型time类型 datetime-local类型 month类型 week类型（表示多少�
 <input name="month1" type="month" value="2020-08">
 <input name="week1" type="week" value="2012-W52">
 -->
+valueAsDate属性使用示例 number类型 valueAsNumber属性示例
+<!--
+<form>
+    <input type="date">
+    <input type="button" value="点我试试" onClick="alert(document.getElementById('date').valueAsNumber)">
+    <script>
+    //将datetime元素的valueAsDate属性值设定为当前日期和时间
+        document.getElementById('date').valueAsDate = new Date();
+    </script>
+    </form>
+
+
+<input name="number1" type="number" value="40" min="12" max="200" step="8">-->
+<script>
+    function sum(){
+        var number1 = document.getElementById("number1").valueAsNumber;
+        var number2 = document.getElementById("number2").valueAsNumber;
+        document.getElementById("result").valueAsNumber = number1 + number2;
+    }
+    </script>
+    <form>
+        <input type="number" id="number1">+
+        <input type="number" id="number2">=
+        <input type="number" id="result" readonly>
+        <input type="button" value="计算" onClick="sum();">
+    </form>
 </body>
 
 </html>
