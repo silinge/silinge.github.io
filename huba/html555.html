@@ -297,11 +297,11 @@
 		form.removeChild(txtName.labels[1])
 		}
 	</script>
-	<form id="testform2">
-		<label id="label2" for="txt_name">姓名：</label>
-		<input id="txt_name">
-		<input type="button" value="验证" onClick="Validate()" />
-	</form>
+<!--	<form id="testform2">-->
+<!--		<label id="label2" for="txt_name">姓名：</label>-->
+<!--		<input id="txt_name">-->
+<!--		<input type="button" value="验证" onClick="Validate()" />-->
+<!--	</form>-->
 	
 <!--	control 设置默认值功能 placeholder效果-->
 <!--
@@ -520,6 +520,7 @@ valueAsDate属性使用示例 number类型 valueAsNumber属性示例
 
 
 <input name="number1" type="number" value="40" min="12" max="200" step="8">-->
+<!--
 <script>
     function sum(){
         var number1 = document.getElementById("number1").valueAsNumber;
@@ -533,6 +534,260 @@ valueAsDate属性使用示例 number类型 valueAsNumber属性示例
         <input type="number" id="result" readonly>
         <input type="button" value="计算" onClick="sum();">
     </form>
-</body>
+-->
+range类型的input元素是一种只允许输入一段范围内的数值的文本框，具有min属性和max属性，可以设定最大值和最小值（默认0-100）也有step属性 可以指定拖动步幅。
+search类型 tel类型 输入电话号码 color 类型 简单表单示例 output元素 自动验证 取消验证 显示验证
+<!--<input name="range1" type="range" value="45" min="0" max="135" step="1">-->
+<!--用CSS样式改写search input 外观 input[type="search"]{-webkit-appearance:textfield;}-->
+<!--
+选择背景色：
+<input type="color" onChange="document.body.style.backgroundColor=document'getElementById('currentColor').textContent=this.value;">
+<span></span>
+-->
+<!--
+<title>简单表单示例</title>
+<form name="form1">
+    <label for="username">姓名</label>
+    <input name="username" id="username" type="text" required /><br/>
+    <label for="age">年龄</label>
+    <input name="age" id="age" type="number" min="0" max="120" /><br/>
+    <label for="birthday">出生日期</label>
+    <input name="birthday" id="birthday" type="date" /><br/>
+    <label for="email">Email</label>
+    <input name="email" id="email" type="email" required /><br/>
+    <label for="url">个人主页</label>
+    <input name="url" id="url" type="url" /><br/>
+    <label for="memo">个人简介</label>
+    <textarea name="memo" id="memo" required></textarea><br/>
+    <input type="submit">
+    </form>
+-->
+<!--
+<script>
+    function value_change(){
+        var number=document.getElementById("range1").value;
+        document.getElementById("output1").value=number;
+    }
+    </script>
+    <form id="testform">
+    请选择一个数值：
+    <input id="range1" type="range" min="0" max="150" step="4" value="19" onChange="value_change()" />
+    <output id="output1">10</output>
+    </form>
+-->
+<!--
+    <form method="post">
+        <input name="text" type="text" required pattern="^\w.*$">
+        <input type="submit">
+    </form>
+-->
+<!--
+    <script language="javascript">
+        function check(){
+            var email = document.getElementById("email");
+            if(email.value==""){
+                alert("请输入Email地址");
+                return false;
+            }
+            else if(!email.checkValidity()){
+                alert("请输入正确的Email地址");
+                return false;
+            }
+            else
+                alert("您输入的Email地址有效");
+        }
+    </script>
+    <form id="testform" onSubmit="return check();" novalidate="true">
+    <label for="email">Email</label>
+    <input name="email" id="email" type="email" /><br/>
+    <input type="submit">
+    </form>
+-->
+新增的figure 和 figcaption 元素
+<!--<figure><img src="sl.jpg" alt="forest"></figure>-->
+<!--<script>-->
+<!--	function detail_ontoggle(detail){-->
+<!--		var p=document.getElementById('p');-->
+<!--		if(detail.open)-->
+<!--			p.style.visibility="visible";-->
+<!--	}</script>-->
+<!--<details ontoggle="detail_ontoggle(this)" style="cursor:pointer">-->
+<!--	<summary>佛山无影脚</summary>-->
+<!--		<p id="p" style="visibility: hidden" />黄飞鸿，男儿当自强</p>-->
+<!--</details>-->
+新增mark元素 突出显示或高亮显示
+<!--<h1>搜索“<mark>HTML5</mark>"找到相关网页约2,000,000,100篇,用时0.122秒</h1>-->
+<!--<section id="search-results">-->
+<!--	<article>-->
+<!--		<h2>-->
+<!--			<a href="http://developer.51cto.com/art/200907/1234.htm">专题：<mark>HTML5</mark>-->
+<!--			下一代web开发标准详解的的的技术-->
+<!--			成就梦想</a>-->
+<!--		</h2>-->
+<!--		<p><mark>Html5</mark>是近十年来web开发标准的巨大飞跃。</p>-->
+<!--	</article>-->
+<!--	<article>-->
+<!--		<h2>-->
+<!--			<a href="http://paranimage.com/list-of-html-5/"><mark>Html5</mark>一览|帕兰映像</a>-->
+<!--		</h2>-->
+<!--		<p><mark>html 5</mark>最近被讨论的越来越多</p>-->
+<!--	</article>-->
+<!--	<article>-->
+<!--		<h2>-->
+<!--			<a href="http://www.chinabyte.com/keyword/HTML+5/"><mark>html 5</mark>_比特网</a>-->
+<!--		</h2>-->
+<!--		<p><mark>html5</mark>提供了一些新元素，属性，反映典型。。。</p>-->
+<!--	</article>-->
+<!--	<article>-->
+<!--		<h2>-->
+<!--			<a href="http://www.slidershare.net/mienflying/html5-988537"><mark>html5</mark>表单</a>-->
+<!--		</h2>-->
+<!--		<p>about <mark>HTML 5</mark>Form, the web form 2.0 tech</p>-->
+<!--	</article>-->
+<!--</section>-->
+mark元素应用在文章引用时的示例
+<!--<title>mark元素应用在文章引用时的示例</title>-->
+<!--刘德华：光华万丈的不老情人-->
+<!--	<p>有人说华仔时东方的<mark>汤姆克鲁斯</mark>,是忧郁的王子<mark>劳伦斯奥利弗</mark>。华仔那张脸蛋与一般亚洲人不太一样。</p>-->
+新增的progress元素
+<!--<script>-->
+<!--	var progressBar = document.getElementById('p');-->
+<!--	function button_onclick(){-->
+<!--		var progressBar = document.getElementById('p');-->
+<!--		progressBar.getElementsByTagName('span')[0].textContent="0";-->
+<!--		for(var i=0; i<=100; i++)-->
+<!--			updateProgress(i);-->
+<!--	}-->
+<!--	function updateProgress(newValue) {-->
+<!--		var progressBar = document.getElementById('p');-->
+<!--		progressBar.value = newValue;-->
+<!--		progressBar.getElementsByTagName('span')[0].textContent = newValue;-->
+<!--	}-->
+<!--</script>-->
+<!--<section>-->
+<!--	<h2>progress元素的使用示例</h2>-->
+<!--	<p>完成百分比：<progress id="p" max="100"><span>0</span>%</progress> </p>-->
+<!--	<input type="button" onclick="button_onclick()" value="点点点" />-->
+<!--</section>-->
+新增meter元素 表示规定范围内的数量值 新增的dialog元素
+<!--<p>磁盘使用量：<meter value="40" min="0" max="180">40/160</meter>GB </p>-->
+<!--<p>你的得分是：<meter value="90" min="0" max="100" low="36" high="92" optimum="100">A+</meter> </p>-->
+<!--不是一定要使用属性-->
+<!--<meter>76%</meter>-->
+<!--<meter>4/9</meter>-->
 
+<!--<input type="button" value="打开对话框" onclick="document.getElementById('dg').show();">-->
+<!--<dialog style="width: 9%; text-align: center;">-->
+<!--	<h1>用户登录</h1>-->
+<!--	<main>-->
+<!--		<form>-->
+<!--			<label for="txt_name" value="用户名："></label>-->
+<!--			<input type="text" id="txt_name" /><br/>-->
+<!--			<label for="txtPassword" value="密码："></label>-->
+<!--			<input type="password" id="txtPassword" /><br/>-->
+<!--			<input type="button" value="登录" /><input type="button" value="关闭" onclick="document.getElementById('dg').close();" />-->
+<!--		</form>-->
+<!--	</main>-->
+<!--</dialog>-->
+<p>改良的a元素</p>
+<p>a元素的download属性的使用示例</p>
+<!--<a href="html5.jpg"><img src="html5.jpg" /></a>-->
+<!--<a href="html5.jpg" download="html5与css3权威指南.jpg"><img src="html5.jpg" /></a>-->
+<p>改良的ol列表</p>
+<!--<title>ol列表的start属性示例</title>-->
+<!--<h3>ol列表的start属性示例</h3>-->
+<!--<ol start="5">-->
+<!--	<li>列表内容3</li>-->
+<!--	<li>列表内容13</li>-->
+<!--	<li>列表内容34</li>-->
+<!--	<li>列表内容63</li>-->
+<!--	<li>列表内容30</li>-->
+<!--	<li>列表内容37</li>-->
+<!--	<li>列表内容1</li>-->
+<!--	<li>列表内容33</li>-->
+<!--</ol>-->
+
+<!--<title>ol列表的reversed属性使用示例</title>-->
+<!--<h3>ol列表的reversed属性使用示例</h3>-->
+<!--<ol start="4" reversed>-->
+<!--	<li>内容2</li>-->
+<!--	<li>内容1</li>-->
+<!--	<li>内容2</li>-->
+<!--	<li>内容3</li>-->
+<!--	<li>内容4</li>-->
+<!--	<li>内容5</li>-->
+<!--	<li>内容6</li>-->
+<!--	<li>内容8</li>-->
+<!--	<li>内容9</li>-->
+<!--	<li>内容12</li>-->
+<!--	<li>内容11</li>-->
+<!--	<li>内容10</li>-->
+<!--</ol>-->
+
+<p>改良的dl列表</p>
+<!--
+<title>用于术语解释的dl列表示例</title>
+<article>
+	<h1>aritcle元素</h1>
+	<p>一块独立的内容，它可以用来表示RRS中一块独立的内容，也可以用来表示博客独立的一篇文章。。。</p>
+	<aside>
+		<h2>术语解释</h2>
+		<dl>
+			<dt><dfn>RSS</dfn></dt>
+			<dd>RSS也叫聚合RSS是在线共享内容的一种简易方式（也叫聚合内容）...</dd>
+			<dt><dfn>博客</dfn></dt>
+			<dd>博客，又译为网络日志、部落格或部落阁等，是一种通常由个管理。。。</dd>
+		</dl>
+	</aside>
+</article>
+<title>用dl列表表示辅助信息</title>
+<dl>
+	<dt>作者</dt>
+	<dd>陆凌牛</dd>
+	<dt>出版社</dt>
+	<dd>机械工业出版社</dd>
+	<dt>类别</dt>
+	<dd>网络开发</dd>
+</dl>
+-->
+<p>加以严格限制的cite元素</p>
+<!--<p>我最喜欢的电影是由小李子主演的<cite>大话西游</cite>。</p>-->
+<p>重新定义的small元素</p>
+<p>安全性增强的iframe元素</p>
+<!--
+<iframe sandbox src="http://somewebsite.com/default.html"></iframe>
+<iframe sandbox="" src="http://somewebsite.com/default.html"></iframe>
+-->
+<p>sandbox的属性 allow-forms 属性值的方法用来允许iframe页面的表单进行提交 还有allow-scripts allow-same-origin allow-top-navigation属性</p>
+<!--
+<iframe sandbox="allow-forms" src="abcdf.html"></iframe>
+<iframe sandbox="allow-scripts allow-same-origin" src="hij.html"></iframe>
+<a href="dbc.html" target="_top">testandtest</a>
+<iframe sandbox="allow-top-navigation" src="fed.html"></iframe>
+-->
+<p>增强的script元素，新增async 和defer属性 加快页面加载速度是脚本代码的读取不再妨碍页面其他元素加载</p>
+<!--
+<script async src="myAsyncScript.js" onload="myAsyncInit()"></script>
+<script defer src="myDeferScript.js" onload="myDeferInit()"></script>
+<title>script元素的async属性的使用示例</title>
+<script src='test.js' async onload="myInit()"></script>
+-->
+
+<!--为两个外部脚本文件使用-->
+<!--
+<script src="test01.js" async onload="myInit()"></script>
+<script src="test02.js" async onload="myInit2()"></script>
+test02.js是代码
+	var x
+	function myInit2(){
+	x="shi'li'wen'zi";
+	alert(x);
+	}
+-->
+<!--
+为两个外部脚本文件使用defer属性
+<script src="test.js" defer onload="myInit()"></script>
+<script src="test02.js" defer onload="myInit02()"></script>
+-->
+</body>
 </html>

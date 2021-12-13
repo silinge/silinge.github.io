@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>html5开发精要</title>
+</head>
+
+<body>
+<p>使用section元素描述文档结构</p>
+<!--
+<section>
+	<h1>1 Html5的基础知识</h1>
+	<section>
+		<h2>1.1 HTML5概述</h2>
+		(1.1的正文)
+		<section>
+			<h3>1.1.1 HTML5是什么？</h3>
+			(1.1.1正文)
+		</section>
+		<section>
+			<h3>1.1.2新增的API</h3>
+			(1.1.2的正文)
+		</section>
+	</section>
+	<section>
+		<h2>1.2 HTML5快速入门</h2>
+		(1.2正文)
+		<section>
+			<h3>1.2.1HTML与XHTML</h3>
+			(1.2.1的正文)
+		</section>
+	</section>
+	</section>
+-->
+<p>article元素</p>
+<!--
+<article>
+	<h1>标题</h1>
+	隐式创建出一个新的section元素
+	<h2>副标题</h2>
+	正文
+	</article>
+-->
+<p>hgroup元素</p>
+<!--
+<article>
+	2个标题元素被统一放置在一个hgroup元素内
+	<hgroup>
+		<h1>主标题</h1>
+		<h2>副标题</h2>
+	</hgroup>
+	正文
+	</article>
+--> 
+<p>大纲分析工具</p>
+<!--
+<section>
+	<h1>html5基础知识</h1>
+	(正文)
+	<section>
+		<h2>html5概述</h2>
+		(正文)
+		<section>
+			<h3>html5是什么</h3>
+			(正文)
+		</section>
+		<section>
+			<h3>html5中的新增</h3>
+			(正文)
+		</section>
+	</section>
+	<section>
+		<h2>html5快速入门</h2>
+		(正文)
+		<section>
+			<h3>html与xhtml</h3>
+			(正文)
+		</section>
+	</section>
+</section>
+-->
+<p>header 和header显示在大纲中</p>
+<!--
+<header><img src="title.jpg" alt="网页名称"></header>
+<header><h1><img src="title.jpp" alt="这个在大纲能显示了。"></h1></header>
+-->
+<p>文档底部添加nav和aside元素所生成的大纲</p>
+<!--
+<nav>
+	<ul>
+		<li><a href="#">test01</a></li>
+		<li><a href="#">test02</a></li>
+	</ul>
+</nav>
+<aside>
+	侧边栏中的内容	
+</aside>
+-->
+<p>针对body元素生成大纲时节根元素的子元素不起作用</p>
+<!--
+<h1>网页标题</h1>
+<blockquote>
+	<h1>节根元素内部标题 大纲不显示</h1>
+	</blockquote>
+-->
+<p>网页标题部分的代码</p>
+<!--webpage_title_code——01.html-->
+<p>aside元素内部结构代码</p>
+<!--
+<aside>
+	<section>
+		<header>
+			<h1>工作室介绍</h1>
+		</header>
+		。。。
+	</section>
+	<section>
+		<header>
+			<h1>分类</h1>
+		</header>
+		<nav>
+			...
+		</nav>
+	</section>
+	<section>
+		<header>
+			<h1>评论</h1>
+		</header>
+		<nav>
+		...
+		</nav>
+	</section>
+</aside>
+-->
+<p>figure和figcaption</p>
+<!--
+<figure>
+	<img src="image\im01.jpg" alt="html5 web 开发工作室" />
+	<figcaption>html5 web 开发工作室</figcaption>
+	</figure>
+css:
+	figure{
+	margin-left:15px;
+	marigin-top:0px;
+	}
+	figcaption{
+	color:gray;
+	font-weight:bold;
+	padding-left:10px;
+	}
+-->
+<p>time and pubdate</p>
+<!--
+<time datetime="2011-04-01T16:59" pubdate>04-03 16:58</time>
+time{
+	color:#636612;
+	font-size:14px;
+	}
+-->
+<p>博客首页侧边栏</p>
+
+<div id="blogbody">
+	<div id="colum_1">
+		<aside>
+			<section id="conn1">
+				<header id="connHead1">
+					<h1>工作室介绍</h1>
+				</header>
+				<div id="connBody1">
+					<div>
+						<figure>
+							<img src="images\html5.jpg" alt="html5 web开发工作室" />
+							<figcaption>html5 web 开发工作室</figcaption>
+						</figure>
+					</div>
+					<div id="divSpecial"><p>本工作室专业从事使用html5技术结合asp.net与Java语言编写的各类web网站，web应用程序的研发工作。</p>
+					<p>工作室负责人陆羚牛发表书籍：</p>
+					<p><a target="_blank" href="http://product.dangdang.com.org/product.aspx?product_id=21047278&amp;ref=search-1-pub"></a></p>
+					<p>读者咨询电话：13590909090</p>
+					<p>读者咨询QQ：455213347</p>
+					</div>
+				</div>
+				<div id="connFoot1"></div>
+			</section>
+			<section id="conn2">
+				<header id="connHead2">
+					<h1>classfication</h1>
+					<span id="edit1">
+						<a href="javasript:;" onClick="window.CateDialog.show();return false;">[<cite>管理</cite>]</a>
+					</span>
+				</header>
+				<div id="connBody2">
+					<nav id="classList">
+						<ul>
+							<li id="dot1"><a target="_blank" href="#">全部博文</a><em>（62)</em></li>
+							<li id="dot2"><a href="#" target="_blank">HTML5</a><em>(40)</em></li>
+							<li id="dot3"><a href="#" target="_blank">asp.net mvc3快速入门</a>
+							<em>(10)</em></li>
+							<li id="dot4"><a href="#" target="_blank">C#</a>
+							<em>(8)</em>
+							</li>
+							<li id="dot5"><a href="#" target="_blank">asp.net mvc3书店</a>
+							<em>(4)</em>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div id="connFoot2"></div>
+			</section>
+			<section id="conn3">
+				<header id="connHead3"><h1>评论</h1></header>
+				<div id="connBody3">
+					<nav id="zComments">
+						<ul id="zCommentsU1">
+							<li id="commentsCell_linedot1">
+							<div id="commentsH1">
+								<span id="commentsName_txtc_dot1">
+									<a href="#" target="_blank" title="随风">随风</a>
+								</span>
+								<time datetime="2011-04-01T16:59" pubdate>04-01 16:59</time>
+							</div>
+							<div id="commentsContants1">
+							<div id="commentsContantsTxt1"><a href="#" target="_blank">&nbsp;博主你好，为什么我在url中输入。。。</a></div></div></li>
+							<li id="commentsCell_linedot2">
+								<div id="commentsH2">
+									<span id="commentsName_txtc_dot2">
+										<a href="#" target="_blank" title="540821160">540821160</a>
+									</span>
+									<time datetime="2011-03-31T20:03" pubdate>03-31 20:04</time>
+								</div>
+								<div id="commentsContants2">
+									<div id="commentsContantsTxt2">
+										<a href="#" target="_blank">呵呵&nbsp;一定要学会&nbsp;哈哈</a>
+									</div>
+								</div>
+							</li>
+							<li id="commentsCell_linedot3">
+								<div id="commentsH3">
+									<span id="commentsName_txtc_dot3">
+									[匿名]新浪网友
+									</span>
+									<time datetime="2021-03-04T11:32" pubdate>03-04 11:32</time>
+								</div>
+								<div id="commentsContants3">
+									<div id="commentsContantsTxt3">
+										<a href="#" target="_blank">很好的内容，非常感谢。</a>
+									</div>
+								</div>
+							</li>
+							<li id="commentsCell_linedot4">
+								<div id="commentsH4">
+									<span id="commentsName_txtc_dot4">
+										[匿名]新浪网友
+									</span>
+									<time datetime="2011-04-05T09:22" pubdate>04-05 09:22</time>
+								</div>
+								<div id="commentsContants4">
+									<div id="commentsContantsTxt4">
+										<a href="#" target="_blank">谢谢回复</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div id="connFoot3"></div>
+			</section>
+		</aside>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+div#blog{
+	background-position: 50% 0%;
+	background-image: url(image/image.jpg);
+	width: 100%;
+	background-repeat: no-repeat;
+}
+ul{
+	list-style: none;
+}

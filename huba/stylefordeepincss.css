@@ -1,0 +1,187 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+h1{
+	font-family: serif;
+}
+
+#page-title{
+	font-family: sans-serif;
+}
+.title{
+	font-family: monospace;
+}*/
+/*----*/
+h1{
+	color: #2f4f4f;
+	margin-bottom: 10px;
+}
+
+/*
+#main-nav{
+	margin-top: 10px;
+	list-style: none;
+	padding-left: 0;
+}
+
+#main-nav li{
+	display: inline-block;
+}
+
+#main-nav a{
+	color: white;
+	background-color: #13a4a4;
+	padding: 5px;
+	border-radius: 2px;
+	text-decoration: none;
+}
+*/
+
+/*!important 标记为重要声明 比如 color:black !important; 可以当作更高优先级使用*/
+/*选择器的优先级，两个类名的选择器比只有一个类名的选择器优先级更高 举个例子 上面的main-nav a 比下面的featured优先级更高 */
+/*.featured{*/
+/*background-color:orange;*/
+/*它的优先级低 所以不起作用*/
+/*给它个!important 优先级就提高了。*/
+/*
+background-color:violet !important;
+}
+*/
+
+/*!important 暂时好使，但是用了一次还会再加无数次 使用更加通用的办法不粗暴的提供优先级 给.feature 加ID 它的优先级就比 #main-nav a更高，分析优先级标记1,1,0 比1,0,1更高。不用!important 一样有效。*/
+/*
+#main-nav .featured{
+	background-color: deepskyblue;
+}
+*/
+
+/*id选择器比类选择器优先级更高，类选择器比标签选择器优先级更高，如果选择器的ID数量更多，则它会胜出因为它更明确。如果ID数量一致，那么拥有最多类的选择器胜出，如果上面两项都一致，那么拥有最多标签名的选择器胜出。*/
+/*优先级低到高，顺序 4个标签，3个标签和一个类，2个类，1个ID 伪类选择器(:hover)和属性选择器([type="input"]) 与一个类选择器的优先级相同。通用选择器(*)和组合器(> + ~) 对优先级没有影响。*/
+/*
+html body header h1{
+	color:blue;
+}
+body header.page-header h1{
+	color:orange;
+}
+
+.page-header .title{
+	color: green;
+}
+#page-title{
+	color:cyan;
+}
+*/
+
+/*优先级标记 数值标记逗号隔开，"1,2,2"表示选择器由1个ID，2个类，2个标签组成。优先级从高到底依次是ID，类，标签。*/
+
+/*接入51行，除了提高自己的优先级 还有一个方法是降低对手的优先级 */
+.nav {
+	margin-top:10px;
+	list-style: none;
+	padding-left: 0;
+}
+.nav li{
+	display: inline-block;
+}
+.nav a{
+	color: wheat;
+	background-color: #13A5A4;
+	padding: 5px;
+	border-radius: 2px;
+	text-decoration: none;
+}
+
+/*
+.nav .featured{
+	background-color: coral;
+}
+*/
+/*以上两个类比一个类一个标签更高*/
+
+/*还可以改成同等优先级，但是顺序靠后会起作用 96行修改*/
+a.featured{
+	background-color: palevioletred;
+}
+
+/*链接样式lvha按照这个顺序*/
+a:link{
+	color: blue;
+	text-decoration: none;
+}
+a:visited{
+	color: purple;
+}
+a:hover{
+	text-decoration: underline;
+}
+a:active{
+	color: red;
+}
+
+/*层叠值 浏览器遵循3个步骤 来源，优先级，源码顺序 来解析网页上每个元素的每个属性，如果一个声明在层叠中胜出 它就被称作一个层叠值。元素的每个属性最多只有一个层叠值。网页上一个特定的段落可以有一个上外边距和一个下外边距 但是不能有两个不同的上外边距和两个不同的下外边距。如果css为同一个属性指定了不同的值，层叠最终会选择一个值来渲染元素，这就是层叠值。*/
+/*经验 在选择器中不要使用ID ，不要使用!important*/
+
+/*使用inherit关键字 用它来覆盖另一个值 这样该元素可以继承其父元素的值 initial 关键字是使用默认值 color=black width:auto.*/
+
+.footer{
+	color:#666;
+	background-color: #CCCCCC;
+	padding: 15px 0;
+	text-align: center;
+	font-size: 14px;
+}
+.footer a{
+	color: inherit;
+	text-decoration: underline;
+}
+
+/*简写属性会设置省略值为其初始值*/
+/*
+h1{
+	font-weight: bold;
+}
+
+.title{
+	font: 32px helvetica, arial, sans-serif;
+}*/
+/*简写值的顺序，有些属性可以不计较，有些属性需要限制。margin, padding 上右下左的顺序 给一个值则四边都使用这个值，给两个值则对边使用相同的值，给三个值则最后一项值取对边的值， 有些属性最多支持两个值，background-position, box-shadow, text-shadow 先垂直（上下）后水平（右左）*/
+/*
+.nav a{
+	color:yellow;
+	background-color: #16a8a8;
+	padding:10px 15px 0 5px;
+	border-radius: 2px;
+	text-decoration: none;
+}*/
+.nav .featured{
+	background-color: orange;
+	box-shadow: 10px 2px #8f3030;
+}
+.padded{
+	font-size: 16px;
+	padding: 1em;
+}
+
+.box{
+	padding: 1em;
+	border-radius: 1em;
+	background-color: lightgreen;
+}
+.box-small{
+	font-size: 12px;
+}
+.box-large{
+	font-size: 20px;
+}
+
+/*这两个em就有不一样的大小了*/
+
+/*当没有值可以继承，继承body的元素值*/
+body{
+	font-size: 20px;
+}
+.slogan{
+	font-size: 2em;
+}
