@@ -3,6 +3,7 @@
 body{
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 /*    background-image: url("../img/bg_green_02-01.jpg")*/
+	line-height: 1.2;
 }
 a:link{
     color: black;
@@ -15,28 +16,29 @@ a:hover{
     color: firebrick;
 }
 .title{
-    border-width: 5px 0 5px 0;
-    width: auto;
-    height: 60px;
+/*    border-width: 5px 0 5px 0;*/
+/*    width: 20vmin;*/
 }
-div.all{
+.all{
     text-align: center;
     float: left;
-    width: 20%;
-    height: 60px;
-    line-height: 60px;
-    font-size: 30px;
+/*    width: 20vmin;*/
 }
-div.mark_line{
-    background-color: #00a03e;
-    width: auto;
-    height: 4px;
-    padding: 4px 0 0 0;
+.mark_line{
+    background-color: lightskyblue;
+    width: 100%;
+    height: 8px;
+/*    padding: 400px 0 0 0;*/
+	float: left;
 }
-div.one, .two, .three, .four, .five{
-    height: 60px;
-    line-height: 60px;
-    font-size:30px;
+.one, .two, .three, .four, .five{
+    font-size:2em;
+/*	border: 2px solid yellow;*/
+/*	border-radius: 3px;*/
+/*	padding: 3px solid yellow;*/
+	float: left;
+	text-align: center;
+	width: 20%;
 }
 .one{
     background-color: #f4f0e6;

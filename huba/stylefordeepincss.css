@@ -178,10 +178,168 @@ h1{
 
 /*这两个em就有不一样的大小了*/
 
-/*当没有值可以继承，继承body的元素值*/
+/*当没有值可以继承，继承body的元素值 并且先获取font-size的值，然后在它的基础上计算其他值，下面这个padding就是16*1.2*2px了 这又遇到一个多级嵌套问题，比如多级列表字号会越来越大或者越来越小。*/
 body{
-	font-size: 20px;
+	font-size: 16px;
 }
 .slogan{
+	font-size:1.2em;
+	padding: 2em;
+}
+/*
+ul{
+	font-size: 1.5em;
+}
+*/
+/*当浏览器解析HTML文档时，在文档中根节点事所有其他元素的祖先节点，根节点有一个伪类选择器(:root)可以用来选中它自己 等价于类型选择器html 但是html的优先级相当于一个类名 而不是一个标签。 rem事root em缩写，rem不是相对于当前元素，而是相对于根元素的单位 不管在文档的什么位置使用rem, 1.2rem都是相同的计算值，1.2乘以根元素的字号，字号，字号初始值很重要*/
+:root{
+	font-size: 1em;
+/*	去浏览器的默认值16px;*/
+}
+ul{
+	font-size: 2rem;
+}
+
+/*对刚才的 class panel 设置属性*/
+/*
+.panel{
+	padding: 1em;
+	border-radius: 0.5em;
+	border: 1px solid #999;
+}
+.panel > h2{
+	margin-top: 0;
+	font-size: 0.8rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+*/
+
+/*媒体查询 即@media规则，可以指定某种屏幕尺寸或媒体类型（打印机，屏幕）下的样式。*/
+/*
+:root{
+	font-size: 0.75em;
+}
+@media(min-width:800px){
+	:root{
+		font-size: 0.875em;
+	}
+}
+@media(min-width:1200px){
+	:root{
+		font-size: 1em;
+	}
+}*/
+
+/*同一个页面里的普通面板和大面板*/
+.panel{
+	font-size: 1rem;
+	padding: 1em;
+	border: 1px solid #999;
+	border-radius: 0.5em;
+}
+
+.panel > h2{
+	margin-top: 0;
+	font-size: 0.8em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.panel .large{
+	font-size: 1.2rem;
+/*	复合选择器中同时拥有panel和large类的元素*/
+}
+
+/*218 视口的相对单位 vh 视口高度的1/100 vw视口宽度1/100 vmin 视口宽高较小一方的1/100 vmax视口宽高中较大一方的1/100 50vm就是视口宽度的一半。*/
+.square218{
+	width: 50vmin;
+	height: 50vmin;
+	background-color: greenyellow;
+}
+/*219使用calc()定义字号 可以使用加减乘除四则运算，运算符号 前后要加空格。*/
+:root{
+	font-size: calc(0.5em + 1vw);
+}
+/*无单位的数值和行高，font-weight 700=bold 400=normal 任何长度单位都可以使用无单位的值0， 不能用于角度值 比如度 时间值 秒。还有line-height它的值既可以有单位也可以无单位。通常我们应该使用无单位的数值 因为它们继承的方式不一样*/
+/*221用无单位的数值定义行高 后代元素继承了无单位的值。about-us*/
+body{
+	line-height: 1.2;
+}
+.about-us{
 	font-size: 2em;
+}
+/*这个段落继承了行高1.2，因为段落字号32px=2*16px 所以行高32px*1.2=38.4px 每行文字之间都会有一个合理间距。*/
+
+/*
+body{
+	line-height: 1.2em;
+	后代元素继承了计算值19.2px 与上面无单位值继承不一样。
+}
+*/
+/*
+.about-us{
+	font-size: 2em;
+	计算值为32px
+}
+*/
+/*当一个元素的值定义为长度事子元素会继承它的计算值，当使用em等单位定义行高是，他们的值是计算值，传递到了任何继承子元素上。如果子元素有不同的字号，并且继承了line-height属性，就会造成意想不到的结果 比如文字重叠。*/
+
+
+/*
+:root{
+	--main-font:helvetica, arial, sans-serif;
+}
+这个代码223清单定义了一个名叫--main-font的变量，将其值设置为一些常见的sans-serif字体 变量名前面必须有两个连字符(--) 用来跟CSS属性区分 剩下的部分可以随意命名。变量必须在一个声明块内声明，这里使用了 root选择器，因此该变量可以在整个网页使用 变量声明本身什么也没做，我们使用时才能看到效果。将这个变量用到一个段落上。 
+调用函数var()就能使用该变量 利用该函数引用前面定义的变量--main-font*/
+/*
+:root {
+	--main-font: helvetica, arial, sans-serif;
+}
+p{
+	font-family: var(--main-font);
+}*/
+/*加个颜色*/
+/*
+:root{
+	--main-font:helvetica, arial, sans-serif;
+	--brand-color:#389;
+}
+*/
+/*
+p {
+	font-family: var(--main-font);
+	color:var(--brand-color);
+}*/
+/*指定个备用值 声明值没有定义的时候，使用备用值。*/
+/*
+p{
+	font-family: var(--main-font, sans-serif);
+	color: var(--secondary-color, cyan);
+}*/
+/*整两个黑白版228*/
+:root{
+	--main-bg:#fff;
+	--main-color:#000;
+}
+.panel{
+	font-size: 1rem;
+	padding: 1em;
+	border:1px solid #999;
+	border-radius: 0.5em;
+	background-color: var(--main-bg);
+	color:var(--main-color);
+}
+.panel >h2{
+	margin-top: 0;
+	font-size: 0.8em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.dark{
+	margin-top: 2em;
+	padding: 1em;
+	background-color: #999;
+	--main-bg:#333;
+	--main-color:#fff;
 }

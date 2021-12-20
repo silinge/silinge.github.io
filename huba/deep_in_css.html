@@ -31,9 +31,69 @@
 	
 we love coffee
 <p class="slogan">we love coffee.</p>
-<footer class="footer">&copy; 2021 wobat coffee roasters &mdash;<a href="/terms-of-use">terms of use</a></footer>
+<div class="square218">这是一个适应屏幕变化的方块。</div>
+<ul>
+	<li>Top level</li>
+	<ul>
+		<li>second level
+			<ul>
+				<li>third level
+					<ul>
+						<li>fourth level
+							<ul>
+								<li>fifth level
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	</ul>
+
 <!--简写属性 font:italic bold 18px/1.2 "Helvetica", "Arial", sans-serif; 指定了font-style、font-weight、font-size、font-height以及font-family.-->
 	
 <!--长度单位 1in=25.4mm=2.54cm=6pc=72pt=96px.-->
+<div class="panel large">
+		<h2>single-origin</h2>
+		<div class="panel-body">we have build partnerships with small farms around the world to hand-select beans at the peak of season. we then carefully roast in <a href="/batch-size">small batches</a> to maximize their potential.</div>
+	</div>
+<footer class="footer">&copy; 2021 wobat coffee roasters &mdash;<a href="/terms-of-use">terms of use</a></footer>
+	
+<p class="about-us">we have built partnerships with small farms around the world to hand-select beans at the peak of season. we then carefully roast in small batches to maximize their potential.</p>
+	
+<div class="panel">
+		<h2>single-origin</h2>
+		<div class="body">
+		we have built partnerships with small farms around the world to hand-select beans at the peak of season. we then careful roast in small batches to maximize their potential.
+	</div>
+	</div>
+<aside class="dark">
+		<div class="panel">
+		<h2>single-origin</h2>
+		<div class="body">
+			we have built partnerships with small farms around the world to hand-select beans at the peak of season. we then careful roast in small batches to maximize their potential.	
+		</div>
+	</div>
+	</aside>
+<!--262使用javascript改变自定义属性-->
+<script type="text/javascript">
+	var rootElement = document.documentElement;
+	var styles = getComputedStyle(rootElement);
+	var mainColor = styles.getPropertyValue('--main-bg');
+	console.log(String(mainColor).trim());
+	var rootElement = document.documentElement;
+	rootElement.style.setProperty('--main-bg', '#cde');
+	</script>
+<!--获取一个元素的styles对象，获取styles对象的--main-bg值 确保mainColor是一个字符串，并去掉前后空格，打印结果为"#fff"-->
+<!--将根元素上的--main-bg设置为浅蓝色-->
+<!--
+当浏览器不支持自定义属性时，要提高回退方案。
+color:black;
+color:var{
+	--main-color;
+	}
+-->
 </body>
 </html>
