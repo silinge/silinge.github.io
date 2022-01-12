@@ -258,17 +258,21 @@ ul{
 	background-color: greenyellow;
 }
 /*219使用calc()定义字号 可以使用加减乘除四则运算，运算符号 前后要加空格。*/
+/*
 :root{
 	font-size: calc(0.5em + 1vw);
 }
+*/
 /*无单位的数值和行高，font-weight 700=bold 400=normal 任何长度单位都可以使用无单位的值0， 不能用于角度值 比如度 时间值 秒。还有line-height它的值既可以有单位也可以无单位。通常我们应该使用无单位的数值 因为它们继承的方式不一样*/
 /*221用无单位的数值定义行高 后代元素继承了无单位的值。about-us*/
+/*
 body{
 	line-height: 1.2;
 }
 .about-us{
 	font-size: 2em;
 }
+*/
 /*这个段落继承了行高1.2，因为段落字号32px=2*16px 所以行高32px*1.2=38.4px 每行文字之间都会有一个合理间距。*/
 
 /*
@@ -342,4 +346,183 @@ p{
 	background-color: #999;
 	--main-bg:#333;
 	--main-color:#fff;
+}
+/*-----------------------------------------代码3.2*/
+
+/*
+body{
+	background-color: #EEEEEE;
+	font-family: helvetica, arial, sans-serif;
+}
+header{
+	color:#FFFFFF;
+	background-color: #0072b0;
+	border-radius: .5em;
+}
+main{
+	display: block
+}
+*/
+/*
+.main{
+	float: left;
+	width: 70%;
+	background-color: #FFFFFF;
+	border-radius: .5em;
+	添加box-sizing属性 两块都要添加
+	box-sizing: border-box;
+}
+.sidebar{
+	float: left;
+	width: 30%;
+	padding: 1.5em;
+	background-color: #FFFFFF;
+	border-radius: .5em;
+	box-sizing: border-box;
+}
+*/
+/*ie 的bug会默认将<main>元素渲染成行内元素，而不是块级元素，所有代码中用声明display:block来纠正。 两块设置了左对齐，但他们共同宽度可能超过100% 当给一个元素设置宽高的时候指定的是内容的宽高 所有的内边距 边框 外边距都是追加到该宽度上的。上面主容器和侧栏宽度加起来是100%加1.5em + 1.5em 可以用计算函数 calc(30% - 3em) 这样总宽度保持在100% 可以排成一行。
+调整盒模型 box-sizing 默认值 content-box 意味着任何指定的宽高只会设置内容盒子的大小，将box-sizing设置为border-box后，height和width属性会设置内容，内边距以及边框的大小总和，不必再担心总宽度计算问题。盒模型box-sizing改为border-box 使得内边距不会让一个元素更宽，而是让内部的内容更窄。 
+*/
+/*设置全局border-box*/
+/*
+*,
+::before,
+::after{
+	box-sizing: border-box;
+}
+*/
+/*如果还使用第三方样式表组件，上面的全局设置可能会被覆盖。换一种 盒模型通常不会被继承 使用inherit可以强制继承
+可以在必要是选中第三方组件的顶级容器，将其恢复为content-box.这样组件的内部元素会继承该盒模型。
+*/
+:root{
+	box-sizing: border-box;
+}
+
+*,
+::before,
+::after{
+	box-sizing: inherit;
+}
+
+.third-party-component{
+	box-sizing: content-box;
+}
+
+/*添加间距 宽度减1 加到margin-left里面。 第二种办法使用calc()函数。*/
+/*
+.main{
+	float: left;
+	width: 70%;
+	background-color: #FFFFFF;
+	border-radius: .5em;
+}
+.sidebar {
+	float: left;
+	width: 29%;
+	margin-left: 1%;
+	padding: 1.5em;
+	background-color: gray;
+	border-radius: .5em;
+}
+*/
+/*----2 calc()*/
+/*
+.main {
+	float: left;
+	width: 70%;
+	background-color: green;
+	border-radius: .5em;
+}
+
+.sidebar {
+	float: left;
+	width: calc(30% - 1.5em);
+	这里的calc运算符 前后加空格 空格 空格啊。
+	margin-left: 1.5em;
+	padding: 1.5em;
+	background-color: deepskyblue;
+	border-radius: .5em;
+}*/
+/*---------------元素高度问题 控制溢出行为*/
+/*overflow属性 默认值visible 所有内容可见 即使溢出容器边缘，hidden溢出容器内边距边缘的内容被裁剪无法看见，scroll 出现滚动条，auto只有内容溢出时容器才会出现滚动条。*/
+/*控制水平方向溢出 和 垂直方向溢出 overflow-x overflow-y*/\
+/*css表格布局 给容器设置display:table, 给每一列设置display:table-cell css表格不像html那样必须有行元素 因此这里没有table-row元素。*/
+/*
+.container{
+	display: table;
+	width: 100%;
+	让容器布局像表格一样 让表格填充容器的宽度
+}
+.main{
+	display: table-cell;
+	让列布局像表格的单元格一样。
+	width: 70%;
+	background-color: moccasin;
+	border-radius: .5em;
+}
+.sidebar{
+	display: table-cell;
+	width: 30%;
+	margin-left: 1.5em;
+	外边距不再生效
+	padding: 1.5em;
+	background-color: violet;
+	border-radius: .5em;
+}*/
+/*这个操作 显示为table的元素宽度不会扩展到100% 因此需要指定宽度，但是还是缺少了间隔，这是因为外边距并不会作用于table-cell元素。用表格元素的border-spacing属性来定义单元格间距。该属性接受两个长度值：水平间距和垂直间距 border-spacing: 1.5em 0. 但是有一个副作用 这个值也会作用于表格外边缘。这样两列就无法跟头部左右对齐。
+再加个新容器再加个负外边距 这样来抵消副作用
+*/
+/*
+.wrapper{
+	margin-left: -1.5em;
+	margin-right: -1.5em;
+}
+
+.container{
+	display: table;
+	width: 100%;
+	border-spacing: 1.5em 0;
+}
+.main{
+	display: table-cell;
+	width: 70%;
+	background-color: cornflowerblue;
+	border-radius: .5em;
+}
+.sidebar{
+	margin-right: -1.5em;
+	display: table-cell;
+	width: 30%;
+	padding: 1.5em;
+	background-color: lawngreen;
+	border-radius: .5em;
+}*/
+
+/*----------------flexbox实现等高*/
+.container{
+	display: flex;
+}
+
+.main{
+	width: 70%;
+	background-color: aquamarine;
+	border-radius:0.5em;
+}
+
+.sidebar{
+	width: 30%;
+	padding: 1.5em;
+	margin-left: 1.5em;
+	background-color: blueviolet;
+	border-radius: .5em;
+}
+
+/*----min-height和max-height*/
+header{
+	padding-top: 4em;
+	padding-bottom: 4em;
+	color: lemonchiffon;
+	background-color: lightcoral;
+	border-radius: .5em;
 }

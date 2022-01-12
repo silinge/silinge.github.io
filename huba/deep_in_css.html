@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>incss</title>
-<link href="stylefordeepincss.css" rel="stylesheet" type="text/css" />
+<!--<link href="stylefordeepincss.css" rel="stylesheet" type="text/css" />-->
+<link href="stylesheetforonce.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 	
+<!--
 <header class="page-header">
 	<h1 id="page-title" class="title">wombat coffee roaster</h1>
 	<nav>
@@ -24,7 +26,7 @@
 		Be sure to check out <a href="/specials" class="featured">our specials</a>
 	</p>
 	<div class="padded">1em2em,em是最常见的相对长度单位 他的准确值取决于作用的元素。规定集指定字号，使用em后，浏览器将其乘以字号，最终渲染为啥啥啥 如果没有可继承的值，那找body里面的值继承，怎么着也能有继承的。</div>
-<!--	元素的内边距和圆角都是相对值-->
+	元素的内边距和圆角都是相对值
 	</main>
 <span class="box box-small">创建一个小盒子</span>
 <span class="box box-large">创建一个大盒子</span>
@@ -32,6 +34,8 @@
 we love coffee
 <p class="slogan">we love coffee.</p>
 <div class="square218">这是一个适应屏幕变化的方块。</div>
+-->
+<!--
 <ul>
 	<li>Top level</li>
 	<ul>
@@ -51,10 +55,12 @@ we love coffee
 		</li>
 	</ul>
 	</ul>
+-->
 
 <!--简写属性 font:italic bold 18px/1.2 "Helvetica", "Arial", sans-serif; 指定了font-style、font-weight、font-size、font-height以及font-family.-->
 	
 <!--长度单位 1in=25.4mm=2.54cm=6pc=72pt=96px.-->
+<!--
 <div class="panel large">
 		<h2>single-origin</h2>
 		<div class="panel-body">we have build partnerships with small farms around the world to hand-select beans at the peak of season. we then carefully roast in <a href="/batch-size">small batches</a> to maximize their potential.</div>
@@ -77,7 +83,9 @@ we love coffee
 		</div>
 	</div>
 	</aside>
+-->
 <!--262使用javascript改变自定义属性-->
+<!--
 <script type="text/javascript">
 	var rootElement = document.documentElement;
 	var styles = getComputedStyle(rootElement);
@@ -86,6 +94,7 @@ we love coffee
 	var rootElement = document.documentElement;
 	rootElement.style.setProperty('--main-bg', '#cde');
 	</script>
+-->
 <!--获取一个元素的styles对象，获取styles对象的--main-bg值 确保mainColor是一个字符串，并去掉前后空格，打印结果为"#fff"-->
 <!--将根元素上的--main-bg设置为浅蓝色-->
 <!--
@@ -95,5 +104,77 @@ color:var{
 	--main-color;
 	}
 -->
+<!--
+<header>
+	<h1>franklin running club</h1>
+	</header>
+-->
+<!--<div class="wrapper">-->
+<!--
+<div class="container">
+		<main class="main">
+		<h2>come join us!</h2>
+		<p>the franklin running club meets at 6pm every thursday at the town square. runs arethree to five miles, at your own pace.</p>
+		</main>
+		<aside class="sidebar">
+			<div class="widget"></div>
+			<div class="widget"></div>
+			<a href="/weibo" class="button-link">follow us on weibo</a>
+			<a href="/wechat" class="button-link">friend us on wechat</a>
+			<a href="/sponsor" class="sponsor-link" >become a sponser</a>
+		</aside>
+</div>
+-->
+<!--</div>-->
+	
+<!--浮动设计-->
+<div class="container">
+	<header>
+		<h1>Franklin Running Club</h1>
+	</header>	
+	<main class="main clearfix">
+		<h2>Running tips</h2>
+		<div>
+			<div class="media">
+				<img class="media-image" src="runner.png" alt="runne">
+				<div class="media-body">
+					<h4>Strength</h4>
+					<p>
+						Strength training is an important part of injury prevention. Focus on your core&mdash; especially your abs and glutes.
+					</p>
+				</div>
+			</div>
+			<div class="media">
+				<img class="media-image" src="shoes.png" alt="shoes">
+				<div class="media-body">
+					<h4>Cadence</h4>
+					<p>
+						Check your stride turnover. The most efficient runners take about 180 steps per minute.
+					</p>
+				</div>
+			</div>
+			<div class="media">
+				<img class="media-image" src="shoes.png" alt="shoes">
+				<div class="media-body">
+					<h4>Change it up</h4>
+					<p>
+						Don't run the same every time you hit the road. Vary your pace, and vary the distance of your runs.
+					</p>
+				</div>
+			</div>
+			<div class="media">
+				<img class="media-image" src="runner.png" alt="runne">
+				<div class="media-body">
+					<h4>Focus on form</h4>
+					<p>
+						Run tall but relaxed. Your feet should hit the ground beneath your tips, not out in front of you.
+					</p>
+				</div>
+			</div>
+		</div>
+<!--		tu48代码 clear clear:both声明让该元素移动到浮动元素的下面而不是侧面。clear值还可以设置为left right 这样只会相应地清楚向左或者向右浮动的元素。因为空div本身没有浮动 所以容器就会扩展 直到包含它 因此也会包含该div上面的浮动元素 有用但过于粗暴 所以还是不用-->
+<!--		<div style="clear: both"></div>-->
+	</main>
+</div>
 </body>
 </html>

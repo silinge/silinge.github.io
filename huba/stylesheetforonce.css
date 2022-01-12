@@ -1,0 +1,303 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+.container {
+	display: table;
+	width: 100%;
+}
+
+.main {
+	display: table-cell;
+	width: 70%;
+	background-color: aqua;
+	border-radius: .5em;
+}
+
+.sidebar{
+	display: table-cell;
+	width: 30%;
+	margin-left: 1.5em;
+	padding: 1.5em;
+	background-color: cadetblue;
+	border-radius: .5em;
+}*/
+
+/*
+.wrapper{
+	margin-left: -1.5em;
+	margin-right: -1.5em;
+}
+
+.container {
+	display: table;
+	width: 100%;
+	border-spacing: 1.5em 0;
+}
+*/
+/*
+
+.main {
+	display: table-cell;
+	width: 70%;
+	background-color: cornflowerblue;
+	border-radius: .5em;
+}
+
+.sidebar {
+	display: table-cell;
+	width: 30%;
+	padding: 1.5em;
+	background-color: darkmagenta;
+	border-radius: .5em;
+}*/
+
+/*
+.container {
+	display: flex;
+}
+
+.main {
+	width: 70%;
+	background-color: aquamarine;
+	border-radius: 0.5em;
+}
+
+.sidebar {
+	width: 30%;
+	padding: 1.5em;
+	margin-left: 1.5em;
+	background-color: darkcyan;
+	border-radius: .5em;
+}
+*/
+
+/*
+header {
+	padding-top: 4em;
+	padding-bottom: 4em;
+	color: yellow;
+	background-color: cyan;
+	border-radius: .5em;
+}*/
+
+/*
+header {
+	padding: 1em 1.5em;
+	color: black;
+	background-color: wheat;
+	border-radius: .5em;
+}
+
+.button-link {
+	margin-top: 1.5em;
+	display: block;
+	padding: 0.5em;
+	color: ghostwhite;
+	background-color: #0090c9;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+*/
+
+/*只给紧跟在其他button-link后面的button-link加上顶部外边距*/
+/*
+.button-link + .button-link {
+	margin-top: 1.5em;
+}
+*/
+/*这个sponsor-link 会遭到adblock插件过滤，如果可以换别的名字，真是奇怪。*/
+/*
+.sponsor-link {
+	display: block;
+	color: #0072B0;
+	font-weight: bold;
+	text-decoration: none;
+}
+*/
+
+/*猫头鹰选择器 * + *，它不会选中直接跟在其他按钮后面的按钮，而是会选中直接跟在其他元素后来的任何元素。 它会选中页面上有着相同父级的非第一个子元素。接下来用猫头鹰选择器给页面元素加上顶部外边距，这样就会给侧边栏的每一个元素加上一致的间距，给选择器还会选中主容器，因为它是头部的相邻兄弟节点。*/
+
+/*将body放在选择器前面，这样该选择器就只能选中body内的元素，如果不加body,它还会选中body元素，因为它是head元素的相邻兄弟节点。*/
+
+
+/*
+body * + * {
+	margin-top: 1.5em;
+}
+*/
+
+/*猫头鹰选择器的顶部外边距对侧边栏有个副作用，因为侧边栏时主列的相邻兄弟元素，所有它也会有顶部外边距。因此要将其恢复为0，还需要给主列补上内边距。*/
+
+/*
+
+.main {
+	width: 70%;
+	padding: 1em 1.5em;
+	background-color: #D78B10;
+	border-radius: .5em;
+}
+
+.sidebar {
+	width: 30%;
+	padding: 1.5em;
+	margin-top: 0;
+	margin-left: 1.5em;
+	background-color: #3EA208;
+	border-radius: .5em;
+}
+*/
+
+/*来一个最终版*/
+/*
+:root {
+	box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color: #EEEEEE;
+	font-family: helvetica, arial, sans-serif;
+}
+
+body * + * {
+	margin-top: 1.5em;
+}
+
+header {
+	padding: 1em 1.5em;
+	color: #FFFFFF;
+	background-color: #0072B0;
+	border-radius: .5em;
+}
+
+.container {
+	display: flex;
+}
+
+.main {
+	width: 70%;
+	padding: 1em 1.5em;
+	background-color: #FFFFFF;
+	border-radius: .5em;
+}
+
+.sidebar {
+	width: 30%;
+	padding: 1.5em;
+	margin-top: 0;
+	margin-left: 1.5em;
+	background-color: #FFFFFF;
+	border-radius: .5em;
+	
+}
+
+.button-link {
+	display: block;
+	padding: .5em;
+	color: #FFFFFF;
+	background-color: #0090C9;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.sponsor-link {
+	display: block;
+	color: #0072b0;
+	font-weight: bold;
+	text-decoration: none;
+}*/
+
+/*浮动设计样式*/
+
+:root {
+	box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color: #EEEEEE;
+	font-family: helvetica, arial, sans-serif;
+	
+}
+
+body * + * {
+	margin-top: 1.5em;
+}
+
+header {
+	padding: 1em 1.5em;
+	color: #FFFFFF;
+	background-color: #0072B0;
+	border-radius: .5em;
+	margin-bottom: 1.5em;
+}
+
+.main {
+	padding: 0 1.5em;
+	background-color: #FFFFFF;
+	border-radius: .5em;
+}
+
+.container {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+.media {
+	float: left;
+	width: 50%;
+	padding: 1.5em;
+	background-color: #09A099;
+	border-radius: 0.5em;
+}
+
+/*容器内浮动元素 不整齐需要处理。方法一 使用跟浮动配套的clear属性 将一个元素放在主容器末尾 并对它使用clear 它会让容器扩展到浮动元素下面 tu48代码*/
+
+/*方法二使用伪元素 使用::after 伪元素选择器 可以快速在DOM中在容器末尾添加一个元素，而不用在HTML里添加标记 伪元素常见的有::before ::after 用来向元素的开始或者结束位置插入内容。*/
+
+/*
+.clearfix::after {
+	display: block;
+	content: " ";
+	clear: both;
+}
+*/
+/*将伪元素的display设置为非inline 并给定一个content值 以便让伪元素出现在文档中 让伪元素清楚容器中的所有浮动*/
+
+/*修改清楚浮动的代码，让其包含所有的外边距 1让::before和 ::after伪元素都显示出来 2 防止伪元素的外边距折叠 3只有::after伪元素需要清除浮动*/
+
+.clearfix::before,
+.clearfix::after {
+	display: table;
+	content: " ";
+}
+
+.clearfix::after {
+	clear: both;
+}
+
+/*三个左浮动的盒子 如果盒子1比盒子2高 则盒子3不会浮动到最左边，而是浮动到盒子1的右边 解决问题 清楚第三个浮动元素上面的浮动 更先进一点 清楚每行第一个元素上面的浮动。由于已知每行有两个盒子，因此只需要清除每行的第奇数个元素上面那行的浮动即可。 你可以用 nth-child()伪类选择器选中这些目标元素 如下*/
+.media {
+	float: left;
+	width: 50%;
+	padding: 1.5em;
+	background-color: #EEEEEE;
+	border-radius: 0.5em;
+}
+/*odd就是奇数*/
+.media:nth-children(odd) {
+	clear: left;
+}
