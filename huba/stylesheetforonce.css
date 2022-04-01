@@ -217,6 +217,7 @@ header {
 
 /*浮动设计样式*/
 
+/*
 :root {
 	box-sizing: border-box;
 }
@@ -263,6 +264,7 @@ header {
 	background-color: #09A099;
 	border-radius: 0.5em;
 }
+*/
 
 /*容器内浮动元素 不整齐需要处理。方法一 使用跟浮动配套的clear属性 将一个元素放在主容器末尾 并对它使用clear 它会让容器扩展到浮动元素下面 tu48代码*/
 
@@ -279,6 +281,7 @@ header {
 
 /*修改清楚浮动的代码，让其包含所有的外边距 1让::before和 ::after伪元素都显示出来 2 防止伪元素的外边距折叠 3只有::after伪元素需要清除浮动*/
 
+/*
 .clearfix::before,
 .clearfix::after {
 	display: table;
@@ -288,8 +291,10 @@ header {
 .clearfix::after {
 	clear: both;
 }
+*/
 
 /*三个左浮动的盒子 如果盒子1比盒子2高 则盒子3不会浮动到最左边，而是浮动到盒子1的右边 解决问题 清楚第三个浮动元素上面的浮动 更先进一点 清楚每行第一个元素上面的浮动。由于已知每行有两个盒子，因此只需要清除每行的第奇数个元素上面那行的浮动即可。 你可以用 nth-child()伪类选择器选中这些目标元素 如下*/
+/*
 .media {
 	float: left;
 	width: 50%;
@@ -297,7 +302,1207 @@ header {
 	background-color: #EEEEEE;
 	border-radius: 0.5em;
 }
+*/
 /*odd就是奇数*/
+/*
 .media:nth-children(odd) {
 	clear: left;
+}*/
+
+/*如果每行需要三个元素 则 .media:nth-child(3n+1)来隔两个元素选一个元素*/
+
+/*上面这种清除每行浮动的技术要求知道每行有几个元素，如果宽度不是通过百分比来定义的，那么随着视口宽度的改变，每行的元素个数可能会变化。这种情况最好使用别的布局方案，比如flexbox或者 inline-block元素。*/
+/*
+.media {
+	float: left;
+	margin: 0 1.5em 1.5em 0;
+	width: calc(50% - 1.5em);
+	padding: 1.5em;
+	background-color: #CCCCCC;
+	border-radius: 0.5em;
 }
+*/
+/*给媒体元素加上右侧和底部的外边距，一行放不下两个元素，因此需要用calc() 从宽度里减去右外边距的值*/
+/*
+.media:nth-child(odd) {
+	clear: left;
+}
+*/
+/*图片在左边，文字在右边，不包围 设置图像左浮动*/
+/*
+.media-image {
+	float: left;
+}
+
+.media-body {
+	margin-top: 0;
+}
+
+.media-body h4 {
+	margin-top: 0;
+}
+*/
+
+/*建立块级格式化上下文，让文字不会跟浮动图片重叠 bfc是网页的一块区域，元素基于这块区域布局。虽然BFC本身是环绕文档流的一部分，但它将内部的内容与外部的上下文隔离开
+包含内部所有元素的上下外边距 它们不会跟bfc外面的元素产生外边距折叠
+包含内部所有浮动元素
+不会跟bfc外面的浮动元素重叠。
+如果给元素增加clear属性，它只会清除自身所在bfc内的浮动，如果强制给一个元素生成一个新的bfc 它不会跟其他bfc重叠
+
+给元素添加以下的任意属性值都会创建bfc
+float:left 或right 不为none即可
+overflow:hidden auto scroll 不为visible即可
+display:inline-block table-cell table-caption flex inline-flex grid inline-grid 拥有这些属性的元素称为块级容器
+
+position:absolute position:fixed
+
+网页的根元素也创建了一个顶级的BFC
+*/
+
+/*添加overflow:auto 创建一个新的bfc*/
+
+/*
+.media {
+	float: left;
+	margin: 0 1.5em 1.5em 0;
+	width: calc(50% - 1.5em);
+	padding: 1.5em;
+	background-color: darkseagreen;
+	border-radius: 0.5em;
+}
+
+.media:nth-child(odd) {
+	clear: left;
+}
+
+.media-image {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.media-body {
+	overflow: auto;
+	margin-top: 0;
+}
+
+.media-body h4 {
+	margin-top: 0;
+}*/
+
+/*构建网格系统*/
+
+/*
+.row::after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+*/
+
+/*这个选择器匹配所有类包含“column-” 的元素 这个属性选择器 根据元素的class属性匹配元素 */
+/*
+[class*="column-"] {
+	float: left;
+	padding: 0 0.75em;
+	margin-top: 0;
+}
+
+.column-1 {width: 8.3333%;}
+.column-2 {width: 16.6667%;}
+.column-3 {width: 25%;}
+.column-4 {width: 33.3333%;}
+.column-5 {width: 41.6667%;}
+.column-6 {width: 50%;}
+.column-7 {width: 58.3333%;}
+.column-8 {width: 66.6667%;}
+.column-9 {width: 75%;}
+.column-10 {width: 83.3333%;}
+.column-11 {width: 91.6667%;}
+.column-12 {width: 100%;}
+*/
+
+/*接下来媒体对象样式，去掉左浮动，因为网格系统已经包含这条规则。去掉宽度 这样它才能填满容器100%的宽度。这里的容器是一个6列的元素，它的宽度恰好是我们想要的。去掉外边距和用来清除浮动的nth-child选择器。*/
+
+/*
+.media {
+	padding: 1.5em;
+	background-color: #eee;
+	border-radius: 0.5em;
+}
+
+.media-image {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.media-body {
+	overflow: auto;
+	margin-top: 0;
+}
+
+.media-body h4 {
+	margin-top: 0
+}
+
+.main {
+	padding: 0 1.5em 1.5em;
+	background-color: #FFFFFF;
+	border-radius: .5em;
+}
+*/
+
+/*在属性选择器补充 网格系统还缺少每列之间的间隔，现在加上。每个网格列添加左右内边距，创造间隔。把间隔交给网格系统实现，而不是让内部的组件自己实现。因为需要列之间有1.5em的间隔，所有可以将其分成两边，给每个列元素左右各添加一半的内边距。417 加在 [class*=*column-*]里面这里去掉所有列元素的顶部外边距，覆盖猫头鹰选择器里的样式规则*/
+
+/*再给网格添加负的外边距*/
+/*
+.row {
+	margin-left: -0.75em;
+	margin-right: -0.75em;
+}*/
+
+/*来个完整的*/
+
+/*
+:root {
+	box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color: #eee;
+	font-family: helvetica, arial, sans-serif;
+}
+
+body * + * {
+	margin-top: 1.5em;
+}
+
+.row {
+	margin-left: -0.75em;
+	margin-right: -0.75em;
+}
+
+.row::after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+[class*="column-"] {
+	float: left;
+	padding: 0 0.75em;
+	margin-top: 0;
+}
+
+.column-1 {width: 8.3333%;}
+.column-2 {width: 16.6667%;}
+.column-3 {width: 25%;}
+.column-4 {width: 33.3333%;}
+.column-5 {width: 41.6667%;}
+.column-6 {width: 50%;}
+.column-7 {width: 58.3333%;}
+.column-8 {width: 66.6667%;}
+.column-9 {width: 75%;}
+.column-10 {width: 83.3333%;}
+.column-11 {width: 91.6667%;}
+.column-12 {width: 100%;}
+
+header {
+	padding: 1em 1.5em;
+	color: #fff;
+	background-color: #0072b0;
+	border-radius: .5em;
+	margin-bottom: 1.5em;
+}
+
+.main {
+	padding: 0 1.5em 1.5em;
+	background-color: #fff;
+	border-radius: .5em;
+}
+
+.comtainer {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+.media {
+	padding: 1.5em;
+	background-color: #eee;
+	border-radius: 0.5em;
+}
+
+.media-body {
+	overflow: auto;
+	margin-top: 0;
+}
+
+.media-body h4 {
+	margin-top: 0;
+}
+
+.clearfix::before,
+.clearfix::after {
+	display: table;
+	content: " ";
+}
+
+.clearfix::after {
+	clear: both;
+}*/
+
+/*使用flexbox布局实现的网页*/
+
+/*
+:root {
+	box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color: #709b90;
+	font-family: helvetica, arial, sans-serif;
+	
+}
+
+body * + * {
+	margin-top: 1.5em;
+}
+
+.container {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+*/
+
+/*接下来分几步构建这个菜单，先给列表加上display:flex 然后覆盖浏览器默认的列表样式和猫头鹰选择器设置的顶部外边距，同时添加颜色。*/
+/*	兼容性要求*/
+/*
+.site-nav {
+	display: flex;
+
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	padding-left: 0;
+	list-style-type: none;
+	background-color: #5f4b44;
+}
+
+.site-nav > li {
+	margin-top: 0;
+}
+
+.site-nav > li > a {
+	background-color: #cc6b5a;
+	color: white;
+	text-decoration: none;
+}
+*/
+
+/*这里应当把菜单项内边距加到内部的<a>元素上，而不是<li>元素上，因为整个点击区域的外观和行为应当都符合用户对一个菜单链接的预期。而链接行为来自<a>元素，所有如果把<li>做成一个好看的大按钮，里面只有很小的区域<a>可以点击，就不符合用户预期  给链接外的菜单容器添加内边距，让链接成为块级元素，这样就能撑开父元素的高度。 给链接添加内边距。*/
+/*
+
+.site {
+	display: flex;
+	padding: .5em;
+	background-color: #5f4b33;
+	list-style-type: none;
+	border-radius: .2em;
+}
+
+.site-nav > li {
+	margin-top: 0;
+}
+
+.site-nav > li > a {
+	display: block;
+	padding: .5em 1em;
+	background-color: #cc6b5a;
+	color: white;
+	text-decoration: none;
+}
+*/
+
+/*接下来给菜单项添加间隔，常规的外边距就能做到这一点，flexbox允许使用margin:auto来填充弹性子元素之间的可用空间。flexbox还允许将最后的菜单项移动到右侧，加上外边距后菜单就完成了。 使用外边距给弹性子元素加上间隔*/
+
+/*选中所有前面列表项的列表项，也就是说除了第一项之外的所有列表项 弹性盒子内的auto外边距会填充所有可用空间*/
+
+/*
+.site-nav > li + li {
+	margin-left: 1.5em;
+}
+
+.site-nav > .nav-right {
+	margin-left: auto;
+}
+*/
+
+/*将主容器设置为FLEXbox 给三个板块加上白色背景和内边距 将主容器设置为flexbox 去点顶部外边距 给每个弹性子元素之间加上间隔*/
+
+/*
+.title {
+	padding: 1.5em;
+	background-color: #fff;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex > * + * {
+	margin-top: 0;
+	margin-left: 1.5em;
+}
+*/
+
+/*使用flex属性设置列宽*/
+
+/*
+.column-main {
+	flex: 2;
+}
+
+.column-sidebar {
+	flex: 1;
+}
+*/
+
+/*
+flex-grow:2;
+flex-shrink:1;
+flex-basis: 0%;
+*/
+
+/*flex属性是三个不同大小属性的简写：flex-grow flex-shrink flex-basis 上面提供flex-grow值 剩下的两个属性是默认值分别是1和0% 因此flex:2等价于flex:210%.通常首选简写属性 但也可以分别声明三个属性。*/
+
+/*flex-basis定义了元素大小的基础值 即一个初始的主尺寸 属性可以设置为任意的width值 包括px em 百分比 它的初始值是auto，此时浏览器会检查是否设置了width属性值。如果有 则使用width的值作为flex-basis的值，如果没有 则用元素内容自身的大小 如果flex-basis的值不是auto,width属性会被忽略*/
+
+/*每个弹性子元素的初始主尺寸确定后，它们可能需要在主轴方向扩大或者缩小来适应或者填充 弹性容器的大小。这时就需要flex-grow flex-shrink来决定缩放的规则*/
+
+/*每个弹性子元素的flex-basis值计算出来后，他们加上子元素之间的外边距会占据一定的宽度。加起来的宽度不会正好填满弹性容器的宽度，可能会留白，多出来的留白或剩余宽度会按照flex-grow = 增长因子的值分配给每个弹性子元素，flex-grow的值为非负整数。如果元素的flex-grow值为0 那么它的宽度不会超过flex-basis的值；如果元素的增长因子非0 那么这些元素会增长到所有的剩余空间被分配完 也就意味着子元素会填满容器的宽度。 flew-grow:2 增长的宽度为flex-grow:1元素的两倍。*/
+
+/*如果在flex中忽略某个子属性被省略，那么flex简写属性会给出有用的默认值 flex-grow:1 flex-shrink:1 flex-basis:0 默认值正是大多数情况所需要的值。 每个子元素flex-shrink值代表了它是否应该收缩以防止溢出。如果元素flex-shrink:0 则不会收缩，如果大于0则会收缩至不再溢出。按照flex-shrink值的比例 值越大收缩越多。用flex-shrink也能实现上述页面中两列的宽度。首先将两列的flex-basis指定为理想的比例= 66.67% 和33.33%。他们的宽度之和加上1.5em的间隔就会比容器宽度多出1.5em.然后将两列的flex-shrink设置为1，这样就会从每列的宽度减掉0.75em, 容器就能容纳两列了。*/
+
+/*使用flex属性设置宽度 1 等价于 flex:1 1 66.67% 2-等价于flex:1 1 33.33%*/
+/*
+.column-main {
+	flex: 66.67%;
+}
+
+.column-sidebar {
+	flex: 33.33%;
+}
+*/
+
+/*弹性方向 flex-direction:  row是默认值。column column-reverse row-reverse*/
+/*要求右边栏的板块跟左边的大板块对齐。让两列扩展到填满容器的高度，因此将右边栏改为弹性容器并设置flex-direction:column 然后给里面的两个板块设置非0的flex值*/
+/*在右侧创建一个弹性列  对外面的弹性盒子来说是弹性子元素 对内部元素而言是弹性容器。 2 给内部子元素加上flex-grow*/
+/*
+.column-sidebar {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.column-sidebar > .tile {
+	flex: 1;
+}
+*/
+
+/*<form> 的类名为login-form 在CSS中用作表单的选择器。下面代码分别给登录表单的标题，输入区域 按钮布局。1 标题设置为加粗 右对齐 全大写。2 给文本类型的输入框（不包含复选框和单选按钮）添加样式。3 给按钮添加样式。*/
+
+/*
+.login-form h3 {
+	margin: 0;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: right;
+	text-transform: uppercase;
+}
+
+.login-form input:not([type=chechbox]):not([type=radio]) {
+	display: block;
+	width: 100%;
+	margin-top: 0;
+}
+*/
+/*分析 not()伪类和属性选择器[type=checkbox] [type=radio] 可以选中出来复选框和单选按钮以为的所有<input>元素。这是一个黑名单方式 把不想选中的元素排除，还有白名单方式 把想要选中的属性都列出来，权衡一下属性多少再用黑白。*/
+
+/*
+.login-form button {
+	margin-top: 1em;
+	border: 1px solid #cc6b5a;
+	background-color: white;
+	padding: .5em 1em;
+	cursor: pointer;
+}
+*/
+
+/*如果弹性容器开启了flex-wrap 则会忽略该属性 flex-shrink.。align-self 控制子元素在副轴上的对齐方式。它会覆盖容器上的align-items值。如果子元素副轴方向上的外边距为auto 则会忽略该属性 order整数 将弹性子元素从兄弟节点中移动到指定位置 覆盖源码顺序。*/
+
+/*flex-wrap属性允许弹性子元素换到新的一行或多行显示。它可以设置nowrap初始值，wrap 或wrap-reverse. 启用换行后 子元素不再根据flex-shrink值收缩，任何超过弹性容器的子元素都会换行显示。 如果弹性方向是column或column-reverse 那么flex-wrap会允许弹性子元素换到新的一列显示，不过这只在限制了容器高度的情况下才会发生，否则容器会扩展高度以包含全部弹性子元素。*/
+
+/*flex-flow 属性 是flex-direction 和flex-wrap的简写 例如 flex-grow:column  wrap指定弹性子元素按照从上到下的方式排列 必要时换到新的一列。*/
+
+/*justify-content属性 当子元素为填满容器时，justify-content属性控制子元素沿主轴方向的间距。它的值包括几个关键字 flex-start、flex-end center space-between space-around。默认值flex-start让子元素从主轴的开始位置顺序排列，比如主轴方向为从左到右的话 开始位置就是左边。如果不设置外边距，那么子元素之间不会产生间距。如果值为flex-end 子元素就从主轴的结束位置开始排列 center的话则让子元素居中。 值space-between将第一个弹性子元素放在主轴开始的地方 最后一个子元素放在主轴结束的地方 剩下的子元素间隔均匀地放在这两者之间的区域。值space-around类似 只不过给第一个子元素的前面和最后一个子元素的后面也加上相同的间距 间距时在元素的外边距之后进行计算的，而且flex-grow的值要考虑进来。如果任意子元素的flex-grow的值不为0 或者任意子元素在主轴方向的外边距值为auto, justify-content就失效了。*/
+
+/*align-items属性 justify-content属性控制子元素在主轴方向的对齐方式，align-items则控制子元素在副轴方向的对齐方式。align-items的初始值为stretch 在水平排列的情况下让所有子元素填充容器的宽度，在垂直排列的情况下让子元素填充容器的宽度，  因此它能实现登高列。  其他的值让弹性子元素可以保留自身的大小 而不是填充容器的大小 类似的概念有vertical-align  flex-start flex-end让子元素与副轴的开始或结束位置对齐（如果时水平布局的话，则与容器的顶部或者底部分别对齐）。 center让元素居中 baseline让元素根据每个弹性子元素的第一行文学的基线对齐 当你想要一个弹性子元素里大字号标题的基线与其他弹性子元素里较小文字的基线对齐时，baseline就能派上用场。*/
+
+/*justify-content 和 align-items属性 调整让其在水平方向的两端之间均匀分布，而align-items更新vertical-align 让行内元素在垂直方向对齐。*/
+
+/*align-content属性 如果开启了换行（用flex-wrap） align-content属性就可以控制弹性容器内沿副轴方向每行之间的间距。它支持的值有flex-start flex-end center stretch space-between space-around 这些值对间距的出来类似上面justify-content*/
+
+/* align-self属性，控制弹性子元素沿着容器副轴方向的对齐方式，它跟弹性容器的align-items属性效果相同，但是它能单独给弹性子元素设定不同的对齐方式。auto为初始值 会以容器的align-items值为准。其他值会覆盖容器的设置。align-self属性支持的关键字和align-items一样；flex-start flex-end center stretch以及baseline */
+
+/* order属性 使用它能改变子元素排列的顺序，还可以将其指定为任意正负整数 如果多个弹性子元素有一样的值，它们就会按照源码顺序出现。初始状态下所有的弹性子元素的order都为0 指定一个元素的值为-1 它就会移动到列表的最前面，指定为1则会移动到最后。如果按照需要给每个子元素指定order一遍重新编排它们，这些值不一定要连续。 */
+/* 使用对齐属性完成一个样式价格和行动召唤按钮。 */
+
+/*
+.centerd {
+	text-align: center;
+}
+
+.cost {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: .7;
+}
+
+.cost > span {
+	margin-top: 0;
+}
+
+.cost-currency {
+	font-size: 2rem;
+}
+
+.cost-dollars {
+	font-size: 4rem;
+}
+
+.cost-cents {
+	font-size: 1.5rem;
+	align-self: flex-start;
+}
+
+.cta-button {
+	display: block;
+	background-color: #cc6b5a;
+	color: white;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+*/
+
+/*网格容器 跟flexbox类似 网格布局也是作用于两级的dom结构 设置为display:grid的元素成为一个网格容器 它的子元素则变成网格元素*/
+
+/*
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 0.5em;
+}
+
+.grid > * {
+	background-color: darkgray;
+	color: white;
+	padding: 2em;
+	border-radius: 0.5em;
+}
+*/
+
+/*使用display:grid定义一个网格容器，容器会表现得像一个块级元素，100%填充可以宽度。也可以用inline-grid 这样元素就会在行内流动，且宽度只能够包含子元素 不过inline-grid的使用频率不高。 新属性 grid-template-columns 和 grid-template-rows 它们定义网格每行每列的大小 使用新单位fr 代表每一行的分数单位 这个单位跟flexbox中 flex-grow因子的表现一样，grid-template-columns:1fr 1fr 1fr表示三列等宽。 还可以使用其他单位 px, em 或 百分数 也可以混搭 例子 grid-template-columns:300px 1fr 定义了一个固定宽度的300px的列 后面跟着一个会填满剩余可以空间的列 2fr的列宽是1fr的两倍。最后grid-gap属性定义了每个网格单元之间的间距，以可以用两个值分别指定垂直和水平方向的间距 比如 grid-gap:0.5em 1em;*/
+
+/*网格剖析 网格线 构成了网格的框架 一条网格线可以水平或垂直 也可以位于一行或一列的任意一侧 如果指定了grid-gap的话 它就位于网格线上。还有网格轨道 网格单元 网格区域*/
+
+/*一个网格布局的HTML结构*/
+
+/*
+:root {
+	box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color: #709b90;
+	font-family: helvetica, arial, sans-serif;
+}
+*/
+
+/*定义两个垂直的网格轨道 定义四个水平轨道 大小为auto*/
+/*
+.container {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: repeat(4, auto); 
+	grid-gap: 1.5em;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+*/
+
+/*从1号垂直网格线跨越到3号垂直网格线 2/刚好占据一条水平网格轨道*/
+/*
+header,
+nav {
+	grid-column: 1 / 3;
+	grid-row: span 1;
+}
+*/
+
+/*将其他网格元素定位到不同的网格线之间*/
+
+/*
+.main {
+	grid-column: 1 / 2;
+	grid-row: 3 / 5;
+}
+
+.sidebar-top {
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
+}
+
+.sidebar-bottom {
+	grid-column: 2 / 3;
+	grid-row: 4 / 5;
+}
+*/
+
+/*
+.tile {
+	padding: 1.5em;
+	background-color: #fff;
+}
+
+.tile > :first-child {
+	margin-top: 0;
+}
+
+.tile * + * {
+	margin-top: 1.5em;
+}
+*/
+
+/*代码首先设置网格容器，并用grid-template-columns和grid-template-rows定义网格轨道，因为列的分数单位分别是2fr 1fr所有第一列的宽度是第二列的两倍，定义行的时候用到了新方法 repeat()函数 它在声明多个网格轨道的时候提供了简写方式。 grid-template-rows:repeat(4, auto);定义四个水平网格轨道 高度为auto,这等价于grid-template-rows:auto auto auto auto; 轨道大小设置为auto 轨道会根据自身内容扩展。 用repeat()符号还可以定义不同的重复模式 比如repeat(3, 2fr 1fr) 会重复三遍这个模式 从而定义六个网格轨道 重复的结果是2fr 1fr 2fr 1fr 2fr 1fr. 还可以将repeat()作为一个更长模式的一部分 比如grid-template-columns: 1fr repeat(3, 3fr) 定义一个1fr的列 接着是三个3fr的列。 可以在grid-column和grid-row属性中用网格线的编号指定网格元素的位置，如果想要一个网络元素在垂直方向上跨越1号网格线到3号网格线，就需要给元素设置grid-column:1 / 3.或者设置grid-row:3 / 5让元素在水平方向上跨越3号网格线到5号网格线  grid-column是grid-column-start和grid-column-end的简写 grid-row也是这样。中间的斜线只在简写属性里用于区分两个值，斜线前后的空格不做要求。*/
+/*
+
+定位header和nav的规则集稍有变化 以下代码片段用相同的规则集同时布局这两者
+header,
+nav {
+	grid-column: 1 / 3;
+	grid-row: span 1;
+}
+span关键字告诉浏览器元素需要占用一个网格轨道，因为这里没有支持具体是哪一行 所有会根据网格元素的布局算法自动将其放到合适的位置 布局算法会将元素放在网格上可以容纳该元素的第一处可用空间，本例中是第一行和第二行。
+*/
+/*剩余的网页样式*/
+/*
+.page-heading {
+	margin: 0;
+}
+
+.site-nav {
+	display: flex;
+	margin: 0;
+	padding: .5em;
+	background-color: #5f4b44;
+	list-style-type: none;
+	border-radius: .2em;
+}
+
+.site-nav > li {
+	margin-top: 0;
+}
+
+.site-nav > li > a {
+	display: block;
+	padding: .5em 1em;
+	background-color: #cc6b5a;
+	color: white;
+	text-decoration: none;
+}
+
+.site-nav > li + li {
+	margin-left: 1.5em;
+}
+
+.site-nav > .nav-right {
+	margin-left: auto;
+}
+
+.login-form h3 {
+	margin: 0;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: right;
+	text-decoration: uppercase;
+}
+
+.login-form input:not([type=checkbox]):not([type=radio]) {
+	display: block;
+	margin-top: 0;
+	width: 100%;
+}
+
+.login-form button {
+	margin-top: 1em;
+	border: 1px solid #cc6b5a;
+	background-color: white;
+	padding: .5em 1em;
+	cursor: pointer;
+}
+
+.centered {
+	text-align: center;
+}
+
+.cost {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: .7;
+}
+
+.cost > span {
+	margin-top: 0;
+}
+
+.cost-currency {
+	font-size: 2rem;
+}
+
+.cost-dollars {
+	font-size: 4rem;
+}
+
+.cost-cents {
+	font-size: 1.5rem;
+	align-self: flex-start;
+}
+
+.cta-button {
+	display: block;
+	background-color: #cc6b5a;
+	color: white;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+*/
+
+/*
+命名的网格线 有时候记录所有网格线的编号实在太麻烦 尤其是在处理很多网格轨道时。为了简单点，可以给网格线命名，并在布局时使用网格线的名称而不是编号，声明网格轨道时可以在括号内写上网格线的名称。如下
+grid-template-column: [start] 2fr [center] 1fr [end];
+这条声明定义了两列的网格，三天垂直的网格线分别叫作 start center end 之后定义网格元素在网格中的位置 可以不用编号而是用这些名称来声明 如下
+
+grid-column: start / center;
+这条声明将网格元素放在1号网格线start到2号网格线center之间的区域。还可以给同一个网格线提供多个名称比如下面的声明（为了可读性 这里将代码换行）
+grid-template-columns:[left-start] 2fr [left-end right-start] 1fr [right-end];
+在这条声明里，2号网格线既叫做left-end 也叫作right-start,之后可以任选一个名称使用。这里还有一个彩蛋;将网格线命名为left-start和left-end 就定义了一个叫作left的区域，这个区域覆盖两个网格线之间的区域。-start 和 -end后缀作为关键字，定义了两种之间的区域。如果给元素设置grid-column: left, 它就会跨越从left-start到left-end的区域。
+*/
+
+/*
+.container {
+	display: grid;
+	grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end];
+	grid-template-rows: repeat(4, [row] auto);
+	grid-gap: 1.5em;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+*/
+
+/*给每个垂直的网格线命名，将水平网格线命名为"row"*/
+
+/*
+header,
+nav {
+	grid-column: left-start / right-end;
+	grid-row: span 1;
+}
+
+.main {
+	grid-column: left;
+	grid-row: row 3 / span 2;
+}
+*/
+
+/*跨越left-start到left-end之间的区域 从第三行网格线开始放置元素，跨越两个网格轨道*/
+/*
+.sidebar-top {
+	grid-column: right;
+	grid-row: 3 / 4;
+}
+
+.sidebar-bottom {
+	grid-column: right;
+	grid-row: 4 / 5;
+}
+*/
+
+/*跨越right-start到right-end的区域*/
+
+/*图6-10将网格元素放在第二个col网格线处，跨越两个轨道 col 2 / span 2) 这个场景展示了一种重复的模式 每两个网格列为一组，在每组的两个网格轨道之前命名一条网格线（grid-template-columns: repeat(3, [col] 1fr 1fr),然后就可以借助命名的网格线将一个元素定位到第二组网格列上 (grid-column: col 2 / span 2)*/
+
+/*另一个时命名网格区域 不用计算或者命名网格线，直接用命名的网格区域将元素定位到网格中。实现这一方法需要借助网格容器的grid-template属性和网格元素的grid-area属性。*/
+
+/*
+.container {
+	display:grid;
+	grid-template-areas: "title title"
+						"nav nav"
+						"main aside1"
+						"main aside2";
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: repeat(4, auto);
+	grid-gap: 1.5em;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+*/
+/*将每个网格单元分配到一个命名的网格区域中 跟之前一样定义网络轨道的大小。*/
+
+/*
+header {
+	grid-area: title;
+}
+
+nav {
+	grid-area: nav;
+}
+
+.main {
+	grid-area: main;
+}
+
+.sidebar-top {
+	grid-area: aside1;
+}
+
+.sidebar-bottom {
+	grid-area: aside2;
+}
+*/
+
+/*将每个网格元素放到一个命名的网格区域
+grid-template-areas 属性使用了一种ASCII art的语法，可以直接再CSS中画一个可视化的网格形象。该声明给出了一些列加引号字符串，每一个字符串代表网络的一行，字符串内用空格区分每一列。 在这个例子中，第一行完全分配给了网格区域title 第二行则分配给了nav.接下来两行的左列分配给了main，侧边栏的板块分别分配给了aside1 和aside2。用grid-area属性将每个网格元素放在这些命名区域中。 每个命名的网格区域必须组成一个矩形，不能创造更复杂的形状。还可以用句点.作为名称，这样便能空出一个网格单元 比如；
+grid-template-areas:*top top right*
+					*left .  right*
+					*left bottom bottom*;
+这样中间围了一个空的网格单元。
+*/
+
+/*图片墙 代码清单6-9 它使用grid-auto-rows为所有的隐式网格行指定一个1fr的大小，每一行拥有相同的高度。该布局还引入两个新概念。auto-fill 和 minmax()函数*/
+
+body {
+	background-color: #709b90;
+	font-family: helvetica, arial, sans-serif;
+}
+
+.protfolio {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-auto-rows: 1fr;
+	grid-gap: 1em;
+}
+
+.portfolio > figure {
+	margin: 0;
+}
+
+.portfolio img {
+	max-width: 100%;
+}
+
+.portfolio figcaption {
+	padding: 0.3em 0.8em;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	text-align: right;
+}
+/*有时候我们不想给一个网格轨道设置固定尺寸，但是又希望限制它的最小值和最大值。这时候需要用minmax()函数 它指定两个值:最小尺寸和最大尺寸。浏览器会确保网格轨道的大小介于这两者之间。如果最大尺寸小于最小尺寸 最大尺寸就会被忽略。通过指定minmax(200px, 1fr) 浏览器确保了所有的轨道至少宽200px.
+
+repeat()函数里的auto-fill关键字是一个特殊值。设置了之后 只要网格放得下，浏览器就会尽可能多地生成轨道，并且不会跟指定大小(minmax()) 的限制产生冲突。
+
+auto-fill 和 minmax(200px, 1fr) 加在一起 就会让网格在可用的空间内尽可能多地产生网格列，并且每个列的宽度不会小于200px 因为所有轨道的大小上限都为1fr（最大值） 所以所有的网格轨道都等宽。
+
+如果网格元素不够填满所有网格轨道 auto-fill就会导致一些空的网格轨道，如果不希望出现空的网格轨道 可用使用auto-fit关键字代替auto-fill 它会让非空的网格轨道扩展 填满可用空间。
+
+网格布局模块规范提供了另一个属性grid-auto-flow 它可以控制布局算法的行为，它的初始值是row 如果值为column 它就会将元素优先放在网格列中 只有当一列填满了 才会移动到下一行。 还可以额外加一个关键字dense (grid-auto-flow:column dense )它让算法紧凑地填满网格里的空白，尽管这会改变某些网格元素的顺序。加上这个关键字 小元素就会回填大元素造成的空白区域
+
+加上紧凑的auto-flow选项dense 小网格元素会填满大的元素造成的空白区域。
+610放大特定图片*/ 
+.portfolio {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-auto-rows: 1fr;
+	grid-gap: 1em;
+	grid-auto-flow: dense;
+}
+
+.portfolio .featured {
+	grid-row: span 2;
+	grid-column: span 2;
+}
+
+/*这段代码使用grid-auto-flow:dense 等价于grid-auto-flow:row dense 前面的写法隐含了row 因为初始值就是row 然后选中特定的图片将其设置为在水平和垂直方向上各占据两个网格轨道 注意 本例只用了span关键字 没有明确地将任何一个网格元素放到某个网格轨道上 这样布局算法就会将网格元素放到它觉得合适的地方。*/
+
+/*默认情况下 每个网格元素都会扩展并填满整个网格区域 但是子元素不会 因此网格区域出现了多余的高度 一个简单的解决方法是用flexbox 设置每个<figure>为弹性容器 方向为column 元素会从上到下垂直排列 然后给图片标签加上flex-grow 强制拉伸图片填充空白区域
+但是拉伸图片并不可取 因为这会改变图片的宽高比 导致图片变形 好在css为控制这一行为提供了一个特殊属性object-fit 默认情况 一个<img>的object-fit属性值为fill, 也就是整个图片会缩放 以填满<img>元素。object-fit属性的值还可以是cover和contain 这些值告诉浏览器 在渲染盒子里改变图片的大小 但是不要让图片变形。
+cover 扩展图片让它填满盒子 导致图片一部分被裁剪
+contain 缩放图片 让它完整地填充盒子 导致盒子里出现空白。
+
+用flex-grow属性拉伸了图片 所有应该给它加上object-fit:cover防止渲染的图片变形 作为妥协 图片的边缘会被裁掉一部分。代码611
+*/
+
+.portfolio > figure {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+
+.portfolio img {
+	flex: 1;
+	object-fit: cover;
+	max-width: 100%;
+}
+/*让每个网格元素都成为垂直的flexbox 用弹性拉伸 让图片填充弹性容器的可用空间。让渲染的图片填充盒子并且不被拉伸 而是裁掉边缘。*/
+/*特性查询 如果浏览器不支持网格布局，并给出回退样式 css最近添加了一个叫做特性查询的功能 该功能有助于解决整个问题
+@supports (display:grid) {
+	...
+}
+
+@supports规则后面跟着一个小括号包围的声明 如果浏览器理解这个声明 它就会使用大括号里面的所有样式规则 如果它不理解小括号里面的声明 它就不会使用这些样式规则。 就是说可以提供一份样式规则 它使用较旧的布局技术，比如浮动。这些样式不一定完美需要做出妥协，但是能实现基本的布局。然后在特性查询中 用网格补全剩下的样式。
+
+以照片墙为例 可以用inline-block元素给旧版的浏览器提供一个较基础的布局 然后将所有网格布局相关的代码放到特性查询里，不支持网格的浏览器就会渲染成一块块大小一样的图片块。这个布局做了一些妥协 特定图片没有更大尺寸 每列的宽度固定为300px 而不是拉伸到填满可以的屏幕宽度 因为figure元素展示为inline-block 所以会正式换行 而且当屏幕够大的时候 一行就能放下更多图片。
+612用特性查询实现渐进增强
+*/
+
+/*
+.portfolio > figure {
+	display: inline-block;
+	max-width: 300px;
+	margin: 0;
+}
+
+.portfolio img {
+	max-width: 100%;
+	object-fit: cover;
+}
+
+.portfolio figcaption {
+	padding: 0.3em 0.8em;
+	background-color: rgba(0,0,0,0.5);
+	color: #FFFFFF;
+	text-align: right;
+}
+
+@supports (display:grid) {
+	.portfolio {
+		display: gird;
+		grid-template-columns: repeat(auto-fill), minmax(200px, 1fr);
+		grid-auto-rows: 1fr;
+		grid-gap: 1em;
+		grid-auto-flow: dense;
+	}
+	
+	.portfolio > figure {
+		display: flex;
+		flex-direction: column;
+		max-width: initial;
+	}
+	.portfolio img {
+		flex: 1;
+	}
+	.portfolio .featured {
+		grid-row: span 2;
+		grid-column: span 2;
+	}
+}
+*/
+
+/*回退代码和其他基础样式放在了特性查询外面，因此它们始终使用。如果用不支持网格的浏览器打开这个网页 就能看到619回退布局，所有跟网格相关的布局样式都在特性查询里，只有当浏览器支持网络时它们才会生效。
+@supports 规则可以用来查询所有的css特性。比如 用@supports(display:flex)来查询是否支持flexbox 用@supports(mix-blend-mode:overlay)来查询是否支持混合模式
+warning ie不支持@supports规则 它忽略了特性查询里的任何规则。不管是否真的支持该特性。
+还有几种用法
+@supports not(<declaration>) 只有当不支持查询声明里的特性时才使用里面的样式规则。
+@supports(<declaration>) or (<declaration>) 查询声明里的两个特性只要有一个支持就是用里面的样式规则。
+@supports(<declaration>) and (<declaration>)查询声明里的两个特性都支持才使用里面的样式规则。
+这些写法还可以结合起来查询更复杂的情况，关键字or适合查询带浏览器前缀的属性
+@supports(display:grid) or (display:-ms-grid)
+
+css给网格布局提供了三个调整属性 justify-content justify-items justify-self 控制网格元素在水平方向上的位置 就像在文字处理器里调整文字位置。还有三个对齐属性 align-content align-items align-self 控制网格元素在垂直方向上的位置。就像表格布局里的vertical-align属性。
+.grid {
+display:grid;
+height:1200px;
+grid-template-rows:repeat(4, 200px);
+}
+它明确指定了网格容器的高度为1200px 但是只定义了高800px的有效水平网格轨道。align-content属性指定了网格轨道如何在剩下的400px空间内分布。它可以设为以下值
+start将网格轨道放到网格容器的上/左 flexbox里面则是flex-start
+end 将网格轨道放在网格容器的下/右 flexbox里面则是flex-end
+center放中间
+stretch将网格轨道拉伸至填满网格容器
+space-between将剩余空间平均分配到每个网格轨道之间 它能覆盖任何grid-gap值。
+space-around 将空间分配到每个网格轨道之间 且在两端各加上一半的间距
+space-evenly 讲空间分配到每个网格轨道之间 且在两端各加上同等大小的间距 flexbox规范不支持。
+
+*/
+/*创建一个模态框盒子，添加模态框样式。*/
+
+body {
+	font-family: helvetica, arial, sans-serif;
+	min-height: 200vh;
+	margin: 0;
+}
+
+button {
+	padding: 0.5em 0.7em;
+	border: 1px solid #8d8d8d;
+	background-color: white;
+	font-size: 1em;
+}
+
+.top-banner {
+	padding: 1em 0;
+	background-color: #ffd698;
+}
+
+.top-benner-inner {
+	width: 80%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.modal {
+	display: none;
+}
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.modal-body {
+	position: fixed;
+	top: 3em;
+	bottom: 3em;
+	right: 20%;
+	left: 20%;
+	padding: 2em 3em;
+	background-color: white;
+	overflow: auto;
+}
+
+.modal-close {
+	cursor: pointer;
+}
+
+/*这段css里 我们使用了两次固定定位 第一次时modal-backdrop 四个方向都设置为0 这让蒙层填满整个视口。它还有一个背景色rgba(0,0,0,0.5) 黑色半透明。因此该元素下面的所有网页内容就会变暗。第二次固定定位了modal-body 它的四条边都在视口内：顶边和底边到视口对应的边缘为3em,左边和右边距离视口对于的边缘为20%。因为它的背景色为白色，所以模态框呈现为一个在屏幕居中的白色盒子。虽然可以随意滚动网页 但是背景和模态框主体都不会动。
+
+打开页面 我们看到屏幕上方有一个带按钮的淡黄色顶部条，点击按钮打开定位的模态框。因为是固定定位，所以即使滚动页面 模态框的位置也不会变。
+
+控制定位元素的大小，定位一个元素时 不要求指定四个方向的值，可以只指定需要的方向值 然后用width和 /或height来决定它的大小。也可以让元素本身来决定大小。以下，
+position: fixed;
+top: 1em;
+right: 1em;
+width: 20%;
+这段代码会将元素放在距离视口顶部和右边1em的位置，宽度为视口宽度的20%。它省略了bottom和height属性，元素的高度由自身的内容决定。例如 这可以用于将一个导航菜单固定到屏幕上。即使用户滚动网页内容，该元素的位置也不会改变。
+因为固定元素从文档流中移除了 所以它不再影响页面其他元素的位置。别的元素会跟随正常文档流，就像固定元素不存在一样。
+
+绝对定位 固定定位让元素相对视口定位，此时视口被称作元素的包含块。声明left:2em则将定位元素的左边放在距包含块左侧2em处。
+绝对定位的行为也是如此，至少它的包含块不一样，绝对定位不是相对视口，而是相对最近的祖先定位元素。跟固定元素一样，属性top right bottom 和left决定了元素的边缘在包含块里的位置。
+
+让close按钮绝对定位，我们需要将close按钮设置为绝对定位 因为它的父元素modal-body是固定定位 所以会成为close按钮的包含块。以下，
+
+*/
+.modal-close {
+	position: absolute;
+	top: 0.3em;
+	right: 0.3em;
+	padding: 0.3em;
+	cursor: pointer;
+}
+
+/*这段代码将按钮放在距离modal-body顶部0.3em, 右侧0.3em的位置。如本例 包含块是元素的父元素 如果父元素未被定位，那么浏览器会沿着DOM树往上找它的祖父，曾祖父，直到找到一个定位元素 用它作为包含块。
+
+close按钮已经定位好了，只是过于简陋。流行的是把close换成x,但是这会导致可访问性的问题：辅助的屏幕阅读器会读按钮里的文字。因此要给这个按钮一些有意义的提示，在使用css之前，HTML本身必须有意义。
+
+相反 可以用css隐藏close 并显示x 需要两步，先将按钮的文字挤到外面，并隐藏溢出内容。然后将按钮的::after伪元素的content属性设置为x 并让伪元素绝对定位到按钮中间。代码74 使用unicode里面的乘法符号 比字母x更对称 好看。html字符 &times 可以显示为这个字符，但是css的content属性里 必须写成转义Unicode数字：\00D7.*/
+
+.modal-close {
+	position: absolute;
+	top: 0.3em;
+	right: 0.3em;
+	padding: 0.3em;
+	cursor: pointer;
+	font-size: 2em;
+	height: 1em;
+	width: 1em;
+	text-indent: 10em;
+	overflow: hidden;
+	border: 0;
+}
+
+.modal-close::after {
+	position: absolute;
+	line-height: 0.5;
+	top: 0.2em;
+	left: 0.1em;
+	text-indent: 0;
+	content: "\00D7";
+}
+
+/*以上代码指定按钮为1em大小的方形。text-indent属性将文字推到右边，溢出元素。它的确切值不重要，只要大于按钮宽度即可。由于text-indent是继承属性，需要在伪类元素选择器上设为0 因此x便不会缩进。
+
+伪类元素现在是绝对定位，因为它表现得像按钮的子元素一样，所以定位的按钮成为其伪元素的包含块。设置一个较小的line-height让伪元素不要太高，用top和left属性让它在按钮中间定位。这里的精确值是我反复试出来的，建议你在自己的浏览器开发者工具里试试 看看它们如何影响定位。
+
+绝对定位是定位类型里的重量级选手 它经常跟javascript配合 用于弹出菜单 工具提示以及消息盒子。我们将用绝对定位来构建一个下拉菜单 但在此之前 我们需要先看看它的搭档 相对定位。
+
+当第一次给元素加上position:relative的时候，你通常看不到页面上有任何视觉改变。相对定位的元素以及它周围的所有元素 都还保持着原来的位置。
+
+如果加上top right bottom 和left属性， 元素就会从原来的位置移走 但是不会改变它周围任何元素的位置
+设置top:1em 将元素从原来的顶部边缘向下移动了1em; 设置left:2em将元素从它来的左侧边缘向右移动了2em 这可能导致元素跟它下面或者旁边的元素重叠 在定位中也可以使用负值 比如bottom: -1em也可以像top: 1em那样将元素向下移动1em.*/
+
+/*创建一个下拉菜单75 该菜单的标记将它添加到html中 放在<div class="modal">的结束标签</div>后面。这段代码包含了一个容器元素，之后我们会将它的内容居中 并让它跟顶部条的内容对齐。弹出列表下面还放一个<h1>的标签 以展示弹出列表如何出现其他网页内容前面。
+
+下拉菜单容器包含两个子元素 一个始终显示的灰色矩形标签以及一个下拉菜单 下拉菜单用显示和隐藏表示菜单展开和收起。因为它会是绝对定位 所以当下拉菜单显示时不会改变网页的布局，这意味着它显示时会出现其他内容前面。 接下来给下拉菜单加上相对定位。这样会给绝对定位的菜单创建一个包含块 代码76*/
+
+.container {
+	width: 80%;
+	max-width: 1000px;
+	margin: 1em auto;
+	
+}
+
+.dropdown {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown-label {
+	padding: .5em 1.5em;
+	border: 1px solid #ccc;
+	background-color: #eee;
+}
+
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 2.1em;
+	min-width: 100%;
+	background-color: #eee;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+.submenu {
+	padding-left: 0;
+	margin: 0;
+	list-style-type: none;
+	border: 1px solid #999;
+}
+
+.submenu > li + li {
+	border-top: 1px solid #999;
+	
+}
+
+.submenu > li > a {
+	display: block;
+	padding: .5em 1.5em;
+	background-color: #eee;
+	color: #369;
+	text-decoration: none;
+}
+
+.submenu > li > a:hover {
+	background-color: #fff;
+}
+/*当鼠标指针移动到主菜单标签时，下拉菜单就会从下面弹出 这里是在整个容器上设置:hover 状态来打开菜单 也就是说 只要鼠标停在它的任何内容上，无论是dropdown-label 还是dropdown-menu 菜单都会保持打开状态。
+
+当移动鼠标指针到主菜单标签时，下拉菜单就会从下面弹出 这里是在整个容器上设置:hover 状态来打开菜单。也就是说只要鼠标停在它的任何内容上，无论是dropdown-label还是dropdown-menu 菜单都会保持打开状态。
+
+绝对定位的dropdown-menu设置了left:0 让其左边和整个容器的左侧对齐。然后它使用top:2.1em 将其顶部边缘放在标签下面 （算上内边距和边框，标签高2.1em).min-width为100% 保证它至少等于容器的宽度（容器宽度由dropdown-label决定。）之后用submenu类给下来菜单内的菜单加上样式。
+
+如果现在打开模态框 你就会发现它以一种奇怪的方式位于下拉菜单后面 之后会解决。*/
+
+/*用户鼠标悬停的时候用了一个:hover伪类打开菜单 通常更稳健的方式是使用Javascript添加和移除一个控制菜单开关的类名。这样就能在打开和关闭菜单之前添加适当的延迟 防止用户在鼠标快速滑过时无意间触发:hover 整个例子用鼠标能正常生效，但是触屏设备上会无效 只有一部分触屏设备会在轻触的时候触发:hover状态。该例子也没有解决用屏幕阅读器或者用键盘切换时的可访问性问题。更严谨的做法是增强下拉菜单的功能，确保能用触屏控制，并且当用户使用tab键切换菜单项的时候保持菜单打开。*/
+
+/*创建一个CSS三角形
+
+下拉菜单距离完美还差一步 现在它已能正常工作，但用户无法一眼察觉到主菜单标签下面还有更多内容。我们来给标签加上一个小的向下箭头 我们可以用边框画一个三角形当作向下箭头，这里用标签的::after伪元素来画三角形，然后使用绝对定位将它放到标签的右边。 思路 边框足够宽 会挤出4个三角形，其中三个设置为透明，可以显示一个向下的三角形  给dropdown-label::after伪元素加上样式，做一个三角形 并让它绝对定位代码77*/
+
+.dropdown-label {
+	padding: 0.5em 2em 0.5em 1.5em;
+	border: 1px solid #ccc;
+	background-color: #EEEEEE;
+}
+
+.dropdown-label::after {
+	content: "";
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	border: 0.3em solid;
+	border-color: black transparent transparent;
+}
+
+.dropdown:hover .dropdown-label::after {
+	top: 0.7em;
+	border-color: transparent transparent black;
+}
+
+/*伪元素因为没有内容 所以没有宽或高。然后用border-color简写属性设置上边框为黑色 左右和下面的边框为透明 构造一个向下的箭头。dropdown-label右边用内边距留出了空间，用来放三角形。打开菜单 箭头方向反转 朝向上面，表示菜单可以被关闭。微调top值(从1em到0.7em) 让向上的箭头看起来跟向下的箭头处于相同的位置。
+
+模态框和下拉菜单都会出现在静态内容之前，但是源码后面出现的元素会绘制在先出现的元素之前。解决这个问题的一个办法是在源码里将<div class="modal"> 及其内容移到下拉菜单后面。
+
+通常情况下 模态框要放在网页内容最后 body关闭标签之前。大多数构建模态框的javascript库会自动这样做。 因为模态框使用固定定位 所以不必关心它的标记出现在哪里。它一定会定位到屏幕中间。 改变固定定位元素的标记位置不会产生不好的影响。但是对相对定位或绝对定位的元素来说，通常无法用改变标记位置的方法解决层叠问题。相对定位依赖于文档流，绝对定位元素依赖于它的定位祖先节点，这时候需要用z-index属性来控制它们的层叠行为。
+
+用z-index控制层叠顺序 z-index属性的值可以是任意整数（正负都行） z表示的是笛卡尔xyz坐标系里的深度方向。拥有较高z-index的元素出现在拥有较低z-index的元素前面。拥有负数z-index的元素出现在静态元素后面。 使用z-index是解决网页层叠问题的第二个方法。该方法不要求修改HTML的结构。将modal-backdrop的z-index设置为1，将modal-body的z-index设置为2，确保模态框的主体在蒙层前面。代码78*/
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 1;
+}
+
+.modal-body {
+	position: fixed;
+	top: 3em;
+	bottom: 3em;
+	right: 20%;
+	left: 20%;
+	padding: 2em 3em;
+	background-color: white;
+	overflow: auto;
+	z-index: 2;
+}
+
+/*z-index:1 将模态框的蒙层拉到没有设置z-index的元素前面，：2 将模态框主体拉到蒙层前面 z-index的行为很好理解，但是使用它时要注意两个小陷阱。第一 z-index只在定位元素上生效，不能用它控制静态元素。第二 给一个定位元素加上z-index可以创建层叠上下文。 */

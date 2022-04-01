@@ -128,6 +128,7 @@ color:var{
 <!--</div>-->
 	
 <!--浮动设计-->
+<!--
 <div class="container">
 	<header>
 		<h1>Franklin Running Club</h1>
@@ -172,9 +173,267 @@ color:var{
 				</div>
 			</div>
 		</div>
+-->
 <!--		tu48代码 clear clear:both声明让该元素移动到浮动元素的下面而不是侧面。clear值还可以设置为left right 这样只会相应地清楚向左或者向右浮动的元素。因为空div本身没有浮动 所以容器就会扩展 直到包含它 因此也会包含该div上面的浮动元素 有用但过于粗暴 所以还是不用-->
 <!--		<div style="clear: both"></div>-->
+<!--
 	</main>
 </div>
+-->
+	
+<!--构建网格系统-->
+	
+<!--
+<main class="main clearfix">
+	<h2>Running tips</h2>
+	<div class="row">
+		<div class="column-6">
+			<div class="media">
+				<img class="media-image" src="runner.png" alt="runn">
+				<div class="media-body">
+					<h4>Strength</h4>
+					<p>
+						Strength training is an important part of injury prevention. Focus on your core&mdash; especially your abs and glutes.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="column-6">
+			<div class="media">
+				<img class="media-image" src="shoes.png" alt="shoe">
+				<div class="media-body">
+					<h4>Cadence</h4>
+					<p>
+						Check your stride turnover. The most efficient runners take about 180 steps per minute.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="column-6">
+			<div class="media">
+				<img class="media-image" src="shoes.png" alt="shoe">
+				<div class="media-body">
+					<h4>Change it up</h4>
+					<p>
+						Don't run the same every time you hit the road. Vary your pace, and vary the distance of your runs.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="column-6">
+			<div class="media">
+				<img class="media-image" src="runner.png" alt="runn">
+				<div class="media-body">
+					<h4>Focus on form</h4>
+					<p>
+						Run tall but relaxed. Your feet should hit the ground beneath your hips, not out in front of you.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+-->
+<!--	使用flexbox布局实现网页。-->
+<!--
+<div class="container">
+	<header>
+		<h1>Ink</h1>
+	</header>
+	<nav>
+		<ul class="site-nav">
+			<li><a href="/">Home</a></li>
+			<li><a href="/features">Features</a></li>
+			<li><a href="/pricing">Pricing</a></li>
+			<li><a href="/support">Support</a></li>
+			<li class="nav-right"><a href="/about">About</a></li>
+		</ul>
+	</nav>
+	<main class="flex">
+		<div class="column-main title">
+			<h1>Team collaboration done right</h1>
+			<p>Thousands of teams from all over the world turn to <b>Ink</b> to communicate and get things done.</p>
+		</div>
+		<div class="column-sidebar">
+			<div class="title">
+				<form class="login-form">
+					<h3>Login</h3>
+					<p>
+						<label for="username">Username</label>
+						<input id="username" type="text" name="username" />
+					</p>
+					<p>
+						<label for="password">Password</label>
+						<input id="password" type="password" name="password" />
+					</p>
+					<button type="submit">Login</button>
+				</form>
+			</div>
+			<div class="title centered">
+				<small>Starting at</small>
+				<div class="cost">
+					<span class="cost-currency">$</span>
+					<span class="cost-dollars">20</span>
+					<span class="cost-cents">.00</span>
+				</div>
+				<a class="cta-button" href="/pricing">Sign up</a>
+			</div>
+		</div>
+	</main>
+</div> 
+-->
+<!--	网格容器-->
+<!--
+<div class="grid">
+	<div class="a"	>a</div>
+	<div class="b"	>b</div>
+	<div class="c"	>c</div>
+	<div class="d"	>d</div>
+	<div class="e"	>e</div>
+	<div class="f"	>f</div>
+</div>
+-->
+	
+<!--一个网格布局的HTML的结构-->
+<!--
+<div class="container">
+	<header>
+		<h1 class="page-heading">Ink</h1>
+	</header>	
+	<nav>
+		<ul class="site-nav">
+			<li><a href="/" >Home</a></li>
+			<li><a href="/features">Features</a></li>
+			<li><a href="/pricing">Pricing</a></li>
+			<li><a href="/support">Support</a></li>
+			<li class="nav-right"><a href="/about">About</a></li>
+		</ul>
+	</nav>
+	<main class="main tile">
+		<h1>Team collaboration done right</h1>
+		<p>Thousands of teams from all over the world turn to <b>Ink</b> to communicate and get things done.</p>
+	</main>
+	
+	<div class="sidebar-top tile">
+		<form class="login-form">
+			<h3>Login</h3>
+			<p>
+				<label for="username">Username</label>
+				<input id="username" type="text" name="username" />
+			</p>
+			<p>
+				<label for="password">Password</label>
+				<input id="password" type="password" name="password" />
+			</p>
+			<button type="submit">Login</button>
+		</form>
+	</div>
+	<div class="sidebar-bottom tile centered">
+		<small>Starting at</small>
+		<div class="cost">
+			<span class="cost-currency">$</span>
+			<span class="cost-dollars">20</span>
+			<span class="cost-cents">.00</span>
+		</div>
+		<a class="cta-button" href="/pricing">Sign up</a>
+	</div>
+</div>
+-->
+	
+<!--照片墙的标记-->
+<!--
+<div class="portfolio">
+	<figure class="featured">
+		<img src="images/monkey.jpg" alt="monkey" />
+		<figcaption>Monkey</figcaption>
+	</figure>
+	<figure>
+		<img src="images/eagle.jpg" alt="eagle" />
+		<figcaption>Eagle</figcaption>
+	</figure>
+	<figure class="featured">
+		<img src="images/bird.jpg" alt="bird" />
+		<figcaption>Bird</figcaption>
+	</figure>
+	<figure>
+		<img src="images/bear.jpg" alt="bear" />
+		<figcaption>Bear</figcaption>
+	</figure>
+	<figure class="featured">
+		<img src="images/swan.jpg" alt="swan" />
+		<figcaption>Swan</figcaption>
+	</figure>
+	<figure>
+		<img src="images/elephants.jpg" alt="elephants" />
+		<figcaption>Elephants</figcaption>
+	</figure>
+	<figure>
+		<img src="images/owl.jpg" alt="owl" />
+		<figcaption>Owl</figcaption>
+	</figure>
+</div>
+-->
+<!--每个<figure>都是一个网格元素。将图片和标题封装在<figure>元素中。 featured类让某些图片更大。-->
+	
+<!--创建一个模态框盒子-->
+	
+<header class="top-banner">
+	<div class="top-banner-inner">
+		<p>Find out what's going on at Wombat Coffee each month. Sign up for our newsletter:
+			<button id="open">Sign up</button>
+		</p>
+	</div>	
+</header>
+<div class="modal" id="modal">
+	<div class="modal-backdrop"	></div>
+	<div class="modal-body">
+		<button class="modal-close" id="close">close</button>
+		<h2>Wombat Newsletter</h2>
+		<p>Sign up for our monthly newsletter. No spam, We promise!</p>
+		<form>
+			<p>
+				<label for="email">Email address:</label>
+				<input type="text" name="email" />
+			</p>
+			<p><button type="submit">Submit</button></p>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	var button = document.getElementById("open");
+	var close = document.getElementById("close");
+	var modal = document.getElementById("modal");
+	
+	button.addEventListener("click", function(event){
+		event.preventDefault();
+		modal.style.display = "block";
+	});
+	close.addEventListener("click", function(event){
+		event.preventDefault();
+		modal.style.display = "none";
+	});
+	</script>
+	
+<!--创建一个下拉菜单-->
+<div class="container">
+	<nav>
+		<div class="dropdown">
+			<div class="dropdown-label">Main Menu</div>
+			<div class="dropdown-menu">
+				<ul class="submenu">
+					<li><a href="/">Home</a></li>
+					<li><a href="/coffees">Coffees</a></li>
+					<li><a href="/special">Specials</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<h1>Wombat Coffee Roasters</h1>
+	</div>
 </body>
 </html>
