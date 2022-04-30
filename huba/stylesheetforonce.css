@@ -1265,6 +1265,7 @@ space-evenly 讲空间分配到每个网格轨道之间 且在两端各加上同
 */
 /*创建一个模态框盒子，添加模态框样式。*/
 
+/*
 body {
 	font-family: helvetica, arial, sans-serif;
 	min-height: 200vh;
@@ -1316,6 +1317,7 @@ button {
 .modal-close {
 	cursor: pointer;
 }
+*/
 
 /*这段css里 我们使用了两次固定定位 第一次时modal-backdrop 四个方向都设置为0 这让蒙层填满整个视口。它还有一个背景色rgba(0,0,0,0.5) 黑色半透明。因此该元素下面的所有网页内容就会变暗。第二次固定定位了modal-body 它的四条边都在视口内：顶边和底边到视口对应的边缘为3em,左边和右边距离视口对于的边缘为20%。因为它的背景色为白色，所以模态框呈现为一个在屏幕居中的白色盒子。虽然可以随意滚动网页 但是背景和模态框主体都不会动。
 
@@ -1335,6 +1337,7 @@ width: 20%;
 让close按钮绝对定位，我们需要将close按钮设置为绝对定位 因为它的父元素modal-body是固定定位 所以会成为close按钮的包含块。以下，
 
 */
+/*
 .modal-close {
 	position: absolute;
 	top: 0.3em;
@@ -1342,6 +1345,7 @@ width: 20%;
 	padding: 0.3em;
 	cursor: pointer;
 }
+*/
 
 /*这段代码将按钮放在距离modal-body顶部0.3em, 右侧0.3em的位置。如本例 包含块是元素的父元素 如果父元素未被定位，那么浏览器会沿着DOM树往上找它的祖父，曾祖父，直到找到一个定位元素 用它作为包含块。
 
@@ -1349,6 +1353,7 @@ close按钮已经定位好了，只是过于简陋。流行的是把close换成x
 
 相反 可以用css隐藏close 并显示x 需要两步，先将按钮的文字挤到外面，并隐藏溢出内容。然后将按钮的::after伪元素的content属性设置为x 并让伪元素绝对定位到按钮中间。代码74 使用unicode里面的乘法符号 比字母x更对称 好看。html字符 &times 可以显示为这个字符，但是css的content属性里 必须写成转义Unicode数字：\00D7.*/
 
+/*
 .modal-close {
 	position: absolute;
 	top: 0.3em;
@@ -1371,6 +1376,7 @@ close按钮已经定位好了，只是过于简陋。流行的是把close换成x
 	text-indent: 0;
 	content: "\00D7";
 }
+*/
 
 /*以上代码指定按钮为1em大小的方形。text-indent属性将文字推到右边，溢出元素。它的确切值不重要，只要大于按钮宽度即可。由于text-indent是继承属性，需要在伪类元素选择器上设为0 因此x便不会缩进。
 
@@ -1387,6 +1393,7 @@ close按钮已经定位好了，只是过于简陋。流行的是把close换成x
 
 下拉菜单容器包含两个子元素 一个始终显示的灰色矩形标签以及一个下拉菜单 下拉菜单用显示和隐藏表示菜单展开和收起。因为它会是绝对定位 所以当下拉菜单显示时不会改变网页的布局，这意味着它显示时会出现其他内容前面。 接下来给下拉菜单加上相对定位。这样会给绝对定位的菜单创建一个包含块 代码76*/
 
+/*
 .container {
 	width: 80%;
 	max-width: 1000px;
@@ -1441,6 +1448,7 @@ close按钮已经定位好了，只是过于简陋。流行的是把close换成x
 .submenu > li > a:hover {
 	background-color: #fff;
 }
+*/
 /*当鼠标指针移动到主菜单标签时，下拉菜单就会从下面弹出 这里是在整个容器上设置:hover 状态来打开菜单 也就是说 只要鼠标停在它的任何内容上，无论是dropdown-label 还是dropdown-menu 菜单都会保持打开状态。
 
 当移动鼠标指针到主菜单标签时，下拉菜单就会从下面弹出 这里是在整个容器上设置:hover 状态来打开菜单。也就是说只要鼠标停在它的任何内容上，无论是dropdown-label还是dropdown-menu 菜单都会保持打开状态。
@@ -1455,6 +1463,7 @@ close按钮已经定位好了，只是过于简陋。流行的是把close换成x
 
 下拉菜单距离完美还差一步 现在它已能正常工作，但用户无法一眼察觉到主菜单标签下面还有更多内容。我们来给标签加上一个小的向下箭头 我们可以用边框画一个三角形当作向下箭头，这里用标签的::after伪元素来画三角形，然后使用绝对定位将它放到标签的右边。 思路 边框足够宽 会挤出4个三角形，其中三个设置为透明，可以显示一个向下的三角形  给dropdown-label::after伪元素加上样式，做一个三角形 并让它绝对定位代码77*/
 
+/*
 .dropdown-label {
 	padding: 0.5em 2em 0.5em 1.5em;
 	border: 1px solid #ccc;
@@ -1474,6 +1483,7 @@ close按钮已经定位好了，只是过于简陋。流行的是把close换成x
 	top: 0.7em;
 	border-color: transparent transparent black;
 }
+*/
 
 /*伪元素因为没有内容 所以没有宽或高。然后用border-color简写属性设置上边框为黑色 左右和下面的边框为透明 构造一个向下的箭头。dropdown-label右边用内边距留出了空间，用来放三角形。打开菜单 箭头方向反转 朝向上面，表示菜单可以被关闭。微调top值(从1em到0.7em) 让向上的箭头看起来跟向下的箭头处于相同的位置。
 
@@ -1483,6 +1493,7 @@ close按钮已经定位好了，只是过于简陋。流行的是把close换成x
 
 用z-index控制层叠顺序 z-index属性的值可以是任意整数（正负都行） z表示的是笛卡尔xyz坐标系里的深度方向。拥有较高z-index的元素出现在拥有较低z-index的元素前面。拥有负数z-index的元素出现在静态元素后面。 使用z-index是解决网页层叠问题的第二个方法。该方法不要求修改HTML的结构。将modal-backdrop的z-index设置为1，将modal-body的z-index设置为2，确保模态框的主体在蒙层前面。代码78*/
 
+/*
 .modal-backdrop {
 	position: fixed;
 	top: 0;
@@ -1504,5 +1515,154 @@ close按钮已经定位好了，只是过于简陋。流行的是把close换成x
 	overflow: auto;
 	z-index: 2;
 }
+*/
 
 /*z-index:1 将模态框的蒙层拉到没有设置z-index的元素前面，：2 将模态框主体拉到蒙层前面 z-index的行为很好理解，但是使用它时要注意两个小陷阱。第一 z-index只在定位元素上生效，不能用它控制静态元素。第二 给一个定位元素加上z-index可以创建层叠上下文。 */
+
+/*代码7-9css 这里面大部分代码是给盒子大小和颜色，以便看清层叠顺序 另外用负的外边距让元素重叠 而最核心的代码是给每个元素加上position和z-index*/
+
+/*
+body {
+	margin: 40px;
+}
+
+.box {
+	display: inline-block;
+	width: 200px;
+	line-height: 200px;
+	text-align: center;
+	border: 2px solid black;
+	background-color: #EEAA55;
+	margin-left: -60px;
+	vertical-align: top;
+}
+
+.one { margin-left:0;}
+.two {
+	margin-top: 30px;
+}
+.three {
+	margin-top: 60px;
+}
+
+.positioned {
+	position: relative;
+	background-color: #55AAEE;
+	z-index: 1;
+}
+
+.absolute {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	height: 2em;
+	background-color: #FFFFFF;
+	border: 2px dashed #888;
+	z-index: 100;
+	line-height: initial;
+	padding: 1em;
+}
+*/
+
+/*叠放在第二个盒子后面的第一个盒子是一个层叠上下文的根。因此 虽然它的z-index值很高，但是它内部的绝对定位元素不会跑到第二个盒子前面。 给一个定位元素加上z-index是创建层叠上下文最主要的方式，但还有别的属性也能创建，比如小于1的opacity属性，还有transform/ filter属性。由于这些属性主要会影响元素及其子元素渲染方式 因此一起绘制父子元素。文档根节点 html 也会给整个页面创建一个顶级的层叠上下文。
+
+所以层叠上下文内的元素会按照以下顺序 从后到前层叠放
+
+层叠上下文的根， z-index为负的定位元素 及其子元素， 非定位元素， z-index为auto的定位元素 及其子元素， z-index为正的定位元素 及其子元素。*/
+
+/*粘性定位 7-12 */
+
+/*
+.container {
+	display: flex;
+	width: 80%;
+	max-width: 1000px;
+	margin: 1em auto;
+	min-height: 100vh;
+}
+
+.col-main {
+	flex: 1 80%;
+}
+
+.col-sidebar {
+	flex: 20%;
+}
+
+.affix {
+	position: sticky;
+	top: 1em;
+}*/
+
+/*响应式布局网页样式*/
+
+:root {
+	box-sizing: border-box;
+	font-size: calc(1vw + 0.6em);
+}
+
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	font-family: helvetica, arial, sans-serif;
+}
+
+a:link {
+	color:#1476b8;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:visited {
+	color:#1430b8;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+	color: #b81414;
+}
+
+.page-header {
+	padding: 0.4em 1em;
+	background-color: #fff;
+}
+
+.title > h1 {
+	color: #333;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	margin: 0.2em 0;
+}
+
+.slogan {
+	color: #888888;
+	font-size: 0.875em;
+	margin: 0;
+}
+
+.hero {
+	padding: 2em 1em;
+	text-align: center;
+	background-image: url(conffee-beans.jpg);
+	background-size: 100%;
+	color: #fff;
+	text-shadow: 0.1em 0.1em 0.3em #000;
+}
+
+main {
+	padding: 1em;
+}
+
+.subtitle {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+}

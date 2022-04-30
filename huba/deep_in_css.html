@@ -381,6 +381,7 @@ color:var{
 	
 <!--创建一个模态框盒子-->
 	
+<!--
 <header class="top-banner">
 	<div class="top-banner-inner">
 		<p>Find out what's going on at Wombat Coffee each month. Sign up for our newsletter:
@@ -418,7 +419,7 @@ color:var{
 	});
 	</script>
 	
-<!--创建一个下拉菜单-->
+创建一个下拉菜单
 <div class="container">
 	<nav>
 		<div class="dropdown">
@@ -435,5 +436,95 @@ color:var{
 	</nav>
 	<h1>Wombat Coffee Roasters</h1>
 	</div>
+-->
+	
+<!--理解层叠上下文代码7-9-->
+	
+<!--
+<div class="box one positioned">one
+	<div class="absolute">nested</div>
+	</div>
+<div class="box two positioned">two</div>
+<div class="box three">three</div>
+-->
+	
+<!--这段代码包含了三个盒子，其中两个被定位 并且z-index为1 第一个盒子里面有一个绝对定位的元素 它的z-index为100. 虽然第一个盒子的z-index很高，但还是出现在第二个盒子后面，因为它的父元素 即第一个盒子形成的层叠上下文在第二个盒子后面-->
+
+<!--粘性定位 它是相对定位和固定定位的结合体，正常情况下 元素会随页面滚动，当到达屏幕特定位置时，如果用户继续滚动 它就会锁定在这个位置。 网页已经有了模态框和下拉菜单，现在升级一下网页，将其改成两栏布局，右边栏时一个粘性定位的侧边栏。714  网页刚加载的时候 侧边栏的位置一切正常。网页滚动，它也跟着滚动直到滚到快要离开视口的时候，它会锁定在那个位置。当网页的剩余部分继续滚动时，它却好像固定定位的元素一样停留在屏幕上。 
+
+接下来修改网页结构，定义两栏。在html里将容器改成711。把之前的内容 下拉菜单和网页标题 放在左边栏，再添加一个右边栏放“affix"菜单。 -->
+	
+<!--
+<div class="container">
+	<main class="col-main"	>
+		<nav>
+			<div class="dropdown">
+				<div class="dropdown-label">Main Menu</div>
+				<div class="dropdown-menu">
+					<ul class="submenu">
+						<li><a href="/">Home</a></li>
+						<li><a href="/coffees">Coffees</a></li>
+						<li><a href="brewers">Brewers</a></li>
+						<li><a href="/specials">Specials</a></li>
+						<li><a href="/about">About us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<h1>Wombat Coffee Roasters</h1>
+	</main>
+	
+	<aside class="col-sidebar">
+		<div class="affix">
+			<ul class="submenu">
+				<li><a href="/">Home</a></li>
+				<li><a href="/coffees">Coffees</a></li>
+				<li><a href="/brewers">Brewers</a></li>
+				<li><a href="/special">Specials</a></li>
+				<li><a href="/about">About us</a></li>
+			</ul>
+		</div>
+	</aside>
+</div>
+-->
+<!--响应式设计的网页标记-->
+<header id="header" class="page-header">
+	<div class="title">
+		<h1>Wombat Coffee Roasters</h1>
+		<div class="slogan">We love coffee</div>
+	</div>
+	</header>
+	<nav class="menu" id="main-menu">
+		<button class="menu-toggle" id="toggle-menu">toggle menu</button>
+		<div class="meni-dropdown">
+			<ul class="nav-menu">
+				<li><a href="/about.html">About</a></li>
+				<li><a href="/shop.html">Shop</a></li>
+				<li><a href="/menu.html">Menu</a></li>
+				<li><a href="/brew.html">Brew</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<aside id="hero" class="hero">
+	Welcome to Wombat Coffee Roasters. We are passionate about our craft, striving to bring you the best hand-crafted coffee in the city.
+	</aside>
+	
+	<main id="main">
+		<div class="row">
+			<section class="column">
+				<h2 class="subtitle">Single-origin</h2>
+				<p>We have bulit partnerships with small farms around the world to hand select beans at the peak of season. We then carefully roast in <a href="/batch-size.html">Small batches</a> to maximize their potential.</p>
+			</section>
+			<section class="column">
+				<h2 class="subtitle">Blends</h2>
+				<p>Our tasters have put together a selection of carefully balanced blends. Our famous <a href="/house-lend.html">House blend</a> is available year round.</p>
+			</section>
+			<section class="column">
+				<h2 class="subtitle">Brewing Equipment</h2>
+				<p>We offer our favorite kettles. French presses, and pour-over cones. Come to one of our <a href="/classes.html">Brewing classes</a> to learn how to brew the perfect pour-over cup.</p>
+			</section>
+		</div>
+	</main>
 </body>
 </html>
