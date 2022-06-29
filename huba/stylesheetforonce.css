@@ -1110,6 +1110,7 @@ grid-template-areas:*top top right*
 
 /*图片墙 代码清单6-9 它使用grid-auto-rows为所有的隐式网格行指定一个1fr的大小，每一行拥有相同的高度。该布局还引入两个新概念。auto-fill 和 minmax()函数*/
 
+/*
 body {
 	background-color: #709b90;
 	font-family: helvetica, arial, sans-serif;
@@ -1136,6 +1137,7 @@ body {
 	color: #fff;
 	text-align: right;
 }
+*/
 /*有时候我们不想给一个网格轨道设置固定尺寸，但是又希望限制它的最小值和最大值。这时候需要用minmax()函数 它指定两个值:最小尺寸和最大尺寸。浏览器会确保网格轨道的大小介于这两者之间。如果最大尺寸小于最小尺寸 最大尺寸就会被忽略。通过指定minmax(200px, 1fr) 浏览器确保了所有的轨道至少宽200px.
 
 repeat()函数里的auto-fill关键字是一个特殊值。设置了之后 只要网格放得下，浏览器就会尽可能多地生成轨道，并且不会跟指定大小(minmax()) 的限制产生冲突。
@@ -1148,6 +1150,7 @@ auto-fill 和 minmax(200px, 1fr) 加在一起 就会让网格在可用的空间�
 
 加上紧凑的auto-flow选项dense 小网格元素会填满大的元素造成的空白区域。
 610放大特定图片*/ 
+/*
 .portfolio {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1160,6 +1163,7 @@ auto-fill 和 minmax(200px, 1fr) 加在一起 就会让网格在可用的空间�
 	grid-row: span 2;
 	grid-column: span 2;
 }
+*/
 
 /*这段代码使用grid-auto-flow:dense 等价于grid-auto-flow:row dense 前面的写法隐含了row 因为初始值就是row 然后选中特定的图片将其设置为在水平和垂直方向上各占据两个网格轨道 注意 本例只用了span关键字 没有明确地将任何一个网格元素放到某个网格轨道上 这样布局算法就会将网格元素放到它觉得合适的地方。*/
 
@@ -1171,6 +1175,7 @@ contain 缩放图片 让它完整地填充盒子 导致盒子里出现空白。
 用flex-grow属性拉伸了图片 所有应该给它加上object-fit:cover防止渲染的图片变形 作为妥协 图片的边缘会被裁掉一部分。代码611
 */
 
+/*
 .portfolio > figure {
 	display: flex;
 	flex-direction: column;
@@ -1182,6 +1187,7 @@ contain 缩放图片 让它完整地填充盒子 导致盒子里出现空白。
 	object-fit: cover;
 	max-width: 100%;
 }
+*/
 /*让每个网格元素都成为垂直的flexbox 用弹性拉伸 让图片填充弹性容器的可用空间。让渲染的图片填充盒子并且不被拉伸 而是裁掉边缘。*/
 /*特性查询 如果浏览器不支持网格布局，并给出回退样式 css最近添加了一个叫做特性查询的功能 该功能有助于解决整个问题
 @supports (display:grid) {
@@ -1596,6 +1602,7 @@ body {
 
 /*响应式布局网页样式*/
 
+/*
 :root {
 	box-sizing: border-box;
 	font-size: calc(1vw + 0.6em);
@@ -1666,3 +1673,169 @@ main {
 	font-size: 0.875rem;
 	text-transform: uppercase;
 }
+*/
+
+/*将网页标题和副标题设置为全大写，还给页面上各种组件加上了外边距 调整字号。主图里 text-shadow属性的几个值最终会构成文字下面的投影。前两个值是笛卡尔坐标，表面了投影相对于文字位置的偏移量。0.1em 0.1em 表示投影相对于文字稍微往右下偏移。第三个值 0.3em表示投影模糊的程度 #000定义投影颜色*/
+
+/*8.1移动优先  <nav>作为一个兄弟元素出现在<header>后面，这意味着它会流动到头部下面的空间。为了实现设计效果，这里需要进行一项不常用的操作，使用绝对定位将菜单切换到按钮上面，让它出现在头部元素里面。*/
+
+/*
+.menu {
+	position: relative;
+}
+*/
+/*给两个绝对定位的子模块创建包含块*/
+/*
+.menu-toggle {
+	position: absolute;
+	top: -1.2em;
+	right: 0.1em;
+	border: 0;
+	background-color: transparent;
+	font-size: 3em;
+	width: 1em;
+	height: 1em;
+	line-height: 0.4;
+	text-indent: 5em;
+	white-space: nowrap;
+	overflow: hidden;
+}
+负的top值将按钮拉到了包含块的上面；覆盖浏览器的按钮样式；隐藏按钮的文本内容，将它的大小固定成1em
+.menu-toggle::after {
+	position: absolute;
+	top: 0.2em;
+	left: 0.2em;
+	display: block;
+	content: *\2261*;
+	text-indent: 0;
+
+}*/
+/*用一个表示汉堡包图标的Unicode符号将按钮覆盖*/
+/*
+.menu-dropdown {
+	display: none;
+	position: absolute;
+	right: 0;
+	left: 0;
+	margin: 0;
+}
+
+.menu.is-open .menu-dropdown {
+	display: block;
+}
+*/
+
+/*相对定位的菜单容器为它的两个子元素--切换按钮和下拉菜单--创建了包含块。负的top值将切换按钮向上拉了一段，right属性将它定位在屏幕右侧。最后切换按钮就位于网页标题右侧的头部区域了。
+在按钮上用一些替换的 小把戏，限制它的宽度 加上较大的文字缩进，并且将overflow设置成 hidden 从而隐藏了按钮本身的文字（“toggle menu").然后给按钮的::after伪元素加上一个unicode字符(\2261) 作为内容。三条横线表示汉堡菜单
+使用类is-open时，最后的选择器(.menu.is-opem.menu-dropdown)就会选中下拉菜单，没有这个类时 就不会选中下拉菜单。
+8-4 用javascript会在按下切换按钮的时候添加和删除类is-open 放在</body>标签前 这种方式通过点击 点击 来打开关闭下拉菜单，css会负责显示和隐藏指定元素，JavaScript只需要负责改变一个类。
+再给nav-menu添加一些样式。
+*/
+
+/*
+.nav-menu {
+	margin: 0;
+	padding-left: 0;
+	border: 1px solid #ccc;
+	list-style: none;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.nav-menu > li + li {
+	border-top: 1px solid #ccc;
+}
+给每个菜单元素加上边框
+.nav-menu > li > a {
+	display: block;
+	padding: 0.8em 1em;
+	color: #fff;
+	font-weight: normal;
+}
+*/
+
+/*使用适当的内边距确保有足够大的点击区域。*/
+
+/*媒体查询 允许某些样式只在页面满足特定条件才生效。这样就可以根据屏幕大小定制样式*/
+
+/*
+@media (min-width: 560px) {
+	.title > h1 {
+		font-size: 2.25em;
+	}
+}*/
+
+/*给网页标题样式增加断点*/
+
+/*
+.title > h1 {
+	color: #333333;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	margin: .2em 0;
+}
+
+@media (min-width: 35em) {
+	.title > h1 {
+		font-size: 2.25em;
+	}
+}
+*/
+/*现在根据视口大小 网页标题有两种不同的字号。当视口小于35em的时候是1.5rem,大于35em的时候是2.25rem. 通过缩放浏览器窗口就能测试标题样式。 当窗口很窄的时候，标题是适应移动端的小字号。慢慢放大浏览器窗口，字号会平滑地改变，因为网页设置了响应式(calc())字号。只要网页宽度达到35em 或者560px 标题的字号马上就会变成2.25rem. 在这里560px这个临界值被成为断点。 
+
+媒体查询的类型 还可以进一步将两个条件用and关键字联合起来组成一个媒体查询。*/
+
+/*@media (min-width: 20em) and (max-width: 35em) {...}*/
+
+/*如果设备只需要满足多个条件之一，可以用逗号分隔*/
+/*@media (max-width: 20em), (min-width: 35em;) {...}*/
+/*
+媒体特征
+(min-height: 20em) 匹配高度大于等于20em的视口
+(max-height: 20em) 匹配高度小于等于20em的视口
+(orientation:landscape) 匹配宽度大于高度的视口。
+(orientation:portrait) 匹配高度大于宽度的视口。*/
+/*(min-resolution:2dppx) 匹配屏幕分辨率大于等于2dppx的设备，dppx指每个css像素里包含的物理像素点数。
+
+(max-resolution:2dppx) 匹配屏幕分辨率小于等于2dppx的设备。
+
+兼容浏览器的设置
+
+@media (-webkit-min-device-pixel-ratio:2), (min-resolution: 192dpi) (...) 有些浏览器不支持dppx单位，因为需要使用dpi（每英寸的像素点数）单位代替例如：192dpi代替2dpx.
+
+最后一个媒体查询的选项是媒体类型。常见的两种媒体类型是screen和print 使用print媒体查询可以控制打印时的网页布局，这样就能在打印时去掉背景 节省墨水。隐藏不必要的导航栏。 针对打印样式，使用@media print查询语句 不需要像min-width或者其他媒体特征那样加小括号。同理，针对屏幕样式，使用@media screen.
+
+考虑打印样式 开发CSS的时候，通常在事后才会处理打印样式，而且只在需要的时候才会去考虑，但还是有必要思考用户是否想要打印网页的。 大多数情况下，需要将基础打印样式放在@media print {...}媒体查询内。
+
+使用display:none隐藏不重要的内容，比如导航菜单和页脚。当用户打印网页时，他们绝大多数情况下只关心网页主体。
+还可以将整体的字体颜色设置成黑色，去掉文字后面的背景图片和背景颜色。大多数情况下，用通用选择器就能实现。 
+*/
+/*
+@media print {
+	* {
+		color: black !important;
+		background: none !important;
+	}
+}*/
+/*使用!important 防止规则被覆盖*/
+/*给网页添加断点 移动优先的开发方式意味着最常用的媒体查询类型应该是min-width.在任何媒体查询之前，最先写的是移动端样式，然后设置越来越大的断点。8-8*/
+
+/*
+.title {
+	...
+}
+
+@media (min-width: 35em) {
+	.title {
+		...
+	}
+}
+
+@media (min-width:50em) {
+	.title {
+		...
+	}
+}
+*/
+
+/*中等屏幕的断点：覆盖对应的移动端样式，大屏幕断点：覆盖对应的小屏幕和中等屏幕断点的样式*/

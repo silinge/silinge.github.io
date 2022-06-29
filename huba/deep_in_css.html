@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>incss</title>
 <!--<link href="stylefordeepincss.css" rel="stylesheet" type="text/css" />-->
 <link href="stylesheetforonce.css" rel="stylesheet" type="text/css" />
@@ -526,5 +527,27 @@ color:var{
 			</section>
 		</div>
 	</main>
+	
+<!-- 8.1移动优先 创建移动版的菜单 汉堡包图标。从功能上讲 这个菜单很像第七章里的下拉菜单，我们将menu-dropdown隐藏起来 然后添加一些javascript实现菜单显示隐藏的功能 而不是像第七章那样用鼠标悬停实现。当用户点击或者轻触menu-toggle时 出现下拉菜单，第二次点击隐藏下拉菜单。
+另 屏幕阅读器将某些html5元素 比如 form main nav aside作为里程碑 帮助弱视用户快速浏览网页。因此要将控制菜单显示的汉堡包按钮放在<nav>元素里，以便用户浏览到这里时快速发现它 否则 用户跳到<nav>的时候只会发现他是空的 屏幕阅读器忽略了display:none的下拉菜单。
+
+8-4code
+-->
+<script type="text/javascript">
+	(function () {
+		var button = document.getElementById("toggle-menu");
+		button.addEventListener('click', function(event) {
+			event.preventDefault();
+			var menu = document.getElementById('main-menu');
+			menu.classList.toggle('is-open');
+		});
+	})();
+	</script>
+	
+<!--监听器点击事件(也包括触屏设备的轻触事件)；在菜单上切换类is-open-->
+	
+<!--给视口添加meta标签 这个HTML标签告诉移动设备 你已经特意将网页适配了小屏设备。如果不加这个标签，移动浏览器会假定网页不是响应式的，并且会尝试模拟桌面浏览器。8-6 放在<head>里面-->
+<!--meta标签的content属性包含两个选项，它告诉浏览器当解析CSS时将设备的宽度作为假定宽度，而不是一个全屏的桌面浏览器的宽度。其次当页面加载时，它使用initial-scale将缩放比例设置为100%；还有第三个属性 user-scalable = no,-->
+<!--	阻止用户在移动设备上用两个手指缩放。一般不建议使用。-->
 </body>
 </html>
