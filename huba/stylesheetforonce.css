@@ -1839,3 +1839,127 @@ main {
 */
 
 /*中等屏幕的断点：覆盖对应的移动端样式，大屏幕断点：覆盖对应的小屏幕和中等屏幕断点的样式*/
+
+/*中等屏幕断电下的内边距和字体调整*/
+/*
+.page-header {
+	padding: 0.4em 1em;
+	background-color: #fff;
+}
+
+@media (min-width: 35em) {
+	.page-header {
+		padding: 1em;
+	}
+}
+
+.hero {
+	padding: 2em 1em;
+	text-align: center;
+	background-image: url(coffee-beans.jpg);
+	background-size: 100%;
+	color: #FFFFFF;
+	text-shadow: 0.1em 0.1em 0.3em #000;
+}
+
+@media (min-width: 35em) {
+	.hero {
+		padding: 5em 3em;
+		font-size: 1.2rem;
+	}
+}
+
+main {
+	padding: 1em;
+}
+
+@media (min-width: 35em) {
+	main {
+		padding: 2em 1em;
+	}
+}
+*/
+/*总是确保每个媒体都位于它要覆盖的样式之后，这样媒体查询内的样式就会有更高的优先级。接下来处理菜单样式，菜单将涉及两处变化：首先 要将下拉菜单的打开和关闭行为去掉，这样才能始终保持可见。其次 要将菜单从垂直排列改为水平排列布局。这两处改变将一起实现*/
+
+/*为中等屏幕断点重构导航菜单。*/
+/*
+@media (min-width: 35em) {
+	.menu-toggle {
+		display: none;
+	}
+	.menu-dropdown {
+		display: block;
+		position: static;
+	}
+}
+
+@media (min-width: 35em) {
+	.nav-menu {
+		display: flex;
+		border: 0;
+		padding: 0 1em;
+	}
+	.nav-menu > li {
+		flex: 1;
+	}
+	.nav-menu > li + li {
+		border: 0;
+	}
+	.nav-menu > li > a {
+		padding: 0.3em;
+		text-align: center;
+	}
+}*/
+
+/*最后一步是要为中等屏幕断点引入多列布局。 只需要将这些样式封装在一个媒体查询里，这样就不会影响到小于这个断点的屏幕设备 写标记的时候，给想要加上三列布局的地方加上row和column类。接下来定义相关样式。*/
+/*
+@media (min-width: 35em) {
+	.row {
+		display: flex;
+		margin-left: -.75em;
+		margin-right: -.75em;
+	}
+	
+	.column {
+		flex: 1;
+		margin-left: 0.75em;
+		margin-right: 0.75em;
+	}
+}
+*/
+
+@media (min-width: 50em) {
+	.page-header {
+		padding: 1em 4em;
+	}
+}
+
+@media (min-width: 50em) {
+	.hero {
+		padding:7em 6em;
+	}
+}
+
+@media (min-width: 50em) {
+	main {
+		padding:2em 4em;
+	}
+}
+
+@media (min-width: 50em) {
+	.nav-menu {
+		padding:0 4em;
+	}
+}
+
+/*还需要最后一点调整。现在根元素的响应式字号为font-size: calc(1vm + 0.6em), 在大屏上就显得太大了。可以在最大的断点处给字号加一个上限。*/
+:root {
+	box-sizing: border-box;
+	font-size: calc(1vw + 0.6em);
+}
+
+@media (min-width: 50em) {
+	:root {
+		font-size: 1.125em;
+	}
+}
