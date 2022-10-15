@@ -1928,6 +1928,7 @@ main {
 }
 */
 
+/*
 @media (min-width: 50em) {
 	.page-header {
 		padding: 1em 4em;
@@ -1951,8 +1952,10 @@ main {
 		padding:0 4em;
 	}
 }
+*/
 
 /*还需要最后一点调整。现在根元素的响应式字号为font-size: calc(1vm + 0.6em), 在大屏上就显得太大了。可以在最大的断点处给字号加一个上限。*/
+/*
 :root {
 	box-sizing: border-box;
 	font-size: calc(1vw + 0.6em);
@@ -1963,3 +1966,303 @@ main {
 		font-size: 1.125em;
 	}
 }
+*/
+
+/*--这个布局由<table> 、<tr>、 <td>元素组成，但是我们对它们使用了display:block声明，覆盖了正常的table、table-row| table-cell的显示值。可以用max-width媒体查询限制在小屏下才改变表格元素的显示。可以将代码应用到任意<table>标签查看效果。
+在移动设备上实现表格的响应式布局*/
+/*
+
+table {
+	width: 100%;
+}
+
+@media (max-width: 30em) {
+	table, thead, tbody, tr, th, td {
+		display: block;
+	}
+	
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr {
+		margin-bottom: 1em;
+	}
+	
+}
+*/
+
+/*以上样式让每个单元格从上到下排列，并且在每个<tr>之间添加了外边距，但是这样会让<thead>行不再跟下面的每一列对齐，因此要用绝对定位将头部移出视口。出于可访问性的缘故，我们没有用display:none, 这样屏幕阅读器能够读到表头。虽然不是完美的解决办法，但是当其他方式失效的时候，这就是最好的方式。*/
+
+/*要避免不必要的高分辨率图片，而是否必要则取决于视口大小。也没有必要为小屏幕提高大图，因为大图最终会被缩小。响应式图片的最佳实践是为一个图片创建不同分辨率的副本。如果用媒体查询能够知道屏幕的大小，就不必发送过大的图片，不然浏览器为了适配图片也会将其缩小 使用响应式技术给不同屏幕尺寸提高最合适的图片。*/
+
+/*
+@media (min-width: 35em) {
+	.hero {
+		padding: 5em 3em;
+		font-size: 1.2rem;
+		background-image: url(coffee0beans-medium.jpg);
+	}
+}
+
+@media (min-width: 50em) {
+	.hero {
+		padding: 7em 6em;
+		background-image: url(coffee-beans.jpg);
+	}
+}
+*/
+
+/*使用srcset提供对应的图片 媒体查询能够解决用CSS加载图片的问题，但是HTML里的<img>标签 这种行内图片 有另一个重要解决办法：srcset属性 （"source set"的缩写）它可以为一个<img>标签指定不同的图片URL, 并指定相应的分辨率。浏览器会根据自身需要决定加载哪个图片。code8-16*/
+/*
+<img alt="a white coffee mug on a bed of coffee beans." src="coffee-beans-small.jpg" srcset="coffee-beans-small.jpg 560w,
+coffee-beans-medium.jpg 800w,
+coffee-beans.jpg 1280w" />*/
+/*两手准备，给不支持srcset的浏览器提供常规的src属性（ie, oprea mini)。 每个图片的URL指定宽度。图片作为流式布局的一部分，要确保它不会超过容器的宽度。办法是在样式表加入规则 img {max-width: 100%;}*/
+
+/*
+模块化样式。
+每个样式表的开头都要写一些给整个页面使用的通用规则，模块化css也不例外 称为基础样式 code-9-1。*/
+:root {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Helvetica, arial, sans-serif;
+}
+
+/*其他常用的基础样式还包括链接的颜色 标题的样式 外边距等。<body>标签默认的外边距很小，你可能会考虑将它的外边距去掉。推荐一个normalize.css库，这个小样式表可以协助消除不同的客户端浏览器渲染器渲染上的不一致。可以从https://necolas.github.io/normalize.css/下载该库，然后添加到自己的样式表前面作为基础样式的一部分。*/
+
+/*一个简单模块-短消息通知模块 902*/
+.message {
+	padding: 0.8em 1.2em;
+	border-radius: 0.2em;
+	border: 1px solid #265559;
+	color: #265559;
+	background-color: #E0F0F2;
+}
+
+/*模块的选择器由单个类名构成，这非常重要。选择器里没有其他规则来约束这些样式仅作用在页面上的某个地方。如果使用一个类似#sidebar.message的选择器，就意味着这个模块只能用在#sidebar元素内部。没有这些约束，模块就可以在任意上下文中重复使用。
+通过给元素添加类名，就可以把这些样式复用到很多场景，比如针对表单输入给用户反馈，提供醒目的帮助文字，或者提醒用户注意免责声明条款等。使用相同的组件就产生了一套风格一致的UI。所有用到组件的地方将看上去一样，不会出现有的地方蓝绿色有色差 有的地方内边距偏大等问题。*/
+
+/*通过定义修饰符来实现不同的模块变体*/
+/*新建三个修饰符 成功，警告，错误 通常使用两个连字符来表示修饰符 message--error code9-5*/
+.message{
+	padding: 0.8em 1.2em;
+	border-radius: 0.2em;
+	border: 1px solid #265559;
+	color: #265559;
+	background-color: #E0F0F2;
+}
+.message--success {
+	color: #2f5926;
+	border-color: #2f5926;
+	background-color: #cfe8c9;
+}
+
+.message--warning {
+	color: 594826;
+	border-color: #594826;
+	background-color: #cfe8c9;
+}
+.message--error {
+	color: #59262F;
+	border-color: #59262f;
+	background-color: #e8c9cf;
+}
+
+/*修饰符的样式不需要重新定义整个模块，只需要覆盖改变的部分。*/
+
+/* 创建带一些变体的模块。实现一个按钮模块，其中包含大小和颜色选项的变体 code 9-7*/
+
+.button {
+	padding: 0.5em 0.8em;
+	border: 1px solid #265559;
+	border-radius: 0.2em;
+	background-color: transparent;
+	font-size: 1rem;
+}
+
+.button--success {
+	border-color: #cfe8c9;
+	color: #fff;
+	background-color: #2f5926;
+}
+
+.button--danger {
+	border-color: #e8c9cf;
+	color: #fff;
+	background-color: #a02323;
+}
+
+.button-small {
+	font-size: 0.8rem;
+}
+
+.button--large {
+	font-size: 1.2rem;
+}
+
+/* 这里尺寸修饰符 small large 能够设置字体的大小。通过更改字号来调整元素相对单位的大小，进而改变内边距和边框圆角的大小，而不需要重写已经定义好的值 */
+
+/* 不要使用依赖语境的选择器。假如我们正在维护一个网站，里面有浅色调的下拉菜单，有一天需要改成带白色文本的深色调。如果没有模块化CSS 我们可能会使用类似于，page-header.dropdown的选择器，先选中要修改的下拉菜单，然后通过选择器写一些样式，覆盖dropdown类提供的默认颜色。现在要写模块化CSS 这样的选择器是严格禁用的。虽然使用后代选择器可以满足当下的需要，但接下来可能会带来很多问题。
+1 我们必须考虑把这段代码放在哪里，和网页头部的样式放在一起还是跟下拉菜单的样式放在一起。如果我们添加太多类似的单一目的规则，样式之间毫无关联，到最后样式表会变得杂乱无章
+2 这种做法提升了选择器优先级 当下次需要修改代码的时候 我们需要满足或者继续提升优先级
+3 后面我们可能需要在其他场景用到深色的下拉列表。刚才创建的这个下拉列表是限定在网页头部使用。如果侧边栏也需要同意的下拉列表，我们就得为该规则集添加新的选择器来匹配两个场景，或者完整地复制一遍样式。 
+4 重复使用这种写法会产生越来越长的选择器，将CSS跟特定的HTML结构绑定在一起。例如 如果有个#products-page.sider .social-media div:first-child h3 这样的选择器 样式集就会和指定页面的指定位置紧紧耦合
+
+当模块需要有不同的外观或者表现的时候，就创建一个可以直接应用到指定元素的修饰符类 比如写.dropdown--dark 而不是写成.page-header .dropdown.通过这种方式，模块本身 并且只能是它本身 可以决定自己的样式表现 其他模块不能进入别的模块内部去修改它 这样 深色下拉列表并没有绑定到深层嵌套的HTML结构上，也就可以在页面上需要的地方随意使用。*/
+
+/* 多元素模块 我们已经创建了消息和按钮两个模块 下面创建一个更复杂的模块，由4个元素组成: div容器 容器包含的一张图片和正文、正文里的标题。跟其他模块一样，我们会给主容器添加media类名来匹配模块名称。对于图片和正文，可以使用类名media_image和media_body 这些类名以模块名称开头，后跟双下划线 然后是子元素名称。(这是BEM命名规范里的另一种约定，就跟双连字符代表的修饰符一样。 
+代码9-8*/
+.media {
+	padding: 1.5em;
+	background-color: #eee;
+	border-radius: 0.5em;
+}
+
+.media::after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+.media__image {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.media__body {
+	overflow: auto;
+	margin-top: 0;
+}
+
+.media__body > h4 {
+	margin-top: 0;
+}
+/* 图片是媒体模块的一个子元素，所以可以使用选择器.media > .media__image, 但这不是必要的。因为media__image类名包含了模块的名称，所以已经确保模块名称是独一无二的了。
+
+正文标题确实直接使用了后代选择器。其实也可以用media__title类 (或者media__body_title,这样可以完整地表示出在整个层级中的位置。) 但是大部分时候没必要。本例中 <h4>标签已经足够语义化，能够表面这是媒体模块的标题。不过这样一来 标题就不能使用其他的HTML标签 h3或者h5了 如果这样限制过于严格，可以改成使用类名来匹配元素*/
+
+/* 代码9-10 */
+.media--right > .media__image {
+	float: right;
+}
+/* 把右浮动添加到图片子元素，但是只在media--right 修饰符中生效这条规则覆盖了媒体图片之前的float:left,由于浮动的工作原理，不需要改变HTML中元素的排列顺序。 */
+/* 避免在模块选择器中使用通用标签名。在媒体模块中使用了选择器.media__body > h4 来匹配标题元素。这么做是允许 ，因为<h4>标签就是用来标识一个次要标题的。同样的方式也可以用在带列表的模块上。相比为列表里的每个项目都添加menu__item类名，使用.menu > li匹配菜单项简单多了，尽管这种写法有些争议。
+应该避免使用基于通用标签类型的匹配，比如div和span。类似于 .page-header > span的选择器太宽泛。最初建立模块的时候，可能只是用span标签做一件事，说不定有第二个。 */
+
+/* 9.3拆分不同模块的职责 用两个不同的模块来创建下拉菜单。第一个模块称下拉 其中包含一个控制容器可见性的按钮。这个模块负责展示和隐藏容器。第二个模块叫作菜单，是放置链接的列表。把菜单模块的一个实例放入下拉模块的容器内，就可以构成完整的界面。这段代码主体是一个下拉模块，下拉模块内部包含菜单模块。代码中还有小段JAVASCRIPT 当触发器被点击时用来实现开关的功能。
+code 9-11 
+code9-12 下拉模块*/
+.dropdown {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown__toggle {
+	padding: 0.5em 2em 0.5em 1.5em;
+	border: 1px solid #ccc;
+	font-size: 1rem;
+	background-color: #eee;
+}
+
+.dropdown__toggle::after {
+	content: " ";
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	border: 0.3em solid;
+	border-color: black transparent transparent;
+}
+
+.dropdown__drawer {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 2.1em;
+	min-width: 100%;
+	background-color: #eee;
+}
+
+.dropdown.is-open .dropdown__toggle::after {
+	top: 0.7em;
+	border-color: transparent transparent black;
+}
+
+.dropdown.is-open .dropdown__drawer {
+	display: block;
+}
+/* 这是第一个使用定位的模块，其中创建了模块自己的包含块(主元素的position:relative) 绝对定位的元素(抽屉元素和::after伪元素)就是基于同一个模块内的位置来定位的。
+is-open类在下拉模块中有特定的用途。在模块使用javascript动态地添加或移除它。它也是状态类 stats class的一个示例，因为它代表着模块在当前状态的表现
+按照惯例 状态类一般以is- has-开头，这样状态类的目的就会比较明显。它们表示模块当前状态下的一些特征或者即将发生的变化。举例 is-expanded is-loading has-error */
+
+/* 预处理器和模块化CSS 所有预处理器 如Sass LESS都提供了把分散的CSS文件合并成一个文件的功能。可以用多个文件和多个目录来组织样式，最后提供一个文件给浏览器，这样可以减少浏览器发起的网络请求数，开发者也可以把代码文件拆分成易于维护的大小。
+使用预处理器， 建议把CSS里的每个模块都放在各自对应命名的文件里，并按实际需要将这些文件组织到不同目录中。然后创建一个主样式表，引入所有的模块。这样一来，你想修改某个模块就不必到一个冗长的样式表里面搜索。
+创建一个main.css文件，里面包含@import语句 如：
+@import 'base';
+@import 'message';
+@import 'button';
+@import 'media';
+@import 'dropdown';
+预处理器会从base.css 中引入基础样式，从每个模块文件引入相应的模块样式，然后输出一个包含所有样式的样式表文件。 */
+
+/* 菜单模块 code9-13  */
+.menu {
+	margin: 0;
+	padding-left: 0;
+	list-style-type: none;
+	border: 1px solid #999;
+}
+
+.menu > li + li {
+	border-top: 1px solid #999;
+}
+
+.menu > li > a {
+	display: block;
+	padding: 0.5em 1.5em;
+	background-color: #eee;
+	color: #369;
+	text-decoration: none;
+}
+
+.menu > li > a:hover {
+	background-color: #fff;
+}
+/* 覆盖浏览器默认样式，移除列表的项目符号。每个链接之间添加一条边框 增大链接的可点击区域。给鼠标悬停添加高亮效果 每个<li>都是模块的子元素，所有没有必要为每个元素添加双下划线类，直接使用后代选择器.menu > li已经足够明确 */
+/* 工具类，我们需要用一个类来对元素做一件简单明确的事，比如让文字居中，让元素左浮动，或者清除浮动。这样的类被称为工具类。code 9-14 四个小工具类 */
+.text-center {
+	text-align: center !important;
+}
+
+.float-left {
+	float: left;
+}
+
+.clearfix::before,
+.clearfix::after {
+	content: " ";
+	display: table;
+}
+
+.clearfix::after {
+	clear: both;
+}
+
+.hidden {
+	display: none !important;
+}
+
+/* 让容器内的文字居中 为元素设置左浮动 清除浮动 隐藏页面上某个元素
+这里用到了两次!important 工具类是唯一应该使用important注释的地方。事实上 工具类应该优先使用它。不管在哪里用到工具类，都可以生效。 任何时候为元素添加text-center 类，都是想让文本居中，不想让其他样式覆盖它，important注释可以确保这一点。
+可以把这些类添加到页面元素里看看实际效果。<div class="text-center">可以使其中的文本居中。将float-right添加到<img>标签可以使其浮动，把clearfix添加到<img>的容器元素上可以使其包裹浮动
+*/

@@ -489,7 +489,7 @@ color:var{
 </div>
 -->
 <!--响应式设计的网页标记-->
-<header id="header" class="page-header">
+<!-- <header id="header" class="page-header">
 	<div class="title">
 		<h1>Wombat Coffee Roasters</h1>
 		<div class="slogan">We love coffee</div>
@@ -526,13 +526,14 @@ color:var{
 				<p>We offer our favorite kettles. French presses, and pour-over cones. Come to one of our <a href="/classes.html">Brewing classes</a> to learn how to brew the perfect pour-over cup.</p>
 			</section>
 		</div>
-	</main>
+	</main> -->
 	
 <!-- 8.1移动优先 创建移动版的菜单 汉堡包图标。从功能上讲 这个菜单很像第七章里的下拉菜单，我们将menu-dropdown隐藏起来 然后添加一些javascript实现菜单显示隐藏的功能 而不是像第七章那样用鼠标悬停实现。当用户点击或者轻触menu-toggle时 出现下拉菜单，第二次点击隐藏下拉菜单。
 另 屏幕阅读器将某些html5元素 比如 form main nav aside作为里程碑 帮助弱视用户快速浏览网页。因此要将控制菜单显示的汉堡包按钮放在<nav>元素里，以便用户浏览到这里时快速发现它 否则 用户跳到<nav>的时候只会发现他是空的 屏幕阅读器忽略了display:none的下拉菜单。
 
 8-4code
 -->
+<!--
 <script type="text/javascript">
 	(function () {
 		var button = document.getElementById("toggle-menu");
@@ -543,11 +544,69 @@ color:var{
 		});
 	})();
 	</script>
+-->
 	
 <!--监听器点击事件(也包括触屏设备的轻触事件)；在菜单上切换类is-open-->
 	
 <!--给视口添加meta标签 这个HTML标签告诉移动设备 你已经特意将网页适配了小屏设备。如果不加这个标签，移动浏览器会假定网页不是响应式的，并且会尝试模拟桌面浏览器。8-6 放在<head>里面-->
 <!--meta标签的content属性包含两个选项，它告诉浏览器当解析CSS时将设备的宽度作为假定宽度，而不是一个全屏的桌面浏览器的宽度。其次当页面加载时，它使用initial-scale将缩放比例设置为100%；还有第三个属性 user-scalable = no,-->
 <!--	阻止用户在移动设备上用两个手指缩放。一般不建议使用。-->
+	
+<!--短消息模块902-->
+<!--<div class="message">Save successful.</div>-->
+<!--增加修饰符的模块9-5-->
+<div class="message message--error">wrong answer!</div>
+
+<!-- 使用修饰符创建多种类型的按钮 code 9-7-->
+<!-- <button class="button button--large">Read more</button>
+<button class="button button--success">Save</button>
+<button class="button button-danger button--small">Cancel</button> -->
+<!--双连字符的写法可能看起来有点多余，但是当我们开始创建名称很长的模块时，比如导航菜单或者文章摘要，好处就显现出来了。为这些模块添加修饰符后，类名将如
+ nav-menu--horizontal 或者 pull-quote--dark 如此模块和修饰符很容易分辨。-->
+
+ <!-- 不要使用依赖语境的选择器。--代码--9-8 -->
+
+ <!-- <div class="media">
+	<img class="media__image" src="runner.png">
+	<div class="media__body">
+		<h4>Strength</h4>
+		<p>Strength training is an important part of injury prevention. Focus on your core&mdash;
+			especially your abs and glutes.
+		</p>
+	</div>
+ </div> -->
+ <!-- 这个多功能模块 可以工作在各种尺寸的容器内部。随着容器宽度自适应调整。正文可以包含多个段落，也可以使用不同尺寸的图片-可以考虑为图片添加max-weight属性，防止图片被挤出正文区域。
+
+1 同时使用变体和子元素 我们可以创建模块的变体。现在可以很轻松地把图片从左浮动改成右浮动。
+变体media--right可以实现这样的效果。我们把变体的类名添加到模块的主div上(<div class="media media--right">) 然后通过类名匹配图片并设置为右浮动。
+	将修饰符类名添加到HTML里的元素上，代码9-10
+code 9-11-->
+
+<div class="dropdown">
+	<button class="dropdown__toggle">Main menu</button>
+	<div class="dropdown__drawer">
+		<ul class="menu">
+			<li><a href="/">Home</a></li>
+			<li><a href="/coffees">Coffees</a></li>
+			<li><a href="/brewers">Brewers</a></li>
+			<li><a href="/specials">Specials</a></li>
+			<li><a href="/about">about us</a></li>
+		</ul>
+	</div>
+
+<script type="text/javascript">
+	(function () {
+		var toggle = document.querySelector('.dropdown__toggle');
+		toggle.addEventListener('click', function (event){
+			event.preventDefault();
+			var dropdown = event.target.parentNode;
+			dropdown.classList.toggle('is-open');
+		}
+		);
+	}());
+</script>
+</div>
+
+<!-- 这里使用双下划线标记，表示触发器和抽屉是下拉模块的子元素。点击触发器可以显示或者隐藏抽屉元素。JAVASCRIPT代码为下拉模块的主元素添加或者移除is-open类，以此来实现这个功能。对应样式code9-12 -->
 </body>
 </html>
