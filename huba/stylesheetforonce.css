@@ -2266,3 +2266,9 @@ is-open类在下拉模块中有特定的用途。在模块使用javascript动态
 这里用到了两次!important 工具类是唯一应该使用important注释的地方。事实上 工具类应该优先使用它。不管在哪里用到工具类，都可以生效。 任何时候为元素添加text-center 类，都是想让文本居中，不想让其他样式覆盖它，important注释可以确保这一点。
 可以把这些类添加到页面元素里看看实际效果。<div class="text-center">可以使其中的文本居中。将float-right添加到<img>标签可以使其浮动，把clearfix添加到<img>的容器元素上可以使其包裹浮动
 */
+/*code 11-2*/
+.fade {
+	height: 200px;
+	width: 120px;
+	background-image: linear-gradient(90deg, white, lightskyblue);
+}
