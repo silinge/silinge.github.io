@@ -29,7 +29,7 @@ a:hover{
 }
 .mark_line{
 /*    background-color: lightskyblue;*/
-	background-image: linear-gradient(to left, lightgreen, white, lightsalmon);
+	background-image: linear-gradient(to left, lightgray, white, lightsalmon);
 	width: 100%;
     height: 1em;
 	margin: 0.2em 0;
@@ -59,6 +59,6 @@ a:hover{
 }
 .five{
 /*    background-color: #50C1E9;*/
-	background-image: linear-gradient(to left, lightskyblue, lightgrey, lightcoral);
+	background-image: linear-gradient(to left, lightskyblue, lightgrey);
 }
 

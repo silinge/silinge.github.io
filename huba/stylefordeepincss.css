@@ -446,7 +446,7 @@ main{
 }*/
 /*---------------元素高度问题 控制溢出行为*/
 /*overflow属性 默认值visible 所有内容可见 即使溢出容器边缘，hidden溢出容器内边距边缘的内容被裁剪无法看见，scroll 出现滚动条，auto只有内容溢出时容器才会出现滚动条。*/
-/*控制水平方向溢出 和 垂直方向溢出 overflow-x overflow-y*/\
+/*控制水平方向溢出 和 垂直方向溢出 overflow-x overflow-y*/
 /*css表格布局 给容器设置display:table, 给每一列设置display:table-cell css表格不像html那样必须有行元素 因此这里没有table-row元素。*/
 /*
 .container{
