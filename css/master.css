@@ -62,3 +62,6 @@ a:hover{
 	background-image: linear-gradient(to left, lightskyblue, lightgrey);
 }
 
+.six {
+	background-image: linear-gradient(to left, #d9d9f3, lightgrey, rgb(171, 252, 171));
+}
