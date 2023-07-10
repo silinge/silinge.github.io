@@ -2475,7 +2475,7 @@ background-blend-mode不仅仅合并多个背景图片，还会合并background-
 融合后的效果很有意思，文字看上去是透明的，就像红色通知栏被减掉一部分。这里我们使用了hard-light混合模式和中灰色文字颜色。对比混合模式在使用很亮或很暗的颜色是才会有更好的效果，这里的文字我们使用了中灰色#808080，背景图层显示出来之后没有太大变化。*/
 
 /* code1117 融合混合 */
-.blend {
+/* .blend {
 	background-image: url('test.jpg');
 	background-size: cover;
 	background-position: center;
@@ -2492,4 +2492,337 @@ background-blend-mode不仅仅合并多个背景图片，还会合并background-
 	color: #808080;
 	border: 0.1em solid #ccc;
 	border-width: 0.1em 0;
+} */
+
+/* code121添加基础样式和颜色的网页 */
+/* html {
+	--brand-green: #076448;
+	--dark-green: #099268;
+	--medium-green: #20c997;
+	--text-color: #212529;
+	--gray: #868e96;
+	--light-gray: #f1f3f5;
+	--extra-light-gray: #f8f9fa;
+	--white: #fff;
+
+	box-sizing: border-box;
+	color: var(--text-color);
+} */
+/* 为每种颜色指定变量 */
+
+html {
+	--brand-green: hsl(162, 87%, 21%);
+	--dark-green: hsl(162, 88%, 30%);
+	--medium-green: hsl(162, 73%, 46%);
+	--text-color: hsl(210, 11%, 15%);
+	--gray: hsl(210, 7%, 56%);
+	--light-gray: hsl(210, 17%, 95%);
+	--extra-light-gray: hsl(210, 17%, 98%);
+	--white: hsl(0, 0%, 100%);
+	--red: hsl(342, 63%, 46%);
+	box-sizing: border-box;
+	color: var(--text-color);
 }
+/* 把样式表切换HSL颜色 添加一种红色作链接激活显示*/
+
+*,
+*::before
+*::after {
+	box-sizing: inherit;
+}
+
+/* body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.4;
+	background-color: var(--extra-light-gray);
+}
+
+h1, h2, h3, h4{
+	font-family: georgia, serif;
+} */
+/* 用到颜色的地方用变量代替 */
+
+a {
+	color: var(--medium-green);
+}
+
+a:visited {
+	color: var(--brand-green);
+}
+
+a:hover {
+	color: var(--brand-green);
+}
+
+a:active{
+	color: var(--red);
+}
+/* 先为链接激活状态占位，后面需要改成红色  链接的激活状态不是默认显示的，所以这稍微有点麻烦。需要单击并停留在链接上才能出发激活，一旦松手又会变成绿色，可以使用开发工具强制激活链接。
+按鼠标右键点击链接，在菜单中选择"检查"或者"查看元素",就可以打开开发者工具。 在Elements面板，右键点击<a>标签，在菜单中选择:active 这样就可以强制浏览器显示元素的激活样式。*/
+/* 头部样式 */
+.nav-container {
+	background-color: var(--medium-green);
+}
+
+.nav-container__inner {
+	display: flex;
+	justify-content: space-between;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+/* 将内容居中，限制最大宽度为1080px */
+
+.home-link {
+	color: var(--text-color);
+	font-size: 1.6rem;
+	font-family: georgia, serif;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.top-nav {
+	display: flex;
+	list-style-type: none;
+}
+
+.top-nav a {
+	display: block;
+	padding: 0.3em 1.25em;
+	color: var(--white);
+	background: var(--brand-green);
+	text-decoration: none;
+	border-radius: 3px;
+}
+
+.top-nav a:hover {
+	background-color: var(--dark-green);
+}
+
+.top-nav__featured > a {
+	color: var(--brand-green);
+	background-color: var(--white);
+}
+
+.top-nav__featured > a:hover {
+	color: var(--medium-green);
+	background-color: var(--white);
+}
+/* 从顶部开始，分三个部分来进行：头部区域 主图区域和三栏主体部分。大部分工作可以复用前面章节技术。首先是头部以及导航条区域。这部分由三个模块组成，nav-container、home-link和top-nav。 
+整个头部区域包裹了一个nav-container.使用了双容器的模式来使内部的元素居中。这样可以实现背景颜色一直延伸到页面边缘，而主体部分被限制了宽度。主体部分是一个弹性盒子容器，使用justify-content:space-between将内容置于两端：home-link在左侧，top-nav在右侧。top-nav也使用了弹性布局，这样其内部的所有链接都排成一行，同时链接的颜色使用了自定义属性进行了配置。
+
+接下来为主图区域添加样式。这部分包括两个模块，一个主图 另一个是按钮。code124*/
+/* .hero {
+	background: url(collaboration.jpg) no-repeat;
+	background-size: cover;
+	margin-bottom: 2.5rem;
+}
+
+.hero__inner {
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 50px 0 200px;
+	text-align: right;
+}
+
+.hero h2 {
+	font-size: 1.95rem;
+}
+
+.button {
+	display: inline-block;
+	padding: 0.4em 1em;
+	color: var(--brand-green);
+	border: 2px solid var(--brand-green);
+	border-radius: 0.2em;
+	text-decoration: none;
+	font-size: 1rem;
+}
+
+.button:hover {
+	background-color: var(--dark-green);
+	color: var(--white);
+}
+
+.button--cta {
+	padding: 0.6em 1em;
+	background-color: var(--brand-green);
+	color: var(--white);
+	border: none;
+} */
+
+/* 双容器模式，简单使用内边距定位标语和按钮，标准按钮样式 CTA 
+
+像头部一样，主图区域使用了双容器模式。内容器设置了一些内边距，这里的内边距值只是粗略地估算的。还定义了一个按钮模块，默认的外观是白色按钮，带有绿色的边框和文字。页面的主体部分底部使用的按钮就是默认样式。然后我们还为按钮定义了一个CTA变体，使用纯绿色背景和白色文字。cta - call to action 
+
+页面主区域的大概样式 几部分组成 限制了最大宽度的容器 控制三栏布局的tile-row和每一栏内的白色板块区域tile.*/
+
+.container {
+	margin: 0 auto;
+	max-width: 1080px;
+}
+
+.tile-row {
+	display: flex;
+}
+
+.tile-row > * {
+	flex: 1;
+}
+
+.tile {
+	background-color: var(--white);
+	border-radius: 0.3em;
+}
+
+.page-footer {
+	margin-top: 3em;
+	padding: 1em 0;
+	background-color: var(--light-gray);
+	color: var(--gray);
+}
+
+.page-footer__inner {
+	margin: 0 auto;
+	max-width: 1080px;
+	text-align: center;
+	font-size: 0.8rem;
+}
+
+/* 页面最大宽度设置一致 1080px 使所有栏等宽 和页面其他部分一样 设置最大宽度1080px */
+
+/* web内容无障碍指南WCAG提供了关于对比度最小值的建议。WCAG定义的大号文本，是指未加粗的18pt=24px及其以上的文本，或者加粗的14pt-18.667px及其以上的文本。正文字体应该达到或者超出普通文本建议的对比度，标题文本应该达到或者超出大号文本建议的对比度。
+使用contrast ratio工具可以检查支持所有可用的CSS颜色格式。把背景颜色和文本颜色粘进去，就可以显示计算好的对比度 鼠标悬停在数字上，就可以查看其是否通过了WCAG的哪种字号AA/AAA级。
+在设计规范中，导航条里的标注测量值显示菜单项需要10px的环绕间距。因为基础字号是16px 计算一下，使用期望长度除以基础字号，10除以16=0.625 所以这里的间距就是0.625em code128 使用内边距和外边距设置导航区域的间距*/
+
+.nav-container {
+	background-color: var(--medium-green);
+}
+
+.nav-container__inner {
+	display: flex;
+	justify-content: space-between;
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 0.625em 0;
+}
+
+.top-nav {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+}
+
+.top-nav > li + li {
+	margin-left: 0.625em;
+}
+
+/* 为整个导航条的顶部和底部添加10PX的内边距，移除用户代理样式表为列表默认添加的外边距，每个导航项之间添加10px的水平外边距
+在这个例子中，nav-container__inner应该用内边距来设置垂直间隔，这样就可以应用整个容器，最左侧的页面标题和顶部导航列表都可以填充间距。然后使用外边距来设置每个导航项之间的水平间隔，因为希望每项之间有间隔
+主图下方和三栏之间，因为这些间隔都是应用于元素外部，不论带背景图片的元素还是设置背景色的元素，所以需要使用外边距来实现间隔。
+主图下方40px 栏目之间25px的外边距  再次使用像素值除以基础字号，把长度转化为em。主图下方的40px相当于2.5em 每个栏目之间的25px相当于1.5625em code129 为主图下方和栏目之间添加外边距*/
+/* .hero {
+	background: url(test.jpg) no-repeat;
+	background-size: cover;
+	margin-bottom: 2.5rem;
+}
+
+.tile-row {
+	display: flex;
+}
+
+.tile-row > * {
+	flex: 1;
+}
+
+.tile-row > * + * {
+	margin-left: 1.5625em;
+} */
+
+/* 确保主图下方有40PX的间距，每个栏目之间添加25px的间距 
+code1210 设置板块和段落间距*/
+
+p {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+.tile {
+	background-color: var(--white);
+	border-radius: 0.3em;
+	padding: 1.5625em;
+}
+
+.tile > h4 {
+	margin-bottom: 1.5em;
+}
+
+/* 在基础样式中为段落添加外边距，在板块内部增加内边距，在板块标题下方添加外边距 
+已经在基础样式中为段落设置1.5em的外边距，整个网页所有的段落都会有同样的间距。然后在板块标题下方设置一样的距离（.tile > h4)，因此不管后面有没有段落 标题下方的间距都会一直相同。这是由于存在外边距折叠，两个外边距会重叠，在标题和段落之间生成一个30px的间距。
+标语的行高一样会影响到设置这些间距，因为它的字号更大。标语字号是1.95rem，这就意味着乘以16px的基础字号之后，字号是31.2px。然后再乘以1.4倍的行高，最终算出行高是43.68px，文字的上方和下方各有大约6px.
+既然行高已经在文字上方占据了6px，我们只需要再增加89px的间隔，就达到了期望的95px.标语下方只需要再增加10px，就达到了视觉稿中显示的16px间隔。接下来就是把这些值转化为相对单位并添加到样式表。89/16=5.5625em 10/16得到0.625em.
+code1211
+*/
+
+.hero {
+	background: url(test.jpg) no-repeat;
+	background-size: cover;
+	margin-bottom: 2.5rem;
+}
+
+.hero__inner {
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 5.5625em 12.5em 12.5em 0;
+	text-align: right;
+}
+
+.hero h2 {
+	font-size: 1.95rem;
+	margin-top: 0;
+	margin-bottom: 0.625rem;
+}
+
+/* 使用刚刚计算得到的距离替换之前的估值 移除上方的外边距，因为hero__inner的内边距已经提供了所需的间距 设置标语和按钮之间的间距 
+hero__inner元素的顶部内边距设置了标语上方所需的间距。虽然设计稿中没有指定它的右侧和底部内边距，但我们也设置了值。标语的顶部外边距设置为0，这样就不会在hero__inner的内边距上再增加额外的距离。标语的底部外边距使用rem单位而不是em单位，这是因为标语不是使用默认的16px字号*/
+
+/* 1220 列表项需要添加样式并实现行内显示 每项都需要设置display:inline,还需要少许的内边距 背景颜色和边框圆角。开始时感觉设置这些样式就够了，但是一旦内容出现折行，就暴露了问题。如果视口的宽度是固定值或者内容持续增加 排版就会被打乱。每一行列表项的灰色背景会和另一行的列表项重叠，原因在于行高。文本行的高度是有行高乘以字号决定，如果为行内元素添加内边距 元素本身会变高 却不会增加文本行的高度，文本行的高度只由行高来决定。  要解决整个问题 就需要增加每项的行高。
+code1212为标签添加样式*/
+.tag-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.tag-list > li {
+	display: inline;
+	padding: 0.3rem 0.5rem;
+	font-size: 0.8rem;
+	border-radius: 0.2rem;
+	background-color: var(--light-gray);
+	line-height: 2.6;
+}
+
+/* 覆盖用户代理默认的列表样式， 设置很大的行高，折行的时候增加垂直间距 只有行内元素有这种行为，如果一个元素是弹性子元素，为了容纳它 其所在的行会随之增高  只有行内元素有这种行为，如果一个元素是弹性子元素或者行内块级元素，为了容纳它，其所在的行会随之增高。还需要设置水平和垂直外边距，为子元素之间增加间隔。利用原本就有的白色背景，这些元素之间就产生了想要的间距*/
+
+/* code13-2 使用web字体，google font */
+
+body {
+	margin: 0;
+	font-family: roboto, sans-serif;
+	line-height: 1.4;
+	background-color: var(--extra-light-gray);
+}
+
+h1, h2, h3, h4 {
+	font-family: Sansita, serif;
+}
+
+.home-link {
+	color: var(--text-color);
+	font-size: 1.6rem;
+	font-family: Sansita, serif;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* 对页面全局应用Roboto字体 设置标题为Sansita字体 设置首页链接为Sansita字体 */

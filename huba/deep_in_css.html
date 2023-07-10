@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>incss</title>
 <!--<link href="stylefordeepincss.css" rel="stylesheet" type="text/css" />-->
-<link href="stylesheetforonce.css" rel="stylesheet" type="text/css" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sansita:wght@800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -582,7 +585,7 @@ color:var{
 	将修饰符类名添加到HTML里的元素上，代码9-10
 code 9-11-->
 
-<div class="dropdown">
+<!-- <div class="dropdown">
 	<button class="dropdown__toggle">Main menu</button>
 	<div class="dropdown__drawer">
 		<ul class="menu">
@@ -605,7 +608,7 @@ code 9-11-->
 		);
 	}());
 </script>
-</div>
+</div> -->
 
 <!-- 这里使用双下划线标记，表示触发器和抽屉是下拉模块的子元素。点击触发器可以显示或者隐藏抽屉元素。JAVASCRIPT代码为下拉模块的主元素添加或者移除is-open类，以此来实现这个功能。对应样式code9-12 -->
 <!--渐变 -->
@@ -634,9 +637,57 @@ grad 百分度gradian 一个完整的圆是400百分度400grad 100grad相当于9
 <!-- <div class="blend">混合背景图片</div> -->
 
 <!-- code1116 融合混合-->
-<div class="blend">
+<!-- <div class="blend">
 	<h1>Usra Major</h1>
+</div> -->
+<!-- code121对比最重要 -->
+<nav class="nav-container">
+	<div class="nav-container__inner">
+		<a class="home-link" href="/">Ink</a>
+		<ul class="top-nav">
+			<li><a href="/features">Features</a></li>
+			<li><a href="/pricing">Pricing</a></li>
+			<li><a href="/support">Support</a></li>
+			<li class="top-nav__featured"><a href="/login">Login</a></li>
+		</ul>
+	</div>
+</nav>
+
+<div class="hero">
+	<div class="hero__inner"><h2>Team collaboration done right</h2><a href="/sign-up" class="button button--cta">Get started</a></div>
 </div>
 
+<div class="container">
+	<div class="tile-row">
+		<div class="tile">
+			<h4>work together, even if you're apart</h4>
+			<p>Organize your team conversations into threads. Collaborate together on documents in real-time. Use face-to-face <a href="/features/video-calling">video calls</a> when typing just won't do.</p>
+			<a href="/collaboration" class="button">Read more</a>
+		</div>
+		<div class="title">
+			<h4>Take it with you</h4>
+			<p>Ink is available on a wide array of devices, so you can work from anywhere:</p>
+			<ul class="tag-list">
+				<li>Web</li>
+				<li>ios</li>
+				<li>Android</li>
+				<li>Windows Phone</li>
+			</ul>
+			<a href="/supported-devices" class="button">Read more</a>
+		</div>
+
+		<div class="tile">
+			<h4>Priced right</h4>
+			<p>Whether you work on a team of three or a three hundred, you'll find our tierd pricing reasonable at every level.</p>
+			<a href="/pricing" class="button">Read more</a>
+		</div>
+	</div>
+</div>
+
+<footer class="page-footer">
+	<div class="page-footer__inner">
+		Copyright &copy; 2017 Ink, Inc.
+	</div>
+</footer>
 </body>
 </html>
