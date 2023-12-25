@@ -2025,7 +2025,7 @@ coffee-beans.jpg 1280w" />*/
 /*
 模块化样式。
 每个样式表的开头都要写一些给整个页面使用的通用规则，模块化css也不例外 称为基础样式 code-9-1。*/
-:root {
+/* :root {
 	box-sizing: border-box;
 }
 
@@ -2037,25 +2037,25 @@ coffee-beans.jpg 1280w" />*/
 
 body {
 	font-family: Helvetica, arial, sans-serif;
-}
+} */
 
 /*其他常用的基础样式还包括链接的颜色 标题的样式 外边距等。<body>标签默认的外边距很小，你可能会考虑将它的外边距去掉。推荐一个normalize.css库，这个小样式表可以协助消除不同的客户端浏览器渲染器渲染上的不一致。可以从https://necolas.github.io/normalize.css/下载该库，然后添加到自己的样式表前面作为基础样式的一部分。*/
 
 /*一个简单模块-短消息通知模块 902*/
-.message {
+/* .message {
 	padding: 0.8em 1.2em;
 	border-radius: 0.2em;
 	border: 1px solid #265559;
 	color: #265559;
 	background-color: #E0F0F2;
-}
+} */
 
 /*模块的选择器由单个类名构成，这非常重要。选择器里没有其他规则来约束这些样式仅作用在页面上的某个地方。如果使用一个类似#sidebar.message的选择器，就意味着这个模块只能用在#sidebar元素内部。没有这些约束，模块就可以在任意上下文中重复使用。
 通过给元素添加类名，就可以把这些样式复用到很多场景，比如针对表单输入给用户反馈，提供醒目的帮助文字，或者提醒用户注意免责声明条款等。使用相同的组件就产生了一套风格一致的UI。所有用到组件的地方将看上去一样，不会出现有的地方蓝绿色有色差 有的地方内边距偏大等问题。*/
 
 /*通过定义修饰符来实现不同的模块变体*/
 /*新建三个修饰符 成功，警告，错误 通常使用两个连字符来表示修饰符 message--error code9-5*/
-.message{
+/* .message{
 	padding: 0.8em 1.2em;
 	border-radius: 0.2em;
 	border: 1px solid #265559;
@@ -2077,13 +2077,13 @@ body {
 	color: #59262F;
 	border-color: #59262f;
 	background-color: #e8c9cf;
-}
+} */
 
 /*修饰符的样式不需要重新定义整个模块，只需要覆盖改变的部分。*/
 
 /* 创建带一些变体的模块。实现一个按钮模块，其中包含大小和颜色选项的变体 code 9-7*/
 
-.button {
+/* .button {
 	padding: 0.5em 0.8em;
 	border: 1px solid #265559;
 	border-radius: 0.2em;
@@ -2109,7 +2109,7 @@ body {
 
 .button--large {
 	font-size: 1.2rem;
-}
+} */
 
 /* 这里尺寸修饰符 small large 能够设置字体的大小。通过更改字号来调整元素相对单位的大小，进而改变内边距和边框圆角的大小，而不需要重写已经定义好的值 */
 
@@ -2216,7 +2216,7 @@ is-open类在下拉模块中有特定的用途。在模块使用javascript动态
 预处理器会从base.css 中引入基础样式，从每个模块文件引入相应的模块样式，然后输出一个包含所有样式的样式表文件。 */
 
 /* 菜单模块 code9-13  */
-.menu {
+/* .menu {
 	margin: 0;
 	padding-left: 0;
 	list-style-type: none;
@@ -2237,10 +2237,10 @@ is-open类在下拉模块中有特定的用途。在模块使用javascript动态
 
 .menu > li > a:hover {
 	background-color: #fff;
-}
+} */
 /* 覆盖浏览器默认样式，移除列表的项目符号。每个链接之间添加一条边框 增大链接的可点击区域。给鼠标悬停添加高亮效果 每个<li>都是模块的子元素，所有没有必要为每个元素添加双下划线类，直接使用后代选择器.menu > li已经足够明确 */
 /* 工具类，我们需要用一个类来对元素做一件简单明确的事，比如让文字居中，让元素左浮动，或者清除浮动。这样的类被称为工具类。code 9-14 四个小工具类 */
-.text-center {
+/* .text-center {
 	text-align: center !important;
 }
 
@@ -2260,7 +2260,7 @@ is-open类在下拉模块中有特定的用途。在模块使用javascript动态
 
 .hidden {
 	display: none !important;
-}
+} */
 
 /* 让容器内的文字居中 为元素设置左浮动 清除浮动 隐藏页面上某个元素
 这里用到了两次!important 工具类是唯一应该使用important注释的地方。事实上 工具类应该优先使用它。不管在哪里用到工具类，都可以生效。 任何时候为元素添加text-center 类，都是想让文本居中，不想让其他样式覆盖它，important注释可以确保这一点。
@@ -2510,7 +2510,7 @@ background-blend-mode不仅仅合并多个背景图片，还会合并background-
 } */
 /* 为每种颜色指定变量 */
 
-html {
+/* html {
 	--brand-green: hsl(162, 87%, 21%);
 	--dark-green: hsl(162, 88%, 30%);
 	--medium-green: hsl(162, 73%, 46%);
@@ -2522,14 +2522,14 @@ html {
 	--red: hsl(342, 63%, 46%);
 	box-sizing: border-box;
 	color: var(--text-color);
-}
+} */
 /* 把样式表切换HSL颜色 添加一种红色作链接激活显示*/
 
-*,
+/* *,
 *::before
 *::after {
 	box-sizing: inherit;
-}
+} */
 
 /* body {
 	margin: 0;
@@ -2542,7 +2542,7 @@ h1, h2, h3, h4{
 	font-family: georgia, serif;
 } */
 /* 用到颜色的地方用变量代替 */
-
+/* 
 a {
 	color: var(--medium-green);
 }
@@ -2557,11 +2557,11 @@ a:hover {
 
 a:active{
 	color: var(--red);
-}
+} */
 /* 先为链接激活状态占位，后面需要改成红色  链接的激活状态不是默认显示的，所以这稍微有点麻烦。需要单击并停留在链接上才能出发激活，一旦松手又会变成绿色，可以使用开发工具强制激活链接。
 按鼠标右键点击链接，在菜单中选择"检查"或者"查看元素",就可以打开开发者工具。 在Elements面板，右键点击<a>标签，在菜单中选择:active 这样就可以强制浏览器显示元素的激活样式。*/
 /* 头部样式 */
-.nav-container {
+/* .nav-container {
 	background-color: var(--medium-green);
 }
 
@@ -2570,9 +2570,9 @@ a:active{
 	justify-content: space-between;
 	max-width: 1080px;
 	margin: 0 auto;
-}
+} */
 /* 将内容居中，限制最大宽度为1080px */
-
+/* 
 .home-link {
 	color: var(--text-color);
 	font-size: 1.6rem;
@@ -2607,7 +2607,7 @@ a:active{
 .top-nav__featured > a:hover {
 	color: var(--medium-green);
 	background-color: var(--white);
-}
+} */
 /* 从顶部开始，分三个部分来进行：头部区域 主图区域和三栏主体部分。大部分工作可以复用前面章节技术。首先是头部以及导航条区域。这部分由三个模块组成，nav-container、home-link和top-nav。 
 整个头部区域包裹了一个nav-container.使用了双容器的模式来使内部的元素居中。这样可以实现背景颜色一直延伸到页面边缘，而主体部分被限制了宽度。主体部分是一个弹性盒子容器，使用justify-content:space-between将内容置于两端：home-link在左侧，top-nav在右侧。top-nav也使用了弹性布局，这样其内部的所有链接都排成一行，同时链接的颜色使用了自定义属性进行了配置。
 
@@ -2657,7 +2657,7 @@ a:active{
 
 页面主区域的大概样式 几部分组成 限制了最大宽度的容器 控制三栏布局的tile-row和每一栏内的白色板块区域tile.*/
 
-.container {
+/* .container {
 	margin: 0 auto;
 	max-width: 1080px;
 }
@@ -2687,7 +2687,7 @@ a:active{
 	max-width: 1080px;
 	text-align: center;
 	font-size: 0.8rem;
-}
+} */
 
 /* 页面最大宽度设置一致 1080px 使所有栏等宽 和页面其他部分一样 设置最大宽度1080px */
 
@@ -2695,7 +2695,7 @@ a:active{
 使用contrast ratio工具可以检查支持所有可用的CSS颜色格式。把背景颜色和文本颜色粘进去，就可以显示计算好的对比度 鼠标悬停在数字上，就可以查看其是否通过了WCAG的哪种字号AA/AAA级。
 在设计规范中，导航条里的标注测量值显示菜单项需要10px的环绕间距。因为基础字号是16px 计算一下，使用期望长度除以基础字号，10除以16=0.625 所以这里的间距就是0.625em code128 使用内边距和外边距设置导航区域的间距*/
 
-.nav-container {
+/* .nav-container {
 	background-color: var(--medium-green);
 }
 
@@ -2715,7 +2715,7 @@ a:active{
 
 .top-nav > li + li {
 	margin-left: 0.625em;
-}
+} */
 
 /* 为整个导航条的顶部和底部添加10PX的内边距，移除用户代理样式表为列表默认添加的外边距，每个导航项之间添加10px的水平外边距
 在这个例子中，nav-container__inner应该用内边距来设置垂直间隔，这样就可以应用整个容器，最左侧的页面标题和顶部导航列表都可以填充间距。然后使用外边距来设置每个导航项之间的水平间隔，因为希望每项之间有间隔
@@ -2742,7 +2742,7 @@ a:active{
 /* 确保主图下方有40PX的间距，每个栏目之间添加25px的间距 
 code1210 设置板块和段落间距*/
 
-p {
+/* p {
 	margin-top: 1.5em;
 	margin-bottom: 1.5em;
 }
@@ -2755,7 +2755,7 @@ p {
 
 .tile > h4 {
 	margin-bottom: 1.5em;
-}
+} */
 
 /* 在基础样式中为段落添加外边距，在板块内部增加内边距，在板块标题下方添加外边距 
 已经在基础样式中为段落设置1.5em的外边距，整个网页所有的段落都会有同样的间距。然后在板块标题下方设置一样的距离（.tile > h4)，因此不管后面有没有段落 标题下方的间距都会一直相同。这是由于存在外边距折叠，两个外边距会重叠，在标题和段落之间生成一个30px的间距。
@@ -2763,7 +2763,7 @@ p {
 既然行高已经在文字上方占据了6px，我们只需要再增加89px的间隔，就达到了期望的95px.标语下方只需要再增加10px，就达到了视觉稿中显示的16px间隔。接下来就是把这些值转化为相对单位并添加到样式表。89/16=5.5625em 10/16得到0.625em.
 code1211
 */
-
+/* 
 .hero {
 	background: url(test.jpg) no-repeat;
 	background-size: cover;
@@ -2781,14 +2781,14 @@ code1211
 	font-size: 1.95rem;
 	margin-top: 0;
 	margin-bottom: 0.625rem;
-}
+} */
 
 /* 使用刚刚计算得到的距离替换之前的估值 移除上方的外边距，因为hero__inner的内边距已经提供了所需的间距 设置标语和按钮之间的间距 
 hero__inner元素的顶部内边距设置了标语上方所需的间距。虽然设计稿中没有指定它的右侧和底部内边距，但我们也设置了值。标语的顶部外边距设置为0，这样就不会在hero__inner的内边距上再增加额外的距离。标语的底部外边距使用rem单位而不是em单位，这是因为标语不是使用默认的16px字号*/
 
 /* 1220 列表项需要添加样式并实现行内显示 每项都需要设置display:inline,还需要少许的内边距 背景颜色和边框圆角。开始时感觉设置这些样式就够了，但是一旦内容出现折行，就暴露了问题。如果视口的宽度是固定值或者内容持续增加 排版就会被打乱。每一行列表项的灰色背景会和另一行的列表项重叠，原因在于行高。文本行的高度是有行高乘以字号决定，如果为行内元素添加内边距 元素本身会变高 却不会增加文本行的高度，文本行的高度只由行高来决定。  要解决整个问题 就需要增加每项的行高。
 code1212为标签添加样式*/
-.tag-list {
+/* .tag-list {
 	list-style: none;
 	padding-left: 0;
 }
@@ -2800,20 +2800,20 @@ code1212为标签添加样式*/
 	border-radius: 0.2rem;
 	background-color: var(--light-gray);
 	line-height: 2.6;
-}
+} */
 
 /* 覆盖用户代理默认的列表样式， 设置很大的行高，折行的时候增加垂直间距 只有行内元素有这种行为，如果一个元素是弹性子元素，为了容纳它 其所在的行会随之增高  只有行内元素有这种行为，如果一个元素是弹性子元素或者行内块级元素，为了容纳它，其所在的行会随之增高。还需要设置水平和垂直外边距，为子元素之间增加间隔。利用原本就有的白色背景，这些元素之间就产生了想要的间距*/
 
 /* code13-2 使用web字体，google font */
 
-body {
+/* body {
 	margin: 0;
 	font-family: roboto, sans-serif;
 	line-height: 1.4;
 	background-color: var(--extra-light-gray);
-}
+} */
 
-h1, h2, h3, h4 {
+/* h1, h2, h3, h4 {
 	font-family: Sansita, serif;
 }
 
@@ -2823,6 +2823,988 @@ h1, h2, h3, h4 {
 	font-family: Sansita, serif;
 	font-weight: bold;
 	text-decoration: none;
-}
+} */
 
 /* 对页面全局应用Roboto字体 设置标题为Sansita字体 设置首页链接为Sansita字体 */
+/* code13-6在body元素上设置字符间距 */
+/* body {
+	margin: 0;
+	font-family: roboto, sans-serif;
+	line-height: 1.4;
+	letter-spacing: 0.02em;
+	background-color: var(--extra-light-gray);
+} */
+
+/* 行高和字距会被页面上所有元素继承 为字符之间添加0.01em的额外间距 */
+/* 行距和字距转换成CSS 在设计领域 文本行之间的距离称为行距-leading 来源于印刷版每行文字之间添加的一条条的引导线。字符之间的距离称为字距-tracking。行高一般使用 点 作单位来描述，比如18pt 代表的是一行文字的高度加上它与下一行文字之间的距离。这实际上与CSS的line-height一样，但是没有使用一个无单位的数字来表达。需要先把它转化为跟字体一样使用像素单位，然后再计算出无单位数字。把点值乘以1.333，就可以把pt转化为PX (因为每英寸是96px， 并且每英寸等于72pt, 96/72=1.333), 即18pt x 1.333 = 24px. 然后除以字号，得到无单位的行高值，即24px/16px=1.5. 字距通常会给定一个字数，比如100。因为这个数字表示1em的千分之一，所以除以1000就可以转化为em单位，即100/1000=0.1em. */
+/* code13-7增加标题字符间距 */
+/* h1, h2, h3, h4 {
+	font-family: Sansita, serif;
+	letter-spacing: 0.03em;
+}
+
+.home-link {
+	color: var(--text-color);
+	font-size: 1.6rem;
+	font-family: sansita, serif;
+	font-weight: bold;
+	letter-spacing: 0.03em;
+	text-decoration: none;
+} */
+
+/* code13-8 收紧字符间距 */
+/* .hero h2{
+	font-size: 1.95rem;
+	letter-spacing: -0.02em;
+	margin-top: 0;
+	margin-bottom: 0.625rem;
+} */
+
+/* code13-9调整nav菜单元素的大小和间距 */
+/* .nav-container__inner{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 0.625em 0;
+}
+
+.top-nav a {
+	display: block;
+	font-size: 0.8rem;
+	padding: 0.3rem 1.25rem;
+	color: var(--white);
+	background: var(--brand-green);
+	text-decoration: none;
+	border-radius: 3px;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+
+.button {
+	display: inline-block;
+	padding: 0.4em 1em;
+	color: hsl(162, 87%, 21%);
+	border: 2px solid hsl(162, 87%, 21%);
+	border-radius: 0.2em;
+	text-decoration: none;
+	font-size: 0.8rem;
+} */
+
+/* 把导航容器中的元素对齐到底部，减小导航链接和按钮的字号， 把内边距值从em换成rem, 把导航链接改成大写并增加字符间距，减小导航链接和按钮的字号 
+因为减小了导航链接的字号，所以它们将不再填充nav-container内容盒子的高度。默认情况下这些链接是顶部对齐的，下方留出一些区域。将nav-container的弹性子元素对齐到底部-flex-end 就可以解决这个问题。*/
+
+/* 使用font face observer ，用javascript可以监控字体加载事件，从而更好的控制字体加载闪动问题，引入一个js库-font face observer. 下载一份fontfaceobserver.js文件 保存到和页面相同的目录下 code1310 使用font face observer监控字体加载
+
+code1311定义回退样式，FOIT中文本卡顿又会出现*/
+/* body {
+	margin: 0;
+	font-family: Roboto, sans-serif;
+	line-height: 1.4;
+	letter-spacing: 0.01em;
+	background-color: var(--extra-light-gray);
+}
+
+.fonts-failed body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4 {
+	font-family: sansita, serif;
+	letter-spacing: 0.03em;
+}
+
+.fonts-failed h1,
+.fonts-failed h2,
+.fonts-failed h3,
+.fonts-failed h4 {
+	font-family: Georgia, serif;
+}
+
+.home-link {
+	color: var(--text-color);
+	font-size: 1.6rem;
+	font-family: Sansita, serif;
+	font-weight: bold;
+	letter-spacing: 0.03em;
+	text-decoration: none;
+}
+
+.fonts-failed .home-link {
+	font-family: Georgia, serif;
+} */
+
+/* 13.5.3准备使用font-display 
+code 1312 在@font-face规则内部使用 font-display属性 */
+
+/* @font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Roboto Light") , local("Roboto-Light"),
+		 url(https://example.com/roboto.woff2) format('woff2'),
+		 url(https://example.com/roboto.woff) format('woff'); 
+	font-display:swap;
+} */
+
+/* 这是告诉浏览器立即显示回退字体，然后等web字体可用的时候进行交换-swap 简而言之=FOUT 这个属性同时支持几个值.
+auto 默认行为 swap 显示回退字体 fallback 介于auto swap之间，文本会保持较短时间100ms的隐藏状态，如果这时候web字体还没准备好，就显示回退字体，接下来一旦web字体加载完成，就会显示web字体。optional  类似于fallback 但是允许浏览器基于网速判断是否显示web字体，这就意味着在较慢的连接条件下web可能不会显示。 */
+
+/* code 14-2过渡样式 */
+/* button {
+	background-color: hsl(180, 50%, 50%);
+	border: 0;
+	color: white;
+	font-size: 1rem;
+	padding: .3em 1em;
+	transition-property: all;
+	transition-duration: 0.5s;
+}
+button:hover {
+	background-color: hsl(0, 50%, 50%);
+	border-radius: 1em;
+} */
+/* 蓝色按钮 所以属性变化都使用过渡效果。过渡时间0.5s 悬停状态为带圆角的红丝按钮  transition-property这个属性可以指定哪些属性使用过渡。关键字all意味着所有的属性变化都使用过渡。transition-duration属性代表过渡到最终值之前需要多长时间 本例中设置为0.5s 半秒。*/
+/* 加载页面并使用鼠标划过按钮，就可以查看过渡效果。注意border-radius属性平滑地从0过渡到1em，尽管非悬停状态并没有明确设置边框圆角为0. 按钮自动设置为初始值为0，过渡是从0开始的。可以在悬停状态尝试更改其他属性，比如font-size和border
+简写属性transition 接受4个参数值 分别代表四个过渡属性transition-property/transition-duration/transition-timing-function/transition-delay
+transition: background-color 0.3s linear 0.5s; 第一个值设置了哪个属性需要过渡，初始值是关键字all，表示所有属性都生效。如果只有某个属性需要过渡，在这里指定属性即可。如transition-property:color 将只应用在元素的颜色上 其他属性会立刻发生变化。也可以设置多个值，如transition-property:color, font-size
+第二个值是持续时间 是一个用秒或者毫秒表示的时间值
+第三个值是定时函数，用来控制属性的中间值如何计算，实际上控制的是过渡过程如何加速或减速。定时函数可以是一个关键字值 比如linear 或者ease-in 也可以自定义函数。
+最后一个值是延迟时间 允许开发者在属性值改变之后过渡生效之前设置一个等待周期。如果按钮悬停状态设置0.5s的过渡延迟，那么在鼠标指针进入元素0.5s之后才会开始发生变化。
+如果需要为两个不同的属性分别设置不同的过渡，可以添加多个过度规则，以逗号分隔
+transition:border-radius 0.3s linear, background-color 0.6s ease; 等同于以下三行
+transition-property: border-radius, background-color;
+transition-duration: 0.3s, 0.6s;
+transition-timing-function: linear, ease;*/
+
+/* 14.2定时函数 几个关键字值 使用linear过渡 值以固定的速度改变；使用ease-in 变化速度开始时慢，然后一直加速直到过渡完成； ease-out是减速，开始时快速变化 结束时比较慢。 */
+/* code14-3定时函数演示 */
+/* .container {
+	position: relative;
+	height: 30px;
+} */
+
+/* .box {
+	position: absolute;
+	left: 0;
+	height: 30px;
+	width: 130px;
+	background-color: hsl(130, 50%, 50%);
+	transition: all 1s ease-in-out;
+	transition: all 1.5s cubic-bezier(0.98, 0.48, 0.15, 0.62);
+
+} */
+
+/* .container:hover .box {
+	left: 400px;
+}
+.container:hover .boxs {
+	left: 400px;
+} */
+/* 开始时定位到最左侧，设置过渡 鼠标悬停时向右移动400px */
+/* 使用浏览器开发者工具检查小绿盒子元素，在样式面板/规则面板 通常点击查看第一级样式 .container 展开看到.box样式 定时函数有一个标志符号 点开弹窗之后 可以编辑修改定时函数曲线 改动之后 linear ease in out 就变成贝塞尔曲线函数 如cubic-bezier(0.98, 0.48, 0.15, 0.62) 编辑完成之后的参数可以复制回来再用。
+还有在线工具，cubic-bezier网站。 */
+
+/* 阶跃 定时函数steps()函数 与前面介绍的从一个值到另一个值的基于贝塞尔曲线的流畅过渡不同，这个函数是一系列非连续性的瞬时“阶跃” 
+step(2, end) steps(2, start) steps(5, end) steps(5, start)  第二个参数默认值是end,steps(3)可以用来代替steps(3, end)*/
+
+/* code14-5 使用steps()增加值 */
+/* .box {
+	position: absolute;
+	left: 0;
+	height: 30px;
+	width: 30px;
+	background-color: hsl(130, 50%, 50%);
+	transition: all 1.5s steps(4);
+	transition: all 1.5s steps(3, start); 
+}
+.boxs {
+	position: absolute;
+	left: 0;
+	height: 30px;
+	width: 30px;
+	background-color: hsl(35, 50%, 50%);
+	transition: all 1.5s steps(4, start);
+} 
+/* 现在就不是一秒内 过渡持续时间 流畅地从左到右移动了，时间被分成了三等份，或者说三步。每一步时，盒子分别出现在开始的位置，三分之一 三分之二的位置。最后在1s的时刻移动到最终位置。 */
+/* 默认情况下 属性值每一步结束的时候改变，因此过渡不会立即开始。添加start关键字steps(3, :start) 就可以改变这种行为，这样过渡就会发生在每步开始的时候，而不是结束。 */
+/* code147下拉菜单 */
+/* body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown__toggle {
+	display: block;
+	padding: 0.5em 1em;
+	border: 1px solid hsl(280, 10%, 80%);
+	color: hsl(280, 30%, 60%);
+	background-color: white;
+	font: inherit;
+	text-decoration: none;
+	transition: background-color 0.2s linear;
+}
+
+.dropdown__toggle:hover {
+	background-color: hsl(280, 15%, 95%);
+} */
+
+/* .dropdown__drawer {
+	position: absolute;
+	display: none;
+	background-color: white;
+	width: 10em;
+}
+
+.dropdown.is-open .dropdown__drawer {
+	display: block;
+} */
+
+/* .menu {
+	padding-left: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.menu > li + li > a {
+	border-top: 0;
+}
+
+.menu > li > a {
+	display: block;
+	padding: 0.5em 1em;
+	color: hsl(280, 40%, 60%);
+	background-color: white;
+	text-decoration: none;
+	transition: all .2s linear;
+	border: 1px solid hsl(280, 10%, 80%);
+}
+
+.menu > li > a:hover {
+	background-color: hsl(280, 15%, 95%);
+	color: hsl(280, 25%, 10%);
+} */
+/* 不是所有属性都可以添加动画效果，display属性就是其中之一。可以在display:none display:block之间切换，但不能在这两个值之间过渡。因此 任何应用到display上的过渡属性都会被忽略
+在mdn之类的参考指南上可以查阅属性。它们会告诉你某个属性是否可以添加动画效果，什么类型的值可以用内插值替换
+如 background-color属性只有一个颜色值的时候才可以添加动画，意思时从一个颜色过渡到另一个颜色 这就意味着属性必须设置为单一颜色值。
+display属性的动画类型时discrete,这就意味着只能被赋予非连续性的值，不能在动画或者过渡中做插值计算。要实现元素的淡入淡出，就不能使用display属性，可以使用opacity属性。
+code1410 菜单淡入淡出 */
+
+/* .dropdown__drawer {
+	position: absolute;
+	background-color: white;
+	width: 10em;
+	opacity: 0;
+	transition: opacity 0.5s linear;
+}
+
+.dropdown.is-open .dropdown__drawer {
+	opacity: 1;
+} */
+
+/* 使用opacity:0替换display:none 为透明度添加过渡效果，使用opacity:1 替换display:block */
+/* 打开和关闭菜单可以淡入淡出了，但是菜单关闭的时候不会消失只是完全透明，仍然存在于页面上。这时候点击read more 链接不会按照预期工作。实际上点击链接前面的透明菜单元素 跳转到了features页面
+需要为透明度添加过渡，同时需要在菜单抽屉不可见时彻底移除它。可以借助另一个属性visibility来实现。
+visibility属性可以从页面移除某个元素，有点类似于display属性，分别设置visible和hidden即可。但是跟display不同，visibility可以支持动画。为它设置过渡不会使其逐渐消失，但是transition-delay可以生效，而在display属性上是不生效的。
+为某个元素设置visibility:hidden可以从可见页面中移除该元素，但不会从文档流中移除它，这就意味这该元素仍然占位。其他元素会继续围绕该元素的位置布局。在页面上保留一个空白区域。在此例中不会影响菜单，因为我们同时也设置了绝对定位。 */
+/* code14-9 在visibility改变时使用过渡延迟 */
+/* .dropdown__drawer {
+	position: absolute;
+	background-color: white;
+	width: 10em;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s linear, visibility 0s linear 0.2s;
+}
+
+.dropdown.is-open .dropdown__drawer {
+	opacity: 1;
+	visibility: visible;
+	transition-delay: 0s;
+} */
+
+/* 菜单关闭时 设置隐藏和透明 为可见性添加0.2s的过渡延迟， 菜单打开时设置可见和完全不透明，添加is-open 类时 移除过渡延迟。 */
+/* 这里设置了两组值，定义了淡出行为。第一组为opacity设置0.2s的过渡，第二组值为visibility设置为0s的过渡。但有0.2s的延迟 这就意味着先执行opacity的过渡，结束之后再执行visibility的过渡。这样就实现了菜单的缓慢淡出，当完全透明的时候，可见性切换为hidden。现在用户就可以点击 read more链接而不受菜单的干扰。 */
+
+/* code 1411通过过渡高度来滑动打开元素 */
+/* 菜单打开时 会从高度为0过渡正常高度(auto).菜单关闭时，又会过渡回0. code1410的思路不起作用。 */
+/* .dropdown__drawer {
+	position: absolute;
+	background-color: white;
+	width: 10em;
+	height: 0;
+	overflow: hidden;
+	transition: height 0.3s ease-out;
+}
+
+.dropdown.is-open .dropdown__drawer {
+	height: auto;
+} */
+/* 设置overflow为hidden，是为了再关闭或者过渡过程中截断抽屉的内容。代码不起作用时因为一个值不能从长度0过渡到auto.可以明确设置一个高度值，比如120px,但问题是没办法知道高度到底是多少。因为只有当内容在浏览器中渲染完成之后才能确定高度，所以需要使用JavaScript来获取 */
+
+/* 页面加载完成后 我们访问DOM元素的scrollheight属性，获取高度值。然后就可以把元素的高度修改为获取到的值 code1411 精确设置元素高度，让过渡效果起作用。 */
+/* 旋转 平移 缩放 倾斜 transform:rotate(90deg)  */
+/* 此90deg 是元素向右-顺时针旋转90度 变换函数rotate()用来指定元素如何变换。还有函数 translate(40px, 20px)-平移；scale(0.8) -缩放；skew(15deg)-倾斜；旋转 元素绕着一个轴心转动一定角度；平移 元素向上下左右各个方向移动；缩放 缩小放大元素；倾斜 使元素变形 顶部滑向一个方向 底边滑向相反的方向。 */
+/* code15-1创建一张简单卡片 15-2设置卡片样式并使用变换*/
+body {
+	background-color: hsl(210, 80%, 20%);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+	max-width: 100%;
+}
+
+/* .card {
+	padding: 0.5em;
+	margin: 0 auto;
+	background-color: white;
+	max-width: 300px;
+	
+} */
+/* transform: rotate(30deg); */
+	/* transform: translate(40px, 24px); */
+	/* transform: scale(1.5); */
+	/* transform: skew(20deg); */
+	
+/* 变换不能作用在<span>或者<a>这样的行内元素上。若确实要变换此类元素，要么改变元素的display属性，替换掉inline(比如inline-block),要么把元素改为弹性子元素或者网格项目(为父元素应用display:flex或者display:grid) */
+/* 变换是围绕基点(point of origin)发生的。基点是旋转的轴心，也是缩放或者倾斜开始的地方。这就意味着元素的基点是固定在某个位置上，元素的剩余部分围绕基点变换(但translate()是个例外，因为平移过程中元素整体移动。) 默认基点就是元素中心，但是可以通过transform-origin属性改变基点位置
+左侧的元素绕基点旋转，其基点设置为transform-origin:right bottom; 中间的元素向着基点(right top)缩放;右侧元素的倾斜方式是 基点(left top)保持不动，元素其他部分向远处延伸 */
+/* 基点也可以指定为百分比，从元素左上角开始测量。下面的两句话声明是等价的。
+ transform-origin: right center;
+ transform-origin: 100% 50%
+ 也可以使用px em或者其他单位的长度值指定基点 按照我的经验 使用top right bottom left center这些关键字 在大部分项目中就够用了*/
+ /* code 153使用多种变换 可以对transform属性指定多个值，用空格隔开。变换的每个值从右向左按顺序执行，比如设置transform: rotate(15deg) translate(15px, 0),元素会先向右平移15px, 然后顺时针旋转15度 */
+ /* .card {
+	padding: 0.5em;
+	margin: 0 auto;
+	background-color: white;
+	max-width: 300px;
+	transform:  translate(25px, 10px) rotate(30deg); 
+ } */
+ /* code152 基础样式和标题样式 */
+ /* html {
+	box-sizing: border-box;
+ }
+
+ *,
+ *::before,
+ *::after {
+	box-sizing: inherit;
+ }
+
+ body {
+	background-color: hsl(200, 80%, 30%);
+	background-image: radial-gradient(hsl(200, 80%, 30%), hsl(210, 80%, 20%));
+	color: white;
+	font-family: Raleway, Arial, Helvetica, sans-serif;
+	line-height: 1.4;
+	margin: 0;
+	min-height: 100vh;
+ }
+
+ h1, h2, h3 {
+	font-family: alfa slab one, serif;
+	font-weight: 400;
+ }
+
+ main {
+	display: block;
+ }
+
+ img {
+	max-width: 100%;
+ }
+
+ .page-header {
+	margin: 0;
+	padding: 1rem;
+ }
+ 
+ @media (min-width: 30em) {
+	.page-header {
+		padding: 2rem 2rem 3rem;
+	}
+ } */
+
+ /* code15-6 导航菜单链接的移动样式 */
+ /* .nav-links {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	padding: 0 1rem;
+	list-style: none;
+ }
+
+ .nav-links > li + li {
+	margin-left: 0.8em;
+ }
+
+ .nav-links > li > a {
+	display: block;
+	padding: 0.8em 0;
+	color: white;
+	font-size: 0.8rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+ }
+
+ .nav-links__icon {
+	height: 1.5em;
+	width: 1.5em;
+	vertical-align: -0.2em;
+ }
+
+ .nav-links > li > a:hover {
+	color: hsl(40, 100%, 70%);
+ } */
+ /* 使用flexbox在屏幕水平方向上展开导航项目，为链接文本添加样式，把图标向下稍微移动，与文本标签对齐 */
+
+ /* code 157 大屏幕上导航菜单停靠在屏幕左侧 固定菜单*/
+ /* @media (min-width: 30em) {
+	.main-nav {
+		position: fixed;
+		top: 8.25rem;
+		left: 0;
+		z-index: 10;
+		background-color: transparent;
+		transition: background-color .5s linear;
+		border-top-right-radius: 0.5em;
+		border-bottom-left-radius: 0.5em;
+	}
+
+	.main-nav:hover {
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+ } */
+
+/* @media (min-width: 30em) {
+	.nav-links {
+		display: block;
+		padding: 1em;
+		margin-bottom: 0;
+	}
+	.nav-links > li + li {
+		margin-left: 0;
+	}
+	.nav-links__label {
+		margin-left: 1em;
+	}
+} */
+/* position:fixed声明把菜单放入并固定在一个位置，页面滚动也不会受到影响。display:block 规则覆盖掉移动样式中的display:flex,使得菜单叠放在一起。
+接下来要做三件事
+鼠标划过链接的时候，放大图标尺寸
+隐藏链接标签，当用户使用鼠标悬停在菜单上时，让它们通过淡入过渡特效全部显示出来
+使用平移为链接标签添加“飞入”效果，与淡入一起使用 */
+/* code1521放大图标 */
+/* @media (min-width: 30em) {
+	.nav-links {
+		display: block;
+		padding: 1em;
+		margin-bottom: 0;
+	}
+	.nav-links > li + li {
+		margin-left: 0;
+	}
+	.nav-links__label {
+		margin-left: 1em;
+	}
+	.nav-links__icon {
+		transition: transform 0.2s ease-out;
+	}
+
+	.nav-links a:hover > .nav-links__icon,
+	.nav-links a:focus > .nav-links__icon {
+		transform: scale(1.3);
+	}
+} */
+/* 为transform属性添加过渡 增大图标尺寸 */
+/* code1522创建飞入标签 菜单的标签没必要一直保持可见状态。默认情况下可以隐藏，只在相应位置保留图标以提示菜单位置 当用户移动鼠标到菜单或者导航元素上时 再把标签以淡入的方式展示出来
+nav-item标签上的过渡 */
+/* @media (min-width: 30em) {
+	.nav-links {
+		display: block;
+		padding: 1em;
+		margin-bottom: 0;
+	}
+
+	.nav-links > li + li {
+		margin-left: 0;
+	}
+
+	.nav-links__label {
+		display: inline-block;
+		margin-left: 1em;
+		padding-right: 1em;
+		opacity: 0;
+		transform: translate(-1em);
+		transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.3), opacity 0.4s linear;
+	}
+	.nav-links:hover .nav-links__label,
+	.nav-links a:focus > .nav-links__label {
+		opacity: 1;
+		transform: translate(0);
+	}
+
+	.nav-links__icon {
+		transition: transform 0.2s ease-out;
+	}
+	.nav-links a:hover > .nav-links__icon,
+	.nav-links a:focus > .nav-links__icon {
+		transform: scale(1.3);
+	}
+} */
+
+/* code1523交错显示过渡 */
+/* 使用transition-delay属性 为每个菜单项设置不同的延迟时间。这样可以使每段动画交错飞入显示，不再一次性全部展示就像波浪 使用nth-child()伪类选择器，根据每个菜单项再列表中的位置选中它们 然后分别为每个元素设置连续变长的过渡延迟。  此段代码续接 nav-links样式后面*/
+/* .nav-links:hover .nav-links__label,
+.nav-links a:focus > .nav-links__label {
+	opacity: 1;
+	transform: translate(0);
+}
+
+.nav-links > li:nth-child(2) .nav-links__label {
+	transition-delay: 0.1s;
+}
+
+.nav-links > li:nth-child(3) .nav-links__label {
+	transition-delay: 0.2s;
+}
+
+.nav-links > li:nth-child(4) .nav-links__label {
+	transition-delay: 0.3s;
+}
+
+.nav-links > li:nth-child(5) .nav-links__label {
+	transition-delay: 0.4s;
+} */
+/* 使用will-change控制绘制图层 浏览器会尽可能把一些元素划归到不同的图层。如果对一个元素的transform或者opacity属性设置动画，现代浏览器为了使动画过程更加流畅 通常会基于包括系统资源在内的一系列因素，做出最佳处理，但有时候可能会遇到突变或者闪烁的动画。这时可以使用will-change的属性对渲染图层添加控制。这个属性可以提前告知浏览器，元素的特定属性将改变。这通常意味着元素将被提升到自己的绘制图层。例如 设置will-change:transform就表示我们将要改变元素的transform属性 */
+
+/* code154三维变换  这里主要rotateX(a) 参数a 不要带引号！！！*/
+/* .row {
+	display: flex;
+	justify-content: center;
+}
+
+.box {
+	box-sizing: border-box;
+	width: 150px;
+	margin: 0 2em;
+	padding: 60px 0;
+	text-align: center;
+	background-color: hsl(150, 50%, 40%);
+	transform: perspective(200px) rotateX(30deg);
+} */
+/* 每个盒子看上去都相同。它们都有自己的透视距离，用perspective()函数设置的。这个方法可以为单个元素设置透视距离 此例 直接为所有盒子做了相同的设置 就像为每个元素分别单独拍照，但是拍摄位置相同
+有时候希望多个元素共享一套透视距离，就仿佛它们处于相同的3D空间中 code-15-16 这里四个相同的元素 但它们都向着远方的一个相同的交汇点延伸 彷佛把四个元素放在一起然后拍摄一张整体的照片 要实现这个效果 需要为它们的父元素设置perspective属性。== 移除盒子上的perspective()函数 改成为容器添加perspective属性 code1516 */
+/* .row {
+	display: flex;
+	justify-content: center;
+	perspective: 200px;
+}
+
+.box {
+	box-sizing: border-box;
+	width: 150px;
+	margin: 0 2em;
+	padding: 60px 0;
+	text-align: center;
+	background-color: hsl(150, 50%, 40%);
+	transform: rotateX(30deg);
+} */
+/* 为容器添加了透视距离，不再为盒子本身设置透视变换 */
+/*code1517 perspective-origin属性 可以上下左右移动镜头的位置 造成不同透视源点的效果 可以使用关键字 top left bottom right center来指定位置 也可以使用百分比或者长度值，从元素的左上角开始计算  perspective-origin: 20% 40%*/
+/* .row {
+	display: flex;
+	justify-content: center;
+	perspective: 200px;
+	perspective-origin: left bottom;
+} */
+
+/* backface-visibility属性 如果使用rotateX()或者rotateY()旋转元素超过90度，就会发现一些有趣的事情 元素的脸不会直接朝向你。它的脸会转向别的地方，你会看到元素的背面。默认情况下背面是可见的，但是我们可以给元素设置backface-visibility:hidden来改变它。添加这条声明之后 元素只有证明朝向观察者的时候才可见 
+一项应用就是 把两个元素背靠背放在一起，就像卡片的两面。卡片正面展示出来背面隐藏，然后可以旋转它们的容器元素，使这两个元素都翻转过来 这样正面隐藏背面显现 
+
+transform-style(preserve-3d)属性。假设已经对容器设置了透视距离，接下来对容器内的元素进行3D变换。容器元素渲染时，实际上会被绘制成2D场景，就像是3D对象的一张照片。这看起来没问题，因为元素最终就是要渲染到2D屏幕上。
+如果接下来对容器进行3D旋转，就有问题了。因为实际上没有对整个场景进行旋转，只是旋转3D场景的2D照片。透视距离全错了，场景中的立体感也被破坏了。 比如把六个面变换到相应位置创建一个3D立方体。对父元素使用transform-style:preserve-3d 完成立体感*/
+
+/* 16.1关键帧 css中的动画包括两部分：用来定义动画的@keyframes规则和为元素添加动画的animation属性。创建一个动画，三个关键帧 第一帧红色，第二帧浅蓝色 向右移动100px;最后一帧 元素是淡蓝色并回到左侧的初始位置。
+code16-1 定义关键帧@规则 */
+/* @keyframes over-and-back {
+	0% {
+		background-color: hsl(0, 50%, 50%);
+		transform: translate(0);
+	}
+
+	50% {
+		transform: translate(50px);
+	}
+
+	100% {
+		background-color: hsl(270, 50%, 90%);
+		transform: translate(0);
+	}
+} */
+
+/* 为动画命名，第一个关键帧声明 第二个关键帧发生于动画进行到一半时 最后一个关键帧 
+示例动画被命名为over-and-back.动画中使用百分比定义了三个关键帧。这些百分比代表每个关键帧发生于动画过程中的哪些时刻：一个在动画的开始-0% 一个在中间50% 一个在终点100% 每个关键帧块内的声明定义了当前关键帧的样式
+示例同时为两个属性添加动画，但并不是每个关键帧都设置了两个属性。transform把元素从初始位置移动到右侧，然后再移回原位，但background-color在50%的关键帧中并没有指定。这意味着元素会从红色过渡到淡紫色（0-100%）。在50%的位置 背景颜色恰好是在这两个颜色的中间值
+code163 为盒子应用动画*/
+/* .box {
+	width: 100px;
+	height: 100px;
+	background-color: green;
+	animation: over-and-back 1.5s linear 3;
+} */
+
+/* 浏览器对动画的支持情况比较好，仅有小部分移动浏览器需要使用-webkit-前缀，动画属性-webkit-animation 和关键帧@规则(@-webkit-keyframes) 都要用到。这需要复制出有前缀和无前缀两套代码。通过autoprefixer容易实现。 */
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/* @-webkit-keyframes over-and-back {
+	0% {
+		background-color: hsl(0, 50%, 50%);
+		-webkit-transform: translate(0);
+		        transform: translate(0);
+	}
+
+	50% {
+		-webkit-transform: translate(50px);
+		        transform: translate(50px);
+	}
+
+	100% {
+		background-color: hsl(270, 50%, 90%);
+		-webkit-transform: translate(0);
+		        transform: translate(0);
+	}
+}
+@keyframes over-and-back {
+	0% {
+		background-color: hsl(0, 50%, 50%);
+		-webkit-transform: translate(0);
+		        transform: translate(0);
+	}
+
+	50% {
+		-webkit-transform: translate(50px);
+		        transform: translate(50px);
+	}
+
+	100% {
+		background-color: hsl(270, 50%, 90%);
+		-webkit-transform: translate(0);
+		        transform: translate(0);
+	}
+} */
+
+/* code162为3D交换添加动画 在code1510的基础上 蓝色背景页面，导航菜单 再用几张卡片来填充剩余部分。 */
+ html {
+	box-sizing: border-box;
+ }
+
+ *,
+ *::before,
+ *::after {
+	box-sizing: inherit;
+ }
+
+ body {
+	background-color: hsl(200, 80%, 30%);
+	background-image: radial-gradient(hsl(200, 80%, 30%), hsl(210, 80%, 20%));
+	color: white;
+	font-family: Raleway, Arial, Helvetica, sans-serif;
+	line-height: 1.4;
+	margin: 0;
+	min-height: 100vh;
+ }
+
+ h1, h2, h3 {
+	font-family: alfa slab one, serif;
+	font-weight: 400;
+ }
+
+ main {
+	display: block;
+ }
+
+ img {
+	max-width: 100%;
+ }
+
+ .page-header {
+	margin: 0;
+	padding: 1rem;
+ }
+ 
+ .nav-links {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	padding: 0 1rem;
+	list-style: none;
+ }
+
+ .nav-links > li + li {
+	margin-left: 0.8em;
+ }
+
+ .nav-links > li > a {
+	display: block;
+	padding: 0.8em 0;
+	color: white;
+	font-size: 0.8rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+ }
+
+ .nav-links__icon {
+	height: 1.5em;
+	width: 1.5em;
+	vertical-align: -0.2em;
+ }
+
+ .nav-links > li > a:hover {
+	color: hsl(40, 100%, 70%);
+ }
+ @media (min-width: 30em) {
+	.page-header {
+		padding: 2rem 2rem 3rem;
+	}
+ }
+
+  @media (min-width: 30em) {
+	.main-nav {
+		position: fixed;
+		top: 8.25rem;
+		left: 0;
+		z-index: 10;
+		background-color: transparent;
+		transition: background-color .5s linear;
+		border-top-right-radius: 0.5em;
+		border-bottom-left-radius: 0.5em;
+	}
+
+	.main-nav:hover {
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+ }
+
+ @media (min-width: 30em) {
+	.nav-links {
+		display: block;
+		padding: 1em;
+		margin-bottom: 0;
+	}
+	.nav-links > li + li {
+		margin-left: 0;
+	}
+	.nav-links__label {
+		margin-left: 1em;
+	}
+}
+
+@media (min-width: 30em) {
+	.nav-links {
+		display: block;
+		padding: 1em;
+		margin-bottom: 0;
+	}
+	.nav-links > li + li {
+		margin-left: 0;
+	}
+	.nav-links__label {
+		margin-left: 1em;
+	}
+	.nav-links__icon {
+		transition: transform 0.2s ease-out;
+	}
+
+	.nav-links a:hover > .nav-links__icon,
+	.nav-links a:focus > .nav-links__icon {
+		transform: scale(1.3);
+	}
+}
+
+@media (min-width: 30em) {
+	.nav-links {
+		display: block;
+		padding: 1em;
+		margin-bottom: 0;
+	}
+
+	.nav-links > li + li {
+		margin-left: 0;
+	}
+
+	.nav-links__label {
+		display: inline-block;
+		margin-left: 1em;
+		padding-right: 1em;
+		opacity: 0;
+		transform: translate(-1em);
+		transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.3), opacity 0.4s linear;
+	}
+	.nav-links:hover .nav-links__label,
+	.nav-links a:focus > .nav-links__label {
+		opacity: 1;
+		transform: translate(0);
+	}
+
+	.nav-links__icon {
+		transition: transform 0.2s ease-out;
+	}
+	.nav-links a:hover > .nav-links__icon,
+	.nav-links a:focus > .nav-links__icon {
+		transform: scale(1.3);
+	}
+}
+
+.nav-links:hover .nav-links__label,
+.nav-links a:focus > .nav-links__label {
+	opacity: 1;
+	transform: translate(0);
+}
+
+.nav-links > li:nth-child(2) .nav-links__label {
+	transition-delay: 0.1s;
+}
+
+.nav-links > li:nth-child(3) .nav-links__label {
+	transition-delay: 0.2s;
+}
+
+.nav-links > li:nth-child(4) .nav-links__label {
+	transition-delay: 0.3s;
+}
+
+.nav-links > li:nth-child(5) .nav-links__label {
+	transition-delay: 0.4s;
+}
+
+/* 这一段完成左侧导航栏基础 下面添加卡片 code164html卡片 */
+/* code165卡片的移动样式 */
+.flyin-grid {
+	margin: 0 1rem;
+}
+
+.card {
+	margin-bottom: 1em;
+	padding: 0.5em;
+	background-color: white;
+	color: hsl(210, 15%, 20%);
+	box-shadow: 0.2em 0.5em 1em rgba(0, 0, 0, 0.3);
+}
+
+.card > img {
+	width: 100%;
+}
+/* 在容器左右两侧添加很小的外边距，为卡片添加颜色和其他细节样式，设置图片应该填满整张卡片的宽度 */
+/* code166使用基于Flexbox的回退布局 续接code165 */
+@media (min-width: 30em) {
+	.flyin-grid {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 5rem;
+	}
+
+	.flyin-grid__item {
+		flex: 1 1 300px;
+		margin-left: 0.5em;
+		margin-right: 0.5em;
+		max-width: 600px;
+	}
+}
+
+/* 响应式布局的断点 建立允许折行的弹性容器 增加两侧的内边距 允许flex-grow, 设置flex-basis为300px
+code166使用flexbox创建了一个响应式布局。设置flex-wrap: warp，这样弹性元素在同一行放不下的时候允许换行。弹性基准值300px指定了元素的最小宽度，同时max-width指定了最大宽度，在这些约束条件下，需要的时候元素就会换行。flex-grow的值为1，允许卡片拉伸填满容器的剩余空间。卡片模块不需要在之前添加的移动端样式基础上做任何改变，所有的颜色和其他样式都和之前一样。
+在某些特定情况的屏幕尺寸下，卡片表现得和最终布局一致，但如果最后一行的卡片数量少于上面每行的卡片数量，卡片宽度不会总是相同。
+在约1000px视口宽度下，第一行刚好放入三张卡片，第二行只剩下了一张卡片。最后的这张卡片宽度拉伸到max-width的600px,这使得它明显比其他卡片大。缩小屏幕尺寸允许放下两行，每行只有两张卡片，那所有卡片的尺寸就会相同，因为每行的卡片数量一样多。一旦改变屏幕尺寸，可能又会出现这种问题。除了屏幕尺寸，还跟一共有多少张卡片有关系，比如六张卡片可能会整齐地分成两行，每行三张，但在更大的屏幕尺寸下可能出现一行四张，另一行两张的情况。
+还可以使用弹性布局的，虽然这不是最理想的解决方案，但简单易用。对前面描述的这种问题，有两种选择：一是花时间计算多个断点，然后针对不同弹性元素的宽度做特定设置；二是把这种问题看作是一种“效果还凑合”的回退方案，在支持网格的浏览器中使用网格布局来覆盖弹性布局。
+二 code167对支持网格布局的浏览器添加网格布局 */
+@media (min-width: 30em) {
+	.flyin-grid {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 5rem;
+	}
+
+	.flyin-grid__item {
+		flex: 1 1 300px;
+		margin-left: 0.5em;
+		margin-right: 0.5em;
+		max-width: 600px;
+	}
+
+	@supports (display: grid) {
+		.flyin-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			grid-gap: 2em;
+		}
+
+		.flyin-grid__item {
+			max-width: initial;
+			margin: 0;
+		}
+	}
+}
+/* 回退样式不做更改，在媒体查询块内部检测网格布局的支持情况，定义列宽，移除回退布局中设置的外边距
+这是最新的浏览器中会使用完美的布局方式。网格列会确保所有的网格元素宽度一致。 使用repeat()和auto-fit允许网格来确定当前的视口宽度下多少列最合适。 这种解决方案在旧版浏览器中可以优雅地降级为弹性布局，在小视口中会显示更简单的移动端布局。*/
+/* code1622为布局添加动画 卡片会以绕纵轴旋转90度的起始状态，从远处出现。然后它们会飞向观察者，在动画接近结束的时候，转到直接朝向观察者。这段动画包含两个变换：translateZ()使卡片从远处飞回来，rotateY()负责旋转卡片。以下代码包括对flyin-grid容器设置了透视距离，定义了关键帧，并为每个flyin-grid元素添加了动画。也添加了不透明的设置，这样元素飞入时会附带过渡特效。 */
+
+.flyin-grid {
+	margin: 0 1rem;
+	perspective: 500px;
+}
+
+.flyin-grid__item {
+	animation: fly-in 600ms ease-in;
+}
+
+@keyframes fly-in {
+	0% {
+		transform: translateZ(-800px) rotateY(90deg);
+		opacity: 0;
+	}
+	56% {
+		transform: translateZ(-160px) rotateY(87deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateZ(0) rotateY(0);
+	}
+}
+
+/* 163动画延迟和填充模式 使用animation-delay属性推迟动画开始的时间，该属性行为和transition-delay类似。利用这个属性，可以设置动画交错发生，和导航菜单交错产生过渡效果的方式差不多。通过在稍微不同的时间内错开每个元素的动画，可以使它们一个接一个地飞入 code169为4个网格元素添加延迟的 错开动画开始时间 */
+.flyin-grid__item {
+	animation: fly-in 600ms ease-in;
+}
+
+.flyin-grid__item:nth-child(2) {
+	animation-delay: 0.15s;
+}
+
+.flyin-grid__item:nth-child(3) {
+	animation-delay: 0.3s;
+}
+
+.flyin-grid__item:nth-child(4) {
+	animation-delay: 0.45s;
+}
+/* 每个元素的动画开始时间设置得比前一个稍晚一点 有一个问题，动画确实是在预期的时间播放的，但是有些元素提取展示在了页面上，一小段时间后它们消失然后播放动画，不河里。理想应该达到的效果是所有的元素在开始的时候都不可见，只有在各自的动画执行的时候才会出现。 
+这个问题的出现是因为transform和opacity属性只应用在了动画执行期间。动画开始之前，网格元素在页面上是可见的，就在它们各自的正常位置。动画开始的时候，它们瞬间变成0%关键帧上应用的属性值。我们需要把动画样式后向填充设置，就像一直暂停在第一帧，直到动画开始播放。可以使用animation-fill-mode属性来实现。
+animation-fill-mode的初始值是none 意思是动画执行前或执行后动画样式都不会应用到元素上。animation-fill-mode:backwards 在动画执行之前，浏览器就会取出动画中第一帧的值，并把它们应用在元素上；属性forwards会在动画播放完成后仍然应用最后一帧的值；属性both会同时向前和向后填充
+为页面添加后向填充模式可以修复动画开始时的元素跳动。code1610*/
+.flyin-grid__item {
+	animation: fly-in 600ms ease-in;
+	animation-fill-mode: backwards;
+}
+/* 这样就可以是动画的初始状态暂停在第一帧，等待动画的播放。现在在动画开始之前，网格元素向后移动了800px,旋转了90度，opacity设为0，准备好了迎接动画开始。 */

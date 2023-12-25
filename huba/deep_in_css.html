@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>incss</title>
-<!--<link href="stylefordeepincss.css" rel="stylesheet" type="text/css" />-->
-
+<!-- <link href="stylefordeepincss.css" rel="stylesheet" type="text/css" /> -->
+<link href="stylesheetforonce.css" rel="stylesheet" type="text/css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sansita:wght@800&display=swap" rel="stylesheet">
@@ -641,7 +641,7 @@ grad 百分度gradian 一个完整的圆是400百分度400grad 100grad相当于9
 	<h1>Usra Major</h1>
 </div> -->
 <!-- code121对比最重要 -->
-<nav class="nav-container">
+<!-- <nav class="nav-container">
 	<div class="nav-container__inner">
 		<a class="home-link" href="/">Ink</a>
 		<ul class="top-nav">
@@ -687,7 +687,43 @@ grad 百分度gradian 一个完整的圆是400百分度400grad 100grad相当于9
 <footer class="page-footer">
 	<div class="page-footer__inner">
 		Copyright &copy; 2017 Ink, Inc.
-	</div>
+	</div> -->
+
 </footer>
+<!-- code1310 js监控字体加载 -->
+<!-- <script type="text/javascript">
+	var html = document.documentElement;
+	var script = document.documentElement("script");
+	script.src = "fontfaceobserver.js"
+	script.async = true;
+
+	script.onload = function() {
+		var roboto = new FontFaceObserver("Roboto");
+		var sansita = new FontFaceObserver("Sansita");
+		var timeout = 2000;
+
+		Promise.all([
+			roboto.load(null, timeout),
+			sansita.load(null, timeout)
+		]).then(function(){
+			html.classList.add("fonts-loaded");
+		}).catch(function(e){
+			html.classList.add("fonts-failed");
+		});
+	};
+	document.head.appendChild(script);
+</script> -->
+
+<!-- 动态创建<script>标签，添加font face observer 到页面上， 为roboto和sansita字体创建观察器， 两种字体都加载完成以后，为<html>元素添加fonts-loaded 类， 如果字体加载失败，为<html>元素添加fonts-failed 类 
+	
+这段脚本创建了两个观察器，分别用于Roboto字体和Sansita字体。Promise.all()方法会等待两个字体都加载完成，然后脚本为页面添加fonts-loaded类。如果加载失败超时(2s)，catch回调函数会被调用，为页面添加fonts-failed类。这样当页面加载完成时，脚本会为页面要么添加font-loaded 要么添加 fonts-failed.
+font face observer 包含一个polyfill来添加支持。如果你已经使用了自己的polyfill那就在它们的网站上下载font face observer的独立版本。
+字体加载的方法，一 在css使用回退字体 然后在选择器中使用，fonts-loaded 把回退字体改成想要的web字体。这样就可以把浏览器FOIT不可见文本改为FOUT无样式文本。2 在css中使用web字体，然后在选择器中使用 fonts-failed 把字体改成回退字体。这种方法依然会产生FOIT 但是如果超时就会转换为系统字体，页面不会在加载失败时被不可见文本卡住。code1311-->
+<!-- code14-2 过渡 -->
+<!-- <button>Hover over me</button> -->
+<!-- code14-3定时函数演示  -->
+<div class="container">
+	<div class="box">这是一个盒子。</div>
+</div>
 </body>
 </html>

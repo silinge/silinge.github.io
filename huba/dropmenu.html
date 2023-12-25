@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>dropmenu</title>
+    <link href="stylesheetforonce.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One|Raleway" rel="stylesheet">
+</head>
+<body>
+<!-- code147 下拉菜单     -->
+<!-- <div class="dropdown" aria-haspopup="true">
+    <button class="dropdown__toggle">Menu</button>
+    <div class="dropdown__drawer">
+        <ul class="menu" role="menu">
+            <li role="menuitem">
+                <a href="/features">Features</a>
+            </li>
+            <li role="menuitem">
+                <a href="/support">Support</a>
+            </li>
+            <li role="menuitem">
+                <a href="/about">About</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<p><a href="/read-more">Read more</a></p> -->
+<!-- 抽屉会显示和隐藏以此来展示菜单，显示在下拉菜单下方的链接 -->
+<!-- <script type="text/javascript">
+    (function() {
+        var toggle = document.getElementsByClassName('dropdown__toggle')[0];
+        var dropdown = toggle.parentElement;
+        toggle.addEventListener('click', function(e){
+            e.preventDefault();
+            dropdown.classList.toggle('is-open');
+        });
+    }());
+</script> -->
+
+ <!-- 按钮点击时在容器上添加和删除is-open类 -->
+ <!-- code1411 精确设置元素高度，让过渡效果起作用 -->
+ <!-- <script type="text/javascript">
+    (function() {
+        var toggle = document.getElementsByClassName('dropdown__toggle')[0];
+        var dropdown = toggle.parentElement;
+        var drawer = document.getElementsByClassName('dropdown__drawer')[0];
+        var height = drawer.scrollHeight;
+
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('is-open');
+            if (dropdown.classList.contains('is-open')) {
+                drawer.style.setProperty('height', height + 'px');
+            } else {
+                drawer.style.setProperty('height', '0');
+            }
+        });
+    }());
+ </script> -->
+
+ <!-- 除了触发is-open类 还为元素的高度指定了精确的像素值 这样就可以过渡到正确的高度 然后在关闭的时候把高度值重新设置为0 这样菜单又可以过渡回去 -->
+ <!-- 如果一个元素使用display:none 隐藏起来，那它的srollHeight属性等于0.可以先把display属性设置为block(el.style.display = 'block'),获取到scrollHeight 然后重置display的值(el.style.display = 'none') -->
+
+ <!-- code15-1创建一张简单卡片  -->
+ <!-- <div class="card">
+    <img src="test.jpg" alt="a flower" />
+    <h4>Mrs f4</h4>
+    <p>
+        SHE MAY BE A BIT FRUMPY, BUT MRS F4 GETS THE JOB DONE. SHE LAYS HER LARGISH CREAM-COLORED EGGS ON A DAILY BASIS. SHE IS GREGARIOUS TO A FAULT.
+    </p>
+    <P>THIS AUSTRA WHITE IS OUR MOSI PROLIFIC PRODUCER.</P>
+ </div> -->
+ <!-- code 152 实现左侧导航菜单 菜单只有四个纵向排列的图标 鼠标一悬停，菜单文字就出现了。示例包含多个过渡和一对变换。包含一个链接 指向谷歌字体API提供的两款web字体(alfa slab one 和 raleway) -->
+<!-- <header>
+    <h1 class="page-header">The Yolk Factory</h1>
+</header>
+<nav class="main-nav">
+    <ul class="nav-links">
+        <li>
+            <a href="/">
+                <img src="homep.svg" class="nav-links__icon" />
+                <span class="nav-links__label">Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="/events">
+                <img src="barp.svg" class="nav-links__icon" />
+                <span class="nav-links__label">Events</span>
+            </a>
+        </li>
+        <li>
+            <a href="/members">
+                <img src="barp.svg" class="nav-links__icon" />
+                <span class="nav-links__label">Members</span>
+            </a>
+        </li>
+        <li>
+            <a href="/about">
+                <img src="menup.svg" class="nav-links__icon" />
+                <span class="nav-links__label">About</span>
+            </a>
+        </li>
+    </ul>
+</nav> -->
+<!-- code154三维变换 4个盒子演示3D变换和透视距离 -->
+<!-- <div class="row">
+    <div class="box">One</div>
+    <div class="box">Two</div>
+    <div class="box">Three</div>
+    <div class="box">Four</div>
+</div> -->
+
+<!-- code162只有一个盒子元素的网页，为盒子添加动画 -->
+<!-- <div class="box">添加动画元素的盒子</div> -->
+
+<!-- code1610 使用code1510代码片段 -->
+<header>
+    <h1 class="page-header">The Yolk Factory</h1>
+</header>
+<nav class="main-nav">
+    <ul class="nav-links">
+        <li>
+            <a href="/">
+                <img src="homep.svg" class="nav-links__icon" />
+                <span class="nav-links__label">Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="/events">
+                <img src="barp.svg" class="nav-links__icon" />
+                <span class="nav-links__label">Events</span>
+            </a>
+        </li>
+        <li>
+            <a href="/members">
+                <img src="barp.svg" class="nav-links__icon" />
+                <span class="nav-links__label">Members</span>
+            </a>
+        </li>
+        <li>
+            <a href="/about">
+                <img src="menup.svg" class="nav-links__icon" />
+                <span class="nav-links__label">About</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!-- code164html卡片 -->
+<main class="flyin-grid">
+    <div class="flyin-grid__item card">
+        <img src="img/IMG_20140708_160205.jpg" alt="a stone" />
+        <h4>Mrs.Featherstone</h4>
+        <p>
+            She may be a bit frumpy, but Mrs Featherstone gets the job done. She lays her largish cream-colored eggs on a daily basis. She is gregarious to a fault.
+        </p>
+    </div>
+    <div class="flyin-grid__item card">
+        <img src="img/IMG_20140708_164723.jpg" alt="a river" />
+        <h4>Hen Solo</h4>
+        <p>
+            Though the most recent addition to our flock, Hen Solo is a fast favorite among our laying brood.
+        </p>
+    </div>
+    <div class="flyin-grid__item card">
+        <img src="img/IMG_20140709_102753.jpg" alt="a castle" />
+        <h4>Cluck Norris</h4>
+        <p>
+            Every brood has its brawler. Cluck Norris is our feistiest hen, frequently picking fights with other hens about laying territory and foraging space.
+        </p>
+    </div>
+    <div class="flyin-grid__item card">
+        <img src="img/IMG_20140709_112638.jpg" alt="a view" />
+        <h4>Peggy Schuyler</h4>
+        <p>
+            Peggy was our first and friendliest hen. She is the most likely to greet visitors to the yard, and frequently to be found nesting in the coop.
+        </p>
+    </div>
+</main>
+<!-- 这部分页面由两个模块组成。外层的模块是飞入网格，为网格内的元素提供了布局，同时还包含了3D飞入效果。每个网格元素都是内层卡片模块的一个示例。卡片模块提供外观样式，包括背景，内边距和字体颜色。还需要考虑移动端布局，以及在不支持网格的旧版浏览器中基于Flexbox的回退方案。首先实现移动布局，然后添加Flexbox样式，最后是基于网格的样式 -->
+</body>
+</html>

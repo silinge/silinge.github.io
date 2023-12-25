@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>css164</title>
+    <link rel="stylesheet" type="text/css" href="deepincss164.css" />
+</head>
+
+<body>
+<!-- 创建一个包含提交按钮的小表单。然后添加一个旋转指示器，让用户知道表单正在发送，浏览器正在等待服务器的响应。
+code1610 带save按钮的表单 -->
+ <form>
+     <label for="trip">Tell us about your first trip to the zoo</label>
+     <textarea id="trip" name="about-my-trip" rows="5"></textarea>
+     <button type="submit" id="submit-button">Save</button>
+ </form>
+ <!-- code1614 把script标签添加到网页 使得按钮被点击时会添加is-loading类。 -->
+ <!-- <script type="text/javascript">
+    var input = document.getElementById('trip');
+    var button = document.getElementById('submit-button');
+
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        button.classList.add('is-loading');
+        button.ariaDisabled = true;
+        input.disabled = true;
+    });
+ </script> -->
+ <!-- 点击save按钮的时候，prevent-Default()阻止了正常的表单提交。这样在系统上使用JavaScript提交表单的时候，可以让用户停留在当前页面，不会跳转离开。在此期间，输入功能使禁止的，is-loading类添加到了按钮上，旋转指示器会显示出来。 -->
+ <!-- code1616 一秒延迟后添加shake类 -->
+<script type="text/javascript">
+    var input = document.getElementById('trip');
+    var button = document.getElementById('submit-button');
+    
+    var timeout = null;
+
+    button.addEventListener('click', function(event){
+        event.preventDefault();
+        clearTimeout(timeout);
+        button.classList.add('is-loading');
+        button.disabled = true;
+        input.disabled = true;
+    });
+
+    input.addEventListener('keyup', function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            button.classList.add('shake');
+        }, 1000);
+    });
+    button.addEventListener('animationed', function() {
+        button.classList.remove('shake');
+    });
+  
+</script>
+<!-- 现在加载页面并在文本域中输入一些文字。等待一秒后，保存按钮会出现摇晃。只要持续输入，计时器会不断地重置，摇晃动画不会出现，直到下一次停止输入超过一秒后。这样摇晃的按钮不会总是打断尔，只是在汝停下来的时候才会触发
+用JavaScript的animationend事件 在摇晃动画播放结束时才触发。然后shake类会从按钮上移除，这样汝下次输入并停下来时会重新添加shake类，并再次播放动画。 -->
+</body>
+</html>

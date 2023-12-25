@@ -1,0 +1,29 @@
+<html>
+    <title>
+        it's about rust
+    </title>
+    <body>
+        <ul>
+            <li>
+                2023年11月3日 rustup update, rustup self uninstall, cargo build, cargo run, cargo check, cargo build --release
+            </li>
+            <li>
+                git clone someurl.com/someproject
+                cd someproject
+                cargo build
+                以此从git检出代码，将当前目录移动到该项目的目录下及执行构建操作。
+            </li>
+            <li>
+                创建猜数字游戏
+                cargo new guessing_game
+                cd guessing_game
+                然后打开Cargo.toml文件，可以按需要编辑其他的信息。
+                cargo new 自动生成的main程序默认就是"hello world!" 神奇吧。
+            </li>
+            <li>use std::io; 为了获得用户的输入并将其打印出来，需要把标准库即所谓的std中的io模块引入当前的作用域中。
+                作为默认行为，Rust会将预导入prelude模块内的条目自动引入每一段程序的作用域中，它包含了一小部分相当常用的类型。但是如需要的类型不在预导入模块内，就必须使用use语句来显式地导入声明。std::io库包含了需要有用的功能，可以使用它来获得用户的输入数据。
+            </li>
+
+        </ul>
+    </body>
+</html>

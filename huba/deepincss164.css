@@ -1,0 +1,101 @@
+/* code 1612调整表单布局并添加样式 */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+    max-width: 500px;
+}
+
+label,
+textarea {
+    display: block;
+    margin-bottom: 1em;
+}
+
+textarea {
+    width: 100%;
+    font-size: inherit;
+}
+
+button {
+    padding: 0.6em 1em;
+    border: 0;
+    background-color: hsl(220, 50%, 50%);
+    color: white;
+    font: inherit;
+    transition: background-color 0.3s linear;
+}
+
+button:hover {
+    background-color: hsl(220, 45%, 40%);
+}
+/* 接下来修改Save按钮，增加一种“正在加载”的状态。这时候按钮文字隐藏起来，用一个旋转图标代替。用户提交表单时，使用JavaScript为按钮添加is-loading类，动画效果就出来了。
+设置一个旋转的月牙形。添加旋转图标需要对CSS做两处改动，一使用边框和边框圆角制作月牙形状，二使其旋转。要使用这些样式，需要少量的JavaScript语句，在按钮点击时添加is-loading类。 
+code1613定义旋转动画和is-loading状态*/
+button.is-loading {
+    position: relative;
+    color: transparent;
+}
+
+button.is-loading::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 1.4em;
+    height: 1.4em;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.7em;
+    margin-top: -0.7em;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* 这样就为按钮定义了is-loading状态。一旦应用，按钮的文字被color:transparent设置成不可见，且伪元素通过绝对定位放在了按钮的中间。 
+top和left属性分别把伪元素向下移动了按钮高度的一半，向右移动了按钮宽度的一半，这样伪元素的左上角恰好位于按钮的中心点。然后，负外边距又把伪元素分别向上和向左拉回了0.7em,而0.7em正好是按钮宽度和高度的一半。这四个属性作用在一起，使伪元素在按钮的水平和竖直方向上都居中。可以为元素临时加上is-loading类，在浏览器的开发者工具中分别调整这些值，感受这些变化。
+然后是动画，使用一个新的关键字infinite赋值给动画重复次数，即只要is-loading类应用在按钮上，动画就一直重复。动画使用了旋转变换，从0度到360度，这样就可以把伪元素旋转一整圈。动画的结尾恰好使元素停留在开始的位置，看上去动画每次重复都无缝衔接。*/
+
+/* code1614 把script标签添加到网页 使得按钮被点击时会添加is-loading类。 */
+/* code1615定义按钮的摇晃动画，以吸引用户注意力。 */
+.shake {
+    animation: shake 0.7s linear;
+}
+@keyframes shake {
+    0%,
+    100%{
+        transform: translateX(0)
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateX(-0.4em);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: translateX(0.4em);
+    }
+
+    80% {
+        transform: translateX(0.3em);
+    }
+    90% {
+        transform: translateX(-0.3em);
+    }
+}
+/* 从开始0%和结束100%关键帧，元素位于默认位置。因为这两个关键帧使用的值相同，可以只定义一次属性值，使用逗号分隔。10 30 50 70处的关键帧一样，把元素向左移动，20 40 60处关键帧把元素向右移动。80 90两个关键帧分别向右侧和左侧移动元素，但幅度稍小。动画一个四次摇动了元素，其中第四次幅度有所降低，用来模拟运动即将结束慢下来的过程。
+样式表中 动画可以多次重复调用，因此动画的定义不需要和最终使用动画的模块放在一起。
+最后 实现用户保存输入的时候，使用JavaScript播放动画。可以使用keyup事件监听器和超市函数来实现。当用户向文本域输入字符的时候，可以设置一个一秒的超时函数，向按钮添加shake类，如果在一秒结束之前输入了其他字符，就清除计时，重新设置一个。
+code1616 一秒延迟后添加shake类。 */
