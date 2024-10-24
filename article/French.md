@@ -77,3 +77,96 @@
 4. 法语的重音通常落在单词的最后一个音节上。
 
 如果您对某些特定的发音有疑问，或者想了解更多关于法语发音规则的信息，请随时告诉我。我很乐意为您提供更详细的解释或者一些发音练习的建议。
+
+Le Cabernet Sauvignon – Cépage rouge, connu pour son goût riche et puissant.
+Le Merlot – Cépage rouge, souvent plus doux que le Cabernet Sauvignon.
+Le Pinot Noir – Cépage rouge, délicat et léger.
+Le Syrah/Shiraz – Cépage rouge, aux arômes épicés et fruités.
+Le Malbec – Cépage rouge, souvent corsé et fruité.
+Le Grenache – Cépage rouge, connu pour son goût doux et fruité.
+Le Chardonnay – Cépage blanc, souvent utilisé pour des vins blancs riches.
+Le Sauvignon Blanc – Cépage blanc, avec des notes herbacées et citronnées.
+Le Riesling – Cépage blanc, souvent doux avec des arômes fruités et floraux.
+Le Chenin Blanc – Cépage blanc, très polyvalent, utilisé pour des vins secs et doux.
+Le Muscat – Cépage blanc, généralement doux avec un goût musqué.
+Le Viognier – Cépage blanc, connu pour ses arômes floraux et fruités.
+Le Sémillon – Cépage blanc, souvent utilisé dans des vins doux comme le Sauternes.
+Le Gewurztraminer – Cépage blanc, aux arômes intenses de fruits et d'épices.
+
+Un
+
+Deux
+
+Trois
+
+Quatre
+
+Cinq
+
+Six
+
+Sept
+
+Huit
+
+Neuf
+
+Dix
+
+Onze
+
+Douze
+
+Treize
+
+Quatorze
+
+Quinze
+
+Vingt
+
+Trente
+
+Quarante
+
+Cinquante
+
+Soixante
+
+Soixante-dix
+
+Quatre-vingts
+
+Quatre-vingt-dix
+
+Cent
+
+Deux cents
+
+Trois cents
+1,000. Mille
+10,000. Dix mille
+
+Premier / Première (1er / 1ère)
+Deuxième ou Second(e) (2e)
+Troisième (3e)
+Quatrième (4e)
+Cinquième (5e)
+Sixième (6e)
+Septième (7e)
+Huitième (8e)
+Neuvième (9e)
+Dixième (10e)
+
+Vingtième
+
+Trentième
+
+Quarantième
+
+Cinquantième
+
+Soixantième
+
+Centième
+1,000. Millième
