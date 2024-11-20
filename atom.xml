@@ -6,7 +6,12 @@ layout: null
 <feed xmlns="http://www.w3.org/2005/Atom">
  <id>{{ site.url }}</id>
  <title>{{ site.title }}</title>
-
+ <description>{"description":"feedId:81869359243270144+userId:74364488979398656",
+  "follow_challenge": {
+    "feed_id": "81869359243270144",
+    "user_id": "74364488979398656"
+}
+ }</description>
  <link type="application/atom+xml" href="{{ site.url }}/atom.xml" rel="self"/>
  <link type="text/html" href="{{ site.url }}" rel="alternate"/>
 
@@ -15,9 +20,8 @@ layout: null
    <name>{{ site.author.name }}</name>
    <email>{{ site.author.email }}</email>
    <url>{{ site.author.url }}</url>
-      This message is used to verify that this feed (feedId:81869359243270144) belongs to me (userId:74364488979398656). Join me in enjoying the next generation information browser https://follow.is.
  </author>
-
+This message is used to verify that this feed (feedId:81869359243270144) belongs to me (userId:74364488979398656). Join me in enjoying the next generation information browser https://follow.is.
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
@@ -43,7 +47,6 @@ layout: null
    {% for category in post.categories %}
    <category><![CDATA[{{ category }}]]></category>
    {% endfor %}
-   <description content="feedId:81869359243270144+userId:74364488979398656" />
    <content type="html"><![CDATA[
    {{ post.excerpt }}
    <p><a rel="full-article" href="{{ site.url }}{{ post.url }}?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication">
