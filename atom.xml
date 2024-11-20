@@ -15,6 +15,7 @@ layout: null
    <name>{{ site.author.name }}</name>
    <email>{{ site.author.email }}</email>
    <url>{{ site.author.url }}</url>
+      This message is used to verify that this feed (feedId:81869359243270144) belongs to me (userId:74364488979398656). Join me in enjoying the next generation information browser https://follow.is.
  </author>
 
  {% for post in site.posts %}
@@ -23,7 +24,7 @@ layout: null
    <link href="{{ site.url }}{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>{{ site.url }}{{ post.id }}</id>
-   This message is used to verify that this feed (feedId:81869359243270144) belongs to me (userId:74364488979398656). Join me in enjoying the next generation information browser https://follow.is.
+
   <follow_challenge>
       <feedId>81869359243270144</feedId>
       <userId>74364488979398656</userId>
