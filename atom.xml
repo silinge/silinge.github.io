@@ -6,12 +6,12 @@ layout: null
 <feed xmlns="http://www.w3.org/2005/Atom">
  <id>{{ site.url }}</id>
  <title>{{ site.title }}</title>
- <description>{"description":"feedId:81869359243270144+userId:74364488979398656",
-  "follow_challenge": {
-    "feed_id": "81869359243270144",
-    "user_id": "74364488979398656"
-}
- }</description>
+ <description>feedId:81869359243270144+userId:74364488979398656</description>
+ <follow_challenge>
+    <feedId>81869359243270144</feedId>
+    <userId>74364488979398656</userId>
+</follow_challenge>
+This message is used to verify that this feed (feedId:81869359243270144) belongs to me (userId:74364488979398656). Join me in enjoying the next generation information browser https://follow.is.
  <link type="application/atom+xml" href="{{ site.url }}/atom.xml" rel="self"/>
  <link type="text/html" href="{{ site.url }}" rel="alternate"/>
 
@@ -21,7 +21,6 @@ layout: null
    <email>{{ site.author.email }}</email>
    <url>{{ site.author.url }}</url>
  </author>
-This message is used to verify that this feed (feedId:81869359243270144) belongs to me (userId:74364488979398656). Join me in enjoying the next generation information browser https://follow.is.
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
