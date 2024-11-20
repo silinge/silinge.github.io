@@ -15,7 +15,6 @@ layout: null
    <name>{{ site.author.name }}</name>
    <email>{{ site.author.email }}</email>
    <url>{{ site.author.url }}</url>
-   <description>
  </author>
 
  {% for post in site.posts %}
