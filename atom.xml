@@ -24,7 +24,10 @@ layout: null
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>{{ site.url }}{{ post.id }}</id>
    
-
+<follow_challenge>
+    <feedId>81869359243270144</feedId>
+    <userId>74364488979398656</userId>
+</follow_challenge>
    <author>
      <name>{{ site.author.name }}</name>
      <uri>{{ site.author.url }}</uri>
@@ -39,7 +42,7 @@ layout: null
    {% for category in post.categories %}
    <category><![CDATA[{{ category }}]]></category>
    {% endfor %}
-   
+   <description feedId:81869359243270144+userId:74364488979398656 />
    <content type="html"><![CDATA[
    {{ post.excerpt }}
    <p><a rel="full-article" href="{{ site.url }}{{ post.url }}?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication">
