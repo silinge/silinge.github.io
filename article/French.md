@@ -170,3 +170,111 @@ Soixantième
 
 Centième
 1,000. Millième
+
+Un roman – a novel
+Une bande dessinée (BD) – a comic book
+Un poème – a poem
+Une bibliothèque – a library
+Un chapitre – a chapter
+Un auteur / une autrice – an author (male/female)
+Une intrigue – a plot
+Une préface – a preface
+Un personnage – a character
+Un éditeur – a publisher、
+
+Victor Hugo – connu pour Les Misérables, Notre-Dame de Paris
+Albert Camus – connu pour L'Étranger, La Peste
+Émile Zola – connu pour Germinal, L'Assommoir
+Gustave Flaubert – connu pour Madame Bovary
+Marcel Proust – connu pour À la recherche du temps perdu
+Colette – connue pour Chéri, Claudine à l'école
+Jean-Paul Sartre – connu pour La Nausée, Les Mains sales
+Simone de Beauvoir – connue pour Le Deuxième Sexe, Les Mandarins
+Molière – connu pour des pièces comme Le Misanthrope, L'Avare
+Charles Baudelaire – connu pour son recueil de poèmes Les Fleurs du mal
+Le chien – dog
+Le chat – cat
+Le lapin – rabbit
+Le poisson rouge – goldfish
+Le hamster – hamster
+L’oiseau – bird
+La tortue – turtle
+
+
+Le labrador – Labrador
+Le berger allemand – German Shepherd
+Le bulldog – Bulldog
+Le caniche – Poodle
+Le dalmatien – Dalmatian
+Le chihuahua – Chihuahua
+Le husky – Husky
+Le golden retriever – Golden Retriever
+Le rottweiler – Rottweiler
+Le teckel – Dachshund
+
+Rose – Rose
+Tulipe – Tulip
+Lys (ou Lis) – Lily
+Marguerite – Daisy
+Tournesol – Sunflower
+Pivoine – Peony
+Orchidée – Orchid
+Jasmin – Jasmine
+Lavande – Lavender
+Coquelicot – Poppy
+Narcisse – Daffodil
+Camélia – Camellia
+Bleuet – Cornflower
+Violette – Violet
+Iris – Iris
+
+Mercure - Mercury
+Vénus - Venus
+Terre - Earth
+Mars - Mars
+Jupiter - Jupiter
+Saturne - Saturn
+Uranus - Uranus
+Neptune - Neptune
+
+Étoile - Star
+Constellation - Constellation
+Galaxie - Galaxy
+Astro - Star (préfixe pour des mots liés aux étoiles, comme astrologie ou astronomie)
+Astéroïde - Asteroid
+Nébuleuse - Nebula
+Lumière stellaire - Starlight
+Étoile filante - Shooting star / Meteor
+Voie lactée - Milky Way
+Observatoire - Observatory
+
+Sirius (Sirius)
+
+Aussi appelée l'Étoile du Chien, c'est l'étoile la plus brillante du ciel nocturne.
+Elle se trouve dans la constellation du Grand Chien (Canis Major).
+Vega (Véga)
+
+Une des étoiles les plus brillantes, située dans la constellation de la Lyre (Lyra).
+Elle a été utilisée comme référence pour mesurer la luminosité des étoiles.
+Bételgeuse (Betelgeuse)
+
+Une supergéante rouge située dans la constellation d'Orion.
+C'est une étoile massive en fin de vie qui pourrait exploser en supernova.
+Rigel (Rigel)
+
+Une étoile très brillante dans Orion, mais bleue et jeune, contrairement à Bételgeuse.
+Polaris (Polaris)
+
+Également appelée l'Étoile Polaire, elle indique le nord et est située dans la constellation de la Petite Ourse (Ursa Minor).
+Antarès (Antares)
+
+Une étoile géante rouge située dans la constellation du Scorpion (Scorpius).
+Son nom signifie "rival de Mars" en raison de sa couleur rougeâtre.
+Alphard (Alphard)
+
+Étoile brillante dans la constellation de l'Hydre (Hydra).
+Son nom signifie "l'isolée" en arabe, car elle est seule dans cette région du ciel.
+Altair (Altaïr)
+
+Située dans la constellation de l'Aigle (Aquila).
+Elle fait partie du Triangle d'été, un asterisme célèbre.

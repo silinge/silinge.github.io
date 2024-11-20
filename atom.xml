@@ -1,0 +1,51 @@
+---
+layout: null
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <id>{{ site.url }}</id>
+ <title>{{ site.title }}</title>
+
+ <link type="application/atom+xml" href="{{ site.url }}/atom.xml" rel="self"/>
+ <link type="text/html" href="{{ site.url }}" rel="alternate"/>
+
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <author>
+   <name>{{ site.author.name }}</name>
+   <email>{{ site.author.email }}</email>
+   <url>{{ site.author.url }}</url>
+ </author>
+
+ {% for post in site.posts %}
+ <entry>
+   <title>{{ post.title }}</title>
+   <link href="{{ site.url }}{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>{{ site.url }}{{ post.id }}</id>
+   
+
+   <author>
+     <name>{{ site.author.name }}</name>
+     <uri>{{ site.author.url }}</uri>
+   </author>
+
+   <rights type="text">
+     Copyright {{ site.time | date: '%y' }} {{ site.author.name }}.
+     Some rights reserved (CC BY-NC 3.0)
+     License: http://creativecommons.org/licenses/by-nc/3.0/
+   </rights>   
+   
+   {% for category in post.categories %}
+   <category><![CDATA[{{ category }}]]></category>
+   {% endfor %}
+   
+   <content type="html"><![CDATA[
+   {{ post.excerpt }}
+   <p><a rel="full-article" href="{{ site.url }}{{ post.url }}?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication">
+     <b>Read This Article &raquo;</b>
+   </a></p>
+   ]]></content>
+ </entry>
+ {% endfor %}
+</feed>

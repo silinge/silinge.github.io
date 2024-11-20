@@ -1,22 +1,57 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>htmltest</title>
-<!--
-body {
-	width:750px;
-	font-family:Arial, Verdana, sans-serif;
-	color:#664344;
-	}
--->
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Example</title>
+	<link rel="stylesheet" href="example.css" />
+	<!-- <script>
+		window.onload = function(){
+			var para = document.getElementById("example");
+			 alert(typeof para.nodeName);
+			alert(typeof para.style);
+		
+			alert("The color is: " + para.style.color);
+			font-family is not ok ; fontFamily yes; css里面-的命名js统统变成驼峰式 fontSize fontWeight marginTop...
+			alert("The font family is: " + para.style.fontFamily);
+			alert("The fontsize is: " + para.style.fontSize);
+			然而element.style检索不出外联css文件内的属性值
+		} 
+	</script> -->
+	<!-- <script>
+		window.onload = function(){
+			var para = document.getElementById("example");
+			para.style.color = "lightgreen";
+			para.style.backgroundColor = "rgb(180, 180, 199)";
+			// alert(para.style.backgroundColor);
+		} 
+		
+	</script> -->
 </head>
+<body>
+	<!--<p id="example" style="color: #888888; font-family: Arial, Helvetica, sans-serif; font-size: 1em;">An Example of a paragraph</p>
+	 font: 1em Arial, Helvetica, sans-serif; 等同于 font-family:Arial, Helvetica, sans-serif; font-size: 1em; 用para.style.fontSize 同样能从font里面找出1em, 即使他们写在了一起。反之，赋值操作一样承认这样连在一起的 速记属性，para.style.font = "2em sans-serif, Arial" -->
+	 <p id="example">Here is a new paragraph.</p>
 
-<body style="width: 750px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif'; color: #665533">
-<h1 style="background-color: #efefef; padding:10px;">The evolution of the bicycle</h1>
-<p style="width: 450px;">In 1817 Baron von Drais invented a walking machine that would help him get around the royal gardens fasters...</p>
-	
-<p style="position: relative; top: 10px; left: 120px;">也许我一直害怕有答案，也许我不知怎么办，遗憾是会到达，总算要好过的害怕。有一束光 那力量 这世界 开始会痛的刺眼，我逆着光却看见。</p>
+	 <!-- nodeType;
+	 1 一个元素节点 p div ; node.element_node
+	 2 元素的属性 node.attribute
+	 3 元素或者属性中的实际文本 node.text_node 
+	 4 CDATASection 
+	 7 用于XML文档的ProcessingInstruction
+	 8 一个注释节点 node.comment_node 
+	 9 一个document节点 node.document_node 
+	 10 描述文档类型的节点 node.document_type_node 
+	 11 DocumentFragment 节点 node.document_fragment_node 
+	 5 6 12已经弃用 -->
+
+	<h1>Hold the front page.</h1>
+	<p>This is first paragraph leads you jin.</p>
+	<p>Now get the nitty-gritty of the story.</p>
+	<p>The most important information is delivered first</p>
+	<h1>Extra@@@</h1>
+	<p>Futher developments are unfolding. Therefore you may read all about it here. Hava fun!</p>
+	<script src="scripts/addLoadEvent.js"></script>
+	<script src="scripts/getNextElement.js"></script>
 </body>
 </html>
