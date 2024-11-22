@@ -17,8 +17,17 @@ user_ids_base = [
     '6048569942', '3138279871', '2400966427', '5722964389', '1727858283',
     '7416690461', '1253846303', '5955106173'
 ]
-user_ids = set(user_ids_base)
-rss_urls = {f'user{i+1}': f'https://rsshub.app/weibo/user/{user_id}' for i, user_id in enumerate(user_ids)}
+
+# 假设user_names字典如下，需要手动填写或通过其他方式获取
+user_names = {
+    '1694917363': '用户A',
+    '2522334710': '用户B',
+    # 其他用户ID和名称的映射
+    # 需要确保所有user_id都有对应的名称
+}
+
+# 生成rss_urls列表，每个元素是一个字典，包含'user_id'和'url'
+rss_urls = [{'user_id': user_id, 'url': f'https://rsshub.app/weibo/user/{user_id}'} for user_id in user_ids_base]
 
 # 定义请求头
 headers = {
@@ -56,22 +65,24 @@ twelve_hours_ago = now - timedelta(hours=12)
 # 合并所有用户的微博条目
 all_entries = []
 
-for user, url in rss_urls.items():
+for user_info in rss_urls:
+    user_id = user_info['user_id']
+    url = user_info['url']
+    user_name = user_names.get(user_id, '未知用户')
     r = requests.get(url, headers=headers)
     feed = feedparser.parse(r.content)
     for entry in feed.entries:
-        title = entry.get('title', '')
         link = entry.get('link', '')
         description = entry.get('description', '')
         published = entry.get('published', '')
 
-        # 处理description，提取class="text-3xl"的文本
+        # 解析description，查找class="text-3xl"的元素
         soup = BeautifulSoup(description, 'html.parser')
         text_3xl_element = soup.find(class_='text-3xl')
         if text_3xl_element:
             title = text_3xl_element.get_text().strip()
         else:
-            title = title.strip()
+            title = user_name
 
         # 获取description的纯文本内容
         description_text = soup.get_text()
