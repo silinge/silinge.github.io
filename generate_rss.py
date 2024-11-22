@@ -16,9 +16,9 @@ def generate_rss(user_id):
     rss_content = '''<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{user_id} 的订阅源</title>
+    <title>微博用户 {user_id} 的订阅源</title>
     <link>{url}</link>
-    <description>{user_id} 的最新微博</description>
+    <description>微博用户 {user_id} 的最新微博</description>
     <atom:link href="https://silinge.github.io/rss/feed.xml" rel="self" type="application/rss+xml" />
     <language>zh-cn</language>
     <lastBuildDate>{last_build_date}</lastBuildDate>
@@ -55,6 +55,9 @@ def generate_rss(user_id):
   </channel>
 </rss>
 '''
+
+    # 使用 format 方法确保变量正确插入
+    rss_content = rss_content.format(user_id=user_id, url=url, last_build_date=last_build_date, pub_date=pub_date)
 
     with open('rss/feed.xml', 'w', encoding='utf-8') as f:
         f.write(rss_content)
