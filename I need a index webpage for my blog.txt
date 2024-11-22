@@ -1,4 +1,0 @@
-I need a index webpage for my blog 
-first a navbar on top right with three themes (intro, contact, works)
-second a main part with 2x2 sections filled by 4 images contain 4 links.
-third a footer to show my github address and my x account.  
