@@ -4,21 +4,17 @@ from datetime import datetime
 import hashlib
 import os
 
-# 微博用户ID
-user_id = '1659643027'
+# 微博用户ID列表
+user_ids = ['1659643027', '1253846303', '1887344341']
 
 # 生成RSS文件
-def generate_rss(user_id):
-    url = f'https://weibo.com/u/{user_id}'
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-
+def generate_rss(user_ids):
     rss_content = '''<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>微博用户 {user_id} 的订阅源</title>
-    <link>{url}</link>
-    <description>微博用户 {user_id} 的最新微博</description>
+    <title>微博订阅源</title>
+    <link>https://silinge.github.io</link>
+    <description>多个用户的微博订阅源</description>
     <atom:link href="https://silinge.github.io/rss/feed.xml" rel="self" type="application/rss+xml" />
     <language>zh-cn</language>
     <lastBuildDate>{last_build_date}</lastBuildDate>
@@ -29,17 +25,22 @@ def generate_rss(user_id):
     last_build_date = datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
     pub_date = last_build_date
 
-    # 解析微博内容
-    weibo_items = soup.find_all('div', class_='WB_cardwrap WB_feed_type S_bg2')
+    for user_id in user_ids:
+        url = f'https://weibo.com/u/{user_id}'
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
 
-    for item in weibo_items:
-        try:
-            title = item.find('div', class_='WB_text W_f14').text.strip()
-            link = f'https://weibo.com{item.find("a", class_="WB_time")["href"]}'
-            description = item.find('div', class_='WB_text W_f14').text.strip()
-            pub_date = item.find('a', class_='WB_time')['title']
+        # 解析微博内容
+        weibo_items = soup.find_all('div', class_='WB_cardwrap WB_feed_type S_bg2')
 
-            rss_content += f'''
+        for item in weibo_items:
+            try:
+                title = item.find('div', class_='WB_text W_f14').text.strip()
+                link = f'https://weibo.com{item.find("a", class_="WB_time")["href"]}'
+                description = item.find('div', class_='WB_text W_f14').text.strip()
+                pub_date = item.find('a', class_='WB_time')['title']
+
+                rss_content += f'''
     <item>
       <title>{title}</title>
       <link>{link}</link>
@@ -48,8 +49,8 @@ def generate_rss(user_id):
       <guid>{link}</guid>
     </item>
 '''
-        except Exception as e:
-            print(f"Error parsing item: {e}")
+            except Exception as e:
+                print(f"Error parsing item for user {user_id}: {e}")
 
     rss_content += '''
   </channel>
@@ -57,7 +58,7 @@ def generate_rss(user_id):
 '''
 
     # 使用 format 方法确保变量正确插入
-    rss_content = rss_content.format(user_id=user_id, url=url, last_build_date=last_build_date, pub_date=pub_date)
+    rss_content = rss_content.format(last_build_date=last_build_date, pub_date=pub_date)
 
     with open('rss/feed.xml', 'w', encoding='utf-8') as f:
         f.write(rss_content)
@@ -75,7 +76,7 @@ def has_file_changed(new_content):
     return hashlib.md5(old_content.encode()).hexdigest() != hashlib.md5(new_content.encode()).hexdigest()
 
 # 生成RSS文件并检查是否需要提交
-new_rss_content = generate_rss(user_id)
+new_rss_content = generate_rss(user_ids)
 if has_file_changed(new_rss_content):
     with open('rss/feed.xml', 'w', encoding='utf-8') as f:
         f.write(new_rss_content)
