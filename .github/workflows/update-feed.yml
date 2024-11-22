@@ -2,7 +2,7 @@ name: Update Weibo Feed
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # 每0.5小时运行一次
+    - cron: '0 */1 * * *'  # 每1小时运行一次
   workflow_dispatch:  # 允许手动触发
 jobs:
   update:
@@ -29,5 +29,5 @@ jobs:
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add rss/feed.xml
+        git add rss/feed.xml rss/weiboUpdate_*.html
         git diff --quiet && git diff --staged --quiet || (git commit -m "Update Weibo RSS feed" && git push)
