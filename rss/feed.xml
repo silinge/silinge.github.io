@@ -4,7 +4,7 @@
     <title>Aisuranove</title>
     <link>https://silinge.github.io</link>
     <description>Hello, Rss.</description>
-    <atom:link href="https://silinge.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://silinge.github.io/rss/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <lastBuildDate>Mon, 01 Jan 2023 00:00:00 GMT</lastBuildDate>
     <pubDate>Mon, 01 Jan 2023 00:00:00 GMT</pubDate>
