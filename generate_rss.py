@@ -33,6 +33,17 @@ def generate_rss(user_ids):
         # 解析微博内容
         weibo_items = soup.find_all('div', class_='WB_cardwrap WB_feed_type S_bg2')
 
+        html_content = f'''
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>微博用户 {user_id} 的微博</title>
+</head>
+<body>
+    <h1>微博用户 {user_id} 的微博</h1>
+'''
+
         for item in weibo_items:
             try:
                 title = item.find('div', class_='WB_text W_f14').text.strip()
@@ -40,17 +51,34 @@ def generate_rss(user_ids):
                 description = item.find('div', class_='WB_text W_f14').text.strip()
                 pub_date = item.find('a', class_='WB_time')['title']
 
+                html_content += f'''
+    <div>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <p>发布时间: {pub_date}</p>
+        <p><a href="{link}">查看原文</a></p>
+    </div>
+'''
+
                 rss_content += f'''
     <item>
       <title>{title}</title>
-      <link>{link}</link>
+      <link>https://silinge.github.io/weiboUpdate_{user_id}.html</link>
       <description>{description}</description>
       <pubDate>{pub_date}</pubDate>
-      <guid>{link}</guid>
+      <guid>https://silinge.github.io/weiboUpdate_{user_id}.html</guid>
     </item>
 '''
             except Exception as e:
                 print(f"Error parsing item for user {user_id}: {e}")
+
+        html_content += '''
+</body>
+</html>
+'''
+
+        with open(f'weiboUpdate_{user_id}.html', 'w', encoding='utf-8') as f:
+            f.write(html_content)
 
     rss_content += '''
   </channel>
