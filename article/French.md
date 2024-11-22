@@ -278,3 +278,43 @@ Altair (Altaïr)
 
 Située dans la constellation de l'Aigle (Aquila).
 Elle fait partie du Triangle d'été, un asterisme célèbre.
+
+1. Auvergne-Rhône-Alpes 奥弗涅-罗纳-阿尔卑斯大区
+Capitale : Lyon
+Montagnes célèbres comme les Alpes, volcans d’Auvergne, gastronomie riche.
+2. Bourgogne-Franche-Comté 勃艮第-弗朗什-孔泰
+Capitale : Dijon
+Célèbre pour ses vins (Bourgogne), sa moutarde et son patrimoine médiéval.
+3. Bretagne
+Capitale : Rennes
+Région côtière avec des traditions celtiques, des crêpes et des menhirs.
+4. Centre-Val de Loire
+Capitale : Orléans
+Connu pour ses châteaux magnifiques (Chambord, Chenonceau) et ses paysages.
+5. Corse
+Capitale : Ajaccio
+Une île méditerranéenne avec une nature préservée, des montagnes et de belles plages.
+6. Grand Est
+Capitale : Strasbourg
+Région frontalière avec l'Allemagne et la Belgique, connue pour son vin et son architecture alsacienne.
+7. Hauts-de-France
+Capitale : Lille
+Région industrielle avec des plages sur la Manche et une culture chaleureuse.
+8. Île-de-France
+Capitale : Paris
+Région la plus peuplée, avec Paris comme centre économique et culturel.
+9. Normandie
+Capitale : Rouen
+Célèbre pour le débarquement de 1944, le Mont-Saint-Michel et son cidre.
+10. Nouvelle-Aquitaine
+Capitale : Bordeaux
+Région viticole avec des plages sur l’Atlantique, comme celles de Biarritz.
+11. Occitanie
+Capitale : Toulouse
+Une région du sud connue pour ses villages, le Canal du Midi et la culture occitane.
+12. Pays de la Loire
+Capitale : Nantes
+Connu pour ses châteaux et sa proximité avec l’Atlantique.
+13. Provence-Alpes-Côte d'Azur (PACA)
+Capitale : Marseille
+Région ensoleillée avec des plages, la Provence, et des villes comme Nice.

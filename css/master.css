@@ -24,9 +24,9 @@ a:link{
 a:visited{
     text-decoration: none
 }
-a:hover{
+/* a:hover{
     color: firebrick;
-}
+} */
 .mark_line{
 /*    background-color: lightskyblue;*/
 	background-image: linear-gradient(to left, lightgray, white, lightsalmon);
@@ -38,11 +38,11 @@ a:hover{
 }
 .all{
 	float: left;
-    font-size:2.5em;
-	padding: 0.5em;
+    font-size:3em;
+	padding: 0.1em;
 	text-align: center;
 	width: 20%;
-	border-radius: .5em,
+	border-radius: .2em;
 }
 .one{
     background-color: #f4f0e6;
