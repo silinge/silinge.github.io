@@ -9,7 +9,7 @@ import re
 
 # Define a list of user IDs as strings
 user_ids_base = ['1694917363', '2522334710', '2214838982', '1655747731', '1649111590', '7746281422', '1881320895', '1404521940', '1260797924', '1432187644', '7188823772', '1240212845', '1668726803', '1941998575', '1912273717', '5283695116', '2213561393', '5103458366', '1454560380', '5692692520', '3867285047', '2194035935', '2987585965', '1778375693', '1659643027', '5466550668', '7217947278', '1670743152', '6827625527', '1092211747', '6048569942', '3138279871', '2400966427', '5722964389', '1727858283', '7416690461', '1253846303', '5955106173']
-user_ids = set(user_ids_base);
+user_ids = set(user_ids_base)
 # Generate rss_urls dictionary dynamically
 rss_urls = {f'user{i+1}': f'https://rsshub.app/weibo/user/{user_id}' for i, user_id in enumerate(user_ids)}
 
@@ -52,7 +52,6 @@ all_entries = []
 
 for user, url in rss_urls.items():
     r = requests.get(url, headers=headers)
-    # tree = etree.fromstring(r.text.encode('utf-8'))
     # 清洗RSS内容，确保所有&符号都被正确转义
     content = r.text.replace('&', '&amp;').replace('&amp;amp;', '&amp;')
     try:
@@ -70,6 +69,13 @@ for user, url in rss_urls.items():
             published_time = parse(published)
             published_time = published_time.astimezone(beijing_tz)
             if published_time >= twelve_hours_ago:
+                # 解析description中的HTML，找到class="text-3xl"的元素
+                if description:
+                    description_html = etree.HTML(description)
+                    if description_html is not None:
+                        text_3xl_elements = description_html.xpath('.//*[contains(@class, "text-3xl")]/text()')
+                        if text_3xl_elements:
+                            title = text_3xl_elements[0].strip()
                 entry_data = {
                     'title': title,
                     'link': link,
