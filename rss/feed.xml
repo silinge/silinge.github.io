@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aisuranove</title>
+    <link>https://silinge.github.io</link>
+    <description>Hello, Rss.</description>
+    <atom:link href="https://silinge.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 2023 00:00:00 GMT</lastBuildDate>
+    <pubDate>Mon, 01 Jan 2023 00:00:00 GMT</pubDate>
+    <ttl>60</ttl>
+
+    <item>
+      <title>First Post</title>
+      <link>https://silinge.github.io/index.html</link>
+      <description>Homepage</description>
+      <pubDate>Mon, 01 Jan 2023 00:00:00 GMT</pubDate>
+      <guid>https://silinge.github.io/first-post</guid>
+    </item>
+
+    <item>
+      <title>Second Post</title>
+      <link>https://silinge.github.io/hubA.html</link>
+      <description>2nd page</description>
+      <pubDate>Tue, 02 Jan 2023 00:00:00 GMT</pubDate>
+      <guid>https://silinge.github.io/second-post</guid>
+    </item>
+  </channel>
+</rss>

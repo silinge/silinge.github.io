@@ -63,3 +63,21 @@ function hightlightRows(){
 addLoadEvent(hightlightRows);
 
 
+function positionMessage() {
+    if(!document.getElementById) return false;
+    if(!document.getElementById("message")) return false;
+    var elem = document.getElementById("message");
+    elem.style.position = "absolute";
+    elem.style.top = "50px";
+    elem.style.left = "60px";
+    elem.style.backgroundColor = "#ddf"
+}
+addLoadEvent(positionMessage)
+
+function positionMove() {
+    if(!document.getElementById) return false;
+    if(!document.getElementById("message")) return false;
+    var elem = document.getElementById("message");
+    elem.style.left = "1600px";
+}
+addLoadEvent(positionMove);
