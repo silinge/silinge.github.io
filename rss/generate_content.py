@@ -19,26 +19,6 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
 }
 
-# 定义模板字符串
-""" template_str = '''
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>微博汇总</title>
-</head>
-<body>
-    <h1>微博汇总</h1>
-    {% for entry in entries %}
-    <div>
-        <h2><a href="{{ entry.link }}">{{ entry.title }}</a></h2>
-        <p>{{ entry.description }}</p>
-        <p>发布时间: {{ entry.published }}</p>
-    </div>
-    {% endfor %}
-</body>
-</html>
-''' """
 
 template_str = '''
 <!DOCTYPE html>
