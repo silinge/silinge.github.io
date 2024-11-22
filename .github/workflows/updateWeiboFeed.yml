@@ -1,8 +1,8 @@
 name: Update Weibo New Content
 
 on:
-  schedule:
-    - cron: '0 * * * *' # 每小时的0分触发
+  #schedule:
+    #- cron: '0 * * * *' # 每小时的0分触发
   workflow_dispatch:  # 允许手动触发
 jobs:
   update-content:
