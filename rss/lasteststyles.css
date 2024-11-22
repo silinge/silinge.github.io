@@ -1,0 +1,42 @@
+/* styles.css */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+div {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #000;
+    font-size: 1.5em;
+}
+
+p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #004499;
+}
+
+.published {
+    text-align: right;
+}

@@ -1,4 +1,4 @@
-name: Update Weibo Feed
+name: old
 
 on:
   #schedule:

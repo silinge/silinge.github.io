@@ -1,4 +1,4 @@
-name: Update Weibo Content
+name: Update Weibo New Content
 
 on:
   schedule:
