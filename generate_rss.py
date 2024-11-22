@@ -63,10 +63,10 @@ def generate_rss(user_ids):
                 rss_content += f'''
     <item>
       <title>{title}</title>
-      <link>https://silinge.github.io/weiboUpdate_{user_id}.html</link>
+      <link>https://silinge.github.io/rss/weiboUpdate_{user_id}.html</link>
       <description>{description}</description>
       <pubDate>{pub_date}</pubDate>
-      <guid>https://silinge.github.io/weiboUpdate_{user_id}.html</guid>
+      <guid>https://silinge.github.io/rss/weiboUpdate_{user_id}.html</guid>
     </item>
 '''
             except Exception as e:
@@ -77,8 +77,10 @@ def generate_rss(user_ids):
 </html>
 '''
 
-        with open(f'weiboUpdate_{user_id}.html', 'w', encoding='utf-8') as f:
+        html_file_path = f'rss/weiboUpdate_{user_id}.html'
+        with open(html_file_path, 'w', encoding='utf-8') as f:
             f.write(html_content)
+        print(f"Generated HTML file: {html_file_path}")
 
     rss_content += '''
   </channel>
@@ -88,8 +90,10 @@ def generate_rss(user_ids):
     # 使用 format 方法确保变量正确插入
     rss_content = rss_content.format(last_build_date=last_build_date, pub_date=pub_date)
 
-    with open('rss/feed.xml', 'w', encoding='utf-8') as f:
+    rss_file_path = 'rss/feed.xml'
+    with open(rss_file_path, 'w', encoding='utf-8') as f:
         f.write(rss_content)
+    print(f"Generated RSS file: {rss_file_path}")
 
     return rss_content
 
