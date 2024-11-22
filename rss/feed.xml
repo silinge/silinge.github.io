@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{user_id} 的订阅源</title>
-    <link>{url}</link>
-    <description>{user_id} 的最新微博</description>
+    <title>微博用户 1659643027 的订阅源</title>
+    <link>https://weibo.com/u/1659643027</link>
+    <description>微博用户 1659643027 的最新微博</description>
     <atom:link href="https://silinge.github.io/rss/feed.xml" rel="self" type="application/rss+xml" />
     <language>zh-cn</language>
-    <lastBuildDate>{last_build_date}</lastBuildDate>
-    <pubDate>{pub_date}</pubDate>
+    <lastBuildDate>Fri, 22 Nov 2024 05:46:52 GMT</lastBuildDate>
+    <pubDate>Fri, 22 Nov 2024 05:46:52 GMT</pubDate>
     <ttl>60</ttl>
 
   </channel>
