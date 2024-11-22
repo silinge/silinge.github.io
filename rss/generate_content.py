@@ -256,8 +256,8 @@ with open(filename, 'w', encoding='utf-8') as f:
 
 # 如果需要，可以删除之前的文件
 # 由于每次都生成新的文件名，所以不需要删除旧文件
-# 如果要保留一个文件，可以每次都用同一个文件名，例如 'latest.html'
-# with open('latest.html', 'w', encoding='utf-8') as f:
+# 如果要保留一个文件，可以每次都用同一个文件名，例如 'rss/latest.html'
+# with open('rss/latest.html', 'w', encoding='utf-8') as f:
 #     f.write(html_output)
 '''
 import requests
@@ -272,7 +272,8 @@ import re
 # 定义RSS URL
 rss_urls = {
     'user1': 'https://rsshub.app/weibo/user/1659643027',
-    'user2': 'https://rsshub.app/weibo/user/1253846303'
+    'user2': 'https://rsshub.app/weibo/user/1253846303',
+    'user3': 'https://rsshub.app/weibo/user/1887344341',
 }
 
 # 定义请求头
@@ -343,5 +344,5 @@ all_entries.sort(key=lambda x: x['published_time'], reverse=True)
 html_output = template.render(entries=all_entries)
 
 # 保存HTML文件，覆盖之前生成的文件
-with open('latest.html', 'w', encoding='utf-8') as f:
+with open('rss/latest.html', 'w', encoding='utf-8') as f:
     f.write(html_output)
