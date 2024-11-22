@@ -1,4 +1,3 @@
-
 import requests
 from lxml import etree
 from datetime import datetime, timedelta
@@ -18,7 +17,6 @@ rss_urls = {f'user{i+1}': f'https://rsshub.app/weibo/user/{user_id}' for i, user
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
 }
-
 
 template_str = '''
 <!DOCTYPE html>
@@ -54,7 +52,7 @@ all_entries = []
 
 for user, url in rss_urls.items():
     r = requests.get(url, headers=headers)
-    """ tree = etree.fromstring(r.text.encode('utf-8')) """
+    # tree = etree.fromstring(r.text.encode('utf-8'))
     # 清洗RSS内容，确保所有&符号都被正确转义
     content = r.text.replace('&', '&amp;').replace('&amp;amp;', '&amp;')
     try:
