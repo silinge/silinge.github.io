@@ -29,14 +29,15 @@ def generate_rss(user_ids):
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # 这里需要解析微博内容，具体解析方式取决于微博页面的结构
-        # 假设我们找到微博内容的标签
-        weibo_items = soup.find_all('div', class_='weibo-item')
+       # 解析微博内容
+    weibo_items = soup.find_all('div', class_='WB_cardwrap WB_feed_type S_bg2')
 
-        for item in weibo_items:
-            title = item.find('div', class_='weibo-title').text.strip()
-            link = item.find('a', class_='weibo-link')['href']
-            description = item.find('div', class_='weibo-description').text.strip()
-            pub_date = item.find('span', class_='weibo-date')['data-time']
+    for item in weibo_items:
+        try:
+            title = item.find('div', class_='WB_text W_f14').text.strip()
+            link = f'https://weibo.com{item.find("a", class_="WB_time")["href"]}'
+            description = item.find('div', class_='WB_text W_f14').text.strip()
+            pub_date = item.find('a', class_='WB_time')['title']
 
             rss_content += f'''
     <item>
@@ -47,6 +48,8 @@ def generate_rss(user_ids):
       <guid>{link}</guid>
     </item>
 '''
+        except Exception as e:
+            print(f"Error parsing item: {e}")
 
     rss_content += '''
   </channel>
