@@ -1,37 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aisuranove</title>
+    <title>微博订阅源</title>
     <link>https://silinge.github.io</link>
-    <description>feedId:82634250160989184+userId:74364488979398656</description>
+    <description>微博订阅源</description>
     <atom:link href="https://silinge.github.io/rss/feed.xml" rel="self" type="application/rss+xml" />
-    <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 2023 00:00:00 GMT</lastBuildDate>
-    <pubDate>Mon, 01 Jan 2023 00:00:00 GMT</pubDate>
+    <language>zh-cn</language>
+    <lastBuildDate>{last_build_date}</lastBuildDate>
+    <pubDate>{pub_date}</pubDate>
     <ttl>60</ttl>
 
-    <item>
-      <title>First Post</title>
-      <link>https://silinge.github.io/index.html</link>
-      <description>Homepage</description>
-      <pubDate>Mon, 01 Jan 2023 00:00:00 GMT</pubDate>
-      <guid>https://silinge.github.io/first-post</guid>
-    </item>
-
-    <item>
-      <title>Second Post</title>
-      <link>https://silinge.github.io/hubA.html</link>
-      <description>2nd page</description>
-      <pubDate>Tue, 02 Jan 2023 00:00:00 GMT</pubDate>
-      <guid>https://silinge.github.io/second-post</guid>
-    </item>
-    <item>
-        <description>feedId:82634250160989184+userId:74364488979398656</description>
-        <follow_challenge>
-    <feedId>82634250160989184</feedId>
-    <userId>74364488979398656</userId>
-</follow_challenge>
-This message is used to verify that this feed (feedId:82634250160989184) belongs to me (userId:74364488979398656). Join me in enjoying the next generation information browser https://follow.is.
-    </item>
   </channel>
 </rss>
