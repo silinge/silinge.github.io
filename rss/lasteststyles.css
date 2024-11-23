@@ -66,3 +66,45 @@ body {
                 padding: 15px;
             }
         }
+
+
+.container {
+    display: flex;
+}
+
+.left-sidebar {
+    width: 20%;
+    padding: 10px;
+}
+
+.left-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.left-sidebar li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+
+.left-sidebar li:hover {
+    background-color: #f0f0f0;
+}
+
+.right-content {
+    width: 80%;
+    padding: 10px;
+}
+
+.content {
+    display: none;
+}
+
+.content.hidden {
+    display: none;
+}
+
+.content:not(.hidden) {
+    display: block;
+}
