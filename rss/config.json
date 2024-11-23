@@ -38,10 +38,11 @@
       "1727858283",
       "7416690461", 
       "1253846303", 
-      "5955106173"
+      "5955106173",
+      "1887344341"
     ],
-    "hours_ago": 12,
-    "max_entries_per_user": 100,
+    "hours_ago": 24,
+    "max_entries_per_user": 20,
     "output_dir": "rss",
     "rsshub_base_url": "https://rsshub.app"
 }
