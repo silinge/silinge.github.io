@@ -65,8 +65,30 @@ class WeiboRSSCrawler:
     def process_entry(self, entry: Dict, username: str) -> Dict:
         try:
             soup = BeautifulSoup(entry.get('description', ''), 'html.parser')
-            content = soup.get_text().strip()
-            images = [img['src'] for img in soup.find_all('img') if 'src' in img.attrs]
+            
+            # 移除 img 和 video 标签
+            for tag in soup(['img', 'video']):
+                tag.decompose()
+            
+            # 提取每个 <a> 标签的文本，并单独成一行
+            content = []
+            for a_tag in soup.find_all('a'):
+                a_text = a_tag.get_text().strip()
+                if a_text:
+                    content.append(a_text)
+                a_tag.decompose()  # 移除 a 标签，避免重复
+            
+            # 提取剩余的文本，并按段落分隔
+            remaining_text = soup.get_text().strip()
+            if remaining_text:
+                # 按自然段落分隔
+                paragraphs = remaining_text.split('\n')
+                paragraphs = [p.strip() for p in paragraphs if p.strip()]
+                content.extend(paragraphs)
+            
+            # 合并内容，每行一个字符串，用换行符分隔
+            content = '\n'.join(content)
+            
             published = entry.get('published', '')
             try:
                 published_time = parse(published).astimezone(self.beijing_tz)
@@ -77,12 +99,11 @@ class WeiboRSSCrawler:
                 'title': username,
                 'link': entry.get('link', ''),
                 'content': content,
-                'images': images,
                 'published': published_time.strftime('%Y-%m-%d %H:%M:%S'),
                 'published_time': published_time
             }
         except Exception as e:
-            return None
+            return None    
 
     def generate_html(self, entries: List[Dict]) -> str:
         template_str = '''
