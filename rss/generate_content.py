@@ -7,7 +7,6 @@ from dateutil.parser import parse
 from jinja2 import Environment, Template
 from bs4 import BeautifulSoup
 import feedparser
-import logging
 from typing import List, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
@@ -22,68 +21,52 @@ class WeiboRSSCrawler:
         }
         
     def load_config(self) -> Dict:
-        """加载配置文件"""
         try:
             if os.path.exists(self.config_file):
                 with open(self.config_file, 'r', encoding='utf-8') as f:
                     return json.load(f)
             else:
-                # 默认配置
                 default_config = {
-                    "user_ids": [
-                        # 在这里添加更多用户ID
-                        '1694917363', 
-                    ],
+                    "user_ids": ['1694917363'],
                     "hours_ago": 12,
                     "max_entries_per_user": 10,
                     "output_dir": "rss",
                     "rsshub_base_url": "https://rsshub.app"
                 }
-                # 保存默认配置
                 os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
                 with open(self.config_file, 'w', encoding='utf-8') as f:
                     json.dump(default_config, f, indent=4, ensure_ascii=False)
                 return default_config
         except Exception as e:
-            logger.error(f"加载配置文件失败: {e}")
             raise
 
     def fetch_user_info(self, user_id: str) -> Dict:
-        """获取用户信息"""
         try:
             url = f"{self.config['rsshub_base_url']}/weibo/user/{user_id}"
             response = requests.get(url, headers=self.headers, timeout=10)
             feed = feedparser.parse(response.content)
             
-            if feed.entries:
-                # 从第一条微博中提取用户名
-                first_entry = feed.entries[0]
-                soup = BeautifulSoup(first_entry.get('description', ''), 'html.parser')
-                author = soup.find(class_='author') or soup.find(class_='username')
-                username = author.get_text().strip() if author else f"User_{user_id}"
-                
-                return {
-                    'user_id': user_id,
-                    'username': username,
-                    'entries': feed.entries
-                }
-            return None
+            username = None
+            if 'title' in feed.feed and feed.feed.title:
+                username = feed.feed.title
+            elif feed.entries and len(feed.entries) > 0 and 'author' in feed.entries[0] and feed.entries[0].author:
+                username = feed.entries[0].author
+            else:
+                username = f"User_{user_id}"
+            
+            return {
+                'user_id': user_id,
+                'username': username,
+                'entries': feed.entries
+            }
         except Exception as e:
-            logger.error(f"获取用户 {user_id} 信息失败: {e}")
             return None
 
     def process_entry(self, entry: Dict, username: str) -> Dict:
-        """处理单条微博内容"""
         try:
             soup = BeautifulSoup(entry.get('description', ''), 'html.parser')
-            
-            # 提取微博正文
             content = soup.get_text().strip()
-            
-            # 提取图片链接
             images = [img['src'] for img in soup.find_all('img') if 'src' in img.attrs]
-            
-            # 处理发布时间
             published = entry.get('published', '')
             try:
                 published_time = parse(published).astimezone(self.beijing_tz)
@@ -99,11 +82,9 @@ class WeiboRSSCrawler:
                 'published_time': published_time
             }
         except Exception as e:
-            logger.error(f"处理微博内容失败: {e}")
             return None
 
     def generate_html(self, entries: List[Dict]) -> str:
-        """生成HTML页面"""
         template_str = '''
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -145,17 +126,13 @@ class WeiboRSSCrawler:
         )
 
     def crawl(self):
-        """主要抓取流程"""
         try:
-            # 创建输出目录
             os.makedirs(self.config['output_dir'], exist_ok=True)
-            
             all_entries = []
             hours_ago = self.config.get('hours_ago', 12)
             max_entries = self.config.get('max_entries_per_user', 10)
             time_threshold = datetime.now(self.beijing_tz) - timedelta(hours=hours_ago)
-
-            # 使用线程池并发获取数据
+            
             with ThreadPoolExecutor(max_workers=5) as executor:
                 future_to_user = {
                     executor.submit(self.fetch_user_info, user_id): user_id 
@@ -168,8 +145,6 @@ class WeiboRSSCrawler:
                         user_data = future.result()
                         if user_data and user_data.get('entries'):
                             username = user_data['username']
-                            
-                            # 处理该用户的所有微博
                             for entry in user_data['entries'][:max_entries]:
                                 processed_entry = self.process_entry(entry, username)
                                 if processed_entry:
@@ -177,22 +152,15 @@ class WeiboRSSCrawler:
                                     if published_time >= time_threshold:
                                         all_entries.append(processed_entry)
                     except Exception as e:
-                        logger.error(f"处理用户 {user_id} 数据失败: {e}")
+                        pass
 
-            # 按时间排序
             all_entries.sort(key=lambda x: x['published_time'], reverse=True)
-
-            # 生成HTML文件
             html_content = self.generate_html(all_entries)
             output_file = os.path.join(self.config['output_dir'], 'latest.html')
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(html_content)
-
-            #logger.info(f"成功生成微博汇总，共 {len(all_entries)} 条内容")
             return output_file
-
         except Exception as e:
-            logger.error(f"抓取过程发生错误: {e}")
             raise
 
 if __name__ == "__main__":
@@ -201,4 +169,4 @@ if __name__ == "__main__":
         output_file = crawler.crawl()
         print(f"微博内容已保存到: {output_file}")
     except Exception as e:
-        logger.error(f"程序执行失败: {e}")
+        pass
