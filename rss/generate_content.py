@@ -12,17 +12,6 @@ from typing import List, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
-# 设置日志
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('weibo_crawler.log', encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
-
 class WeiboRSSCrawler:
     def __init__(self, config_file: str = 'rss/config.json'):
         self.config_file = config_file
