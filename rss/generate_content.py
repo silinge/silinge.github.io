@@ -28,8 +28,8 @@ class WeiboRSSCrawler:
             else:
                 default_config = {
                     "user_ids": ['1694917363'],
-                    "hours_ago": 24,
-                    "max_entries_per_user": 20,
+                    "hours_ago": 12,
+                    "max_entries_per_user": 10,
                     "output_dir": "rss",
                     "rsshub_base_url": "https://rsshub.app"
                 }
@@ -105,51 +105,57 @@ class WeiboRSSCrawler:
         except Exception as e:
             return None    
 
-    def generate_html(self, entries: List[Dict]) -> str:
+    def generate_html(self, users: List[Dict]) -> str:
         template_str = '''
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微博内容汇总</title>
-    <link rel="stylesheet" href="lasteststyles.css">
-</head>
-<body>
-    <div class="header">
-        <h1>微博内容汇总</h1>
-        <p>更新时间: {{ current_time }}</p>
-    </div>
-    {% for entry in entries %}
-    <div class="weibo-card">
-        <div class="weibo-header">
-            <span class="author">{{ entry.title }}</span>
-            <span class="time">{{ entry.published }}</span>
-        </div>
-        <div class="content">{{ entry.content }}</div>
-        {% if entry.images %}
-        <div class="images">
-            {% for image in entry.images %}
-            <img src="{{ image }}" alt="微博图片">
-            {% endfor %}
-        </div>
-        {% endif %}
-        <a href="{{ entry.link }}" class="link" target="_blank">查看原文</a>
-    </div>
-    {% endfor %}
-</body>
-</html>
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>微博内容汇总</title>
+            <link rel="stylesheet" href="laststyles.css">
+        </head>
+        <body>
+            <div class="container">
+                <div class="left-sidebar">
+                    <ul>
+                        {% for user in users %}
+                        <li class="username" data-user="{{ user.username }}">{{ user.username }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="right-content">
+                    {% for user in users %}
+                    <div id="{{ user.username }}-content" class="content hidden">
+                        {% for entry in user.entries %}
+                        <div class="weibo-card">
+                            <div class="weibo-header">
+                                <span class="time">{{ entry.published }}</span>
+                            </div>
+                            <div class="content">
+                                {{ entry.content }}
+                            </div>
+                            <a href="{{ entry.link }}" class="link" target="_blank">查看原文</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <script src="cardscript.js"></script>
+        </body>
+        </html>
         '''
         template = Environment().from_string(template_str)
         return template.render(
-            entries=entries,
+            users=users,
             current_time=datetime.now(self.beijing_tz).strftime('%Y-%m-%d %H:%M:%S')
         )
 
     def crawl(self):
         try:
             os.makedirs(self.config['output_dir'], exist_ok=True)
-            all_entries = []
+            all_users = []
             hours_ago = self.config.get('hours_ago', 12)
             max_entries = self.config.get('max_entries_per_user', 10)
             time_threshold = datetime.now(self.beijing_tz) - timedelta(hours=hours_ago)
@@ -159,30 +165,32 @@ class WeiboRSSCrawler:
                     executor.submit(self.fetch_user_info, user_id): user_id 
                     for user_id in self.config['user_ids']
                 }
-
+                
                 for future in as_completed(future_to_user):
-                    user_id = future_to_user[future]
-                    try:
-                        user_data = future.result()
-                        if user_data and user_data.get('entries'):
-                            username = user_data['username']
-                            for entry in user_data['entries'][:max_entries]:
-                                processed_entry = self.process_entry(entry, username)
-                                if processed_entry:
-                                    published_time = processed_entry['published_time']
-                                    if published_time >= time_threshold:
-                                        all_entries.append(processed_entry)
-                    except Exception as e:
-                        pass
-
-            all_entries.sort(key=lambda x: x['published_time'], reverse=True)
-            html_content = self.generate_html(all_entries)
+                    user_data = future.result()
+                    if user_data:
+                        username = user_data['username']
+                        entries = []
+                        for entry in user_data['entries'][:max_entries]:
+                            processed_entry = self.process_entry(entry, username)
+                            if processed_entry:
+                                published_time = processed_entry['published_time']
+                                if published_time >= time_threshold:
+                                    entries.append(processed_entry)
+                        all_users.append({
+                            'username': username,
+                            'entries': entries
+                        })
+            
+            html_content = self.generate_html(all_users)
             output_file = os.path.join(self.config['output_dir'], 'latest.html')
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(html_content)
             return output_file
         except Exception as e:
             raise
+
+
 
 if __name__ == "__main__":
     try:
