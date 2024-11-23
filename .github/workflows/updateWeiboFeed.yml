@@ -4,10 +4,10 @@ on:
   #schedule:
    # - cron: '0 * * * *'    # 每小时运行一次
   workflow_dispatch:        # 允许手动触发
-  push:
-    paths:
-      - 'rss/**'           # 当 rss 目录下的文件改变时触发
-      - '.github/workflows/**'  # 当工作流文件改变时触发
+  #push:
+    #paths:
+      #- 'rss/**'           # 当 rss 目录下的文件改变时触发
+      #- '.github/workflows/**'  # 当工作流文件改变时触发
 
 jobs:
   update-content:
