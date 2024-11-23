@@ -177,7 +177,7 @@ class WeiboRSSCrawler:
                     user_id = future_to_user[future]
                     try:
                         user_data = future.result()
-                        if user_
+                        if user_data and user_data.get('entries'):
                             username = user_data['username']
                             
                             # 处理该用户的所有微博
