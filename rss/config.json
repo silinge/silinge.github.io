@@ -42,6 +42,6 @@
     ],
     "hours_ago": 12,
     "max_entries_per_user": 100,
-    "output_dir": "output",
+    "output_dir": "rss",
     "rsshub_base_url": "https://rsshub.app"
 }
