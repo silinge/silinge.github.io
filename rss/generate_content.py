@@ -28,8 +28,8 @@ class WeiboRSSCrawler:
             else:
                 default_config = {
                     "user_ids": ['1694917363'],
-                    "hours_ago": 12,
-                    "max_entries_per_user": 10,
+                    "hours_ago": 24,
+                    "max_entries_per_user": 20,
                     "output_dir": "rss",
                     "rsshub_base_url": "https://rsshub.app"
                 }
