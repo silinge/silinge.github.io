@@ -24,7 +24,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class WeiboRSSCrawler:
-    def __init__(self, config_file: str = 'config.json'):
+    def __init__(self, config_file: str = 'rss/config.json'):
         self.config_file = config_file
         self.config = self.load_config()
         self.beijing_tz = pytz.timezone('Asia/Shanghai')
