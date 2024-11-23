@@ -2,33 +2,51 @@ name: Update Weibo New Content
 
 on:
   #schedule:
-    #- cron: '0 * * * *' # 每小时的0分触发
-  workflow_dispatch:  # 允许手动触发
+   # - cron: '0 * * * *'    # 每小时运行一次
+  workflow_dispatch:        # 允许手动触发
+  push:
+    paths:
+      - 'rss/**'           # 当 rss 目录下的文件改变时触发
+      - '.github/workflows/**'  # 当工作流文件改变时触发
+
 jobs:
   update-content:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write      # 明确指定写入权限
+    
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v3
+      
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-
+          cache: 'pip'     # 启用 pip 缓存
+      
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests lxml jinja2 python-dateutil pytz bs4 feedparser
-
+          pip install -r requirements.txt
+      
       - name: Generate content
         run: |
           python rss/generate_content.py
-
+        env:
+          TZ: Asia/Shanghai    # 设置时区为中国时间
+      
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # 检查是否有变更
+          if git diff --quiet rss/latest.html; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
           git add rss/latest.html
-          git commit -m "Auto update content at $(date)"
-          git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          git commit -m "Auto update content at $(date '+%Y-%m-%d %H:%M:%S') [skip ci]"
+          git push
