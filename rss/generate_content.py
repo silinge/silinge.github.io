@@ -47,7 +47,7 @@ class WeiboRSSCrawler:
                     ],
                     "hours_ago": 12,
                     "max_entries_per_user": 10,
-                    "output_dir": "output",
+                    "output_dir": "rss",
                     "rsshub_base_url": "https://rsshub.app"
                 }
                 # 保存默认配置
@@ -195,7 +195,7 @@ class WeiboRSSCrawler:
 
             # 生成HTML文件
             html_content = self.generate_html(all_entries)
-            output_file = os.path.join(self.config['output_dir'], 'rss/latest.html')
+            output_file = os.path.join(self.config['output_dir'], 'latest.html')
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(html_content)
 
