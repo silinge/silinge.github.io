@@ -40,13 +40,6 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
-          # 检查是否有变更
-          if git diff --quiet rss/latest.html; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          
           git add rss/latest.html
-          git commit -m "Auto update content at $(date '+%Y-%m-%d %H:%M:%S') [skip ci]"
-          git push
+          git commit -m "Auto update content at $(date)"
+          git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
