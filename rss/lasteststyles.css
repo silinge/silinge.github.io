@@ -4,6 +4,9 @@ body {
             padding: 0;
             display: flex;
         }
+.hidden {
+    display: none !important;
+}
         .container {
             display: flex;
             width: 100%;
