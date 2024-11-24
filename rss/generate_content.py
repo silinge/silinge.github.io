@@ -91,7 +91,7 @@ class WeiboRSSCrawler:
 
     def generate_html(self, users: List[Dict]) -> str:
         """生成 HTML 内容"""
-        env = Environment(loader=FileSystemLoader(self.template_dir))
+        env = Environment(loader=FileSystemLoader(os.path.join(os.getcwd(), 'rss')))
         template = env.get_template('weibo_template.html')
         return template.render(
             users=users,
