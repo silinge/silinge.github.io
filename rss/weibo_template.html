@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微博内容汇总</title>
+    <link rel="stylesheet" href="lasteststyles.css"> 
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧用户名列表 -->
+        <div class="left-sidebar">
+            <ul>
+                {% for user in users %}
+                <li class="username" data-user="{{ user.username }}">{{ user.username }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- 右侧内容区域 -->
+        <div class="right-content">
+            {% for user in users %}
+            <div id="{{ user.username }}-content" class="content hidden">
+                {% if user.entries %}
+                    {% for entry in user.entries %}
+                    <div class="weibo-card">
+                        <div class="weibo-header">
+                            <span class="time">{{ entry.published }}</span>
+                        </div>
+                        <div class="content">
+                            {{ entry.content | safe }}
+                        </div>
+                        <a href="{{ entry.link }}" class="link" target="_blank">查看原文</a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <p>暂无内容。</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="cardscript.js"> </script>
+</body>
+</html>
