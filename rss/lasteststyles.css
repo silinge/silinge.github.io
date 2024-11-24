@@ -5,68 +5,6 @@ body {
             padding: 20px;
             background-color: #f5f5f5;
         }
-.header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #fff;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-.weibo-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-.weibo-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-.author {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #1da1f2;
-        }
-.time {
-            color: #666;
-            font-size: 0.9em;
-        }
-.content {
-            line-height: 1.6;
-            margin: 15px 0;
-        }
-.images {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-.images img {
-            width: 100%;
-            border-radius: 4px;
-        }
-.link {
-            text-decoration: none;
-            color: #1da1f2;
-        }
-.link:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .weibo-card {
-                padding: 15px;
-            }
-        }
-
 
 .container {
     display: flex;
