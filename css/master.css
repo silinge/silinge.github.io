@@ -66,3 +66,13 @@ a:visited{
 .seven{
 	background-color: #F8C471;
 }
+
+
+/* 第一行: one, three, five, two, six
+第二行: two, five, seven, four, one
+第三行: three, four, one, five, seven
+第四行: four, one, two, six, three
+第五行: five, seven, four, one, two
+第六行: six, two, five, three, four
+第七行: seven, six, three, five, one
+第八行: one, five, six, seven, two */
