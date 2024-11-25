@@ -2153,3 +2153,11 @@ if (nextSongExists) {
     userData.currentSong = null;
     userData.songCurrentTime = 0;
   }
+
+  setTimeout("function", interval) 执行函数，数值毫秒
+  variable = setTimeout("function", interval)
+
+clearTimeout(variable)
+5s = 5000ms = 5秒 = 5000ms ; interval 5000;
+parseInt("5500 吨") - 5500
+parseFloat("1.98 米") - 1.98
