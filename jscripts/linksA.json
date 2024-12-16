@@ -1,0 +1,36 @@
+{
+    "links": [
+        {"name": "bangbang", "url": "https://bang.360.cn/youpin?from=index", "category": "shopping"},
+        {"name": "appinn", "url": "https://www.appinn.com/", "category": "software"},
+        {"name": "FreeCode", "url": "https://www.freecodecamp.org/chinese/learn", "category": "study"},
+        {"name": "kuaikk", "url": "https://www.weibo.com/u/1659643027", "category": "social"},
+        {"name": "moyu", "url": "https://momoyu.cc/", "category": "social"},
+        {"name": "观察家j", "url": "https://weibo.com/u/1887344341", "category": "social"},
+        {"name": "快兰斯sss", "url": "https://weibo.com/u/5051077448", "category": "social"},
+        {"name": "immortalwrt", "url": "https://github.com/immortalwrt/immortalwrt", "category": "tools"},
+        {"name": "wiffffi", "url": "https://weibo.com/u/3138279871", "category": "social"},
+        {"name": "跳跳虎h", "url": "https://weibo.com/u/2269443552", "category": "social"},
+        {"name": "庆qqqqq", "url": "https://weibo.com/u/2987585965", "category": "social"},
+        {"name": "机器猫lin", "url": "https://weibo.com/u/1253846303", "category": "social"},
+        {"name": "zhangxian", "url": "https://weibo.com/u/6048569942", "category": "social"},
+        {"name": "feiwei", "url": "https://weibo.com/u/1778375693", "category": "social"},
+        {"name": "gaoji", "url": "https://weibo.com/u/5738771023", "category": "social"},
+        {"name": "kgaw", "url": "https://weibo.com/u/1694917363", "category": "social"},
+        {"name": "dttttt", "url": "https://weibo.com/u/2213561393", "category": "social"},
+        {"name": "degee", "url": "https://weibo.com/u/7188823772", "category": "social"},
+        {"name": "tvxxx", "url": "https://weibo.com/u/1668726803", "category": "social"},
+        {"name": "techweb", "url": "http://www.techweb.com.cn/", "category": "news"},
+        {"name": "gelii", "url": "https://www.weibo.com/u/1655747731", "category": "social"},
+        {"name": "xringz", "url": "https://weibo.com/u/1260797924", "category": "social"},
+        {"name": "maeiee", "url": "https://www.weibo.com/u/1240212845", "category": "social"},
+        {"name": "Akeke", "url": "https://www.weibo.com/u/1402400261", "category": "social"},
+        {"name": "disk", "url": "https://weibo.com/u/7746281422", "category": "social"},
+        {"name": "mixda", "url": "https://xdaforums.com/c/xiaomi.12005/", "category": "android"},
+        {"name": "htmlnotes", "url": "../article/htmlnotes.md", "category": "notes"},
+        {"name": "jagenotes", "url": "../article/Jaguagenotes.md", "category": "notes"},
+        {"name": "Francaisnotes", "url": "../article/French.md", "category": "notes"},
+        {"name": "PPRO笔记", "url": "../article/Premiere ProNO.md", "category": "notes"},
+        {"name": "homeRenew", "url": "../article/homepage_renew_records.html", "category": "notes"}
+    ]
+    
+}

@@ -54,7 +54,7 @@ body {
 
 /* 链接块基础样式 */
 .link-item {
-    padding: 25px;  /* 高度扩大1.5倍 */
+    padding: 20px;  /* 高度扩大1.5倍 */
     text-decoration: none;
     border-radius: 5px;
     display: flex;
