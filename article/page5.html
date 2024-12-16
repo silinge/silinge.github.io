@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #888;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        .link-item {
+            background-color: #111;
+            border: 1px solid #333;
+            padding: 5px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .link-item:hover {
+            background-color: #222;
+        }
+        .link-category {
+            color: #888;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .no-results {
+            text-align: center;
+            color: #666;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>我的网站导航</h1>
+        </div>
+        
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="搜索链接或分类"
+            >
+        </div>
+
+        <div id="linksContainer" class="links-grid">
+            <!-- 链接将在这里动态生成 -->
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            没有找到匹配的链接
+        </div>
+    </div>
+
+    <script>
+        // 你的40个链接数据
+        const links = [
+            { name: '链接1', url: 'https://example.com/1', category: '技术' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            { name: '链接2', url: 'https://example.com/2', category: '新闻' },
+            // 在这里添加你的40个链接
+            // 格式为: { name: '链接名', url: '链接地址', category: '分类' }
+        ];
+
+        const linksContainer = document.getElementById('linksContainer');
+        const searchInput = document.getElementById('searchInput');
+        const noResultsMessage = document.getElementById('noResults');
+
+        // 渲染链接的函数
+        function renderLinks(linksToShow) {
+            linksContainer.innerHTML = ''; // 清空现有链接
+            
+            linksToShow.forEach(link => {
+                const linkElement = document.createElement('a');
+                linkElement.href = link.url;
+                linkElement.className = 'link-item';
+                linkElement.target = '_blank';
+                
+                linkElement.innerHTML = `
+                    <span>${link.name}</span>
+                    <span class="link-category">${link.category}</span>
+                `;
+                
+                linksContainer.appendChild(linkElement);
+            });
+
+            // 控制无结果提示的显示
+            noResultsMessage.style.display = linksToShow.length === 0 ? 'block' : 'none';
+        }
+
+        // 搜索功能
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            const filteredLinks = links.filter(link => 
+                link.name.toLowerCase().includes(searchTerm) || 
+                link.category.toLowerCase().includes(searchTerm)
+            );
+            
+            renderLinks(filteredLinks);
+        });
+
+        // 初始渲染所有链接
+        renderLinks(links);
+    </script>
+</body>
+</html>

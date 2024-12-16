@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisuranove</title>
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="img/favicon.ico" rel="bookmark" type="image/x-icon" />
+    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="css/blackandwhite.css" rel="stylesheet" type="text/css" />
+    <style>
+        /* 全局重置和基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 页面整体风格 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a39f9f;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* 页面容器，控制最大宽度和居中 */
+        .container {
+            width: 90%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 页头样式 */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* 搜索框容器 */
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        /* 搜索输入框样式 */
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        /* 链接网格布局 */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* 链接块基础样式 */
+        .link-item {
+            padding: 25px;  /* 高度扩大1.5倍 */
+            text-decoration: none;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        /* 黑白交替块的样式 */
+        .link-item:nth-child(odd) {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .link-item:nth-child(even) {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* 链接块悬停效果 */
+        .link-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* 链接名称样式 */
+        .link-name {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* 链接分类样式 */
+        .link-category {
+            font-size: 1em;
+            opacity: 0.7;
+        }
+
+        /* 无结果提示 */
+        .no-results {
+            text-align: center;
+            color: #666;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>Aisuranove</h1>
+        </div>
+        
+        <!-- 搜索输入框 -->
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="搜索链接、分类或描述"
+            >
+        </div>
+
+        <!-- 链接容器 -->
+        <div id="linksContainer" class="links-grid">
+            <!-- 链接将在这里动态生成 -->
+        </div>
+
+        <!-- 无结果时的提示 -->
+        <div id="noResults" class="no-results" style="display: none;">
+            没有找到匹配的链接
+        </div>
+    </div>
+
+    <script>
+        // 异步加载JSON数据
+        async function loadLinks() {
+            try {
+                // 从links.json文件加载链接数据
+                const response = await fetch('links.json');
+                const data = await response.json();
+                return data.links;
+            } catch (error) {
+                console.error('加载链接失败:', error);
+                return [];
+            }
+        }
+
+        // 渲染链接的函数
+        function renderLinks(linksToShow) {
+            const linksContainer = document.getElementById('linksContainer');
+            const noResultsMessage = document.getElementById('noResults');
+            
+            linksContainer.innerHTML = ''; // 清空现有链接
+            
+            linksToShow.forEach(link => {
+                const linkElement = document.createElement('a');
+                linkElement.href = link.url;
+                linkElement.className = 'link-item';
+                linkElement.target = '_blank';
+                
+                // 创建链接的内部HTML结构
+                linkElement.innerHTML = `
+                    <div class="link-name">${link.name}</div>
+                    <div class="link-category">${link.category}</div>
+                `;
+                
+                linksContainer.appendChild(linkElement);
+            });
+
+            // 控制无结果提示的显示
+            noResultsMessage.style.display = linksToShow.length === 0 ? 'block' : 'none';
+        }
+
+        // 搜索功能
+        function setupSearch(links) {
+            const searchInput = document.getElementById('searchInput');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                // 过滤链接，支持名称、分类和描述搜索
+                const filteredLinks = links.filter(link => 
+                    link.name.toLowerCase().includes(searchTerm) || 
+                    link.category.toLowerCase().includes(searchTerm) ||
+                    (link.description && link.description.toLowerCase().includes(searchTerm))
+                );
+                
+                renderLinks(filteredLinks);
+            });
+        }
+
+        // 初始化函数
+        async function init() {
+            const links = await loadLinks();
+            renderLinks(links);
+            setupSearch(links);
+        }
+
+        // 页面加载时初始化
+        init();
+    </script>
+</body>
+</html>

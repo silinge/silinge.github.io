@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    flex-wrap: wrap; /* 允许项目换行 */
+    justify-content: flex-start; /* 项目在主轴（横向）上的对齐方式 */
+    padding: 20px; /* 页面内边距 */
+    background-color: #eee; /* 页面背景色，使黑色块更突出 */
+}
+
+.link-block {
+    width: calc(20% - 20px); /* 每个块的宽度，减去 margin 的宽度以保证每行 5 个块 */
+    min-width: calc(200px - 20px);/*设置最小宽度*/
+    padding-bottom: calc((20% - 20px) * 0.3); /* 使用 padding-bottom 设置高度，保持宽高比 0.3 */
+    margin: 10px; /* 块之间的间距 */
+    box-sizing: border-box; /* 包含 padding 和 border 在元素总宽度和高度之内 */
+    position: relative; /* 为内部 span 元素定位做准备 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    transition: background-color 0.3s ease;/*添加过渡效果*/
+    border-radius: 5px; /* 添加圆角 */
+}
+
+.link-block:hover {
+    background-color: #333; /*鼠标悬停的时候颜色稍微变淡*/
+}
+/*黑白交替背景色和字体颜色*/
+.link-block:nth-child(even) { /* 偶数块 */
+    background-color: #111; /* 深黑色背景 */
+}
+
+.link-block:nth-child(even) span {
+    color: #fff; /* 白色字体 */
+}
+
+.link-block:nth-child(odd) { /* 奇数块 */
+    background-color: white; /* 白色背景 */
+}
+
+.link-block:nth-child(odd) span {
+    color: #111; /* 黑色字体 */
+}
+
+.link-block span { /* 块内的文本样式 */
+    position: absolute; /* 绝对定位，用于垂直和水平居中 */
+    top: 50%; /* 垂直方向居中 */
+    left: 50%; /* 水平方向居中 */
+    transform: translate(-50%, -50%); /* 使用 transform 实现精确居中 */
+    text-decoration: none; /* 去除链接下划线 */
+    text-align: center; /* 文本水平居中 */
+    width: 100%; /* 确保文本占据整个块的宽度 */
+    box-sizing: border-box;
+  padding:0 10px;/*添加左右内边距*/
+    font-size: calc(var(--block-height) * 0.3); /* 字体大小是块高度的 0.6 倍,使用css变量实现动态计算*/
+}
+@media (max-width: 768px) {
+    .link-block {
+        width: calc(50% - 20px);
+        padding-bottom: calc((50% - 20px) * 0.3);
+    }
+  }
+@media (max-width: 500px) {
+    .link-block {
+        width: calc(100% - 20px);
+        padding-bottom: calc((100% - 20px) * 0.3);
+    }
+  }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码块复制</title>
+    <style>
+        .code-block {
+            position: relative; /* 允许定位复制按钮 */
+            background-color: #f0f0f0; /* 代码块背景色 */
+            border-radius: 5px; /* 圆角 */
+            padding: 15px; /* 内边距 */
+            margin-bottom: 20px;
+            overflow-x: auto; /* 水平滚动条，防止代码溢出 */
+        }
+
+        .code-block pre {
+            margin: 0; /* 移除 pre 标签默认的 margin */
+            white-space: pre-wrap; /* 允许代码自动换行 */
+            font-family: monospace; /* 等宽字体 */
+        }
+
+        .copy-button {
+            position: absolute; /* 定位到代码块右上角 */
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50; /* 按钮背景色 */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 3px; /* 圆角 */
+            transition: background-color 0.3s;/*添加一个颜色渐变*/
+        }
+        .copy-button:hover{
+          background-color: #45a049;
+        }
+        .copy-button:active{
+          transform: scale(0.95); /* 按下时略微缩小 */
+          opacity:0.7;
+        }
+        .copied{
+          background-color:#007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="code-block">
+        <pre id="code1">
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+greet("World");
+        </pre>
+        <button class="copy-button" data-target="code1">复制</button>
+    </div>
+
+  <div class="code-block">
+        <pre id="code2">
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, C++!" << std::endl;
+    return 0;
+}
+        </pre>
+        <button class="copy-button" data-target="code2">复制</button>
+    </div>
+
+    <script>
+        const copyButtons = document.querySelectorAll('.copy-button');
+
+        copyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+                const codeElement = document.getElementById(targetId);
+                const codeToCopy = codeElement.textContent;
+                button.textContent = '已复制'
+                button.classList.add('copied')
+              setTimeout(()=>{
+                button.textContent = '复制'
+                button.classList.remove('copied')
+              },2000)
+                navigator.clipboard.writeText(codeToCopy).then(() => {
+                    // 复制成功
+                   // alert('代码已复制到剪贴板！'); // 可选：显示提示信息
+                }).catch(err => {
+                    console.error('复制失败：', err);
+                    //Fallback
+                    const textarea = document.createElement('textarea');
+                    textarea.value = codeToCopy;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

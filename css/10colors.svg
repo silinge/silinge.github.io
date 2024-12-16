@@ -1,0 +1,87 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+
+  <title>碧海蓝天椰树林配色方案</title>
+
+  <g transform="translate(10,10)">
+    <title>清爽海风</title>
+    <rect x="0" y="0" width="50" height="50" fill="#78C2AD"/>
+    <rect x="50" y="0" width="50" height="50" fill="#A7D1AB"/>
+    <rect x="100" y="0" width="50" height="50" fill="#E0FFFF"/>
+    <rect x="150" y="0" width="50" height="50" fill="#FFFFFF"/>
+    <text x="0" y="60" font-size="10">清爽海风</text>
+  </g>
+
+  <g transform="translate(10,80)">
+    <title>热带假日</title>
+    <rect x="0" y="0" width="50" height="50" fill="#29ABE2"/>
+    <rect x="50" y="0" width="50" height="50" fill="#FFD700"/>
+    <rect x="100" y="0" width="50" height="50" fill="#8FBC8F"/>
+    <rect x="150" y="0" width="50" height="50" fill="#A0522D"/>
+        <text x="0" y="60" font-size="10">热带假日</text>
+  </g>
+
+    <g transform="translate(10,150)">
+    <title>傍晚椰林</title>
+    <rect x="0" y="0" width="50" height="50" fill="#5F9EA0"/>
+    <rect x="50" y="0" width="50" height="50" fill="#D87093"/>
+    <rect x="100" y="0" width="50" height="50" fill="#2E8B57"/>
+    <rect x="150" y="0" width="50" height="50" fill="#BC8F8F"/>
+        <text x="0" y="60" font-size="10">傍晚椰林</text>
+  </g>
+
+    <g transform="translate(10,220)">
+    <title>深海探秘</title>
+    <rect x="0" y="0" width="50" height="50" fill="#0047AB"/>
+    <rect x="50" y="0" width="50" height="50" fill="#20B2AA"/>
+    <rect x="100" y="0" width="50" height="50" fill="#6B8E23"/>
+    <rect x="150" y="0" width="50" height="50" fill="#FAF9F6"/>
+        <text x="0" y="60" font-size="10">深海探秘</text>
+  </g>
+    <g transform="translate(250,10)">
+    <title>椰林晨曦</title>
+    <rect x="0" y="0" width="50" height="50" fill="#87CEEB"/>
+    <rect x="50" y="0" width="50" height="50" fill="#EEE8AA"/>
+    <rect x="100" y="0" width="50" height="50" fill="#90EE90"/>
+    <rect x="150" y="0" width="50" height="50" fill="#CD853F"/>
+        <text x="0" y="60" font-size="10">椰林晨曦</text>
+  </g>
+  <g transform="translate(250,80)">
+    <title>活力海岸</title>
+    <rect x="0" y="0" width="50" height="50" fill="#00CED1"/>
+    <rect x="50" y="0" width="50" height="50" fill="#FFB347"/>
+    <rect x="100" y="0" width="50" height="50" fill="#3CB371"/>
+    <rect x="150" y="0" width="50" height="50" fill="#8B4513"/>
+        <text x="0" y="60" font-size="10">活力海岸</text>
+  </g>
+    <g transform="translate(250,150)">
+    <title>神秘海湾</title>
+    <rect x="0" y="0" width="50" height="50" fill="#4682B4"/>
+    <rect x="50" y="0" width="50" height="50" fill="#ADD8E6"/>
+    <rect x="100" y="0" width="50" height="50" fill="#006400"/>
+    <rect x="150" y="0" width="50" height="50" fill="#A0522D"/>
+        <text x="0" y="60" font-size="10">神秘海湾</text>
+  </g>
+      <g transform="translate(250,220)">
+    <title>宁静海滩</title>
+    <rect x="0" y="0" width="50" height="50" fill="#B0E0E6"/>
+    <rect x="50" y="0" width="50" height="50" fill="#FFF8DC"/>
+    <rect x="100" y="0" width="50" height="50" fill="#98FB98"/>
+    <rect x="150" y="0" width="50" height="50" fill="#DEB887"/>
+        <text x="0" y="60" font-size="10">宁静海滩</text>
+  </g>
+
+    <g transform="translate(10,290)">
+    <title>热带风暴</title>
+    <rect x="0" y="0" width="50" height="50" fill="#483D8B"/>
+    <rect x="50" y="0" width="50" height="50" fill="#191970"/>
+    <rect x="100" y="0" width="50" height="50" fill="#008080"/>
+    <rect x="150" y="0" width="50" height="50" fill="#696969"/>
+        <text x="0" y="60" font-size="10">热带风暴</text>
+  </g>
+    <g transform="translate(250,290)">
+    <title>复古海报风</title>
+    <rect x="0" y="0" width="50" height="50" fill="#00FFFF"/>
+    <rect x="50" y="0" width="50" height="50" fill="#FFA500"/>
+    <rect x="100" y="0" width="50" height="50" fill="#008000"/>
+    <rect x="150" y="0" width="50" height="50" fill="#FFFFFF"/>
+        <text x="0" y="60" font-size="10">

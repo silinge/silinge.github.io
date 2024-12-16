@@ -1,91 +1,41 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aisuranove</title>
-<link href="css/master.css" rel="stylesheet" type="text/css" />
-<link href="img/favicon.ico" rel="icon" type="image/x-icon" />
-<link href="img/favicon.ico" rel="bookmark" type="image/x-icon" />
-<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-<!-- ... -->
-<!-- <link rel="alternate" href="/atom.xml" title="Atom feed" type="application/atom+xml"> -->
-<!-- new rss -->
-<!-- <link rel="alternate" type="application/rss+xml" title="Subscribe to RSS Feed" href="rss/feed.xml"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisuranove</title>
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="img/favicon.ico" rel="bookmark" type="image/x-icon" />
+    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="css/indexV3.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-    <div class="mark_line"></div>
-    <div class="title Search">
-            <div class="all one">搜索</div>
-            <div class="all three"><a href="https://www.google.com/ncr" target="_blank">Google</a></div>
-            <div class="all five"><a href="https://bing.com/" target="_blank">Bing</a></div>
-            <div class="all two"><a href="https://github.com/" target="_blank">Github</a></div>
-            <div class="all six"><a href="https://www.uisdc.com/" target="_blank">UIA</a></div>
-            </div>
-    <div class="mark_line"></div>
-    <div class="title news">
-            <div class="all two">新闻</div>
-            <div class="all five"><a href="https://www.mydrivers.com/" target="_blank">kuaibeta</a></div>
-            <div class="all seven"><a href="https://www.zaobao.com.sg/realtime" target="_blank">zaobao</a></div>
-            <div class="all four"><a href="https://www.xda-developers.com/" target="_blank">xda</a></div>
-            <div class="all one"><a href="https://www.iplaysoft.com/" target="_blank">Iplay</a></div>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>Aisuranove</h1>
         </div>
-    <div class="mark_line"></div>
-    <div class="title tool">
-            <div class="all three">工具</div>
-            <div class="all four"><a href="https://translate.google.com" target="_blank">Translate</a></div>
-            <div class="all one"><a href="https://www.ppzhilian.com/" target="_blank">File_transfer</a></div>
-            <div class="all six"><a href="https://news.ycombinator.com/newest" target="_blank">HackerNews</a></div>
-            <div class="all seven"><a href="https://dabeaz-course.github.io/practical-python/" target="_blank">Course</a></div>
+        
+        <!-- 搜索输入框 -->
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="搜索链接、分类或描述"
+            >
         </div>
-    <div class="mark_line"></div>
-    <div class="title shopping">
-            <div class="all four">买卖</div>
-            <div class="all one"><a href="https://www.smzdm.com/" target="_blank">Smzdm</a></div>
-            <div class="all two"><a href="https://www.cnbeta.com.tw/" target="_blank">cnbeta</a></div>
-            <div class="all five"><a href="https://www.jd.com/" target="_blank">jd</a></div>
-            <div class="all three"><a href="https://www.taobao.com/" target="_blank">taobao</a></div>
-        </div>
-    <div class="mark_line"></div>
-    <div class="title Social">
-            <div class="all five">收兽</div>
-            <div class="all seven"><a href="https://mail.google.com/" target="_blank">mail</a></div>
-            <div class="all four"><a href="https://www.weibo.com/" target="_blank">Weibo</a></div>
-            <div class="all one"><a href="https://www.v2ex.com/?tab=all" target="_blank">v2ex</a></div>
-            <div class="all two"><a href="https://www.duolingo.com/learn" target="_blank">Duolingo</a></div>
-        </div>
-    <div class="mark_line"></div>
-    <div class="title Iplays">
-            <div class="all six">娱乐</div>
-            <div class="all two"><a href="https://www.youtube.com/" target="_blank">youtube</a></div>
-            <div class="all five"><a href="https://weread.qq.com/" target="_blank">Reading</a></div>
-            <div class="all three"><a href="poi.html" target="_blank">Poi</a></div>
-            <div class="all four"><a href="https://www.coursera.org/" target="_blank">Coursera</a></div>
-        </div>
-    <div class="mark_line"></div>
-    <div class="title software">
-            <div class="all seven">软件</div>
-            <div class="all four"><a href="http://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/" target="_blank">Chromium</a></div>
-            <div class="all three"><a href="https://www.celsoazevedo.com/files/android/google-camera/" target="_blank">Gcam</a></div>
-            <div class="all five"><a href="https://download.lineageos.org/guacamole" target="_blank">Lineageos</a></div>
-            <div class="all one"><a href="https://developer.android.com/about/versions/14/gsi-release-notes?hl=zh-cn" target="_blank">GSI</a></div>
-        </div>
-    <div class="mark_line"></div>
-	<div class="title extra">
-		<div class="all one">额外</div>
-		<div class="all five"><a href="huba/hubA.html" target="_blank">huba</a></div>
-		<div class="all six"><a href="huba/html555.html" target="_blank">test5</a></div>
-		<div class="all seven"><a href="/downloads" target="_blank">Files</a></div>
-		<div class="all two"><a href="/huba/notes.html" target="_blank">记事</a></div>
-	</div>
-    <div class="newweibo all seven">
-        <a href="rss/latest.html" target="_blank">微博订阅</a>
-    </div>
-<!--    <div class="first_video" align="center"><iframe width=680 height=500 src="https://www.youtube.com/embed/pbMbstcOmAg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>-->
 
-<script src="tutorial/scripts/addLoadEvent.js"></script>
-<script src="tutorial/scripts/newJavascritp.js"></script>
+        <!-- 链接容器 -->
+        <div id="linksContainer" class="links-grid">
+            <!-- 链接将在这里动态生成 -->
+        </div>
+
+        <!-- 无结果时的提示 -->
+        <div id="noResults" class="no-results" style="display: none;">
+            没有找到匹配的链接
+        </div>
+    </div>
+    <script src="jscripts/indexV3.js"></script>
 </body>
 </html>

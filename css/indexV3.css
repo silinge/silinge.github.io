@@ -1,0 +1,100 @@
+/* 全局重置和基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 页面整体风格 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a39f9f;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* 页面容器，控制最大宽度和居中 */
+.container {
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 页头样式 */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 搜索框容器 */
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* 搜索输入框样式 */
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* 链接网格布局 */
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* 链接块基础样式 */
+.link-item {
+    padding: 25px;  /* 高度扩大1.5倍 */
+    text-decoration: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+/* 黑白交替块的样式 */
+.link-item:nth-child(odd) {
+    background-color: #000;
+    color: #fff;
+}
+
+.link-item:nth-child(even) {
+    background-color: #fff;
+    color: #000;
+}
+
+/* 链接块悬停效果 */
+.link-item:hover {
+    transform: scale(1.05);
+}
+
+/* 链接名称样式 */
+.link-name {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 链接分类样式 */
+.link-category {
+    font-size: 1em;
+    opacity: 0.7;
+}
+
+/* 无结果提示 */
+.no-results {
+    text-align: center;
+    color: #666;
+    margin-top: 50px;
+}
