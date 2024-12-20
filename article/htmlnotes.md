@@ -520,3 +520,13 @@ main {
 更改 .penguin 元素的 transition 行为， 设置动画周期的时长为 1s，关键帧的缓动函数为 ease-in-out，动画延迟为 0ms。 transition:1s ease-in-out 0ms;
 
 计算 .ground 元素的 height，使其为视窗高度减 .penguin 元素的高度。height: calc(100vh - 300px);
+
+
+aria2c \
+  --check-certificate=false \
+  --min-tls-version=TLSv1.2 \
+  --max-tls-version=TLSv1.3 \
+  --disable-ipv6=true \
+  --connect-timeout=30 \
+  --retry-wait=5 \
+  --max-tries=3 \https://xvwilliam.us.kg/downloads/minipc.webm

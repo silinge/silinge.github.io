@@ -52,13 +52,76 @@
 
     <div class="code-block">
         <pre id="code1">
+            下载 Aria2 https://aria2.github.io/   https://github.com/aria2/aria2/releases  
+            为了方便在命令行中使用 Aria2，你可以将 Aria2 的可执行文件所在目录添加到系统的环境变量中。
+
+            右键点击“此电脑”或“我的电脑”，选择“属性”。
+            点击“高级系统设置”。
+            点击“环境变量”。
+            在“系统变量”部分，找到“Path”变量，点击“编辑”。
+            点击“新建”，然后添加 Aria2 可执行文件所在的目录路径。
+            可以创建一个配置文件来设置 Aria2 的各种选项。例如，创建一个名为 aria2.conf 的文件，内容如下：
+            dir=D:\Downloads
+            max-connection-per-server=10
+            split=10
+
+            aria2c --conf-path=aria2.conf 启动
+            ariang webui https://github.com/mayswind/AriaNg
+            ariang native  https://github.com/mayswind/AriaNg-Native/releases
+            https://github.com/ngosang/trackerslist #bt trackerlist 
+
+            使用这个AriaNg Native 配置一下 以后直接启用这个程序，不需要预先执行一遍aria2c的命令行
+            启动时执行命令 aria2c  
+            启动时执行命令参数 --conf-path=yourpath\aria2.conf
+            
+            
         </pre>
         <button class="copy-button" data-target="code1">复制</button>
     </div>
 
   <div class="code-block">
         <pre id="code2">
+            创建一个bat 给aria 更新trackerslist 需要注意改动文件的路径
+            @echo off
+            setlocal enabledelayedexpansion
 
+            :: 下载最新的 tracker 列表文件
+            curl -o trackers_all.txt https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+
+            :: 读取 tracker 列表文件并更新 Aria2 配置文件
+            set "trackers="
+            for /f "delims=" %%i in (trackers_all.txt) do (
+                set "trackers=!trackers!%%i,"
+            )
+            :: 去掉最后一个逗号
+            set "trackers=!trackers:~0,-1!"
+
+            :: 临时文件路径
+            set "temp_conf=aria2.conf.tmp"
+
+            :: 读取现有配置文件并更新 bt-tracker 配置项
+            (
+                for /f "delims=" %%a in (aria2.conf) do (
+                    set "line=%%a"
+                    if "!line:bt-tracker=!"=="!line!" (
+                        echo !line!
+                    ) else (
+                        echo bt-tracker=!trackers!
+                    )
+                )
+            ) > !temp_conf!
+
+            :: 替换原配置文件
+            move /Y !temp_conf! aria2.conf
+
+            :: 重启 Aria2 以应用新的 tracker 列表
+            taskkill /IM aria2c.exe /F
+
+
+            endlocal
+            conf内提供的路径一定要使用绝对路径不能简省
+            aria2c 命令行 可能会带错执行，但是使用ariang native 会报aria连不上，它不告诉你哪里有问题。
+            还有下载记录重启后丢失，你需要设置session啊  我放一份<a href="../../history/aria2.conf">aria2.conf</a>在这里
         </pre>
         <button class="copy-button" data-target="code2">复制</button>
     </div>

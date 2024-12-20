@@ -52,13 +52,38 @@
 
     <div class="code-block">
         <pre id="code1">
+            sudo apt update  # 更新软件包列表 (推荐先执行)
+            sudo apt install p7zip-full # 安装完整版 p7zip，包含 7z 和 7za
         </pre>
         <button class="copy-button" data-target="code1">复制</button>
     </div>
 
   <div class="code-block">
         <pre id="code2">
+            7z a archive.7z file1 file2 directory1  # 将 file1、file2 和 directory1 压缩到 archive.7z
+            7z a archive.7z *                      # 压缩当前目录下的所有文件和文件夹
+            7z a -t7z archive.7z file1 file2      # 指定压缩格式为 7z (默认)
+        </pre>
+        <button class="copy-button" data-target="code2">复制</button>
+    </div>
 
+    <div class="code-block">
+        <pre id="code2">
+            7z x archive.7z      # 将 archive.7z 解压缩到当前目录
+            7z e archive.7z      # 将 archive.7z 解压缩到当前目录，但不创建子目录 (extract without directory structure)
+            7z x archive.7z -o/path/to/extract  # 解压缩到指定目录 /path/to/extract
+            7z l archive.7z  # 列出 archive.7z 中的文件列表
+            7z t archive.7z # 测试 archive.7z 的完整性
+            7z d archive.7z file1 # 从 archive.7z 压缩包中删除 file1
+            7z a archive_name.7z folder_to_compress/ #压缩文件夹
+            #7z 提供了不同的压缩级别，从 -mx0 (不压缩) 到 -mx9 (最大压缩)。默认级别是 -mx=5。
+            7z a -mx=9 archive_name.7z folder_to_compress/  # 使用最大压缩级别
+            7z a -mx=1 archive_name.7z folder_to_compress/  # 使用最快压缩级别（压缩比最低）
+
+            7z a archive_name.7z folder1/ folder2/ file1.txt file2.txt #压缩多个文件
+
+            #可以使用 -x 选项排除不需要压缩的文件或文件夹。
+            7z a archive_name.7z folder_to_compress/ -x!folder_to_compress/exclude_folder/* -x!*.tmp
         </pre>
         <button class="copy-button" data-target="code2">复制</button>
     </div>

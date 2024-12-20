@@ -1,0 +1,40 @@
+<style>
+    .collapsed {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    .expanded {
+        max-height: 1000px; /* 根据实际内容调整 */
+        transition: max-height 0.3s ease-in;
+    }
+</style>
+
+<div class="content-section">
+    <button class="toggle-btn px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        展开内容
+    </button>
+    <ul class="collapsed">
+        <!-- 已有内容 -->
+    </ul>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // 获取按钮后面的第一个折叠列表
+            const targetList = this.nextElementSibling;
+            if (targetList && targetList.classList.contains('collapsed')) {
+                // 切换展开/折叠状态
+                targetList.classList.toggle('expanded');
+                // 更新按钮文本
+                this.textContent = targetList.classList.contains('expanded') ? '收起内容' : '展开内容';
+            }
+        });
+    });
+});
+</script>

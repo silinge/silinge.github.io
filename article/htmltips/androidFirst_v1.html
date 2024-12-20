@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>试做一个安卓中英词典应用</title>
+    <link rel="stylesheet" href="../../css/zhedieduanluo.css" type="text/css">
+</head>
+<body>
+    <div><H1>工具的准备</H1>
+        <p>1. 安装 <a href="https://developer.android.com/studio?hl=zh-cn">Android Studio</a> </p>
+        <section>
+            <p>2. 安装 <a href="https://www.oracle.com/java/technologies/downloads/">JDK</a></p>
+            <ul class="collapsed" id="paragraph">
+                <li>配置 JAVA_HOME、CLASSPATH 和 PATH 环境变量是使用 Java 开发的基础步骤。以下是在 Windows 系统上配置这些环境变量的详细步骤：</li>
+                <li>1. 找到 JDK 的安装路径</li>
+                <li>首先，你需要找到 JDK 的安装路径。通常情况下，它会被安装在 C:\Program Files\Java 目录下。在这个目录下，你会看到类似 jdk-17.0.2 或 jdk-1.8.0_361 这样的文件夹，这就是 JDK 的安装目录。记下这个路径，稍后会用到。</li>
+                <li>2. 打开系统属性</li>
+                <li>Windows 10/11: 在任务栏的搜索框中输入“环境变量”，然后选择“编辑系统环境变量”。或者，你也可以通过“控制面板” -> “系统和安全” -> “系统” -> “高级系统设置”来打开系统属性。</li>
+                <li>3. 点击“环境变量”按钮</li>
+                <li>在“系统属性”窗口中，点击“环境变量”按钮。</li>
+                <li>4. 配置 JAVA_HOME 变量</li>
+                <li>在“系统变量”区域，点击“新建”按钮。在“变量名”中输入 JAVA_HOME。在“变量值”中输入你的 JDK 安装路径，例如 C:\Program Files\Java\jdk-17.0.2（根据你的实际安装路径修改）。点击“确定”。</li>
+                <li>5. 配置 CLASSPATH 变量 (可选，JDK 9 及以上版本通常不需要)</li>
+                <li>在“系统变量”区域，点击“新建”按钮。在“变量名”中输入 CLASSPATH。在“变量值”中输入 .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar（注意最前面的 . 代表当前目录）。点击“确定”。注意： 从 JDK 9 开始，CLASSPATH 环境变量通常不再需要手动设置。Java 启动器会自动搜索类路径。但是，某些旧的应用程序或框架可能仍然需要它。</li>
+                <li>6. 配置 PATH 变量</li>
+                <li>在“系统变量”区域，找到名为 Path 的变量，选中它，然后点击“编辑”按钮。在弹出的“编辑环境变量”窗口中，点击“新建”按钮。输入 %JAVA_HOME%\bin。点击“确定”。注意： 确保 %JAVA_HOME%\bin 在 Path 变量的值中靠前的位置，这样系统会优先使用你安装的 JDK 中的工具。</li>
+                <li>7. 确认配置</li>
+                <li>点击所有打开的窗口上的“确定”按钮，保存更改。</li>
+                <li>8. 验证配置</li>
+                <li>打开命令提示符（或 PowerShell）。输入 java -version 并按回车键。如果正确配置了环境变量，你将看到 JDK 的版本信息。输入 javac -version 并按回车键。如果正确配置了环境变量，你将看到 Java 编译器的版本信息。</li>
+                <li>示例：假设你的 JDK 安装在 C:\Program Files\Java\jdk-17.0.2 目录下，那么配置后的环境变量应该是： JAVA_HOME: C:\Program Files\Java\jdk-17.0.2 CLASSPATH: .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar (可选) Path: 在原有的基础上添加 %JAVA_HOME%\bin</li>
+                <li>注意事项：确保路径的正确性，包括大小写和空格。如果修改了环境变量后命令提示符窗口已经打开，需要关闭并重新打开一个新的命令提示符窗口，才能使更改生效。如果安装了多个 JDK 版本，JAVA_HOME 变量将决定使用哪个版本。</li>
+            </ul>
+            <div class="read-more" id="readMore">展开</div>
+        </section>
+        <p>3. 安装Git</p>
+        <p>4. 安装Android SDK(Android Studio会帮你下载)</p>
+        <p>5. 安装Gradle (Android Studio会帮你下载)</p>
+        <p>6. 第一天第一次编辑 <a href="/android/day_zero.html">dayZeroAndroid</a></p>
+    </div>
+    <div><h2>词典库准备</h2>
+    <p>感谢GitHub开源项目<a href="https://github.com/skywind3000/ECDICT">ECDICT</a></p>
+    <section>
+    <p>20241220-day0 - day1 已经实现的功能。</p>
+        <ul>
+            <li>1.利用csv词典词库数据，在app做到了输入英文单词，获取音标，英文定义和中文翻译。</li>
+            <li>2.制作了关于页面，展示资料来源及各种致谢。</li>
+            <li>3.制作了app图标。</li>
+            <li>4.代码发布到了GitHub上。</li>
+            <li>5.建立GitHub工作流，使用v tag标签来构建发布apk程序。</li>
+        </ul>
+        <div class="read-more" id="readMore">展开</div>
+    </section>
+    </div>
+    <script src="../../jscripts/zhedieduanluo.js"></script>
+</body>
+</html>

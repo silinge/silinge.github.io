@@ -1,0 +1,10 @@
+.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.expanded {
+    max-height: 1000px; /* 根据实际内容调整 */
+    transition: max-height 0.3s ease-in;
+}
