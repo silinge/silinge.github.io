@@ -1,0 +1,35 @@
+基础用法：
+
+缩写展开： 这是 Emmet 最基本的功能。输入缩写后按 Tab 键，即可将其展开为完整的代码。例如：
+! 或 html:5 + Tab → 生成 HTML5 骨架
+div#container.wrapper + Tab → <div id="container" class="wrapper"></div>
+ul>li*3>a + Tab → 生成包含三个链接的无序列表
+层级结构： 使用 > 表示父子关系，+ 表示兄弟关系，^ 表示向上层。例如：
+div>ul>li → <div><ul><li></li></ul></div>
+div+p+span → <div></div><p></p><span></span>
+ul>li^p → <ul><li></li></ul><p></p>
+乘法： 使用 * 可以重复生成元素。例如：
+li*5 → 生成五个 <li></li> 元素
+属性： 使用 [] 添加属性，{} 添加文本内容。例如：
+a[href="https://www.google.com"]{Google} → <a href="https://www.google.com">Google</a>
+类和 ID： 使用 . 表示类，# 表示 ID。例如：
+.item → <div class="item"></div>
+#main → <div id="main"></div>
+高级技巧：
+
+文本生成： 使用 lorem 或 loremN（N 为数字）生成 Lorem Ipsum 占位文本。例如：
+p*3>lorem10 → 生成三个段落，每个段落包含 10 个单词的 Lorem Ipsum 文本。
+跳到上一个层级： 在输入缩写时，可以使用 ^ 快速返回到上一个层级。
+反向计数： 使用 @- 可以反向计数。例如：
+li.item$@-*3 → 生成三个类名为 item3、item2、item1 的 <li> 元素。
+数据生成： 结合 $* 可以生成序列号。例如：
+img[src="img/img$.jpg"]*3 → 生成三个 <img> 元素，src 分别为 img/img1.jpg、img/img2.jpg、img/img3.jpg。
+自定义模板： 可以通过修改 snippets.json 文件来自定义 Emmet 代码片段，例如修改 ! 生成的 HTML 骨架。具体方法是在 VS Code 设置中搜索 "emmet.extensionsPath"，填入包含 snippets.json 文件的目录路径。
+常见问题与解答：
+
+Emmet 不生效：
+确认文件类型是否正确。Emmet 主要用于 HTML、CSS、XML 等文件。
+检查 VS Code 的 Emmet 设置是否启用。
+与其他插件冲突，例如 HTML Snippets 插件，可能会导致 Tab 键被其他插件占用。建议禁用冲突插件或调整插件的快捷键设置。
+Tab 键被其他功能占用：
+VS Code 默认使用 Tab 键展开 Emmet 缩写。如果 Tab 键被其他功能占用，可以在设置中搜索 "emmet.triggerExpansionOnTab"，将其设置为 true。

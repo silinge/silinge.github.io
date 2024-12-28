@@ -33,7 +33,7 @@
         {"name": "lineageos", "url": "https://download.lineageos.org/", "category": "tools"},
         {"name": "AndroidGsi", "url": "https://developer.android.com/about/versions/14/gsi-release-notes?hl=zh-cn", "category": "tools"},
         {"name": "huba", "url": "huba/hubA.html", "category": "tools"},
-        {"name": "vpsfiles", "url": "/downloads", "category": "tools"},
+        {"name": "vpsfiles", "url": "https://xvwilliam.us.kg/downloads", "category": "tools"},
         {"name": "Notes", "url": "/huba/notes.html", "category": "tools"},
         {"name": "weiboRss", "url": "rss/latest.html", "category": "social"},
         {"name": "Dcenter", "url": "https://creator.douyin.com/creator-micro/content/manage", "category": "social"}
