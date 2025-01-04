@@ -8,6 +8,7 @@
         {"name": "chatgpt", "url": "https://chatgpt.com/", "category": "tools"},
         {"name": "Mistral", "url": "https://chat.mistral.ai/chat", "category": "tools"},
         {"name": "Deepseek", "url": "https://chat.deepseek.com/", "category": "tools"},
+        {"name": "Grok", "url": "https://x.com/i/grok", "category": "tools"},
         {"name": "VpsTips", "url": "article/vps_settings.html", "category": "notes"},
         {"name": "zaobao", "url": "https://www.zaobao.com.sg/realtime", "category": "news"},
         {"name": "Xda", "url": "https://www.xda-developers.com/", "category": "news"},
