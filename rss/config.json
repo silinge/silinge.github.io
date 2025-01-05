@@ -44,7 +44,7 @@
     "hours_ago": 24,
     "max_entries_per_user": 20,
     "output_dir": "rss",
-    "rsshub_base_url": "https://rsshub.app",
+    "rsshub_base_url": "https://rss-hub-xv.vercel.app",
     "max_concurrent_requests": 10,
     "retry_attempts": 3
 }
