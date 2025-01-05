@@ -24,11 +24,16 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'pip'     # 启用 pip 缓存
-      
+      - name: Debug files
+        run: |
+          ls -la
+          ls -la rss/
+
       - name: Install dependencies
+        working-directory: ./rss
         run: |
           python -m pip install --upgrade pip
-          pip install -r /rss/requirements.txt
+          pip install -r requirements.txt
       
       - name: Generate content
         run: |
