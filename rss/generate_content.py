@@ -29,7 +29,7 @@ class WeiboRSSCrawler:
                     "hours_ago": 12,
                     "max_entries_per_user": 10,
                     "output_dir": "rss",
-                    "rsshub_base_url": "https://rsshub.app",
+                    "rsshub_base_url": "https://rss-hub-xv.vercel.app",
                     "max_concurrent_requests": 5,
                     "retry_attempts": 3
                 }
