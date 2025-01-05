@@ -1,29 +1,33 @@
 name: Update Weibo New Content
 
 on:
-  #schedule:
-   # - cron: '0 * * * *'    # 每小时运行一次
-  workflow_dispatch:        # 允许手动触发
+  schedule:
+    # UTC 时间 22:00 和 0:00（东八区时间 6:00 和 8:00）
+    - cron: "0 22 * * *"
+    - cron: "0 0 * * *"
+    # UTC 时间 2:00 到 12:00，每 2 小时一次（东八区时间 10:00 到 20:00）
+    - cron: "0 2,4,6,8,10,12 * * *"
+  workflow_dispatch: # 允许手动触发
   #push:
-    #paths:
-      #- 'rss/**'           # 当 rss 目录下的文件改变时触发
-      #- '.github/workflows/**'  # 当工作流文件改变时触发
+  #paths:
+  #- 'rss/**'           # 当 rss 目录下的文件改变时触发
+  #- '.github/workflows/**'  # 当工作流文件改变时触发
 
 jobs:
   update-content:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
-      contents: write      # 明确指定写入权限
-    
+      contents: write # 明确指定写入权限
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
-          cache: 'pip'     # 启用 pip 缓存
+          python-version: "3.9"
+          cache: "pip" # 启用 pip 缓存
       - name: Debug files
         run: |
           ls -la
@@ -34,13 +38,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      
+
       - name: Generate content
         run: |
           python rss/generate_content.py
         env:
-          TZ: Asia/Shanghai    # 设置时区为中国时间
-      
+          TZ: Asia/Shanghai # 设置时区为中国时间
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
