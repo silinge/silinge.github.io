@@ -17,6 +17,10 @@ jobs:
       pages: write    # 允许写入 GitHub Pages
       id-token: write # 允许生成 OIDC token
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
