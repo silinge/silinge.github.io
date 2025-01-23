@@ -50,7 +50,11 @@ jobs:
 
       - name: Prepare GitHub Pages directory
         run: |
-          mkdir -p docs/rss
+          # 创建发布目录
+          mkdir -p docs
+          # 复制原有的 index.html 到发布目录
+          cp index.html docs/index.html
+          # 复制生成的 latest.html 到发布目录
           cp rss/latest.html docs/rss/latest.html
 
       - name: Upload to GitHub Pages
