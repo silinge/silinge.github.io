@@ -63,25 +63,31 @@ class WeiboRSSCrawler:
         return None
 
     def process_entry(self, entry, username):
-        try:
-            soup = BeautifulSoup(entry.get('description', ''), 'html.parser')
-            for tag in soup(['img', 'video']):
-                tag.decompose()
-            content = '\n'.join(
-                [a.get_text(strip=True) for a in soup.find_all('a')] +
-                [p.strip() for p in soup.get_text(strip=True).split('\n') if p.strip()]
-            )
-            published_time = parse(entry.get('published', '')).astimezone(self.beijing_tz)
-            return {
-                'title': username,
-                'link': entry.get('link', ''),
-                'content': content,
-                'published': published_time.strftime('%Y-%m-%d %H:%M:%S'),
-                'published_time': published_time
-            }
-        except Exception as e:
-            print(f"Error processing entry: {e}")
-            return None
+    try:
+        soup = BeautifulSoup(entry.get('description', ''), 'html.parser')
+        
+        # 保留图片和视频标签
+        for img in soup.find_all('img'):
+            img['src'] = img.get('src', '')  # 确保图片链接存在
+            img['style'] = 'max-width:100%; height:auto;'  # 确保图片自适应
+        
+        for video in soup.find_all('video'):
+            video['style'] = 'max-width:100%; height:auto;'  # 确保视频自适应
+        
+        # 提取文本内容
+        content = soup.get_text(strip=True)
+        
+        published_time = parse(entry.get('published', '')).astimezone(self.beijing_tz)
+        return {
+            'title': username,
+            'link': entry.get('link', ''),
+            'content': str(soup),  # 现在返回整个HTML内容
+            'published': published_time.strftime('%Y-%m-%d %H:%M:%S'),
+            'published_time': published_time
+        }
+    except Exception as e:
+        print(f"Error processing entry: {e}")
+        return None
 
     def generate_html(self, users):
         try:
