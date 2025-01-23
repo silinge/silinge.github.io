@@ -8,18 +8,16 @@ on:
     # UTC 时间 2:00 到 12:00，每 2 小时一次（东八区时间 10:00 到 20:00）
     - cron: "0 2,4,6,8,10,12 * * *"
   workflow_dispatch: # 允许手动触发
+  #push:
+  #paths:
+  #- 'rss/**'           # 当 rss 目录下的文件改变时触发
+  #- '.github/workflows/**'  # 当工作流文件改变时触发
 
 jobs:
   update-content:
     runs-on: ubuntu-24.04
     permissions:
       contents: write # 明确指定写入权限
-      pages: write    # 允许写入 GitHub Pages
-      id-token: write # 允许生成 OIDC token
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -30,7 +28,6 @@ jobs:
         with:
           python-version: "3.9"
           cache: "pip" # 启用 pip 缓存
-
       - name: Debug files
         run: |
           ls -la
@@ -47,20 +44,3 @@ jobs:
           python rss/generate_content.py
         env:
           TZ: Asia/Shanghai # 设置时区为中国时间
-
-      - name: Prepare GitHub Pages directory
-        run: |
-          # 创建发布目录
-          mkdir -p docs
-          # 复制原有的 index.html 到发布目录
-          cp index.html docs/index.html
-          # 复制生成的 latest.html 到发布目录
-          cp rss/latest.html docs/rss/latest.html
-
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: docs
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
