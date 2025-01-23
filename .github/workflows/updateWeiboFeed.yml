@@ -2,22 +2,18 @@ name: Update Weibo New Content
 
 on:
   schedule:
-    # UTC 时间 22:00 和 0:00（东八区时间 6:00 和 8:00）
+    # UTC time 22:00 and 0:00 (China time 6:00 and 8:00)
     - cron: "0 22 * * *"
     - cron: "0 0 * * *"
-    # UTC 时间 2:00 到 12:00，每 2 小时一次（东八区时间 10:00 到 20:00）
+    # UTC time 2:00 to 12:00, every 2 hours (China time 10:00 to 20:00)
     - cron: "0 2,4,6,8,10,12 * * *"
-  workflow_dispatch: # 允许手动触发
-  #push:
-  #paths:
-  #- 'rss/**'           # 当 rss 目录下的文件改变时触发
-  #- '.github/workflows/**'  # 当工作流文件改变时触发
+  workflow_dispatch: # Allow manual triggering
 
 jobs:
   update-content:
     runs-on: ubuntu-24.04
     permissions:
-      contents: write # 明确指定写入权限
+      contents: write # Explicitly specify write permission
 
     steps:
       - name: Checkout repository
@@ -27,11 +23,7 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.9"
-          cache: "pip" # 启用 pip 缓存
-      - name: Debug files
-        run: |
-          ls -la
-          ls -la rss/
+          cache: "pip" # Enable pip cache
 
       - name: Install dependencies
         working-directory: ./rss
@@ -43,4 +35,12 @@ jobs:
         run: |
           python rss/generate_content.py
         env:
-          TZ: Asia/Shanghai # 设置时区为中国时间
+          TZ: Asia/Shanghai # Set timezone to China time
+
+      - name: Update latest.html
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add rss/latest.html
+          git commit -m "Auto update content" -q --no-verify
+          git push -q "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${{ github.ref }}
