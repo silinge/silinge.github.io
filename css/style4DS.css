@@ -10,7 +10,8 @@
 }
 
 .question-list {
-    width: 300px;
+    width: 20%;  /* Changed from 300px to 20% */
+    min-width: 100px;  /* Added minimum width */
     padding: 20px;
     background-color: #f5f5f5;
     overflow-y: auto;
@@ -73,6 +74,7 @@
     
     .question-list {
         width: 100%;
+        min-width: auto;  /* Reset min-width for mobile */
         padding: 10px;
     }
     
