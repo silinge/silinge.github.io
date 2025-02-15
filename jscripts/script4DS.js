@@ -11,8 +11,8 @@ function loadQuestions() {
     fetch('../json/ds_question.json')
         .then(response => response.json())
         .then(questions => {
-            // Filter out questions with empty id or title
-            const validQuestions = questions.filter(q => q.id && q.title);
+            // Filter out questions where either id or title is empty
+            const validQuestions = questions.filter(q => q.id && q.title.trim() !== '');
             renderQuestionList(validQuestions);
             renderPagination(validQuestions.length);
         })
