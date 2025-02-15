@@ -11,8 +11,10 @@ function loadQuestions() {
     fetch('../json/ds_question.json')
         .then(response => response.json())
         .then(questions => {
-            renderQuestionList(questions);
-            renderPagination(questions.length);
+            // Filter out questions with empty id or title
+            const validQuestions = questions.filter(q => q.id && q.title);
+            renderQuestionList(validQuestions);
+            renderPagination(validQuestions.length);
         })
         .catch(error => console.error('Error:', error));
 }
@@ -28,7 +30,8 @@ function renderQuestionList(questions) {
     
     pageQuestions.forEach((question, index) => {
         const li = document.createElement('li');
-        li.textContent = question.title;
+        // Add question ID before the title
+        li.textContent = `[${question.id}] ${question.title}`;
         li.onclick = () => loadAnswer(question.id);
         questionList.appendChild(li);
     });
