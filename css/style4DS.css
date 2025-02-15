@@ -7,20 +7,27 @@
 .container {
     display: flex;
     min-height: 100vh;
+    position: relative; /* Establish a positioning context */
 }
 
 .question-list {
-    width: 20%;  /* Changed from 300px to 20% */
-    min-width: 100px;  /* Added minimum width */
+    width: 20%;
+    min-width: 100px;
     padding: 20px;
     background-color: #f5f5f5;
     overflow-y: auto;
+    height: 100vh; /* Make sure the list can scroll within the viewport height */
 }
 
 .answer-content {
-    flex-grow: 1;
+    position: absolute; /* Take it out of the normal document flow */
+    right: 0; /* Stick to the right side */
+    top: 0; /* Stick to the top */
+    bottom: 0; /* Stretch to the bottom */
+    left: 20%; /* Start where the question-list ends */
     padding: 20px;
     background-color: white;
+    overflow-y: auto; /* Allow scrolling within its own area if content overflows */
 }
 
 #questionList {
@@ -34,6 +41,7 @@
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
 }
 
 #questionList li:hover {
@@ -70,26 +78,28 @@
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+        height: auto; /* Reset height for mobile */
     }
     
     .question-list {
         width: 100%;
-        min-width: auto;  /* Reset min-width for mobile */
+        min-width: auto;
         padding: 10px;
+        height: auto; /* Reset height */
+        overflow-y: visible; /* Allow content to push the container size */
     }
     
     .answer-content {
+        position: static; /* Reset positioning for mobile */
         width: 100%;
         padding: 10px;
     }
     
     #questionList {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+        display: block;
     }
     
     #questionList li {
-        flex: 0 1 calc(50% - 20px);
+        width: 100%;
     }
 }
