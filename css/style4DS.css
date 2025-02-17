@@ -48,31 +48,42 @@
     background-color: #e0e0e0;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0;
-}
-
-.page-btn {
-    padding: 5px 10px;
-    margin: 0 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 3px;
-}
-
-.page-btn:hover {
-    background-color: #45a049;
-}
-
 #answer {
     min-height: 200px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+/* 添加搜索框样式 */
+.search-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+#searchInput {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 14px;
+}
+
+#searchButton {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
 }
 
 @media (max-width: 768px) {

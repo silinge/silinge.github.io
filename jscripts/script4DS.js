@@ -4,20 +4,69 @@ let currentPage = 1;
 
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
+    let allQuestions = []; // 存储所有问题数据
+
+    // 获取搜索相关元素
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+
+    // 搜索功能实现
+    function searchQuestions(keyword) {
+        if (!keyword.trim()) {
+            displayQuestions(allQuestions); // 如果搜索词为空，显示所有问题
+            return;
+        }
+
+        const results = allQuestions.filter(question => 
+            question.title.toLowerCase().includes(keyword.toLowerCase())
+        );
+        displayQuestions(results);
+    }
+
+    // 绑定搜索事件
+    searchButton.addEventListener('click', () => {
+        searchQuestions(searchInput.value);
+    });
+
+    // 添加回车搜索功能
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            searchQuestions(searchInput.value);
+        }
+    });
+
+    // 修改原有的加载问题函数
+    async function loadQuestions() {
+        try {
+            const response = await fetch('../json/ds_question.json');
+            allQuestions = await response.json(); // 保存所有问题
+            displayQuestions(allQuestions);
+        } catch (error) {
+            console.error('Error loading questions:', error);
+        }
+    }
+
+    // 显示问题列表
+    function displayQuestions(questions) {
+        const questionList = document.getElementById('questionList');
+        questionList.innerHTML = '';
+        
+        questions.forEach(question => {
+            if (question.title.trim()) {  // 只显示有标题的问题
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#" data-id="${question.id}">${question.title}</a>`;
+                li.querySelector('a').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loadAnswer(question.id);
+                });
+                questionList.appendChild(li);
+            }
+        });
+    }
+
+    // 初始加载
     loadQuestions();
 });
-
-function loadQuestions() {
-    fetch('../json/ds_question.json')
-        .then(response => response.json())
-        .then(questions => {
-            // Filter out questions where either id or title is empty
-            const validQuestions = questions.filter(q => q.id && q.title.trim() !== '');
-            renderQuestionList(validQuestions);
-            renderPagination(validQuestions.length);
-        })
-        .catch(error => console.error('Error:', error));
-}
 
 function renderQuestionList(questions) {
     const questionList = document.getElementById('questionList');
