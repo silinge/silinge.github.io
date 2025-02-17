@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style4DS.css" type="text/css">
+    <!-- 添加 marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <title>问deepseek一个问题</title>
 </head>
 <body>
@@ -14,13 +16,10 @@
             <div class="pagination bottom-pagination"></div>
         </div>
         <div class="answer-content">
-            <div id="answer"></div>
+            <div id="answer" class="markdown-body"></div>
         </div>
     </div>
 
     <script src="../jscripts/script4DS.js"></script>
 </body>
 </html>
-
-<!-- <div class="question"></div>
-    <div class="answer"></div> -->

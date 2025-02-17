@@ -42,6 +42,9 @@
         {"name": "vpsfiles", "url": "/downloads", "category": "notes"},
         {"name": "Notes", "url": "/huba/notes.html", "category": "notes"},
         {"name": "weiboRss", "url": "rss/latest.html", "category": "social"},
-        {"name": "Dcenter", "url": "https://creator.douyin.com/creator-micro/content/manage", "category": "social"}
+        {"name": "Dcenter", "url": "https://creator.douyin.com/creator-micro/content/manage", "category": "social"},
+        {"name": "Tcenter", "url": "https://www.tiktok.com/tiktokstudio/content", "category": "social"},
+        {"name": "Jimeng", "url": "https://jimeng.jianying.com/ai-tool/home", "category": "tools"},
+        {"name": "TTSgen", "url": "https://ttsmaker.com/zh-cn", "category": "tools"}
     ]
 }
