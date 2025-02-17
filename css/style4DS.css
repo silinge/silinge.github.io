@@ -44,8 +44,48 @@
     width: 100%;
 }
 
+#questionList li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%;
+}
+
+#questionList li.active {
+    background-color: #e0e0e0;
+    border-left: 4px solid #ff0000;
+}
+
 #questionList li:hover {
     background-color: #e0e0e0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    min-height: 40px;  /* 确保分页区域始终存在 */
+}
+
+.page-btn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    min-width: 32px;  /* 确保按钮宽度一致 */
+    text-align: center;
+}
+
+.page-btn.active {
+    background-color: #45a049;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);  /* 添加阴影效果 */
+}
+.page-btn:hover {
+    background-color: #45a049;
 }
 
 #answer {
@@ -55,35 +95,55 @@
     border-radius: 5px;
 }
 
-/* 添加搜索框样式 */
+/* 修改搜索框样式 */
 .search-container {
-    position: fixed;
+    position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 1000;
     display: flex;
     gap: 10px;
+    width: calc(20% - 40px);  /* 与左侧列表宽度对应 */
 }
 
+/* 调整问题列表的上边距，为搜索框留出空间 */
+.question-list {
+    width: 20%;
+    min-width: 100px;
+    padding: 80px 20px 20px 20px;  /* 增加顶部内边距 */
+    background-color: #f5f5f5;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+/* 调整搜索框宽度 */
 #searchInput {
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 200px;
+    width: calc(100% - 46px);  /* 减去按钮宽度和间距 */
     font-size: 14px;
 }
-
 #searchButton {
-    padding: 8px 15px;
-    background-color: #4CAF50;
+    width: 36px;  /* 设置为正方形 */
+    height: 36px;
+    background-color: #ff0000;  /* 红色背景 */
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 #searchButton:hover {
-    background-color: #45a049;
+    background-color: #e60000;  /* 鼠标悬停时的颜色 */
+}
+
+#searchButton i {
+    font-size: 16px;  /* 调整图标大小 */
 }
 
 @media (max-width: 768px) {
