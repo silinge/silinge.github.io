@@ -2,7 +2,7 @@
 async function loadLinks() {
     try {
         // 从links.json文件加载链接数据
-        const response = await fetch('../jscripts/linksA.json');
+        const response = await fetch('../json/linksA.json');
         const data = await response.json();
         return data.links;
     } catch (error) {
