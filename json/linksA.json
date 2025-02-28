@@ -58,7 +58,8 @@
         {"name": "热know", "url": "https://weibo.com/u/3911558393", "category": "social"},
         {"name": "prompt库", "url": "https://api-docs.deepseek.com/zh-cn/prompt-library/", "category": "social"},
         {"name": "followis", "url": "https://app.follow.is/feeds/folder-Weibo.com/pending?view=1", "category": "social"},
-        {"name": "问deepseek", "url": "../article/askdeepseek.html", "category": "social"}
+        {"name": "问deepseek", "url": "../article/askdeepseek.html", "category": "social"},
+        {"name": "comfyui", "url": "https://comfyanonymous.github.io/ComfyUI_examples/", "category": "social"}
         
     ]
     
