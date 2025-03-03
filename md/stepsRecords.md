@@ -13,6 +13,7 @@ cd D:\rengongTools\poetryTTS
 
 
 d:
-cd D:\A1111\stable-diffusion-webui
-conda activate StableDiffusion
-webui-user.bat
+cd D:\videoproject\story-flicks\frontend
+conda activate story-flicks
+npm install
+npm run dev

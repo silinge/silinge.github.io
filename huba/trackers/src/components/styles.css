@@ -1,0 +1,129 @@
+/* 全局样式 */
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* 表单区域样式 */
+.form-container {
+  width: 300px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* 地球容器样式 */
+.earth-container {
+  flex: 1;
+  position: relative;
+}
+
+/* 标记表单样式 */
+.marker-form {
+  padding: 10px;
+}
+
+.marker-form h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.marker-form button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.marker-form button:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: #ff0000;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #ffeeee;
+  border-radius: 4px;
+  border-left: 3px solid #ff0000;
+}
+
+/* 轨迹信息样式 */
+.track-info {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.track-info h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.track-item {
+  padding: 8px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.track-item .transport {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.track-item .time {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.track-item .location {
+  display: block;
+  margin-top: 3px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-height: 40vh;
+  }
+  
+  .earth-container {
+    height: 60vh;
+  }
+}

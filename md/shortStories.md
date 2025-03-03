@@ -140,3 +140,16 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+
+
+Dolly the Dolphin, with her shimmering silver fins and a heart full of curiosity, glided through the turquoise ocean depths. One starry night, she spotted a faint glow trapped beneath a jagged coral reef. It was a tiny moonstone, pulsing faintly as if calling for help. Dolly knew the stone held ancient magic that kept the tides in balance. With a flick of her tail, she dove closer, carefully nudging aside sharp corals with her snout. A sneaky octopus, guarding the stone, lashed out with its inky tentacles. Undeterred, Dolly spun swiftly, creating a whirlpool that sent the creature tumbling away. Her gentle strength freed the moonstone, and as it floated upward, its glow intensified, bathing the sea in radiant light. The tides sighed in harmony once more, and Dolly swam joyfully, knowing her bravery had restored the ocean’s ancient rhythm.
+
+中文版本（199字）
+多莉是一只充满好奇的粉色海豚，游过闪闪发光的海底世界。某天，她在海藻中发现一颗发光的珍珠，散发出神秘光芒。这颗珍珠蕴含古老魔法，守护着海洋的和谐。
+一只坏脾气的螃蟹突然出现，想抢走珍珠。多莉毫不畏惧，快速游动躲避攻击。她灵机一动，用尾巴制造漩涡，把螃蟹卷走，成功保护了珍珠。
+多莉轻轻将珍珠推向海面，光芒照亮整个海洋，海底生物们欢聚庆祝光芒回归。多莉跃出水面，带着幸福微笑，享受海洋的宁静与美丽。
+法语版本（199 mots）
+Dolly, un dauphin rose curieux, explorait un monde sous-marin scintillant. Un jour, elle découvrit une perle brillante cachée dans les algues, rayonnant d’une lumière mystérieuse. Cette perle portait une magie ancienne protégeant l’harmonie de l’océan.
+Soudain, un crabe grognon surgit pour voler la perle. Dolly fit face avec courage, nageant vite pour esquiver ses attaques. Elle eut une idée ingénieuse : elle créa un tourbillon avec sa queue, éloignant le crabe.
+Dolly poussa la perle vers la surface. Sa lumière illumina l’océan entier, réunissant les créatures marines pour célébrer son éclat. Dolly jaillit de l’eau, un sourire radieux aux lèvres, savourant la paix et la beauté de l’océan.
+
