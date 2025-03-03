@@ -1,7 +1,7 @@
 {
   "name": "trackers",
   "private": true,
-  "homepage": "https://[你的GitHub用户名].github.io/huba/trackers",
+  "homepage": "https://silinge.github.io/huba/trackers",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
