@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>离线地图应用</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="输入地点名称（如：北京故宫）">
+        <button id="search-button">搜索</button>
+    </div>
+    <div id="map"></div>
+    <div id="route-panel">
+        <h3>旅行路线</h3>
+        <div id="route-list"></div>
+        <div class="route-controls">
+            <button id="clear-route">清除路线</button>
+            <button id="optimize-route">优化路线</button>
+        </div>
+    </div>
+    <div id="transport-panel">
+        <h3>出行方式</h3>
+        <div class="transport-options">
+            <div class="transport-option" data-type="walking">
+                <i class="fas fa-walking"></i>
+                <span>步行</span>
+            </div>
+            <div class="transport-option" data-type="bicycle">
+                <i class="fas fa-bicycle"></i>
+                <span>自行车</span>
+            </div>
+            <div class="transport-option" data-type="swimming">
+                <i class="fas fa-swimmer"></i>
+                <span>游泳</span>
+            </div>
+            <div class="transport-option" data-type="motorcycle">
+                <i class="fas fa-motorcycle"></i>
+                <span>摩托</span>
+            </div>
+            <div class="transport-option" data-type="truck">
+                <i class="fas fa-truck"></i>
+                <span>货车</span>
+            </div>
+            <div class="transport-option" data-type="bus">
+                <i class="fas fa-bus"></i>
+                <span>公交</span>
+            </div>
+            <div class="transport-option" data-type="train">
+                <i class="fas fa-train"></i>
+                <span>火车</span>
+            </div>
+            <div class="transport-option" data-type="high-speed-train">
+                <i class="fas fa-train"></i>
+                <span>高铁</span>
+            </div>
+            <div class="transport-option" data-type="plane">
+                <i class="fas fa-plane"></i>
+                <span>飞机</span>
+            </div>
+            <div class="transport-option" data-type="ship">
+                <i class="fas fa-ship"></i>
+                <span>轮船</span>
+            </div>
+            <div class="transport-option" data-type="car">
+                <i class="fas fa-car"></i>
+                <span>汽车</span>
+            </div>
+            <div class="transport-option" data-type="subway">
+                <i class="fas fa-subway"></i>
+                <span>地铁</span>
+            </div>
+        </div>
+    </div>
+    <div id="animation-panel">
+        <h3>路线动画</h3>
+        <div class="animation-controls">
+            <div class="speed-control">
+                <label for="animation-speed">速度:</label>
+                <input type="range" id="animation-speed" min="1" max="50" value="5">
+                <span id="speed-value">5x</span>
+            </div>
+            <div class="animation-buttons">
+                <button id="play-animation"><i class="fas fa-play"></i> 播放</button>
+                <button id="pause-animation"><i class="fas fa-pause"></i> 暂停</button>
+                <button id="reset-animation"><i class="fas fa-undo"></i> 重置</button>
+                <button id="save-animation"><i class="fas fa-save"></i> 保存动画</button>
+            </div>
+            <div class="progress-bar">
+                <div id="animation-progress"></div>
+            </div>
+        </div>
+    </div>
+    <canvas id="animation-canvas" style="display: none;"></canvas>
+    <div id="attribution">
+        <p>数据来源：</p>
+        <ul>
+            <li>地图数据：© OpenStreetMap contributors</li>
+            <li>地理编码：© OpenStreetMap Nominatim API</li>
+        </ul>
+        <p>使用说明：本应用使用开源数据，遵循 OpenStreetMap 的使用条款。请合理使用，避免频繁请求。</p>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="js/lib/gif.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

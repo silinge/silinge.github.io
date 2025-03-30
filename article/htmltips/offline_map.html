@@ -104,6 +104,21 @@
         <div class="search-container">
             <input type="text" id="nearbySearchInput" placeholder="搜索周边地点..." />
             <input type="number" id="searchRadius" placeholder="搜索半径(米)" value="1000" min="100" max="5000" />
+        </div>
+        <div class="search-container">
+            <select id="searchCenterType" class="search-select">
+                <option value="current">当前地图中心</option>
+                <option value="marker">已标记位置</option>
+                <option value="custom">自定义位置</option>
+            </select>
+            <select id="poiCategory" class="search-select">
+                <option value="all">所有类型</option>
+                <option value="food">餐饮</option>
+                <option value="hotel">住宿</option>
+                <option value="shopping">购物</option>
+                <option value="transport">交通</option>
+                <option value="tourism">旅游</option>
+            </select>
             <button onclick="searchNearby()">搜索周边</button>
         </div>
         <button onclick="downloadTiles()">下载地图数据</button>
