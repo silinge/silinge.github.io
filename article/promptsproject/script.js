@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 创建一个Promise数组来处理所有提示词
         const promises = prompts.map(async (prompt) => {
-            // 检查是否为Markdown文件
-            if (prompt.isMarkdown && prompt.content) {
+            // 所有内容都从Markdown文件加载
+            if (prompt.content && prompt.content.startsWith('markdown/')) {
                 try {
                     // 加载Markdown文件内容
                     const response = await fetch(prompt.content);
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     };
                 }
             }
-            // 如果不是Markdown文件，直接返回原始提示词
+            // 如果不是Markdown文件路径，直接返回原始提示词
             return prompt;
         });
         
@@ -107,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
             card.innerHTML = `
                 <div class="card-header">
                     <h2>${prompt.title}</h2>
-                    <div class="prompt-id">ID: ${prompt.id}</div>
                 </div>
                 <div class="card-body">
                     ${contentToDisplay}
@@ -135,20 +134,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         return promptsData.filter(prompt => {
-            // 如果是Markdown文件路径，则检查原始路径和标题
-            if (prompt.isMarkdown) {
-                return (
-                    prompt.title.toLowerCase().includes(query) ||
-                    prompt.content.toLowerCase().includes(query) ||
-                    prompt.id.toString().includes(query)
-                );
-            }
-            
-            // 普通内容或已加载的Markdown内容
+            // 检查标题和内容是否包含搜索词
             return (
                 prompt.title.toLowerCase().includes(query) ||
-                prompt.content.toLowerCase().includes(query) ||
-                prompt.id.toString().includes(query)
+                prompt.content.toLowerCase().includes(query)
             );
         });
     }
