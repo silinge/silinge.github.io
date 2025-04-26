@@ -44,13 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         throw new Error(`无法加载Markdown文件: ${prompt.content}`);
                     }
                     const markdownContent = await response.text();
-                    // 处理Markdown内容中的特殊字符，确保符合JSON格式要求
-                    const escapedContent = escapeJsonString(markdownContent);
-                    // 创建一个新的提示词对象，包含原始数据和处理后的Markdown内容
+                    // 创建一个新的提示词对象，包含原始数据和Markdown内容
+                    // 不再对Markdown内容进行转义，直接使用原始内容
                     return {
                         ...prompt,
                         originalContent: prompt.content,
-                        content: escapedContent,
+                        content: markdownContent,
                         isMarkdownContent: true
                     };
                 } catch (error) {
@@ -94,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 检查是否为Markdown内容
             if (prompt.isMarkdownContent && typeof marked !== 'undefined') {
-                // 使用marked库解析Markdown，确保内容已经被正确转义
+                // 使用marked库解析Markdown，直接使用未转义的内容
                 contentToDisplay = `<div class="markdown-content">${marked.parse(displayContent)}</div>`;
             } else {
                 // 普通文本内容，保持原样
