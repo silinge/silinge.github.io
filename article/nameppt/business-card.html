@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>动态名片生成器</title>
+    <meta charset="UTF-8">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        /* 名片容器 16:9 比例 */
+        .card-container {
+            width: 800px;
+            height: 450px;
+            margin: 20px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(245,247,250,0.9) 0%, rgba(195,207,226,0.9) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* 新增双列布局 */
+        .card-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            height: 100%;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .card-item {
+            padding: 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .card-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* 键值样式 */
+        h3 {
+            color: #333; /* 黑色 */
+            font-family: '华文行楷', '楷体', 'KaiTi', cursive;
+            font-size: 2em;
+            margin: 0 0 8px 0;
+            border-bottom: 1px solid rgba(139, 0, 0, 0.2);
+            padding-bottom: 5px;
+        }
+
+        /* 姓名特殊处理 */
+        .card-item:has(h3:contains("姓名")) h3 {
+            display: none; /* 隐藏姓名标题 */
+        }
+        
+        .card-item:has(h3:contains("姓名")) p {
+            font-size: 4em !important;
+            color: #8B0000;
+            text-align: center;
+            font-family: '华文中宋', '华文隶书', '隶书', 'LiSu', cursive;
+            text-shadow: 1px 1px 2px rgba(139, 0, 0, 0.2);
+            letter-spacing: 4px;
+        }
+
+        p {
+            color: #8B0000;
+            font-family: '华文楷体', '楷体', 'KaiTi', cursive;
+            margin: 0;
+            line-height: 1.8;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+        /* 以下几行是之前版本中错位的CSS属性和多余的括号，现已移除
+        height: calc(100% - 40px);
+            overflow-y: auto;
+            font-family: 'Segoe UI', system-ui;
+        } 
+        */
+        
+        /* 控制面板 */
+        .control-panel {
+            width: 800px;
+            margin: 20px auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        textarea {
+            flex: 2;
+            height: 150px;
+            padding: 10px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card-content" id="cardContent"></div>
+    </div>
+    
+    <div class="control-panel">
+        <textarea id="jsonInput" placeholder="请输入JSON格式名片内容..."></textarea>
+        <button onclick="updateCard()">更新名片</button>
+        <button onclick="exportCard()">导出PNG</button>
+    </div>
+
+    <script>
+        // 初始化示例数据
+        let currentCard = {
+            "姓名": "刘姥姥",
+            "定位关系": "王狗儿岳母/贾府远亲",
+            "经典事迹": "三进荣国府/救巧姐出火坑",
+            "语言特色": "老刘老刘食量大如牛",
+            "象征意义": "贾府兴衰见证者",
+            "特殊技能": "装疯卖傻/危机公关"
+        };
+        
+        // 初始化名片显示
+        function renderCard(data) {
+            const container = document.getElementById('cardContent');
+            container.innerHTML = '';
+            for(const [key, value] of Object.entries(data)) {
+                if (key !== "姓名") {
+                    const div = document.createElement('div');
+                    div.className = 'card-item';
+                    
+                    // 处理数组类型的值
+                    let displayValue = '';
+                    if (Array.isArray(value)) {
+                        displayValue = value.join(' / ');
+                    } else if (typeof value === 'string') {
+                        displayValue = value.split('/').join(' / ');
+                    } else {
+                        displayValue = String(value);
+                    }
+                    
+                    div.innerHTML = `
+                        <h3>${key}</h3>
+                        <p>${displayValue}</p>
+                    `;
+                    container.appendChild(div);
+                } else {
+                    const div = document.createElement('div');
+                    div.className = 'card-item';
+                    div.innerHTML = `
+                        <p><span style='font-size: 3.5em; color: #8B0000;'>${value}</span></p>
+                    `;
+                    container.appendChild(div);
+                }
+            }
+        }
+        
+        // 更新名片内容
+        function updateCard() {
+            try {
+                const input = document.getElementById('jsonInput').value;
+                // 尝试直接解析JSON，不再移除方括号和引号
+                const newData = JSON.parse(input.trim());
+                currentCard = newData;
+                renderCard(newData);
+            } catch(e) {
+                alert('JSON格式错误: ' + e.message);
+                console.error('JSON解析错误:', e);
+            }
+        }
+        
+        // 导出高清PNG
+        function exportCard() {
+            const originalWidth = document.querySelector('.card-container').style.width;
+            const originalHeight = document.querySelector('.card-container').style.height;
+            
+            // 临时调整为目标分辨率
+            document.querySelector('.card-container').style.width = '1920px';
+            document.querySelector('.card-container').style.height = '1080px';
+            
+            const name = currentCard["姓名"] || "business-card";
+            html2canvas(document.querySelector('.card-container'), {
+                scale: 1,
+                logging: true,
+                useCORS: true
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `${name}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                // 恢复原始尺寸
+                document.querySelector('.card-container').style.width = originalWidth;
+                document.querySelector('.card-container').style.height = originalHeight;
+                
+                // 清空输入框内文本
+                document.getElementById('jsonInput').value = '';
+            });
+        }
+        
+        // 初始渲染
+        renderCard(currentCard);
+    </script>
+</body>
+</html>

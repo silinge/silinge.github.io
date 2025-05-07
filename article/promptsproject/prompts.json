@@ -1,5 +1,9 @@
 [
   {
+    "title": "10城市胶囊",
+    "content": "markdown/10城市胶囊.md"
+  },
+  {
     "title": "1AI Text Polisher & Humanizer",
     "content": "markdown/1AI Text Polisher & Humanizer.md"
   },
@@ -30,5 +34,9 @@
   {
     "title": "8西游记皮克斯风自拍场景",
     "content": "markdown/8西游记皮克斯风自拍场景.md"
+  },
+  {
+    "title": "9FramePack",
+    "content": "markdown/9FramePack.md"
   }
 ]
