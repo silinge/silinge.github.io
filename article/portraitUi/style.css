@@ -71,3 +71,9 @@ button:hover {
 .hidden {
     display: none;
 }
+
+.copy-notification {
+    /* Initial state is handled by JS for positioning */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}

@@ -398,8 +398,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             result[lang === 'zh' ? '混合国籍' : 'Mixed race'] = mixedRaceValue;
             // 移除原始的 nationality 和 nationality2nd 字段
-            delete result['nationality'];
-            delete result['nationality2nd'];
+            if (lang === 'zh') {
+                delete result['国籍']; // Delete Chinese key
+            } else {
+                delete result['nationality']; // Delete English key
+            }
+            delete result['nationality2nd']; // Always delete nationality2nd (English key)
         } else if (nationality1Value !== 'none' && nationality1Value !== '') {
              // 如果 nationality2nd 为 none，但 nationality1 不为 none，则保留 nationality1
              if (lang === 'zh') {
@@ -425,12 +429,53 @@ document.addEventListener('DOMContentLoaded', () => {
     copyJsonBtn.addEventListener('click', () => {
         if (jsonOutput.textContent) {
             navigator.clipboard.writeText(jsonOutput.textContent)
-                .then(() => alert('JSON已复制到剪贴板！'))
-                .catch(err => console.error('无法复制JSON: ', err));
+                .then(() => {
+                    console.log('JSON copied to clipboard successfully.'); // Add log here
+                    showCopyNotification('JSON已复制到剪贴板！', 'Copied!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy JSON: ', err); // Add log here
+                });
         } else {
-            alert('请先生成JSON。');
+            // No JSON to copy, maybe show a different message or do nothing
+            console.log('No JSON content to copy.');
         }
     });
 
+    function showCopyNotification(zhText, enText) {
+    console.log('showCopyNotification function entered'); // Add log here
+    console.log('showCopyNotification called'); // Add log here
+        const notification = document.createElement('span');
+        notification.textContent = navigator.language.startsWith('zh') ? zhText : enText;
+        notification.classList.add('copy-notification');
+        
+        // Position the notification relative to the copy button
+        const rect = copyJsonBtn.getBoundingClientRect();
+        notification.style.position = 'fixed';
+        notification.style.top = `${rect.bottom + 5}px`; // 5px below the button
+        notification.style.left = `${rect.left}px`;
+        notification.style.backgroundColor = '#4CAF50'; // Green background
+        notification.style.color = 'white';
+        notification.style.padding = '4px 8px';
+        notification.style.borderRadius = '4px';
+        notification.style.zIndex = '1000'; // Ensure it's on top
+        notification.style.opacity = '1';
+        notification.style.transition = 'opacity 0.5s ease-in-out';
+        notification.style.border = '2px solid red'; // Add a border for visibility
+
+        document.body.appendChild(notification);
+        console.log('Notification element appended to body'); // Add log here
+        console.log(`Notification position: top=${rect.bottom + 5}px, left=${rect.left}px`); // Log position
+
+        // Fade out and remove after 2 seconds
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                notification.remove();
+            }, 500); // Remove after fade out completes
+        }, 2000);
+    }
+
+    // Initial call to create dropdowns when the DOM is fully loaded
     createDropdowns();
 });
