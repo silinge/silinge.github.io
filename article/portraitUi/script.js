@@ -55,8 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
             genderSelect.appendChild(option);
         });
         genderSelect.addEventListener('change', handleGenderChange);
-        dropdownContainer.appendChild(genderLabel);
-        dropdownContainer.appendChild(genderSelect);
+        const genderCard = document.createElement('div');
+        genderCard.classList.add('dropdown-card');
+        genderCard.appendChild(genderLabel);
+        genderCard.appendChild(genderSelect);
+        dropdownContainer.appendChild(genderCard);
 
         // 创建年龄选择器
         const ageLabel = document.createElement('label');
@@ -73,8 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
             option.textContent = age;
             ageSelect.appendChild(option);
         });
-        dropdownContainer.appendChild(ageLabel);
-        dropdownContainer.appendChild(ageSelect);
+        const ageCard = document.createElement('div');
+        ageCard.classList.add('dropdown-card');
+        ageCard.appendChild(ageLabel);
+        ageCard.appendChild(ageSelect);
+        dropdownContainer.appendChild(ageCard);
 
         // 获取并处理其他列表文件
         const listFiles = await getListFiles();
@@ -148,8 +154,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 select.appendChild(errorOption);
                 select.disabled = true;
             }
-            dropdownContainer.appendChild(label);
-            dropdownContainer.appendChild(select);
+            const card = document.createElement('div');
+            card.classList.add('dropdown-card');
+            card.appendChild(label);
+            card.appendChild(select);
+            dropdownContainer.appendChild(card);
         }
 
         // 特殊处理 nationality2nd 文件，确保其被添加到 selectElements 中
@@ -217,8 +226,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 select.appendChild(errorOption);
                 select.disabled = true;
             }
-            dropdownContainer.appendChild(label);
-            dropdownContainer.appendChild(select);
+            const nationality2ndCard = document.createElement('div');
+            nationality2ndCard.classList.add('dropdown-card');
+            nationality2ndCard.appendChild(label);
+            nationality2ndCard.appendChild(select);
+            dropdownContainer.appendChild(nationality2ndCard);
         }
 
         // 初始检查性别相关字段
