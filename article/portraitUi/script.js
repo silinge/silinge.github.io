@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const languageSelect = document.getElementById('languageSelect');
-    let currentLanguage = languageSelect.value;
     const dropdownContainer = document.getElementById('dropdownContainer');
     const generateEnJsonBtn = document.getElementById('generateEnJsonBtn');
     const generateZhJsonBtn = document.getElementById('generateZhJsonBtn');
@@ -81,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 获取并处理其他列表文件
         const listFiles = await getListFiles();
         for (const fileName of listFiles) {
+            console.log('Processing file:', fileName); // Add log here
             // 跳过性别和年龄文件（如果存在）
             if (fileName === 'gender_list.txt' || fileName === 'age_list.txt') continue;
 
@@ -88,16 +87,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const fileNameWithoutExt = fileName.replace('_list.txt', '');
             const categoryMatch = fileNameWithoutExt.match(/\((.*?)\)(.+)/);
             const chineseCategory = categoryMatch ? categoryMatch[1] : fileNameWithoutExt;
-            const englishCategory = categoryMatch ? categoryMatch[2].replace(/[_-]/g, ' ').trim() : fileNameWithoutExt;
+            const englishCategory = categoryMatch ? categoryMatch[2].replace(/[_-]/g, ' ').trim() : fileNameWithoutExt.replace(/[_-]/g, ' ').trim(); // Apply replace to fileNameWithoutExt as well
+            console.log('English category:', englishCategory); // Add log here
             
             const label = document.createElement('label');
-            label.textContent = `${englishCategory}:`;
+            label.textContent = `${chineseCategory}:${englishCategory}`;
             label.htmlFor = englishCategory;
 
             const select = document.createElement('select');
             select.id = englishCategory;
             select.dataset.chineseCategory = chineseCategory;
             selectElements[englishCategory] = select;
+            console.log('Added to selectElements with key:', englishCategory, selectElements[englishCategory]); // Add log here
 
             // 添加'none'选项（对于非必选字段）
             if (!['nationality', 'shot'].includes(englishCategory)) {
@@ -121,19 +122,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 const text = await response.text();
                 const options = text.split('\n').map(line => line.trim()).filter(line => line);
 
-                options.forEach(optionText => {
-                    const option = document.createElement('option');
-                    const parts = optionText.split(':');
-                    const englishValue = parts[0].trim();
-                    option.value = englishValue;
-                    option.textContent = optionText;
-                    select.appendChild(option);
-                });
-            } catch (error) {
-                console.error(`Error fetching or processing ${fileName}:`, error);
+                try { // New try block
+                    options.forEach(optionText => {
+                        const option = document.createElement('option');
+                        const parts = optionText.split(':');
+                        const englishValue = parts[0].trim();
+                        option.value = englishValue;
+                        option.textContent = optionText;
+                        select.appendChild(option);
+                    });
+                } catch (processingError) { // New catch block
+                    console.error(`Error processing options for ${fileName}:`, processingError);
+                    const errorOption = document.createElement('option');
+                    errorOption.value = '';
+                    errorOption.textContent = `Error processing options for ${chineseCategory}`;
+                    select.appendChild(errorOption);
+                    select.disabled = true;
+                }
+
+            } catch (fetchError) { // Modified catch block
+                console.error(`Error fetching ${fileName}:`, fetchError);
                 const errorOption = document.createElement('option');
                 errorOption.value = '';
-                errorOption.textContent = `Error loading ${category}`;
+                errorOption.textContent = `Error fetching ${chineseCategory}`;
                 select.appendChild(errorOption);
                 select.disabled = true;
             }
@@ -145,10 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleGenderChange() {
+        console.log('Current selectElements state:', selectElements); // Add log here
         const genderSelect = selectElements['gender'];
         const beardSelect = selectElements['beard'];
-        const beardColorSelect = selectElements['beard_color'];
-        const femaleLingerieSelect = selectElements['female_lingerie'];
+        const beardColorSelect = selectElements['beard color'];
+        const femaleLingerieSelect = selectElements['female lingerie'];
 
         console.log('handleGenderChange called');
         if (genderSelect) {
@@ -165,22 +177,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Beard and Beard Color: show if not female, hide if female, and set value to 'none' when hidden
         if (beardSelect) {
+            console.log('Beard select found');
             if (isFemale) {
+                console.log('Hiding beard select and label');
                 beardSelect.value = 'none';
                 if (beardSelect.previousElementSibling) beardSelect.previousElementSibling.classList.add('hidden');
                 beardSelect.classList.add('hidden');
             } else {
+                console.log('Showing beard select and label');
                 if (beardSelect.previousElementSibling) beardSelect.previousElementSibling.classList.remove('hidden');
                 beardSelect.classList.remove('hidden');
             }
         }
 
         if (beardColorSelect) {
+            console.log('Beard Color select found');
             if (isFemale) {
+                console.log('Hiding beard color select and label');
                 beardColorSelect.value = 'none';
                 if (beardColorSelect.previousElementSibling) beardColorSelect.previousElementSibling.classList.add('hidden');
                 beardColorSelect.classList.add('hidden');
             } else {
+                console.log('Showing beard color select and label');
                 if (beardColorSelect.previousElementSibling) beardColorSelect.previousElementSibling.classList.remove('hidden');
                 beardColorSelect.classList.remove('hidden');
             }
@@ -217,11 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     generateEnJsonBtn.addEventListener('click', () => generateJson('en'));
     generateZhJsonBtn.addEventListener('click', () => generateJson('zh'));
 
-    languageSelect.addEventListener('change', (event) => {
-        currentLanguage = event.target.value;
-        createDropdowns(); // Re-create dropdowns with the new language
-        jsonOutput.textContent = ''; // Clear previous JSON output
-    });
+
 
     function generateJson(lang) {
         const result = {};
@@ -262,32 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const parts = fullText.split(':');
 
             const chineseCategory = select.dataset.chineseCategory;
-            if (lang === 'en') {
-                // 对于英文版本，使用category作为键名
-                const key = category === 'age' ? 'age' : category;
-                result[key] = englishValue;
-            } else { // lang === 'zh'
-                // 处理特殊键名（年龄和性别）
-                let key;
-                if (category === 'age') {
-                    key = '年龄';
-                } else if (category === 'gender') {
-                    key = '性别';
-                } else {
-                    // 其他类别使用文件名中的中文类别作为键名
-                    key = decodeURIComponent(select.dataset.chineseCategory) || category;
-                }
-                
-                if (parts.length > 1) {
-                    result[key] = parts[1].trim(); // 使用选项的中文部分作为值
-                } else {
-                    // 对于年龄这样的特殊字段，直接使用数值
-                    result[key] = englishValue;
-                    if (category !== 'age') {
-                        console.warn(`Category ${category} with value ${englishValue} has no Chinese part in text: ${fullText}`);
-                    }
-                }
-            }
+            const key = category === 'age' ? 'age' : category;
+            result[key] = englishValue;
         }
 
         if (isValid) {
