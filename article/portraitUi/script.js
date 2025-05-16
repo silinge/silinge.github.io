@@ -151,6 +151,76 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownContainer.appendChild(label);
             dropdownContainer.appendChild(select);
         }
+
+        // 特殊处理 nationality2nd 文件，确保其被添加到 selectElements 中
+        if (!selectElements['nationality2nd']) {
+            const fileName = '(混合国籍)nationality2nd_list.txt';
+            console.log('Processing special file:', fileName);
+            const fileNameWithoutExt = fileName.replace('_list.txt', '');
+            const categoryMatch = fileNameWithoutExt.match(/\((.*?)\)(.+)/);
+            const chineseCategory = categoryMatch ? categoryMatch[1] : fileNameWithoutExt;
+            const englishCategory = categoryMatch ? categoryMatch[2].replace(/[_-]/g, ' ').trim() : fileNameWithoutExt.replace(/[_-]/g, ' ').trim();
+            console.log('English category:', englishCategory);
+
+            const label = document.createElement('label');
+            label.textContent = `${chineseCategory}:${englishCategory}`;
+            label.htmlFor = englishCategory;
+
+            const select = document.createElement('select');
+            select.id = englishCategory;
+            select.dataset.chineseCategory = chineseCategory;
+            selectElements[englishCategory] = select;
+            console.log('Added to selectElements with key:', englishCategory, selectElements[englishCategory]);
+
+            // nationality2nd 是非必选字段，添加'none'选项
+            const noneOption = document.createElement('option');
+            noneOption.value = 'none';
+            noneOption.textContent = 'none:无';
+            select.appendChild(noneOption);
+
+            try {
+                const response = await fetch(`lists/${fileName}`);
+                if (!response.ok) {
+                    console.error(`Failed to load ${fileName}: ${response.statusText}`);
+                    const errorOption = document.createElement('option');
+                    errorOption.value = '';
+                    errorOption.textContent = `Error loading ${chineseCategory}`;
+                    select.appendChild(errorOption);
+                    select.disabled = true;
+                } else {
+                    const text = await response.text();
+                    const options = text.split('\n').map(line => line.trim()).filter(line => line);
+
+                    try {
+                        options.forEach(optionText => {
+                            const option = document.createElement('option');
+                            const parts = optionText.split(':');
+                            const englishValue = parts[0].trim();
+                            option.value = englishValue;
+                            option.textContent = optionText;
+                            select.appendChild(option);
+                        });
+                    } catch (processingError) {
+                        console.error(`Error processing options for ${fileName}:`, processingError);
+                        const errorOption = document.createElement('option');
+                        errorOption.value = '';
+                        errorOption.textContent = `Error processing options for ${chineseCategory}`;
+                        select.appendChild(errorOption);
+                        select.disabled = true;
+                    }
+                }
+            } catch (fetchError) {
+                console.error(`Error fetching ${fileName}:`, fetchError);
+                const errorOption = document.createElement('option');
+                errorOption.value = '';
+                errorOption.textContent = `Error fetching ${chineseCategory}`;
+                select.appendChild(errorOption);
+                select.disabled = true;
+            }
+            dropdownContainer.appendChild(label);
+            dropdownContainer.appendChild(select);
+        }
+
         // 初始检查性别相关字段
         handleGenderChange();
     }
@@ -276,9 +346,74 @@ document.addEventListener('DOMContentLoaded', () => {
             const parts = fullText.split(':');
 
             const chineseCategory = select.dataset.chineseCategory;
-            const key = category === 'age' ? 'age' : category;
-            result[key] = englishValue;
+            let key;
+            if (lang === 'zh') {
+                if (category === 'gender') {
+                    key = '性别';
+                } else if (category === 'age') {
+                    key = '年龄';
+                } else {
+                    key = chineseCategory;
+                }
+            } else {
+                key = category;
+            }
+            
+            let value;
+            if (lang === 'zh') {
+                // 对于中文，使用选项文本的中文部分
+                value = parts.length > 1 ? parts[1].trim() : englishValue; // Fallback to englishValue if no Chinese part
+            } else {
+                // 对于英文，使用选项的英文值
+                value = englishValue;
+            }
+
+            result[key] = value;
         }
+
+        // 处理混合国籍
+        const nationality1Select = selectElements['nationality'];
+        const nationality2Select = selectElements['nationality2nd'];
+
+        const nationality1Value = nationality1Select ? nationality1Select.value : 'none';
+        const nationality2Value = nationality2Select ? nationality2Select.value : 'none';
+
+        if (nationality2Value !== 'none' && nationality2Value !== '') {
+            // 如果 nationality2nd 不为 none，则合并国籍
+            let mixedRaceValue;
+            if (lang === 'zh') {
+                const nationality1Chinese = nationality1Select && nationality1Select.options[nationality1Select.selectedIndex].textContent.split(':')[1]?.trim();
+                const nationality2Chinese = nationality2Select && nationality2Select.options[nationality2Select.selectedIndex].textContent.split(':')[1]?.trim();
+                if (nationality1Value !== 'none' && nationality1Value !== '') {
+                    mixedRaceValue = `${nationality1Chinese}/${nationality2Chinese}`;
+                } else {
+                    mixedRaceValue = nationality2Chinese;
+                }
+            } else {
+                 if (nationality1Value !== 'none' && nationality1Value !== '') {
+                     mixedRaceValue = `${nationality1Value}/${nationality2Value}`;
+                 } else {
+                     mixedRaceValue = nationality2Value;
+                 }
+            }
+            result[lang === 'zh' ? '混合国籍' : 'Mixed race'] = mixedRaceValue;
+            // 移除原始的 nationality 和 nationality2nd 字段
+            delete result['nationality'];
+            delete result['nationality2nd'];
+        } else if (nationality1Value !== 'none' && nationality1Value !== '') {
+             // 如果 nationality2nd 为 none，但 nationality1 不为 none，则保留 nationality1
+             if (lang === 'zh') {
+                 result[nationality1Select.dataset.chineseCategory] = nationality1Select.options[nationality1Select.selectedIndex].textContent.split(':')[1]?.trim();
+             } else {
+                 result['nationality'] = nationality1Value;
+             }
+             delete result['nationality2nd']; // 确保 nationality2nd 不存在
+        } else {
+             // 如果两个都为 none，则移除两个字段
+             delete result['nationality'];
+             delete result['nationality2nd'];
+        }
+
 
         if (isValid) {
             jsonOutput.textContent = JSON.stringify(result, null, 2);
