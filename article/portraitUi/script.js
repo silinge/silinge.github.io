@@ -21,17 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // 获取所有列表文件
     async function getListFiles() {
         try {
-            const response = await fetch('lists/');
+            const response = await fetch('available_lists.txt');
+            if (!response.ok) {
+                throw new Error('Failed to fetch available_lists.txt');
+            }
             const text = await response.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(text, 'text/html');
-            const links = Array.from(doc.querySelectorAll('a'));
-            return links
-                .map(link => link.href)
-                .filter(href => href.endsWith('_list.txt'))
-                .map(href => href.split('/').pop());
+            // 将文本按行分割并过滤掉空行
+            return text.split('\n').filter(line => line.trim() !== '');
         } catch (error) {
-            console.error('Error fetching list files:', error);
+            console.error('Error fetching available_lists.txt:', error);
             return [];
         }
     }
