@@ -1,0 +1,65 @@
+Agfa Vista: 阿克发Vista胶片效果
+Astia: 阿斯提亚胶片效果
+Aurora Borealis: 极光效果
+Black and White Photography: 黑白摄影
+Bleach Bypass: 跳漂处理效果
+Charcoal Sketch: 炭笔素描效果
+CineStyle: 电影风格色调
+City Lights: 城市灯光效果
+Classic Chrome: 经典正片胶片效果
+Cool Blue Tint: 冷蓝色调
+Cross Hatch: 交叉影线效果
+Cross Process: 交叉冲洗效果
+Cyanotype: 蓝晒法效果
+Day to Night: 日转夜效果
+Dreamy Desaturation: 梦幻低饱和度效果
+Duotone: 双色调效果
+Ektachrome: 艾克塔克罗姆胶片效果
+Faded Glory: 复古褪色效果
+Fashion Photography: 时尚摄影风格
+Golden Hour Glow: 黄金时刻光辉
+Graphic Novel Style: 漫画小说风格
+Gritty Contrast: 粗犷对比度效果
+HDR Look: HDR外观
+HDR Photography: 高动态范围摄影
+High Key: 高调摄影
+Holga: Holga相机效果
+Infrared Effect: 红外效果
+Kodachrome: 柯达克罗姆胶片效果
+Lomo: Lomo相机效果
+Lomography: Lomography摄影风格
+Low Key: 低调摄影
+Mars Red Landscape: 火星红色地貌色调
+Matte Finish: 哑光效果
+Midnight Cool: 午夜冷色调
+Minimalist Photography: 极简主义摄影
+Monochromatic Photography: 单色摄影
+Muted Colors: 柔和色彩
+Nature Photography: 自然摄影风格
+Neon Glow: 霓虹光辉
+Oil Painting Effect: 油画效果
+Orton Effect: 奥顿效果
+Pastel Hues: 粉彩色调
+Pastel Pop: 亮丽粉彩效果
+Polaroid: 宝丽来效果
+Polaroid Photography: 宝丽来摄影
+Pop Art Colors: 波普艺术色彩
+Provia: 普罗维亚胶片效果
+Sepia Photography: 棕褐色摄影
+Sepia Tone: 棕褐色调
+Smoke Art Photography: 烟雾艺术摄影
+Solarization: 日晒过度效果
+Split Toning: 分离色调效果
+Street Photography: 街头摄影风格
+Sunset Warmth: 日落暖调
+Surreal Photography: 超现实主义摄影
+Tri-tone: 三色调效果
+Twilight Blue: 暮光蓝色调
+Underwater Photography: 水下摄影
+Urban Exploration (Urbex): 城市探索摄影风格
+Velvia: 维尔维亚胶片效果
+Vibrant Colors: 鲜艳色彩
+Vintage Fade: 复古褪色效果
+Vintage Photography: 复古摄影风格
+Warm Orange Glow: 暖橙色光辉
+Watercolor Effect: 水彩效果

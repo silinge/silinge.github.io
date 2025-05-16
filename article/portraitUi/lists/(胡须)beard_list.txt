@@ -1,0 +1,20 @@
+Stubble Beard: 胡茬
+Goatee: 山羊胡
+Full Beard: 络腮胡
+Van Dyke Beard: 凡戴克式胡须
+Soul Patch: 下唇须
+Garibaldi Beard: 加里波第式胡须
+Mutton Chops: 羊排胡
+Circle Beard: 环形胡
+Corporate Beard: 商务短须
+Balbo Beard: 巴尔博式胡须
+Ducktail Beard: 鸭尾式胡须
+Chinstrap Beard: 下巴带胡
+Anchor Beard: 船锚式胡须
+Chevron Mustache: 人字胡
+Horseshoe Mustache: 马蹄形胡须
+Handlebar Mustache: 八字胡
+Imperial Mustache: 帝王式胡须
+Pencil Mustache: 铅笔胡
+Friendly Mutton Chops: 友善羊排胡
+Zappa Mustache: 扎帕式胡须

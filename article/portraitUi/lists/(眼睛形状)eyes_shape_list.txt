@@ -1,0 +1,12 @@
+Almond Eyes Shape: 杏仁眼型
+Asian Eyes Shape: 亚洲眼型
+Close-Set Eyes Shape: 近眼距眼型
+Deep Set Eyes Shape: 深邃眼型
+Downturned Eyes Shape: 下垂眼型
+Double Eyelid Eyes Shape: 双眼皮眼型
+Hooded Eyes Shape: 上眼睑覆盖型眼型
+Monolid Eyes Shape: 单眼皮眼型
+Oval Eyes Shape: 椭圆眼型
+Protruding Eyes Shape: 凸眼型
+Round Eyes Shape: 圆形眼型
+Upturned Eyes Shape: 上扬眼型

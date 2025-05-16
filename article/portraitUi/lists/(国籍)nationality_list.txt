@@ -1,0 +1,192 @@
+Afghan: 阿富汗人
+Albanian: 阿尔巴尼亚人
+Algerian: 阿尔及利亚人
+Andorran: 安道尔人
+Angolan: 安哥拉人
+Antiguans Barbudans: 安提瓜和巴布达人
+Argentine: 阿根廷人
+Armenian: 亚美尼亚人
+Australian: 澳大利亚人
+Austrian: 奥地利人
+Azerbaijani: 阿塞拜疆人
+Bahamian: 巴哈马人
+Bahraini: 巴林人
+Bangladeshi: 孟加拉国人
+Barbadian: 巴巴多斯人
+Belarusian: 白俄罗斯人
+Belgian: 比利时人
+Belizean: 伯利兹人
+Beninese: 贝宁人
+Bhutanese: 不丹人
+Bolivian: 玻利维亚人
+Bosnian Herzegovinian: 波斯尼亚和黑塞哥维那人
+Brazilian: 巴西人
+British: 英国人
+Bruneian: 文莱人
+Bulgarian: 保加利亚人
+Burkinabe: 布基纳法索人
+Burundian: 布隆迪人
+Cambodian: 柬埔寨人
+Cameroonian: 喀麦隆人
+Canadian: 加拿大人
+Cape Verdian: 佛得角人
+Central African: 中非人
+Chadian: 乍得人
+Chilean: 智利人
+Chinese: 中国人
+Colombian: 哥伦比亚人
+Comoran: 科摩罗人
+Congolese: 刚果人
+Costa Rican: 哥斯达黎加人
+Croatian: 克罗地亚人
+Cuban: 古巴人
+Cypriot: 塞浦路斯人
+Czech: 捷克人
+Danish: 丹麦人
+Djibouti: 吉布提人
+Dominican: 多米尼加人
+Dutch: 荷兰人
+East Timorese: 东帝汶人
+Ecuadorean: 厄瓜多尔人
+Egyptian: 埃及人
+Emirian: 阿联酋人
+Equatorial Guinean: 赤道几内亚人
+Eritrean: 厄立特里亚人
+Estonian: 爱沙尼亚人
+Ethiopian: 埃塞俄比亚人
+Fijian: 斐济人
+Filipino: 菲律宾人
+Finnish: 芬兰人
+French: 法国人
+Gabonese: 加蓬人
+Gambian: 冈比亚人
+Georgian: 格鲁吉亚人
+German: 德国人
+Ghanaian: 加纳人
+Greek: 希腊人
+Grenadian: 格林纳达人
+Guatemalan: 危地马拉人
+Guinean: 几内亚人
+Guyanese: 圭亚那人
+Haitian: 海地人
+Herzegovinian: 黑塞哥维那人
+Honduran: 洪都拉斯人
+Hungarian: 匈牙利人
+Icelander: 冰岛人
+Indian: 印度人
+Indonesian: 印度尼西亚人
+Iranian: 伊朗人
+Iraqi: 伊拉克人
+Irish: 爱尔兰人
+Israeli: 以色列人
+Italian: 意大利人
+Ivorian: 科特迪瓦人
+Jamaican: 牙买加人
+Japanese: 日本人
+Jordanian: 约旦人
+Kazakhstani: 哈萨克斯坦人
+Kenyan: 肯尼亚人
+Kiribati: 基里巴斯人
+Korean: 韩国人/朝鲜人
+Kuwaiti: 科威特人
+Kyrgyz: 吉尔吉斯斯坦人
+Laotian: 老挝人
+Latvian: 拉脱维亚人
+Lebanese: 黎巴嫩人
+Liberian: 利比里亚人
+Libyan: 利比亚人
+Liechtensteiner: 列支敦士登人
+Lithuanian: 立陶宛人
+Luxembourgish: 卢森堡人
+Macedonian: 马其顿人
+Malagasy: 马达加斯加人
+Malawian: 马拉维人
+Malaysian: 马来西亚人
+Maldivan: 马尔代夫人
+Malian: 马里人
+Maltese: 马耳他人
+Marshallese: 马绍尔群岛人
+Mauritanian: 毛里塔尼亚人
+Mauritian: 毛里求斯人
+Mexican: 墨西哥人
+Micronesian: 密克罗尼西亚人
+Moldovan: 摩尔多瓦人
+Monegasque: 摩纳哥人
+Mongolian: 蒙古人
+Montenegrin: 黑山人
+Moroccan: 摩洛哥人
+Mosotho: 莱索托人
+Motswana: 博茨瓦纳人
+Mozambican: 莫桑比克人
+Namibian: 纳米比亚人
+Nauruan: 瑙鲁人
+Nepalese: 尼泊尔人
+New Zealander: 新西兰人
+Ni-Vanuatu: 瓦努阿图人
+Nicaraguan: 尼加拉瓜人
+Nigerian: 尼日利亚人
+North African: 北非人
+North Korean: 朝鲜人
+Northern Irish: 北爱尔兰人
+Norwegian: 挪威人
+Omani: 阿曼人
+Pakistani: 巴基斯坦人
+Palauan: 帕劳人
+Palestinian: 巴勒斯坦人
+Panamanian: 巴拿马人
+Papua New Guinean: 巴布亚新几内亚人
+Paraguayan: 巴拉圭人
+Peruvian: 秘鲁人
+Polish: 波兰人
+Portuguese: 葡萄牙人
+Qatari: 卡塔尔人
+Romanian: 罗马尼亚人
+Russian: 俄罗斯人
+Rwandan: 卢旺达人
+Saint Lucian: 圣卢西亚人
+Salvadoran: 萨尔瓦多人
+Samoan: 萨摩亚人
+San Marinese: 圣马力诺人
+Sao Tomean: 圣多美和普林西比人
+Saudi: 沙特阿拉伯人
+Scottish: 苏格兰人
+Senegalese: 塞内加尔人
+Serbian: 塞尔维亚人
+Seychellois: 塞舌尔人
+Sierra Leonean: 塞拉利昂人
+Singaporean: 新加坡人
+Slovakian: 斯洛伐克人
+Slovenian: 斯洛文尼亚人
+Solomon Islander: 所罗门群岛人
+Somali: 索马里人
+South African: 南非人
+South Korean: 韩国人
+South Sudanese: 南苏丹人
+Spanish: 西班牙人
+Sri Lankan: 斯里兰卡人
+Sudanese: 苏丹人
+Surinamer: 苏里南人
+Swazi: 斯威士兰人
+Swedish: 瑞典人
+Swiss: 瑞士人
+Syrian: 叙利亚人
+Tajikistani: 塔吉克斯坦人
+Tanzanian: 坦桑尼亚人
+Thai: 泰国人
+Togolese: 多哥人
+Tongan: 汤加人
+Trinidadian Tobagonian: 特立尼达和多巴哥人
+Tunisian: 突尼斯人
+Turkish: 土耳其人
+Turkmen: 土库曼斯坦人
+Tuvaluan: 图瓦卢人
+Ugandan: 乌干达人
+Ukrainian: 乌克兰人
+Uruguayan: 乌拉圭人
+Uzbekistani: 乌兹别克斯坦人
+Venezuelan: 委内瑞拉人
+Vietnamese: 越南人
+Welsh: 威尔士人
+Yemeni: 也门人
+Zambian: 赞比亚人
+Zimbabwean: 津巴布韦人

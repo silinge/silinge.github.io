@@ -61,7 +61,8 @@
         {"name": "问deepseek", "url": "../article/askdeepseek.html", "category": "social"},
         {"name": "comfyui", "url": "https://comfyanonymous.github.io/ComfyUI_examples/", "category": "social"},
         {"name": "prompts", "url": "https://silinge.github.io/article/promptsproject", "category": "notes"},
-        {"name": "nameCard", "url": "https://silinge.github.io/article/nameppt/business-card.html", "category": "tools"}
+        {"name": "nameCard", "url": "https://silinge.github.io/article/nameppt/business-card.html", "category": "tools"},
+        {"name": "人像描述器", "url": "https://silinge.github.io/article/portraitUi", "category": "tools"}
         
     ]
     

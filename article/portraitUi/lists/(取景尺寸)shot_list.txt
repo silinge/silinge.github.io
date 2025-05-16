@@ -1,0 +1,8 @@
+Head portrait: 头部肖像
+Head and shoulders portrait: 胸像
+Half-length portrait: 半身肖像
+Full-length portrait: 全身肖像
+Face: 面部
+Portrait: 肖像
+Full body: 全身照
+Close-up: 特写

@@ -1,0 +1,23 @@
+Circle: 圆形脸
+Diamond: 菱形脸
+Heart: 心形脸
+Heart with Pointed Chin: 尖下巴心形脸
+Heart with Rounded Chin: 圆下巴心形脸
+Heart with V-Shape Chin: V字下巴心形脸
+Inverted Triangle: 倒三角形脸
+Long: 长形脸
+Oblong: 长圆形脸
+Oval: 椭圆形脸
+Pear: 梨形脸
+Rectangle: 长方形脸
+Round: 圆形脸
+Round with Defined Cheekbones: 颧骨分明圆形脸
+Round with High Cheekbones: 高颧骨圆形脸
+Round with Soft Cheekbones: 颧骨柔和圆形脸
+Square: 方形脸
+Square Oval: 方椭圆形脸
+Square Round: 方圆形脸
+Square with Rounded Jaw: 圆下颌方形脸
+Square with Sharp Jaw: 尖下颌方形脸
+Square with Soft Jaw: 柔和下颌方形脸
+Triangle: 三角形脸

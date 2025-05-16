@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人像描述词生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>人像描述词生成器</h1>
+        <div>
+            <label for="languageSelect">选择语言 (Select Language):</label>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+            </select>
+        </div>
+        <div id="dropdownContainer"></div>
+        <button id="generateEnJsonBtn">生成英文JSON</button>
+        <button id="generateZhJsonBtn">生成中文JSON</button>
+        <button id="copyJsonBtn">复制JSON</button>
+        <div id="jsonOutput"></div>
+        <div class="credits">
+            感谢 <a href="https://github.com/florestefano1975/comfyui-portrait-master" target="_blank">comfyui-portrait-master</a> 项目提供的描述词列表文件，我添加了几个条目，增加了一些翻译内容。
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

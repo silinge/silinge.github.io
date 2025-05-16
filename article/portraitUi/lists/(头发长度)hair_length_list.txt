@@ -1,0 +1,3 @@
+Short: 短 
+Medium: 中等长度
+Long: 长 

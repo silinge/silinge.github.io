@@ -1,0 +1,70 @@
+Abstract Light Patterns: 抽象光影图案
+Ambient Light: 环境光
+Backlit Silhouette Light: 逆光剪影光
+Backlight Light: 逆光
+Blue Hour Light: 蓝色时刻光线
+Bloom Light: 辉光
+Broad Lighting Light: 宽光
+Bulb Light: 灯泡光
+Buterfly Lighting Light: 蝴蝶光 (派拉蒙光)
+Candlelight: 烛光
+Caustics Light: 焦散光
+Cinematic Lighting Light: 电影感光照
+City Streetlights Light: 城市路灯光
+Cloudy Day Diffused Light: 阴天漫射光
+Corona Light: 日冕光 (光晕)
+Crepuscular Rays Light: 曙暮辉 (丁达尔效应光)
+Dappled Sunlight Light: 斑驳阳光
+Dimly Lit Light: 昏暗光线
+Fill Light: 补光
+Firelight: 火光
+Flash Photography Light: 闪光灯摄影光
+Fluorescent Lighting: 荧光灯照明
+Fog and Mist Light: 雾霭光
+Glare Light: 眩光
+Golden Hour Light: 黄金时刻光线
+Halos Light: 光晕
+Harsh Sunlight Light: 刺眼阳光
+Heat Haze Light: 热浪光影
+High-Key Lighting Light: 高调光照
+Incandescent Lighting: 白炽灯照明
+Lantern Light: 灯笼光
+Lens Flare Light: 镜头光晕
+Lightning Light: 闪电光
+Low-Key Lighting Light: 低调光照
+Loop Lighting Light: 环形光
+Mist Light: 薄雾光
+Moonlight Light: 月光
+Natural Light: 自然光
+Neon Lights Light: 霓虹灯光
+Overcast Sky Light: 阴天光
+Rainbows Light: 彩虹光
+Reflections Light: 反射光
+Rembrandt Lighting Light: 伦勃朗光
+Rim Light: 轮廓光
+Rim Lighting Light: 轮廓光照明
+Scattering Light: 散射光
+Shadows Light: 阴影光
+Side Light: 侧光
+Silhouette Light: 剪影光
+Skylight Light: 天窗光
+Soft Ambient Light: 柔和环境光
+Soft Light: 柔光
+Softbox Lighting Light: 柔光箱照明
+Speedlight Light: 机顶闪光灯光
+Split Lighting Light: 分割光 (阴阳光)
+Spot Light: 聚光
+Spotlight Light: 聚光灯光
+Stage Lighting Light: 舞台灯光
+Strip Light: 条形光
+Studio Lighting Light: 影棚灯光
+Sunlight Light: 阳光
+Sunset Glow Light: 日落余晖
+Sunrise Warmth Light: 日出暖光
+Thuderstorms Light: 雷暴光
+Torchlight Light: 火炬光
+Top Light: 顶光
+Tungsten Lighting Light: 钨丝灯照明
+Twilight Hues Light: 暮色光辉
+Underlighting Light: 底光照明
+Volumetric Lighting Light: 体积光

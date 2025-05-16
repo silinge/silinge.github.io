@@ -1,0 +1,21 @@
+Auburn: 红褐色
+Black: 黑色
+Blonde: 金色
+Burgundy: 酒红色
+Caramel: 焦糖色
+Chestnut: 栗色
+Chocolate: 巧克力色
+Copper: 铜色
+Dirty: 深金色
+Gray: 灰色
+Honey: 蜂蜜色
+Jet Black: 深黑色
+Mahogany: 红木色
+Multicolored: 多色
+Pastel: 柔和色
+Platinum: 白金色
+Red: 红色
+Salt and pepper: 椒盐色
+Silver: 银色
+Strawberry: 草莓色
+White: 白色

@@ -1,0 +1,28 @@
+Akubra: 阿库布拉帽
+Boater: 平顶硬草帽
+Bowler hat: 圆顶礼帽
+Breton: 布列塔尼帽
+Bucket hat: 渔夫帽
+Campaign hat: 探险帽 (或 军警帽)
+Cloche hat: 钟形帽
+Conical Asian hat: 斗笠
+Fedora: 费多拉帽 (软呢帽)
+Gat: 黑笠 (朝鲜传统帽)
+Homburg: 洪堡帽
+Jaapi: 贾皮帽 (阿萨姆传统帽)
+Kalpak: 卡尔帕克帽 (中亚毛毡帽)
+Panama: 巴拿马草帽
+Sombrero: 墨西哥阔边帽
+Stetson: 斯泰森毡帽 (牛仔帽)
+Top hat: 高顶礼帽
+Trilby: 特里尔比帽 (窄檐软呢帽)
+Tyrolean hat: 蒂罗尔帽
+Weimao: 帷帽
+Baseball cap: 棒球帽
+Kepi: 法国军警帽 (筒状军帽)
+Newsboy cap: 报童帽
+Fez: 非斯帽 (土耳其毡帽)
+Ushanka: 乌沙卡帽 (护耳帽)
+Greek fisherman’s hat: 希腊渔夫帽
+Kufi hat: 库非帽 (非洲无边便帽)
+Beret: 贝雷帽

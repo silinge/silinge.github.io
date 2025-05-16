@@ -1,0 +1,124 @@
+T-Shirt: T恤
+Tank Top: 背心
+Vest (Waistcoat): 马甲
+Overcoat: 大衣
+Trench Coat: 风衣
+Denim Jacket: 牛仔夹克
+Leather Jacket: 皮夹克
+Blazer: 西装式休闲外套
+Suit Jacket: 西服上衣
+Peacoat: 海军呢大衣
+Hoodie (Hooded Sweatshirt): 连帽卫衣
+Sweater (Jumper): 毛衣
+Cardigan: 开衫毛衣
+Polo Shirt: Polo衫
+Flannel Shirt: 法兰绒衬衫
+Oxford Shirt: 牛津纺衬衫
+Henley Shirt: 亨利衫
+Bomber Jacket: 飞行员夹克
+Parka: 派克大衣
+Anorak: 套头风衣
+Windbreaker: 防风衣
+Field Jacket (Military Style): 野战夹克 (军事风格)
+Harrington Jacket: 哈灵顿夹克
+Chore Coat (Work Jacket): 工装夹克
+Duffle Coat: 牛角扣大衣
+Norfolk Jacket (British Hunting Style): 诺福克夹克 (英式狩猎风格)
+Chesterfield Coat (Formal British Overcoat): 切斯特菲尔德大衣 (英式正装大衣)
+Loden Coat (Austrian Wool Coat): 罗登呢大衣 (奥地利羊毛大衣)
+Nehru Jacket (Indian Collarless Style): 尼赫鲁夹克 (印度无领款式)
+Sherwani (South Asian Ceremonial Coat): 谢尔瓦尼 (南亚礼服长外套)
+Barong Tagalog (Philippine Embroidered Shirt): 巴隆他加禄 (菲律宾刺绣衬衫)
+Guayabera (Latin American Linen Shirt): 瓜亚贝拉衬衫 (拉丁美洲亚麻衬衫)
+Dashiki (West African Tunic): 达西奇 (西非束腰上衣)
+Kurta (South Asian Long Shirt): 库尔塔 (南亚长衬衫)
+Bush Shirt (Safari-style): 狩猎衬衫 (游猎风格)
+Redingote (French Tailored Coat): 瑞丁格特外套 (法式修身外套)
+Smoking Jacket (Velvet Lounge Coat): 吸烟夹克 (天鹅绒休闲外套)
+Doublet (Historical European Jacket): 多布莱特短上衣 (欧洲历史款夹克)
+Noragi (Japanese Work Coat): 野良着 (日式工装外套)
+Haori (Japanese Traditional Jacket): 羽织 (日式传统外套)
+Jinbei (Japanese Casual Summer Top): 甚平 (日式休闲夏季上衣)
+Bolero Jacket (Spanish Short Jacket): 波莱罗短外套 (西班牙短夹克)
+Montgomery Coat (British Military-inspired): 蒙哥马利大衣 (英式军事风格)
+Ulster Coat (Heavy Irish Overcoat): 阿尔斯特大衣 (爱尔兰厚重大衣)
+Spencer Jacket (Short Regency-era Jacket): 斯宾塞短外套 (摄政时期短夹克)
+Chamois Shirt (Alpine-style): 麂皮绒衬衫 (阿尔卑斯风格)
+Lederhosen Jacket (German Leather Suspenders Top): 德式传统夹克 (通常搭配皮裤)
+Gilet (Padded Vest): 填充马甲
+Quilted Jacket: 绗缝夹克
+Track Jacket (Sportswear): 运动外套 (田径服夹克)
+Rugby Shirt: 橄榄球衫
+Turtleneck (Polo Neck): 高领衫
+Mandarin Jacket (Chinese Collar Style): 中式立领夹克
+Kaftan (Middle Eastern Loose Garment): 卡夫坦长衫 (中东宽松长袍)
+Frock Coat (Victorian-era Formal): 双排扣长礼服 (维多利亚时期正装)
+Zoot Suit Jacket (1940s American Style): 佐特西装夹克 (1940年代美式风格)
+Varsity Jacket (Letterman Jacket): 棒球夹克 (学院风夹克)
+Coach Jacket (Nylon Baseball-style): 教练夹克 (尼龙棒球风格)
+Flight Jacket (MA-1 Style): 飞行夹克 (MA-1款式)
+M65 Field Jacket: M65野战夹克
+Puffer Jacket (Quilted Insulated): 羽绒服
+Waxed Jacket (Countrywear): 涂蜡夹克 (乡村风格)
+Corduroy Jacket: 灯芯绒夹克
+Linen Shirt: 亚麻衬衫
+Seersucker Shirt: 泡泡纱衬衫
+Band Collar Shirt (Mandarin Style): 立领衬衫 (中式领)
+Tunic Shirt (Medieval-inspired): 束腰长衬衫 (中世纪风格)
+Kilt Jacket (Scottish Formal Wear): 苏格兰短裙夹克 (苏格兰正装)
+Silk Smoking Shirt (Loungewear): 真丝吸烟衬衫 (家居服)
+Sou'wester (Waterproof Fisherman's Coat): 渔夫防水外套 (油布雨衣)
+Agbada: 阿格巴达 (西非传统长袍)
+Arkalig: 阿尔卡利克 (高加索传统外衣)
+Baju Melayu: 马来装 (马来传统男装)
+Barong Tagalog: 巴隆他加禄 (菲律宾传统男装衬衫)
+Boubou: 布布服 (非洲传统长袍)
+Charro jacket: 查罗夹克 (墨西哥传统短夹克)
+Chokna: 乔克纳 (埃塞俄比亚传统服装)
+Coatee: 短紧身上衣
+Dashiki: 达西奇 (非洲花衬衫)
+Dishdasha: 迪什达沙 (阿拉伯传统男袍)
+Dollame: 多拉玛 (土耳其传统外套)
+Embroidered shirt: 刺绣衬衫
+Fermen: 费尔门 (巴尔干传统背心)
+Fornmannaklæði: 福恩曼纳克莱迪 (冰岛古装)
+Ghillie shirt: 吉利衬衫 (苏格兰传统衬衫)
+Gho: 帼 (不丹传统男袍)
+Hátíðarbúningur: 哈蒂达布宁古尔 (冰岛节日服装)
+Jelek: 杰莱克 (东南欧传统背心)
+Jeogori: 赤古里 (韩服上衣)
+Kaba: 卡巴 (加纳传统女装)
+Kaftan: 卡夫坦长衫
+Kimono: 和服
+Kuladga: 库拉德加 (车臣传统服装)
+Kurk: 库尔克 (波兰传统毛皮外套)
+Kuzsok: 库佐克 (匈牙利传统外套)
+Long-sleeved black coat: 长袖黑外套
+Loose jacket: 宽松夹克
+Maori Cloak (Korowai): 毛利斗篷 (科罗威)
+Mitani: 米塔尼 (印度传统服装)
+Native American ribbon shirt: 美国原住民缎带衬衫
+Overcoat: 大衣
+Poncho: 庞乔斗篷
+Prince Charlie jacket: 查理王子夹克 (苏格兰传统晚宴夹克)
+Qmis: 卡米斯 (阿拉伯男士衬衫)
+Sherwani: 谢尔瓦尼 (南亚传统男士长外套)
+Smock: 罩衫
+Thawb/Thobe: 索布 (阿拉伯传统长袍)
+Traditional Navajo shirt: 纳瓦霍传统衬衫
+Trachten jacket: 特拉赫滕夹克 (日耳曼传统夹克)
+Tunic (Kolt/Gákti): 束腰外衣 (科尔特/加克蒂 - 萨米人传统服装)
+Tyrolean jacket: 蒂罗尔夹克 (阿尔卑斯山区传统夹克)
+Vest: 背心
+Waistcoat: 马甲
+Wool coat: 羊毛外套
+Xhamadani: 哈马达尼 (阿尔巴尼亚传统背心)
+Xhurdia: 胡尔迪亚 (阿尔巴尼亚传统外套)
+Yeleko: 耶莱科 (希腊传统背心)
+Changshan: 长衫
+Kurta: 库尔塔 (南亚传统上衣)
+Ceket: 夹克 (土耳其语)
+Kosovorotka: 科索沃罗特卡 (俄罗斯传统衬衫)
+Shuka: 舒卡 (马赛人传统披巾)
+Guayabera: 瓜亚贝拉衬衫 (拉美传统衬衫)
+Aloha shirt: 阿罗哈衬衫 (夏威夷衬衫)

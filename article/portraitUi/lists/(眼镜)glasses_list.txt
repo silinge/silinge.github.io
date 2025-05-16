@@ -1,0 +1,28 @@
+Sunglasses: 太阳镜
+Non-prescription glasses: 平光镜
+Semi-rimless glasses: 半框眼镜
+Rimless glasses: 无框眼镜
+Full-rim glasses: 全框眼镜
+Rectangle glasses: 长方形眼镜
+Square glasses: 方形眼镜
+Round glasses: 圆形眼镜
+Cat-eye glasses: 猫眼眼镜
+Aviator glasses: 飞行员眼镜
+Oval glasses: 椭圆形眼镜
+Browline glasses: 眉框眼镜
+Geometric glasses: 几何形状眼镜
+Oversized glasses: 超大框眼镜
+Hexagonal glasses: 六边形眼镜
+Butterfly glasses: 蝴蝶形眼镜
+Clubmaster glasses: Clubmaster款眼镜 (眉框复古款)
+Panto glasses: Panto款眼镜 (经典圆形)
+Shield glasses: 护目镜式眼镜
+Wayfarer glasses: Wayfarer款眼镜 (旅行者款)
+Horn-rimmed glasses: 角质框眼镜 (或玳瑁框眼镜)
+Wire-rimmed glasses: 金属丝框眼镜
+Reading glasses: 老花镜
+Computer glasses: 电脑护目镜
+Blue light blocking glasses: 防蓝光眼镜
+Safety glasses: 防护眼镜
+Progressive lenses glasses: 渐进多焦点眼镜
+Bifocal glasses: 双光眼镜

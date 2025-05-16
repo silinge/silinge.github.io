@@ -1,0 +1,70 @@
+Jeans: 牛仔裤
+Chino (Cotton Twill Trousers): 卡其裤 (棉质斜纹裤)
+Shorts: 短裤
+Cargo Pants: 工装裤
+Sweatpants: 运动裤 (休闲棉裤)
+Jogger Pants: 束脚运动裤
+Dress Pants (Suit Trousers): 西裤
+Khakis: 卡其裤
+Track Pants: 运动长裤 (田径裤)
+Cargo Shorts: 工装短裤
+Bermuda Shorts: 百慕大短裤
+Swim Trunks: 泳裤
+Boxer Briefs (Underwear): 平角内裤
+Trunks (Shorter Swimwear): 短款泳裤
+Work Pants (Utility Pants): 工作裤 (多功能裤)
+Carpenter Pants: 木匠裤
+Hiking Pants: 登山裤
+Breeches (Equestrian/Riding Pants): 马裤 (骑行裤)
+Overalls (Dungarees): 背带裤
+Waxed Cotton Trousers (Countrywear): 涂蜡棉布裤 (乡村风格)
+Fishing Pants (Quick-dry): 钓鱼裤 (速干)
+Tactical Pants (Military-inspired): 战术裤 (军事风格)
+Kilt (Scottish Tartan Skirt): 苏格兰短裙
+Hakama (Japanese Pleated Trousers): 袴 (日式褶裥裤)
+Dhoti (Indian Loincloth): 印度腰布 (兜提)
+Lungi (South Asian Wrapped Garment): 隆基 (南亚裹身服)
+Sarong (Southeast Asian Wrapped Skirt): 纱笼 (东南亚裹裙)
+Sherwani Pajama (South Asian Formal Set): 谢尔瓦尼睡衣套装 (南亚正装)
+Shalwar (Loose South Asian Trousers): 沙尔瓦裤 (南亚宽松裤)
+Aladdin Pants (Harem-style): 阿拉丁裤 (哈伦裤风格)
+Thai Fisherman Pants (Wide-leg Wrap): 泰式渔夫裤 (阔腿裹裤)
+Plus Fours (1920s Golf Trousers): 灯笼裤 (1920年代高尔夫裤)
+Knickerbockers (19th-century Cuffed Trousers): 灯笼裤 (19世纪束口裤)
+Breeches (18th-century Knee-length): 及膝裤 (18世纪)
+Pantaloons (Colonial-era Tight Fit): 紧身长裤 (殖民时代)
+Oxford Bags (1930s Wide-leg Trousers): 牛津袋裤 (1930年代阔腿裤)
+Zoot Suit Pants (1940s High-waisted): 佐特西装裤 (1940年代高腰裤)
+Sailor Trousers (Nautical Wide-leg): 水手裤 (航海风阔腿裤)
+Cycling Bib Shorts: 骑行背带短裤
+Compression Tights: 压缩紧身裤
+Baseball Pants (Stirrup Style): 棒球裤 (马蹬款式)
+Rugby Shorts: 橄榄球短裤
+Board Shorts (Surf Style): 沙滩裤 (冲浪风格)
+Climbing Pants (Gusseted Crotch): 攀岩裤 (裆部加固)
+Ski Pants (Insulated): 滑雪裤 (保暖)
+Motocross Pants (Padded): 越野摩托车裤 (带护垫)
+Corduroy Pants: 灯芯绒裤
+Linen Trousers: 亚麻裤
+Seersucker Pants: 泡泡纱裤
+Leather Pants: 皮裤
+Denim Overalls: 牛仔背带裤
+Pleated Trousers: 褶裥裤
+Flat Front Trousers: 平面前襟裤
+Wide-leg Pants: 阔腿裤
+Cropped Ankle Pants: 九分裤 (露踝裤)
+Jodhpurs (Horse-riding Tapered): 马裤 (骑马用锥形裤)
+Parachute Pants (1980s Hip-hop Style): 降落伞裤 (1980年代嘻哈风格)
+Palazzo Pants (Ultra-wide Leg): 阔腿裤 (超宽裤腿)
+Gaucho Pants (South American Flared): 高乔裤 (南美喇叭裤)
+Karakul Trousers (Central Asian Wool): 卡拉库尔羊毛裤 (中亚)
+Samurai Hakama (Traditional Japanese): 武士袴 (传统日式)
+Gho (Bhutanese Knee-length Robe): 帼 (不丹及膝长袍，下半部分类似裤装)
+Kameez Shalwar (Pakistani Matching Set): 卡米兹沙尔瓦套装 (巴基斯坦)
+Dashiki Pants (African Print Trousers): 达西奇裤 (非洲印花裤)
+Patiala Salwar (Indian Baggy Trousers): 帕蒂亚拉沙尔瓦裤 (印度宽松裤)
+Tuxedo Pants (Formal Satin Stripe): 晚礼服裤 (侧边缎条)
+Tailored Culottes (Knee-length): 定制及膝中裤
+Drop-crotch Pants (Avant-garde): 低裆裤 (前卫风格)
+Jacquard Pattern Trousers: 提花图案裤
+Velvet Pants (Evening Wear): 天鹅绒裤 (晚装)

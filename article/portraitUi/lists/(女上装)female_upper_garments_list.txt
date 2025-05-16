@@ -1,0 +1,86 @@
+T-Shirt: T恤
+Tank Top: 背心
+Blouse: 女式衬衫
+Crop Top: 露脐上衣
+Long-Sleeve Shirt: 长袖衬衫
+Sweater (Jumper): 毛衣
+Cardigan: 开衫毛衣
+Hoodie (Hooded Sweatshirt): 连帽卫衣
+Turtleneck (Polo Neck): 高领衫
+Camisole (Sleeveless Undertop): 吊带背心 (无袖打底)
+Peplum Top (Ruffled Hem): 荷叶边下摆上衣
+Bodysuit (One-piece Fitted Top): 连体紧身衣
+Tube Top (Strapless): 抹胸上衣
+Wrap Top (Cross-front Closure): 裹身上衣 (交叉前襟)
+Off-Shoulder Top: 露肩上衣
+Button-Down Shirt: 纽扣衬衫
+Blazer: 西装式休闲外套
+Tailored Jacket: 修身夹克
+Shirt Dress (As a Top): 衬衫裙式上衣
+Tuxedo Shirt (Formal Pleated): 晚礼服衬衫 (正装打褶)
+Pencil Collar Blouse: 尖领女衬衫
+Tunic Top (Office Wear): 束腰宽松上衣 (办公装)
+Vest Suit Top (Matching Set): 马甲套装上衣
+Sports Bra: 运动内衣
+Yoga Top (Cropped or Longline): 瑜伽上衣 (短款或长款)
+Racerback Tank: 工字背心
+Athletic Crop Top: 运动露脐上衣
+Sleeveless Hoodie: 无袖连帽卫衣
+Mesh Top (Breathable Sportswear): 网眼上衣 (透气运动装)
+Compression Top: 压缩运动上衣
+Choli (Indian Embroidered Blouse): 乔丽 (印度刺绣短上衣)
+Hanfu Top (Chinese Traditional): 汉服上衣 (中式传统)
+Kimono (Japanese Wrap Top): 和服上衣 (日式裹身)
+Dirndl Blouse (Austrian/German Folk): 传统村姑衬衫 (奥地利/德国民俗)
+Huipil (Mexican Woven Tunic): 惠皮尔 (墨西哥编织束腰上衣)
+Kebaya (Southeast Asian Lace Blouse): 可巴雅 (东南亚蕾丝衬衫)
+Áo Dài Top (Vietnamese Silky Fit): 奥黛上衣 (越南丝质修身)
+Boubou (West African Loose Tunic): 布布服 (西非宽松束腰上衣)
+Kaftan Top (Middle Eastern Flowy): 卡夫坦式上衣 (中东飘逸款)
+Sarafan (Russian Embroidered Dress Top): 萨拉凡上衣 (俄罗斯刺绣连衣裙式)
+Chima Jeogori (Korean Skirt & Jacket Set): 赤古里 (韩服上衣，搭配长裙)
+Sari Blouse (Indian Backless Choli): 纱丽短上衣 (印度露背乔丽)
+Baro’t Saya (Filipino Embroidered Blouse): 巴洛特萨亚 (菲律宾刺绣衬衫)
+Guayabera Blouse (Latin American): 瓜亚贝拉女式衬衫 (拉丁美洲)
+Pollera Top (Andean Colorful Embroidery): 波列拉上衣 (安第斯多彩刺绣)
+Puffer Jacket (Quilted): 羽绒服 (绗缝)
+Trench Coat: 风衣
+Peacoat: 海军呢大衣
+Parka (Winter Hooded): 派克大衣 (冬季连帽)
+Windbreaker: 防风衣
+Denim Jacket: 牛仔夹克
+Leather Jacket: 皮夹克
+Bomber Jacket: 飞行员夹克
+Raincoat (Waterproof): 雨衣 (防水)
+Shawl Collar Sweater: 披肩领毛衣
+Cashmere Pullover: 羊绒套头毛衣
+Thermal Underlayer: 保暖内层衣
+Asymmetric Top (One-shoulder/Uneven Hem): 不对称上衣 (单肩/不规则下摆)
+Corset Top (Laced or Structured): 束身上衣 (系带或塑形)
+Bardot Top (Off-the-Shoulder): 一字肩上衣 (芭铎款)
+Cold-Shoulder Top (Cut-out Sleeves): 露肩袖上衣 (袖子镂空)
+Sheer Top (Transparent Overlay): 透明上衣 (罩衫)
+Ruffled Blouse (Victorian-inspired): 荷叶边女衬衫 (维多利亚风格)
+Capelet Top (Short Cape Attachment): 短斗篷式上衣
+Deconstructed Shirt (Avant-garde): 解构衬衫 (前卫)
+Brocade Blouse (Embroidered Luxury): 织锦女衬衫 (刺绣奢华)
+Smocked Top (Elasticated Bodice): 缩褶衣身上衣 (松紧衣身)
+Gibson Girl Blouse (Edwardian Lace): 吉普森女孩衬衫 (爱德华时代蕾丝)
+Flapper Top (1920s Beaded/Fringe): 爵士女郎上衣 (1920年代钉珠/流苏)
+Puff Sleeve Blouse (Renaissance Revival): 泡泡袖女衬衫 (文艺复兴风格)
+Prairie Blouse (1970s Folk-inspired): 草原风女衬衫 (1970年代民俗风)
+Victorian High-neck Blouse: 维多利亚高领女衬衫
+Bralette (Lace or Linen): 法式内衣 (蕾丝或亚麻)
+Corset (Fashion or Functional): 束身衣 (时尚或功能性)
+Bustier (Structured Lace): 紧身胸衣 (塑形蕾丝)
+Camisole with Lace Trim: 蕾丝饰边吊带背心
+Slip Top (Silky Underlayer): 真丝打底吊带
+Layered Chemise: 叠穿衬裙式上衣
+Dashiki Top (West African Print): 达西奇上衣 (西非印花)
+Kente Cloth Blouse (Ghanaian): 肯特布女衬衫 (加纳)
+Poncho Top (Andean Woven): 庞乔式上衣 (安第斯编织)
+Tie-Dye Crop Top (Bohemian): 扎染露脐上衣 (波西米亚)
+Khimar (Modesty Cover-up): 希玛尔 (穆斯林罩衫)
+Flamenco Blouse (Spanish Ruffled): 弗拉明戈女衬衫 (西班牙荷叶边)
+Moroccan Kaftan Top: 摩洛哥卡夫坦式上衣
+Halter Neck Top (Retro Beach Style): 挂脖上衣 (复古沙滩风)

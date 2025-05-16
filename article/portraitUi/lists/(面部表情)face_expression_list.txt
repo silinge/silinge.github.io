@@ -1,0 +1,32 @@
+Amused: 愉悦
+Angry: 愤怒
+Anxious: 焦虑
+Bored: 无聊
+Calm: 平静
+Cautious: 谨慎
+Confused: 困惑
+Contemptuous: 轻蔑
+Content: 满足
+Curious: 好奇
+Disappointed: 失望
+Disgusted: 厌恶
+Envious: 嫉妒
+Excited: 兴奋
+Fearful: 恐惧
+Happy: 开心
+In love: 恋爱中
+Nervous: 紧张
+Peaceful: 祥和
+Pensive: 沉思
+Prideful: 傲慢
+Proud: 自豪
+Relieved: 如释重负
+Sad: 悲伤
+Sarcastic: 讽刺
+Serene: 安详
+Serious: 严肃
+Shy: 害羞
+Silly: 傻气
+Smiling: 微笑
+Surprised: 惊讶
+Surprised and Amused: 惊喜交加
