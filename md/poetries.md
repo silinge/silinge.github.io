@@ -138,7 +138,7 @@ dǒu酒十千zì欢xuè。
 
 ---
 
-己亥杂诗》** - 龚自珍   提供这首诗的全文，包括标题 人名在内，为容易读错的字添加拼音注释  39 72
+长相思》** - 纳兰性德  提供这首诗的全文，包括标题 人名在内，为容易读错的字添加拼音注释  39 72
 
 凉州词
 
@@ -268,3 +268,64 @@ dǒu酒十千zì欢xuè。
 万马齐喑（yīn）究可哀。
 我劝天公重抖擞（dǒu sǒu），
 不拘（jū）一格降（jiàng）人材。
+
+
+《山居秋暝（míng）》
+
+王维（wáng wéi）
+
+空山新雨后，
+天气晚来秋。
+明月松间照，
+清泉石上流。
+
+竹喧（xuān）归浣（huàn）女，
+莲动下渔舟。
+随意春芳歇（xiē），
+王孙自可留。
+
+枫桥夜泊（bó）
+张继
+
+月落乌啼霜满天
+江枫渔火对愁眠
+姑苏城外寒山寺
+夜半钟声到客船
+
+
+《长相思·山一程》
+纳兰性德
+
+山一程，水一程，
+身向榆关那畔行，
+夜深千帐灯。
+
+风一更，雪一更，
+聒碎乡心梦不成，
+故园无此声。
+
+
+第1–2秒：静夜蓄势
+场景：城市高楼天台，夜幕低垂，风吹动主角“草原牛仔”的外套。主角站在边缘，俯视下方霓虹闪烁的城市，心跳声独响。
+镜头：缓慢推至主角眼部特写，眼神锁定远方，瞳孔倒映微弱红光（暗示目标或威胁）。
+第3–5秒：爆发交锋
+动作：主角一跃跳至旁楼天台，翻滚落地，随即展开战斗：闪避刀锋、精准直拳、旋身踢，动作流畅如舞，迅猛凌厉。
+镜头：手持跟踪镜头捕捉跳跃，切至广角展示落地。战斗用快速剪辑（每镜头0.3–0.5秒），关键打击略微慢动作。
+第6秒：时间凝滞
+动作：敌方刀锋逼近主角喉咙，停在1厘米处。画面如玻璃般碎裂，时间静止，雨滴悬浮空中，世界寂静。
+镜头：刀锋与主角脸部特写，快速拉远展示静止场景，碎裂瞬间微抖镜头。
+特效：画面叠加玻璃裂纹，碎片轻微漂浮，雨滴微光闪烁。
+第7–8秒：逆转抉择
+动作：主角眼神一变，时间倒流：跳跃、战斗动作回溯，主角回到原天台，未曾跃下，转身离开，身后战场如梦境消散。
+镜头：0.8秒倒放蒙太奇（跳跃、踢击、闪避），切至主角转身的中近景，城市灯光柔化。
+字幕：黑屏淡入白色文字：“每一次冲动，都有另一种结局。”
+
+Setting: A city rooftop at night, skyline shrouded in heavy darkness. Wind ripples the protagonist’s (Grassland Cowboy) coat as they stand at the edge, overlooking the neon-lit abyss below. Only their heartbeat echoes.
+Camera: Slow push-in to an extreme close-up of the protagonist’s eyes, sharp and unwavering, reflecting distant red neon flickers (a target or threat).
+Notes: Keep the close-up brief to build tension without lingering. The red reflection in the eyes foreshadows the conflict.
+
+
+
+The protagonist Grassland Cowboy leaps from the rooftop to the adjacent building, landing with a roll. Instant combat erupts—dodging a blade, countering with a precise jab, and unleashing a spinning kick. Movements are fluid yet ferocious, like a choreographed dance.
+Camera: Dynamic tracking shot follows the leap (handheld for energy), cutting to a wide shot of the landing. Quick cuts (0.3–0.5 sec each) for combat, using slight slow-motion on key strikes for emphasis.
+

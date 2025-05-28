@@ -13,7 +13,6 @@
         {"name": "Deepseek", "url": "https://chat.deepseek.com/", "category": "tools"},
         {"name": "Grok", "url": "https://x.com/i/grok", "category": "tools"},
         {"name": "lmstudioC", "url": "https://huggingface.co/lmstudio-community", "category": "tools"},
-        {"name": "juchats", "url": "https://www.juchats.com/chat", "category": "tools"},
         {"name": "VpsTips", "url": "article/vps_settings.html", "category": "notes"},
         {"name": "zaobao", "url": "https://www.zaobao.com.sg/realtime", "category": "news"},
         {"name": "Xda", "url": "https://www.xda-developers.com/", "category": "news"},
@@ -48,7 +47,7 @@
         {"name": "Jimeng", "url": "https://jimeng.jianying.com/ai-tool/home", "category": "tools"},
         {"name": "dreamina", "url": "https://dreamina.capcut.com/ai-tool/home", "category": "tools"},
         {"name": "TTSgen", "url": "https://ttsmaker.com/zh-cn", "category": "tools"},
-        {"name": "kling", "url": "https://klingai.com/", "category": "tools"},
+        {"name": "kling", "url": "https://app.klingai.com/global", "category": "tools"},
         {"name": "myshell", "url": "https://app.myshell.ai/", "category": "tools"}
     ]
 }
