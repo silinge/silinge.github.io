@@ -22,6 +22,7 @@
 (眼睛形状)eyes_shape_list.txt
 (眼睛颜色)eyes_color_list.txt
 (眼镜)glasses_list.txt
+(肖像姿势)portrait_pose_list.txt
 (胡须)beard_list.txt
 (胡须颜色)beard_color_list.txt
 (脸型)face_shape_list.txt

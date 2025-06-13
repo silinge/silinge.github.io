@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const generateZhJsonBtn = document.getElementById('generateZhJsonBtn');
     const copyJsonBtn = document.getElementById('copyJsonBtn');
     const jsonOutput = document.getElementById('jsonOutput');
+    const enumerationSelect = document.getElementById('enumerationSelect');
+    const generateEnumerateEnBtn = document.getElementById('generateEnumerateEnBtn');
+    const generateEnumerateZhBtn = document.getElementById('generateEnumerateZhBtn');
 
     const selectElements = {};
 
@@ -235,6 +238,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 初始检查性别相关字段
         handleGenderChange();
+        populateEnumerationSelect(listFiles); // Call this after listFiles is guaranteed to be populated
+    }
+
+    // Populate enumeration select dropdown
+    function populateEnumerationSelect(listFiles) {
+        // Add age as an option for enumeration
+        const ageOption = document.createElement('option');
+        ageOption.value = 'age_list.txt'; // Use a consistent identifier
+        ageOption.textContent = '年龄 (age)';
+        enumerationSelect.appendChild(ageOption);
+
+        listFiles.forEach(fileName => {
+            if (fileName === 'gender_list.txt') return; // Gender is not typically enumerated in this context
+
+            const option = document.createElement('option');
+            option.value = fileName;
+            // Extract a user-friendly name from the fileName
+            const fileNameWithoutExt = fileName.replace('_list.txt', '');
+            const categoryMatch = fileNameWithoutExt.match(/\((.*?)\)(.+)/);
+            const displayName = categoryMatch ? `${categoryMatch[1]} (${categoryMatch[2].replace(/[_-]/g, ' ').trim()})` : fileNameWithoutExt.replace(/[_-]/g, ' ').trim();
+            option.textContent = displayName;
+            enumerationSelect.appendChild(option);
+        });
     }
 
     function handleGenderChange() {
@@ -317,7 +343,66 @@ document.addEventListener('DOMContentLoaded', () => {
     generateEnJsonBtn.addEventListener('click', () => generateJson('en'));
     generateZhJsonBtn.addEventListener('click', () => generateJson('zh'));
 
+    // Function to copy JSON to clipboard
+    function copyJsonToClipboard() {
+        const jsonString = jsonOutput.textContent;
+        if (navigator.clipboard && jsonString) {
+            navigator.clipboard.writeText(jsonString)
+                .then(() => {
+                    showCopyNotification('JSON 已复制到剪贴板!');
+                })
+                .catch(err => {
+                    console.error('无法复制 JSON: ', err);
+                    showCopyNotification('复制失败，请手动复制。', true);
+                });
+        } else if (jsonString) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = jsonString;
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopyNotification('JSON 已复制到剪贴板!');
+            } catch (err) {
+                console.error('无法复制 JSON (fallback): ', err);
+                showCopyNotification('复制失败，请手动复制。', true);
+            }
+            document.body.removeChild(textArea);
+        } else {
+            showCopyNotification('没有可复制的JSON内容。', true);
+        }
+    }
 
+    // Function to show copy notification
+    function showCopyNotification(message, isError = false) {
+        console.log('showCopyNotification called with message:', message, 'isError:', isError); // Log when function is entered
+        const notification = document.createElement('div');
+        notification.textContent = message;
+        notification.classList.add('copy-notification');
+        if (isError) {
+            notification.classList.add('error');
+        }
+
+        // Style for fixed position near the copy button
+        const copyBtnRect = copyJsonBtn.getBoundingClientRect();
+        notification.style.position = 'fixed'; // Use fixed positioning
+        notification.style.top = `${copyBtnRect.bottom + 5}px`;
+        notification.style.left = `${copyBtnRect.left}px`;
+        notification.style.transform = 'translateX(-50%)'; // Adjust to center if needed, or align left
+        notification.style.zIndex = '1000'; // Ensure it's on top
+        notification.style.border = '2px solid red'; // Add red border for visibility
+
+        document.body.appendChild(notification);
+        console.log('Notification element appended to DOM:', notification);
+        console.log(`Notification position: top=${notification.style.top}, left=${notification.style.left}`);
+
+
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
 
     function generateJson(lang) {
         const result = {};
@@ -487,6 +572,123 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500); // Remove after fade out completes
         }, 2000);
     }
+
+    // Generate JSON for enumeration
+    async function generateEnumerationJson(language) {
+        const selectedValues = {};
+        const enumerationTarget = enumerationSelect.value;
+        let enumerationKey = '';
+        let enumerationChineseKey = '';
+
+        // Get base selected values, excluding the enumeration target if it's a standard dropdown
+        for (const key in selectElements) {
+            const select = selectElements[key];
+            const selectedOption = select.options[select.selectedIndex];
+            if (!selectedOption || selectedOption.value === 'none') continue;
+
+            // Determine the key for the JSON output
+            let jsonKey = key;
+            if (key === 'gender' || key === 'age') {
+                jsonKey = key;
+            } else {
+                // For other dropdowns, use the English category from the dataset or fallback
+                jsonKey = select.id; // select.id should be the English category name
+            }
+
+            // If this key is the enumeration target, store its original key and skip adding it to base selectedValues
+            if (enumerationTarget && enumerationTarget.includes(key.replace(/ /g, ''))) { // Check if current key is part of enumeration target filename
+                enumerationKey = jsonKey;
+                enumerationChineseKey = select.dataset.chineseCategory || key;
+                continue; // Skip adding to base if it's the one to be enumerated
+            }
+            if (enumerationTarget === 'age_list.txt' && key === 'age'){
+                enumerationKey = 'age';
+                enumerationChineseKey = '年龄';
+                continue;
+            }
+
+            if (language === 'en') {
+                selectedValues[jsonKey] = selectedOption.value;
+            } else {
+                const chineseValue = selectedOption.textContent.includes(':') ? selectedOption.textContent.split(':')[1] : selectedOption.value;
+                const chineseKey = select.dataset.chineseCategory || jsonKey;
+                selectedValues[chineseKey] = chineseValue;
+            }
+        }
+
+        if (!enumerationTarget) {
+            jsonOutput.textContent = JSON.stringify(selectedValues, null, 2);
+            return;
+        }
+
+        // Fetch and process the enumeration list
+        let enumerationItems = [];
+        if (enumerationTarget === 'age_list.txt') {
+            enumerationItems = createAgeOptions(); // Use existing age options function
+            if (language === 'zh') {
+                 // For Chinese, age is just the number
+            } else {
+                // For English, age is just the number
+            }
+            if (!enumerationKey) { // if age was not in selectElements (e.g. if it was removed or changed)
+                enumerationKey = 'age';
+                enumerationChineseKey = '年龄';
+            }
+        } else {
+            try {
+                const response = await fetch(`lists/${enumerationTarget}`);
+                if (!response.ok) throw new Error(`Failed to load ${enumerationTarget}`);
+                const text = await response.text();
+                enumerationItems = text.split('\n').map(line => line.trim()).filter(line => line);
+
+                // Determine the enumerationKey if not already set (e.g. from a dynamic list)
+                if (!enumerationKey) {
+                    const fileNameWithoutExt = enumerationTarget.replace('_list.txt', '');
+                    const categoryMatch = fileNameWithoutExt.match(/\((.*?)\)(.+)/);
+                    enumerationChineseKey = categoryMatch ? categoryMatch[1] : fileNameWithoutExt;
+                    enumerationKey = categoryMatch ? categoryMatch[2].replace(/[_-]/g, ' ').trim() : fileNameWithoutExt.replace(/[_-]/g, ' ').trim();
+                }
+            } catch (error) {
+                console.error('Error loading enumeration list:', error);
+                jsonOutput.textContent = `Error loading enumeration list: ${error.message}`;
+                return;
+            }
+        }
+
+        const allGeneratedJson = [];
+        enumerationItems.forEach(item => {
+            const currentJson = { ...selectedValues };
+            let itemValueEn = item;
+            let itemValueZh = item;
+
+            if (item.includes(':')) {
+                const parts = item.split(':');
+                itemValueEn = parts[0].trim();
+                itemValueZh = parts[1].trim();
+            }
+
+            if (language === 'en') {
+                currentJson[enumerationKey] = itemValueEn;
+            } else {
+                currentJson[enumerationChineseKey] = itemValueZh;
+            }
+            allGeneratedJson.push(currentJson);
+        });
+
+        jsonOutput.textContent = allGeneratedJson.map(obj => JSON.stringify(obj, null, 2)).join('\n\n');
+    }
+
+    generateEnJsonBtn.addEventListener('click', () => generateJson('en'));
+    generateZhJsonBtn.addEventListener('click', () => generateJson('zh'));
+    copyJsonBtn.addEventListener('click', copyJsonToClipboard);
+    // generateEnumerationBtn.addEventListener('click', () => {
+    //     // Determine language from a conventional JSON button or default to English
+    //     // This part might need refinement based on how you want to select the language for enumeration
+    //     generateEnumerationJson('en'); // Defaulting to English for now
+    // });
+
+    generateEnumerateEnBtn.addEventListener('click', () => generateEnumerationJson('en'));
+    generateEnumerateZhBtn.addEventListener('click', () => generateEnumerationJson('zh'));
 
     // Initial call to create dropdowns when the DOM is fully loaded
     createDropdowns();

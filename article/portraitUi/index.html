@@ -11,9 +11,17 @@
         <h1>人像描述词生成器</h1>
 
         <div id="dropdownContainer"></div>
+        <div id="enumerationContainer">
+            <label for="enumerationSelect">选择穷举项:</label>
+            <select id="enumerationSelect">
+                <option value="">不进行穷举</option>
+            </select>
+        </div>
         <button id="generateEnJsonBtn">生成英文JSON</button>
         <button id="generateZhJsonBtn">生成中文JSON</button>
         <button id="copyJsonBtn">复制JSON</button>
+        <button id="generateEnumerateEnBtn">生成英文穷举JSON</button>
+        <button id="generateEnumerateZhBtn">生成中文穷举JSON</button>
         <div id="jsonOutput"></div>
         <div class="credits">
             感谢 <a href="https://github.com/florestefano1975/comfyui-portrait-master" target="_blank">comfyui-portrait-master</a> 项目提供的描述词列表文件，我添加了几个条目，增加了一些翻译内容。

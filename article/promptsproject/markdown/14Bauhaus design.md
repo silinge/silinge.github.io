@@ -1,0 +1,1 @@
+A minimalist Bauhaus design sheet of a [rose], constructed from primary shapes and modular forms in bold [blue], [lightgreen], and black. Text is sparse, arranged with precision and strong grid alignment.
