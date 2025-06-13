@@ -1,112 +1,112 @@
-Bohemian Dress: 波西米亚风连衣裙
-Business Casual Dress: 商务休闲连衣裙
-Business Formal Dress: 商务正装连衣裙
-Business Professional Dress: 商务职业连衣裙
-Casual Chic Dress: 休闲时尚连衣裙
-Casual Dress: 休闲连衣裙
-Club Dress: 夜店连衣裙
-Cocktail Dress: 鸡尾酒礼服裙
-Edgy Dress: 前卫风连衣裙
-Formal Dress: 礼服裙
-Gothic Dress: 哥特风连衣裙
-Hipster Dress: 文艺风连衣裙
-Party Dress: 派对连衣裙
-Preppy Dress: 学院风连衣裙
-Punk Dress: 朋克风连衣裙
-Retro Dress: 复古连衣裙
-Smart Casual Dress: 雅致休闲连衣裙
-Sporty Dress: 运动风连衣裙
-Streetwear Dress: 街头风连衣裙
-Vintage Dress: 古着连衣裙
-Jeans: 牛仔裤
-Leggings: 打底裤
-Pencil Skirt: 铅笔裙
-A-line Skirt: A字裙
-Shorts (Denim/Cotton): 短裤 (牛仔/棉质)
-Midi Skirt: 中长裙
-Maxi Skirt (Long Skirt): 长裙
-Palazzo Pants (Wide-leg): 阔腿裤
-Joggers (Casual Tapered): 休闲束脚裤
-Capri Pants: 七分裤
-Culottes (Cropped Wide-leg): 阔腿中裤
-High-Waisted Trousers: 高腰长裤
-Cargo Pants: 工装裤
-Sweatpants: 运动卫裤
-Bermuda Shorts: 百慕大短裤
-Tailored Trousers: 西装裤
-Pleated Skirt: 百褶裙
-Wrap Skirt: 裹身裙
-Tuxedo Pants (Satin Stripe): 晚礼服西裤 (侧边缎条)
-Pencil Pants (Slim-fit): 铅笔裤 (修身款)
-Knee-Length Skirt: 及膝裙
-Houndstooth Check Trousers: 千鸟格长裤
-Trouser Suit (Matching Set): 裤装套装
-Yoga Pants: 瑜伽裤
-Bike Shorts: 骑行短裤
-Running Shorts: 跑步短裤
-Track Pants: 运动长裤
-Compression Leggings: 压缩紧身裤
-Tennis Skirt (Pleated with Shorts): 网球裙 (内置防走光短裤的百褶裙)
-Harem Pants (Drop-crotch): 哈伦裤 (低裆)
-Jogger Shorts: 束脚运动短裤
-Lehenga (Indian Embellished Skirt): 兰嘎 (印度刺绣长裙)
-Sari Petticoat (Indian Underskirt): 纱丽衬裙 (印度)
-Hakama (Japanese Pleated Trousers): 袴 (日式褶裥裤)
-Dirndl Skirt (Austrian/German Folk): 传统村姑裙 (奥地利/德国民俗)
-Hanbok Skirt (Korean Traditional): 韩服下裙
-Tartan Kilt (Scottish Plaid): 苏格兰格纹半裙
-Ghagra (South Asian Flared Skirt): 加格拉 (南亚喇叭长裙)
-Sarong (Southeast Asian Wrapped Skirt): 纱笼 (东南亚裹裙)
-Pollera (Andean Layered Skirt): 波列拉 (安第斯层叠彩裙)
-Pareo (Polynesian Wrap): 帕雷奥 (波利尼西亚裹布)
-Fustanella (Greek/Albanian Pleated Skirt): 富斯塔内拉 (希腊/阿尔巴尼亚褶裥短裙)
-Wool Trousers (Winter): 羊毛长裤 (冬季)
-Corduroy Pants: 灯芯绒裤
-Waxed Cotton Skirt (Water-resistant): 涂蜡棉布半裙 (防水)
-Insulated Ski Pants: 保暖滑雪裤
-Quick-dry Hiking Pants: 速干登山裤
-Linen Wide-leg Pants (Summer): 亚麻阔腿裤 (夏季)
-Thermal Leggings: 保暖打底裤
-Asymmetrical Skirt (Uneven Hem): 不对称半裙 (不规则下摆)
-Tiered Ruffle Skirt: 层叠荷叶边半裙
-Deconstructed Denim (Raw-edge): 解构牛仔 (毛边)
-High-slit Maxi Skirt: 高开衩长裙
-Paperbag Waist Pants (Gathered): 纸袋腰长裤 (腰部抽褶)
-Culottes with Belted Waist: 系带领阔腿中裤
-Metallic Leather Pants: 金属感皮裤
-Pleated Tulle Skirt (Balloon Style): 褶裥薄纱半裙 (气球廓形)
-Avant-garde Layered Skirt: 前卫层叠半裙
-Flared Jeans (1970s Bell-bottoms): 喇叭牛仔裤 (70年代风格)
-Victorian Bustle Skirt: 维多利亚时期臀垫裙
-Edwardian Hobble Skirt (Tight-hem): 爱德华时代霍布尔裙 (窄下摆)
-1950s Circle Skirt: 1950年代圆形大摆裙
-1920s Drop-waist Dress (Skirt Section): 1920年代低腰连衣裙 (裙摆部分)
-Pannier Skirt (18th-century Wide Hips): 帕尼耶裙撑半裙 (18世纪宽臀式)
-Princess-line Skirt (19th-century): 公主线剪裁半裙 (19世纪)
-Shapewear Shorts (Smoothing): 塑身短裤 (平滑效果)
-Silk Slip Skirt (Undergarment): 真丝衬裙 (内搭)
-Lace-trimmed Bloomers (Vintage): 蕾丝饰边灯笼裤 (复古内裤)
-Fishnet Tights: 渔网袜
-Sheer Stockings: 透明长筒袜
-Bike Shorts as Innerwear: 骑行短裤 (作内搭)
-Kente Cloth Skirt (Ghanaian): 肯特布半裙 (加纳)
-Dashiki Print Pants (West African): 达西奇印花长裤 (西非)
-Bohemian Tiered Skirt (Tie-dye): 波西米亚风层叠半裙 (扎染)
-Gaucho Pants (South American Flared): 高乔裤 (南美喇叭裤)
-Moroccan Caftan Skirt: 摩洛哥卡夫坦式半裙
-Kimono-style Wrap Skirt: 和服式裹身半裙
-Khimar Skirt (Modesty Long Cover): 希玛尔长裙 (穆斯林罩袍式)
-Flamenco Ruffled Skirt (Spanish): 弗拉明戈荷叶边半裙 (西班牙)
-Kaftan Pants (Middle Eastern Flow): 卡夫坦式长裤 (中东飘逸款)
-Bodycon Skirt (Tight-fit): 紧身包臀裙
-Tulip Skirt (Overlapping Panels): 郁金香裙 (交叠片式)
-Pegged Skirt (Tapered Hem): 锥形下摆半裙
-Godet Skirt (Flared Inserts): 镶片喇叭裙 (戈代褶裙)
-Trumpet Skirt (Fitted to Flared): 鱼尾裙 (修身至喇叭下摆)
-Circle Skirt (Full Swing): 圆形大摆裙
-Wide-leg Jumpsuit Pants: 阔腿连体裤 (裤子部分)
-Paper Waist Tie-front Pants: 纸袋腰系带领长裤
-Cigarette Pants (Slim Straight): 烟管裤 (修身直筒)
-Cropped Flare Pants: 九分微喇裤
-Side-stripe Track Pants: 侧边条纹运动裤
-Cargo Joggers: 工装束脚裤
+Bohemian Dress: 波西米亚自由风连衣裙  
+Business Casual Dress: 美式商务休闲连衣裙  
+Business Formal Dress: 欧式商务正装连衣裙  
+Business Professional Dress: 国际商务职业连衣裙  
+Casual Chic Dress: 法式休闲时尚连衣裙  
+Casual Dress: 日常休闲连衣裙  
+Club Dress: 美式夜店连衣裙  
+Cocktail Dress: 法式鸡尾酒礼服裙  
+Edgy Dress: 前卫风格连衣裙  
+Formal Dress: 正式礼服裙  
+Gothic Dress: 欧式哥特风连衣裙  
+Hipster Dress: 北欧文艺风连衣裙  
+Party Dress: 派对庆典连衣裙  
+Preppy Dress: 美式学院风连衣裙  
+Punk Dress: 英式朋克风连衣裙  
+Retro Dress: 复古怀旧连衣裙  
+Smart Casual Dress: 英式雅致休闲连衣裙  
+Sporty Dress: 运动风格连衣裙  
+Streetwear Dress: 美式街头风连衣裙  
+Vintage Dress: 欧美古着风连衣裙 
+Jeans: 美式牛仔裤  
+Leggings: 弹力打底裤  
+Pencil Skirt: 法式铅笔裙  
+A-line Skirt: 经典A字裙  
+Shorts (Denim/Cotton): 休闲短裤 (牛仔/棉质)  
+Midi Skirt: 法式中长裙  
+Maxi Skirt (Long Skirt): 波西米亚长裙  
+Palazzo Pants (Wide-leg): 意式阔腿裤  
+Joggers (Casual Tapered): 美式休闲束脚裤  
+Capri Pants: 意大利七分裤  
+Culottes (Cropped Wide-leg): 法式阔腿中裤  
+High-Waisted Trousers: 复古高腰长裤  
+Cargo Pants: 美式工装裤  
+Sweatpants: 美式运动卫裤  
+Bermuda Shorts: 百慕大风格短裤  
+Tailored Trousers: 英式定制西装裤  
+Pleated Skirt: 日式百褶裙  
+Wrap Skirt: 北欧裹身裙  
+Tuxedo Pants (Satin Stripe): 法式晚礼服西裤 (侧边缎条)  
+Pencil Pants (Slim-fit): 修身铅笔裤  
+Knee-Length Skirt: 职场及膝裙  
+Houndstooth Check Trousers: 英式千鸟格长裤  
+Trouser Suit (Matching Set): 欧式裤装套装  
+Yoga Pants: 美式瑜伽裤  
+Bike Shorts: 专业骑行短裤  
+Running Shorts: 轻量跑步短裤  
+Track Pants: 专业运动长裤  
+Compression Leggings: 高科技压缩紧身裤  
+Tennis Skirt (Pleated with Shorts): 专业网球裙 (内置防走光短裤的百褶裙)  
+Harem Pants (Drop-crotch): 中东哈伦裤 (低裆)  
+Jogger Shorts: 美式束脚运动短裤  
+Lehenga (Indian Embellished Skirt): 印度兰嘎长裙 (传统刺绣礼服裙)  
+Sari Petticoat (Indian Underskirt): 印度纱丽衬裙 (传统内搭)  
+Hakama (Japanese Pleated Trousers): 日本袴 (传统褶裥宽裤)  
+Dirndl Skirt (Austrian/German Folk): 阿尔卑斯传统村姑裙 (奥地利/德国民俗)  
+Hanbok Skirt (Korean Traditional): 韩国传统韩服下裙  
+Tartan Kilt (Scottish Plaid): 苏格兰传统格纹半裙  
+Ghagra (South Asian Flared Skirt): 南亚加格拉 (传统喇叭长裙)  
+Sarong (Southeast Asian Wrapped Skirt): 东南亚纱笼 (传统裹裙)  
+Pollera (Andean Layered Skirt): 安第斯传统波列拉 (层叠彩裙)  
+Pareo (Polynesian Wrap): 波利尼西亚帕雷奥 (传统裹布)  
+Fustanella (Greek/Albanian Pleated Skirt): 地中海富斯塔内拉 (希腊/阿尔巴尼亚传统褶裥短裙)  
+Wool Trousers (Winter): 北欧羊毛长裤 (冬季保暖)  
+Corduroy Pants: 英式灯芯绒裤  
+Waxed Cotton Skirt (Water-resistant): 英国涂蜡棉布半裙 (户外防水)  
+Insulated Ski Pants: 北欧保暖滑雪裤  
+Quick-dry Hiking Pants: 户外速干登山裤  
+Linen Wide-leg Pants (Summer): 地中海亚麻阔腿裤 (夏季透气)  
+Thermal Leggings: 北欧保暖打底裤  
+Asymmetrical Skirt (Uneven Hem): 法式不对称半裙 (艺术不规则下摆)  
+Tiered Ruffle Skirt: 西班牙层叠荷叶边半裙  
+Deconstructed Denim (Raw-edge): 日式解构牛仔 (艺术毛边)  
+High-slit Maxi Skirt: 法式高开衩长裙  
+Paperbag Waist Pants (Gathered): 北欧纸袋腰长裤 (设计感腰部抽褶)  
+Culottes with Belted Waist: 法式系带领阔腿中裤  
+Metallic Leather Pants: 意式金属感皮裤  
+Pleated Tulle Skirt (Balloon Style): 法式褶裥薄纱半裙 (芭蕾气球廓形)  
+Avant-garde Layered Skirt: 日式前卫层叠半裙  
+Flared Jeans (1970s Bell-bottoms): 复古喇叭牛仔裤 (70年代美式风格)  
+Victorian Bustle Skirt: 英国维多利亚时期臀垫裙  
+Edwardian Hobble Skirt (Tight-hem): 英国爱德华时代霍布尔裙 (优雅窄下摆)  
+1950s Circle Skirt: 美式1950年代圆形大摆裙  
+1920s Drop-waist Dress (Skirt Section): 美式1920年代低腰连衣裙 (复古裙摆部分)  
+Pannier Skirt (18th-century Wide Hips): 法式帕尼耶裙撑半裙 (18世纪宫廷宽臀式)  
+Princess-line Skirt (19th-century): 英式公主线剪裁半裙 (19世纪贵族风格)  
+Shapewear Shorts (Smoothing): 现代塑身短裤 (平滑效果)  
+Silk Slip Skirt (Undergarment): 法式真丝衬裙 (优雅内搭)  
+Lace-trimmed Bloomers (Vintage): 维多利亚蕾丝饰边灯笼裤 (复古内裤)  
+Fishnet Tights: 欧美渔网袜  
+Sheer Stockings: 法式透明长筒袜  
+Bike Shorts as Innerwear: 现代骑行短裤 (防走光内搭)  
+Kente Cloth Skirt (Ghanaian): 加纳传统肯特布半裙  
+Dashiki Print Pants (West African): 西非达西奇印花长裤  
+Bohemian Tiered Skirt (Tie-dye): 波西米亚风层叠半裙 (嬉皮扎染)  
+Gaucho Pants (South American Flared): 阿根廷高乔裤 (南美传统喇叭裤)  
+Moroccan Caftan Skirt: 摩洛哥传统卡夫坦式半裙  
+Kimono-style Wrap Skirt: 日本和服式裹身半裙  
+Khimar Skirt (Modesty Long Cover): 中东希玛尔长裙 (穆斯林传统罩袍式)  
+Flamenco Ruffled Skirt (Spanish): 西班牙弗拉明戈荷叶边半裙  
+Kaftan Pants (Middle Eastern Flow): 阿拉伯卡夫坦式长裤 (中东传统飘逸款)  
+Bodycon Skirt (Tight-fit): 美式紧身包臀裙  
+Tulip Skirt (Overlapping Panels): 荷兰郁金香裙 (优雅交叠片式)  
+Pegged Skirt (Tapered Hem): 法式锥形下摆半裙  
+Godet Skirt (Flared Inserts): 法式镶片喇叭裙 (戈代褶裙)  
+Trumpet Skirt (Fitted to Flared): 美式鱼尾裙 (修身至喇叭下摆)  
+Circle Skirt (Full Swing): 复古圆形大摆裙  
+Wide-leg Jumpsuit Pants: 法式阔腿连体裤 (裤子部分)  
+Paper Waist Tie-front Pants: 日式纸袋腰系带领长裤  
+Cigarette Pants (Slim Straight): 法式烟管裤 (优雅修身直筒)  
+Cropped Flare Pants: 意式九分微喇裤  
+Side-stripe Track Pants: 美式侧边条纹运动裤  
+Cargo Joggers: 美式工装束脚裤

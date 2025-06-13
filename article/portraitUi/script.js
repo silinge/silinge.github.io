@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyJsonBtn = document.getElementById('copyJsonBtn');
     const jsonOutput = document.getElementById('jsonOutput');
     const enumerationSelect = document.getElementById('enumerationSelect');
+    const enumerationSelect2 = document.getElementById('enumerationSelect2'); // Added for second enumeration
     const generateEnumerateEnBtn = document.getElementById('generateEnumerateEnBtn');
     const generateEnumerateZhBtn = document.getElementById('generateEnumerateZhBtn');
 
@@ -238,16 +239,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 初始检查性别相关字段
         handleGenderChange();
-        populateEnumerationSelect(listFiles); // Call this after listFiles is guaranteed to be populated
+        populateEnumerationSelect(listFiles, enumerationSelect); // Populate first enumeration select
+        populateEnumerationSelect(listFiles, enumerationSelect2); // Populate second enumeration select
     }
 
     // Populate enumeration select dropdown
-    function populateEnumerationSelect(listFiles) {
+    function populateEnumerationSelect(listFiles, selectElement) { // Added selectElement parameter
+        // Clear existing options except the first one if it's the placeholder
+        while (selectElement.options.length > 1) {
+            selectElement.remove(1);
+        }
+        // If the first option is not the placeholder, clear all
+        if (selectElement.options.length === 1 && selectElement.options[0].value !== "") {
+            selectElement.innerHTML = '<option value="">不进行穷举</option>';
+        }
+        // Ensure the default "不进行穷举" option is present if the select was empty
+        if (selectElement.options.length === 0) {
+            const defaultOption = document.createElement('option');
+            defaultOption.value = "";
+            defaultOption.textContent = "不进行穷举";
+            selectElement.appendChild(defaultOption);
+        }
+
         // Add age as an option for enumeration
         const ageOption = document.createElement('option');
         ageOption.value = 'age_list.txt'; // Use a consistent identifier
         ageOption.textContent = '年龄 (age)';
-        enumerationSelect.appendChild(ageOption);
+        selectElement.appendChild(ageOption.cloneNode(true)); // Use cloneNode for the second select
 
         listFiles.forEach(fileName => {
             if (fileName === 'gender_list.txt') return; // Gender is not typically enumerated in this context
@@ -259,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const categoryMatch = fileNameWithoutExt.match(/\((.*?)\)(.+)/);
             const displayName = categoryMatch ? `${categoryMatch[1]} (${categoryMatch[2].replace(/[_-]/g, ' ').trim()})` : fileNameWithoutExt.replace(/[_-]/g, ' ').trim();
             option.textContent = displayName;
-            enumerationSelect.appendChild(option);
+            selectElement.appendChild(option.cloneNode(true)); // Use cloneNode for the second select
         });
     }
 
@@ -576,35 +594,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // Generate JSON for enumeration
     async function generateEnumerationJson(language) {
         const selectedValues = {};
-        const enumerationTarget = enumerationSelect.value;
-        let enumerationKey = '';
-        let enumerationChineseKey = '';
+        const enumerationTarget1 = enumerationSelect.value;
+        const enumerationTarget2 = enumerationSelect2.value; // Get second enumeration target
 
-        // Get base selected values, excluding the enumeration target if it's a standard dropdown
+        let enumerationKey1 = '';
+        let enumerationChineseKey1 = '';
+        let enumerationKey2 = '';
+        let enumerationChineseKey2 = '';
+
+        // Get base selected values, excluding the enumeration targets if they are standard dropdowns
         for (const key in selectElements) {
             const select = selectElements[key];
             const selectedOption = select.options[select.selectedIndex];
             if (!selectedOption || selectedOption.value === 'none') continue;
 
-            // Determine the key for the JSON output
             let jsonKey = key;
             if (key === 'gender' || key === 'age') {
                 jsonKey = key;
             } else {
-                // For other dropdowns, use the English category from the dataset or fallback
-                jsonKey = select.id; // select.id should be the English category name
+                jsonKey = select.id;
             }
 
-            // If this key is the enumeration target, store its original key and skip adding it to base selectedValues
-            if (enumerationTarget && enumerationTarget.includes(key.replace(/ /g, ''))) { // Check if current key is part of enumeration target filename
-                enumerationKey = jsonKey;
-                enumerationChineseKey = select.dataset.chineseCategory || key;
-                continue; // Skip adding to base if it's the one to be enumerated
+            let isEnumerationTarget1 = false;
+            if (enumerationTarget1 && (enumerationTarget1.includes(key.replace(/ /g, '')) || (enumerationTarget1 === 'age_list.txt' && key === 'age'))) {
+                isEnumerationTarget1 = true;
+                enumerationKey1 = jsonKey;
+                enumerationChineseKey1 = select.dataset.chineseCategory || key;
             }
-            if (enumerationTarget === 'age_list.txt' && key === 'age'){
-                enumerationKey = 'age';
-                enumerationChineseKey = '年龄';
-                continue;
+
+            let isEnumerationTarget2 = false;
+            if (enumerationTarget2 && (enumerationTarget2.includes(key.replace(/ /g, '')) || (enumerationTarget2 === 'age_list.txt' && key === 'age'))) {
+                isEnumerationTarget2 = true;
+                enumerationKey2 = jsonKey;
+                enumerationChineseKey2 = select.dataset.chineseCategory || key;
+            }
+
+            if (isEnumerationTarget1 || isEnumerationTarget2) {
+                continue; // Skip adding to base if it's one of the enumeration targets
             }
 
             if (language === 'en') {
@@ -616,64 +642,105 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        if (!enumerationTarget) {
+        if (!enumerationTarget1 && !enumerationTarget2) {
             jsonOutput.textContent = JSON.stringify(selectedValues, null, 2);
             return;
         }
 
-        // Fetch and process the enumeration list
-        let enumerationItems = [];
-        if (enumerationTarget === 'age_list.txt') {
-            enumerationItems = createAgeOptions(); // Use existing age options function
-            if (language === 'zh') {
-                 // For Chinese, age is just the number
-            } else {
-                // For English, age is just the number
-            }
-            if (!enumerationKey) { // if age was not in selectElements (e.g. if it was removed or changed)
-                enumerationKey = 'age';
-                enumerationChineseKey = '年龄';
-            }
-        } else {
-            try {
-                const response = await fetch(`lists/${enumerationTarget}`);
-                if (!response.ok) throw new Error(`Failed to load ${enumerationTarget}`);
-                const text = await response.text();
-                enumerationItems = text.split('\n').map(line => line.trim()).filter(line => line);
+        // Helper function to fetch and process an enumeration list
+        async function getEnumerationList(target, langKey, langChineseKey) {
+            let items = [];
+            let keyEn = langKey;
+            let keyZh = langChineseKey;
 
-                // Determine the enumerationKey if not already set (e.g. from a dynamic list)
-                if (!enumerationKey) {
-                    const fileNameWithoutExt = enumerationTarget.replace('_list.txt', '');
-                    const categoryMatch = fileNameWithoutExt.match(/\((.*?)\)(.+)/);
-                    enumerationChineseKey = categoryMatch ? categoryMatch[1] : fileNameWithoutExt;
-                    enumerationKey = categoryMatch ? categoryMatch[2].replace(/[_-]/g, ' ').trim() : fileNameWithoutExt.replace(/[_-]/g, ' ').trim();
+            if (!target) return { items, keyEn, keyZh }; // Return empty if no target
+
+            if (target === 'age_list.txt') {
+                items = createAgeOptions();
+                if (!keyEn) keyEn = 'age';
+                if (!keyZh) keyZh = '年龄';
+            } else {
+                try {
+                    const response = await fetch(`lists/${target}`);
+                    if (!response.ok) throw new Error(`Failed to load ${target}`);
+                    const text = await response.text();
+                    items = text.split('\n').map(line => line.trim()).filter(line => line);
+
+                    if (!keyEn) {
+                        const fileNameWithoutExt = target.replace('_list.txt', '');
+                        const categoryMatch = fileNameWithoutExt.match(/\((.*?)\)(.+)/);
+                        keyZh = categoryMatch ? categoryMatch[1] : fileNameWithoutExt;
+                        keyEn = categoryMatch ? categoryMatch[2].replace(/[_-]/g, ' ').trim() : fileNameWithoutExt.replace(/[_-]/g, ' ').trim();
+                    }
+                } catch (error) {
+                    console.error('Error loading enumeration list:', error);
+                    jsonOutput.textContent = `Error loading enumeration list: ${error.message}`;
+                    return { items: [], keyEn, keyZh, error: true };
                 }
-            } catch (error) {
-                console.error('Error loading enumeration list:', error);
-                jsonOutput.textContent = `Error loading enumeration list: ${error.message}`;
-                return;
             }
+            return { items, keyEn, keyZh };
         }
 
+        const list1Details = await getEnumerationList(enumerationTarget1, enumerationKey1, enumerationChineseKey1);
+        const list2Details = await getEnumerationList(enumerationTarget2, enumerationKey2, enumerationChineseKey2);
+
+        if (list1Details.error || list2Details.error) return;
+
         const allGeneratedJson = [];
-        enumerationItems.forEach(item => {
-            const currentJson = { ...selectedValues };
-            let itemValueEn = item;
-            let itemValueZh = item;
 
-            if (item.includes(':')) {
-                const parts = item.split(':');
-                itemValueEn = parts[0].trim();
-                itemValueZh = parts[1].trim();
-            }
+        if (list1Details.items.length > 0 && list2Details.items.length > 0) {
+            // Cross enumeration
+            list1Details.items.forEach(item1 => {
+                list2Details.items.forEach(item2 => {
+                    const currentJson = { ...selectedValues };
+                    let item1ValueEn = item1, item1ValueZh = item1;
+                    let item2ValueEn = item2, item2ValueZh = item2;
 
-            if (language === 'en') {
-                currentJson[enumerationKey] = itemValueEn;
-            } else {
-                currentJson[enumerationChineseKey] = itemValueZh;
-            }
-            allGeneratedJson.push(currentJson);
-        });
+                    if (item1.includes(':')) { [item1ValueEn, item1ValueZh] = item1.split(':').map(s => s.trim()); }
+                    if (item2.includes(':')) { [item2ValueEn, item2ValueZh] = item2.split(':').map(s => s.trim()); }
+
+                    if (language === 'en') {
+                        currentJson[list1Details.keyEn] = item1ValueEn;
+                        currentJson[list2Details.keyEn] = item2ValueEn;
+                    } else {
+                        currentJson[list1Details.keyZh] = item1ValueZh;
+                        currentJson[list2Details.keyZh] = item2ValueZh;
+                    }
+                    allGeneratedJson.push(currentJson);
+                });
+            });
+        } else if (list1Details.items.length > 0) {
+            // Only first list has items
+            list1Details.items.forEach(item => {
+                const currentJson = { ...selectedValues };
+                let itemValueEn = item, itemValueZh = item;
+                if (item.includes(':')) { [itemValueEn, itemValueZh] = item.split(':').map(s => s.trim()); }
+
+                if (language === 'en') {
+                    currentJson[list1Details.keyEn] = itemValueEn;
+                } else {
+                    currentJson[list1Details.keyZh] = itemValueZh;
+                }
+                allGeneratedJson.push(currentJson);
+            });
+        } else if (list2Details.items.length > 0) {
+            // Only second list has items
+            list2Details.items.forEach(item => {
+                const currentJson = { ...selectedValues };
+                let itemValueEn = item, itemValueZh = item;
+                if (item.includes(':')) { [itemValueEn, itemValueZh] = item.split(':').map(s => s.trim()); }
+
+                if (language === 'en') {
+                    currentJson[list2Details.keyEn] = itemValueEn;
+                } else {
+                    currentJson[list2Details.keyZh] = itemValueZh;
+                }
+                allGeneratedJson.push(currentJson);
+            });
+        } else {
+            // No enumeration items, just output base selected values
+            allGeneratedJson.push(selectedValues);
+        }
 
         jsonOutput.textContent = allGeneratedJson.map(obj => JSON.stringify(obj, null, 2)).join('\n\n');
     }

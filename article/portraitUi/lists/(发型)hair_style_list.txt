@@ -1,117 +1,107 @@
-Afro: 爆炸头
-A-line bob: A字波波头
-Asymmetrical: 不对称发型
-Balayage: 渐层染
-Bald: 光头
-Ballerina bun: 芭蕾丸子头
-Bangs: 刘海
-Beehive: 蜂巢头
-Beehivecut: 蜂巢式剪发
-Bleached spikes: 漂白尖刺发型
-Blunt bob: 一刀切波波头
-Blunt: 一刀切
-Bob: 波波头
-Bouffant: 蓬松高髻
-Bowl: 锅盖头
-Box braids: 盒式辫
-Box fade: 盒形渐变发型
-Braided: 编发
-Braided bob: 编发波波头
-Braided pigtails: 编织双马尾
-Brave shortcut with shaved sides: 两侧剃短英气短发
-Bushy: 浓密蓬松
-Buzz: 寸头
-Caesar: 凯撒式短发
-Chignon: 发髻
-Choppy: 碎剪发型
-Cloudy: 云朵烫
-Cornrows: 垄沟辫
-Cornrows: 垄沟辫
-Crew: 平头
-Curly: 卷发
-Curly bob: 卷发波波头
-Curly Frizzy: 毛躁卷发
-Curtain bangs: 八字刘海
-Deep side part: 大偏分
-Double Bun: 双丸子头
-Dreadlocks: 脏辫
-Faded afro: 渐变爆炸头
-Faux hawk: 仿莫霍克发型
-Faux hawk short pixie: 仿莫霍克精灵短发
-Feathered: 羽毛剪发型
-Female bald: 女性光头
-Fishtail braids: 鱼骨辫
-Flat topcut: 平顶发型
-French bob: 法式波波头
-French braids: 法式辫
-French twist: 法式扭髻
-Frohawk: 爆炸头莫霍克发型
-Hair ringlets: 螺旋小卷发
-High ponytail: 高马尾
-High skin fade: 高渐变剃光头皮
-Honey: 蜂蜜色
-Italian bob: 意式波波头
-Layered: 层次发型
-Lemonade braids: 柠檬水辫
-Long bob: 中长波波头
-Long with bangs: 长发带刘海
-Long pixie: 长款精灵短发
-Long ponytail: 长马尾
-Long straight: 长直发
-Loose Curly Afro: 蓬松大卷爆炸头
-Marmaid waves: 美人鱼波浪卷
-Micro braids: 微型编辫
-Middle part ponytails: 中分双马尾
-Modern caesar: 现代凯撒式短发
-Mohawk: 莫霍克发型
-Multicolored: 多色
-Pastel: 粉彩色
-Pigtails: 双马尾
-Pixie: 精灵短发
-Platinum: 铂金色
-Pompadour: 蓬巴杜发型
-Quiff: 飞机头
-Razor fade with curls: 剃刀渐变卷发
-Red: 红色
-Right side shaved: 右侧剃短发型
-Salt and pepper: 黑白夹杂色
-Shag: 蓬松层次发型
-Short curly: 短卷发
-Short curly pixie: 短卷精灵发
-Short: 短发
-Short messy curls: 短款凌乱卷发
-Shoulder Length with Bangs: 及肩刘海发型
-Shoulder length straight: 及肩直发
-Side braid: 侧边编发
-Side Part Comb-Overstyle With High Fade: 偏分高渐变梳理发型
-Side-swept bangs: 斜刘海
-Side-swept fringe: 斜刘海
-Sideswept pixie: 斜刘海精灵短发
-Smooth lob: 顺滑中长波波头
-Space buns: 太空丸子头
-Spiky: 尖刺发型
-Spiky: 尖刺发型
-Stacked bob: 堆叠波波头
-Stacked Curls in Short Bob: 短波波头堆叠卷
-Stitch braids: 缝线辫
-Strawberry: 草莓金色
-Strawberry blonde: 草莓金色
-Sweeping pixie: 弧形刘海精灵短发
-Taper fade with waves: 锥形渐变波浪发
-Taperedcut with shaved side: 锥形剪裁侧剃发型
-Textured brush back: 纹理后梳发型
-Textured: 纹理感发型
-Tomboy: 中性风短发
-Top Knot: 高丸子头
-Twin braids: 双股辫
-Twintails: 双马尾
-Two dutch braids: 双股荷兰辫
-Undercut: 底部剃短发型
-Updo: 盘发造型
-Very long wave: 超长波浪发
-Waterfall braids: 瀑布辫
-Wavy: 波浪发
-Wavy bob: 波浪波波头
-Wavy with curtain bangs: 波浪八字刘海发型
-Wavy French Bob Vibes from 1920: 1920年代复古法式波浪波波头
+Afro: 爆炸头  
+A-line bob: A字波波头  
+Asymmetrical: 不对称发型  
+Balayage: 渐层染  
+Bald: 光头  
+Ballerina bun: 芭蕾丸子头  
+Bangs: 美式刘海  
+Beehive: 蜂巢头  
+Beehivecut: 蜂巢式剪发  
+Bleached spikes: 漂白尖刺发型  
+Blunt bob: 一刀切波波头  
+Blunt: 一刀切  
+Bob: 波波头  
+Bouffant: 蓬松高髻  
+Bowl: 锅盖头  
+Box braids: 盒式辫  
+Box fade: 盒形渐变发型  
+Braided: 编发  
+Braided bob: 编发波波头  
+Braided pigtails: 编织双马尾  
+Brave shortcut with shaved sides: 两侧剃短英气短发  
+Bushy: 浓密蓬松  
+Buzz: 寸头  
+Caesar: 凯撒式短发  
+Chignon: 法式发髻  
+Choppy: 碎剪发型  
+Cloudy: 云朵烫  
+Cornrows: 垄沟辫  
+Crew: 平头  
+Curly: 卷发  
+Curly bob: 卷发波波头  
+Curly Frizzy: 毛躁卷发  
+Curtain bangs: 八字刘海  
+Deep side part: 大偏分  
+Double Bun: 双丸子头  
+Dreadlocks: 脏辫  
+Faded afro: 渐变爆炸头  
+Faux hawk: 仿莫霍克发型  
+Faux hawk short pixie: 仿莫霍克精灵短发  
+Feathered: 羽毛剪发型  
+Female bald: 女性光头  
+Fishtail braids: 鱼骨辫  
+Flat topcut: 平顶发型  
+French bob: 法式波波头  
+French braids: 法式辫  
+French twist: 法式扭髻  
+Frohawk: 爆炸头莫霍克发型  
+Hair ringlets: 螺旋小卷发  
+High ponytail: 高马尾  
+High skin fade: 高渐变剃光头皮  
+Italian bob: 意式波波头  
+Layered: 层次发型  
+Lemonade braids: 柠檬水辫  
+Long bob: 中长波波头  
+Long with bangs: 长发带刘海  
+Long pixie: 长款精灵短发  
+Long ponytail: 长马尾  
+Long straight: 长直发  
+Loose Curly Afro: 蓬松大卷爆炸头  
+Marmaid waves: 美人鱼波浪卷  
+Micro braids: 微型编辫  
+Middle part ponytails: 中分双马尾  
+Modern caesar: 现代凯撒式短发  
+Mohawk: 莫霍克发型  
+Pigtails: 双马尾  
+Pixie: 精灵短发  
+Pompadour: 蓬巴杜发型  
+Quiff: 飞机头  
+Razor fade with curls: 剃刀渐变卷发  
+Right side shaved: 右侧剃短发型  
+Shag: 蓬松层次发型  
+Short curly: 短卷发  
+Short curly pixie: 短卷精灵发  
+Short: 短发  
+Short messy curls: 短款凌乱卷发  
+Shoulder Length with Bangs: 及肩刘海发型  
+Shoulder length straight: 及肩直发  
+Side braid: 侧边编发  
+Side Part Comb-Overstyle With High Fade: 偏分高渐变梳理发型  
+Side-swept bangs: 美式斜刘海  
+Side-swept fringe: 英式斜刘海  
+Sideswept pixie: 斜刘海精灵短发  
+Smooth lob: 顺滑中长波波头  
+Space buns: 太空丸子头  
+Spiky: 尖刺发型  
+Stacked bob: 堆叠波波头  
+Stacked Curls in Short Bob: 短波波头堆叠卷  
+Stitch braids: 缝线辫  
+Sweeping pixie: 弧形刘海精灵短发  
+Taper fade with waves: 锥形渐变波浪发  
+Taperedcut with shaved side: 锥形剪裁侧剃发型  
+Textured brush back: 纹理后梳发型  
+Textured: 纹理感发型  
+Tomboy: 中性风短发  
+Top Knot: 高丸子头  
+Twin braids: 双股辫  
+Twintails: 双马尾  
+Two dutch braids: 双股荷兰辫  
+Undercut: 底部剃短发型  
+Updo: 盘发造型  
+Very long wave: 超长波浪发  
+Waterfall braids: 瀑布辫  
+Wavy: 波浪发  
+Wavy bob: 波浪波波头  
+Wavy with curtain bangs: 波浪八字刘海发型  
+Wavy French Bob Vibes from 1920: 1920年代复古法式波浪波波头  
 Wavy undercut: 波浪底部剃短发型
