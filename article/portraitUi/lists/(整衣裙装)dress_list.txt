@@ -1,0 +1,125 @@
+Bohemian Dress: 波西米亚风连衣裙
+Flamenco Dress: 西班牙弗拉门戈连衣裙
+Kaftan Dress: 中东卡夫坦连衣裙
+Kimono Dress: 日式和服连衣裙
+Qipao Dress: 中式旗袍连衣裙
+Hanfu Dress: 汉服连衣裙
+Dirndl Dress: 德式传统连衣裙
+Celtic Dress: 凯尔特风连衣裙
+Scandinavian Dress: 北欧风连衣裙
+French Peasant Dress: 法式田园连衣裙
+Prairie Dress: 美式草原连衣裙
+Southern Belle Dress: 美国南方贵妇连衣裙
+Victorian Dress: 维多利亚风连衣裙
+Edwardian Dress: 爱德华时代连衣裙
+Art Deco Dress: 装饰艺术风连衣裙
+1950s Swing Dress: 50年代摇摆连衣裙
+1960s Mod Dress: 60年代摩登连衣裙
+1970s Hippie Dress: 70年代嬉皮连衣裙
+Dashiki Dress: 西非达希基连衣裙
+Kente Dress: 加纳肯特布连衣裙
+Ankara Dress: 安卡拉印花连衣裙
+Boubou Dress: 西非布布袍连衣裙
+Dirac Dress: 索马里传统连衣裙
+Sari Dress: 印度纱丽连衣裙
+Lehenga Dress: 印度长裙套装
+Salwar Kameez: 南亚传统套装
+Thai Dress: 泰式传统连衣裙
+Vietnamese Ao Dai: 越南奥黛连衣裙
+Indonesian Kebaya: 印尼传统连衣裙
+Malay Baju Kurung: 马来传统连衣裙
+Huipil Dress: 中美洲传统连衣裙
+Mexican Tehuana Dress: 墨西哥特华纳连衣裙
+Bolivian Pollera Dress: 玻利维亚传统连衣裙
+Peruvian Andean Dress: 秘鲁安第斯连衣裙
+Argentine Gaucho Dress: 阿根廷高乔女装
+Brazilian Carnival Dress: 巴西嘉年华连衣裙
+Colombian Cumbia Dress: 哥伦比亚康比亚连衣裙
+Greek Traditional Dress: 希腊传统连衣裙
+Russian Sarafan Dress: 俄式萨拉凡连衣裙
+Polish Folk Dress: 波兰民族连衣裙
+Ukrainian Vyshyvanka Dress: 乌克兰刺绣连衣裙
+Italian Regional Dress: 意大利地方连衣裙
+Scottish Highland Dress: 苏格兰高地连衣裙
+Irish Celtic Dress: 爱尔兰凯尔特连衣裙
+Welsh Traditional Dress: 威尔士传统连衣裙
+Nordic Folk Dress: 北欧民族连衣裙
+Icelandic Lopapeysa Dress: 冰岛传统连衣裙
+Finnish Karelian Dress: 芬兰卡累利阿连衣裙
+Estonian Folk Dress: 爱沙尼亚民族连衣裙
+Latvian Traditional Dress: 拉脱维亚传统连衣裙
+Lithuanian Folk Dress: 立陶宛民族连衣裙
+Czech Moravian Dress: 捷克摩拉维亚连衣裙
+Hungarian Folk Dress: 匈牙利民族连衣裙
+Romanian Traditional Dress: 罗马尼亚传统连衣裙
+Bulgarian Folk Dress: 保加利亚民族连衣裙
+Serbian Traditional Dress: 塞尔维亚传统连衣裙
+Croatian Folk Dress: 克罗地亚民族连衣裙
+Slovenian Traditional Dress: 斯洛文尼亚传统连衣裙
+Austrian Tracht Dress: 奥地利传统连衣裙
+Swiss Alpine Dress: 瑞士阿尔卑斯连衣裙
+Bavarian Folk Dress: 巴伐利亚民族连衣裙
+Dutch Traditional Dress: 荷兰传统连衣裙
+Belgian Folk Dress: 比利时民族连衣裙
+Portuguese Traditional Dress: 葡萄牙传统连衣裙
+Spanish Regional Dress: 西班牙地方连衣裙
+Catalan Traditional Dress: 加泰罗尼亚传统连衣裙
+Basque Folk Dress: 巴斯克民族连衣裙
+Galician Traditional Dress: 加利西亚传统连衣裙
+Andalusian Flamenco Dress: 安达卢西亚弗拉门戈连衣裙
+Moroccan Caftan Dress: 摩洛哥卡夫坦连衣裙
+Turkish Traditional Dress: 土耳其传统连衣裙
+Persian Dress: 波斯传统连衣裙
+Lebanese Traditional Dress: 黎巴嫩传统连衣裙
+Syrian Folk Dress: 叙利亚民族连衣裙
+Jordanian Traditional Dress: 约旦传统连衣裙
+Palestinian Thob Dress: 巴勒斯坦传统连衣裙
+Egyptian Galabeya Dress: 埃及传统连衣裙
+Sudanese Thob Dress: 苏丹传统连衣裙
+Ethiopian Traditional Dress: 埃塞俄比亚传统连衣裙
+Kenyan Maasai Dress: 肯尼亚马赛连衣裙
+Tanzanian Kitenge Dress: 坦桑尼亚基滕盖连衣裙
+Ugandan Gomesi Dress: 乌干达传统连衣裙
+Rwandan Traditional Dress: 卢旺达传统连衣裙
+South African Shweshwe Dress: 南非传统印花连衣裙
+Botswana Traditional Dress: 博茨瓦纳传统连衣裙
+Namibian Herero Dress: 纳米比亚赫雷罗连衣裙
+Zambian Chitenge Dress: 赞比亚奇滕盖连衣裙
+Zimbabwean Traditional Dress: 津巴布韦传统连衣裙
+Mozambican Capulana Dress: 莫桑比克传统连衣裙
+Malawian Traditional Dress: 马拉维传统连衣裙
+Abaya Dress: 阿拉伯长袍连衣裙
+Jalabiya Dress: 中东传统连衣裙
+Takchita Dress: 摩洛哥传统连衣裙
+Afghan Traditional Dress: 阿富汗传统连衣裙
+Pakistani Gharara Dress: 巴基斯坦传统连衣裙
+Bangladeshi Sharee Dress: 孟加拉国纱丽连衣裙
+Sri Lankan Osariya Dress: 斯里兰卡传统连衣裙
+Bhutanese Kira Dress: 不丹传统连衣裙
+Tibetan Chuba Dress: 藏族楚巴连衣裙
+Mongolian Deel Dress: 蒙古族传统连衣裙
+Korean Hanbok Dress: 韩式韩服连衣裙
+Chinese Tang Dress: 中式唐装连衣裙
+Taiwanese Aboriginal Dress: 台湾原住民连衣裙
+Hong Kong Cheongsam Dress: 港式旗袍连衣裙
+Macanese Traditional Dress: 澳门传统连衣裙
+Filipino Baro't Saya Dress: 菲律宾传统连衣裙
+Malaysian Kebaya Dress: 马来西亚传统连衣裙
+Singaporean Peranakan Dress: 新加坡娘惹连衣裙
+Brunei Traditional Dress: 文莱传统连衣裙
+Indonesian Batik Dress: 印尼蜡染连衣裙
+Cambodian Sampot Dress: 柬埔寨传统连衣裙
+Laotian Sinh Dress: 老挝传统连衣裙
+Myanmar Longyi Dress: 缅甸传统连衣裙
+Australian Bush Dress: 澳洲乡村连衣裙
+New Zealand Maori Dress: 新西兰毛利连衣裙
+Polynesian Traditional Dress: 波利尼西亚传统连衣裙
+Hawaiian Muumuu Dress: 夏威夷传统连衣裙
+Fijian Sulu Dress: 斐济传统连衣裙
+Samoan Traditional Dress: 萨摩亚传统连衣裙
+Tongan Traditional Dress: 汤加传统连衣裙
+Papua New Guinea Dress: 巴布亚新几内亚连衣裙
+Solomon Islands Dress: 所罗门群岛连衣裙
+Vanuatu Traditional Dress: 瓦努阿图传统连衣裙
+Tahitian Traditional Dress: 大溪地传统连衣裙
+Cook Islands Dress: 库克群岛连衣裙

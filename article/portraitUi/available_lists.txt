@@ -15,6 +15,7 @@
 (妆容)makeup_list.txt
 (妆容颜色)makeup_color_list.txt
 (帽子)hats_list.txt
+(整衣裙装)dress_list.txt
 (混合国籍)nationality2nd_list.txt
 (照片效果)style_list.txt
 (男上装)male_upper_garments_list.txt
