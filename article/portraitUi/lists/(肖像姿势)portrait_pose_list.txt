@@ -1,20 +1,75 @@
-Thinking Position（思考）
-Over-the-Shoulder Look（回眸一笑）
-Sitting Cross-legged（盘腿坐）
-Leaning on a Wall（靠墙站）
-Hands in Pockets（双手插兜）
-Looking Up（抬头望天）
-Covering Face Slightly（轻遮面部）
-Lying on Stomach（趴着拍）
-Lying on Back with Legs Up Wall（躺着抬腿）
-Sitting on the Edge（坐在边缘）
-Walking Toward the Camera（走向镜头）
-Back to Camera（背对镜头）
-Candid Laugh（自然大笑）
-Hair Flip（甩头发）
-Hand on Chin（手托下巴）
-Close-up Hands or Eyes（特写）
-Crossing Arms（抱臂）
-Mirror Selfie Pose（镜子自拍）
-Bending Slightly Forward（前倾）
-Jumping or Action Shot（跳跃或动态照）
+Three-Quarter Turn : 四分之三转身
+Weight on Back Foot : 重心后移
+Standing with Crossed Legs : 站立交叉腿
+S-Shape Pose : S型姿势
+Hands on Hips : 手叉腰
+Shoulder Pop : 挺肩膀
+Standing with Arms Up : 双臂上举
+One Foot Against Wall : 单脚靠墙
+Hands Cinching Waist : 双手收腰
+Sitting with Legs Extended : 坐姿伸腿
+Sitting with One Leg Bent : 坐姿单腿弯曲
+Sitting with Elbow on Knee : 坐姿肘撑膝
+Sitting with Legs Wide : 坐姿双腿分开
+Cross-Legged on Ground : 地面盘腿坐
+Leaning Back : 向后倚靠
+Leaning with One Leg Bent : 倚靠单腿弯曲
+Leaning Against Wall with Leg Up : 靠墙抬腿
+Elbows Resting : 肘部支撑
+Leaning on Object : 倚靠物体
+Hands Together in Front : 双手交叉胸前
+Hand on Shoulder : 手搭肩膀
+Touching Face : 抚摸面部
+Holding Collar : 拉衣领
+Hands Behind Back : 双手背后
+Soft Drawn-in Shoulders : 柔和收肩
+Walking with Hand in Pocket : 走路单手插兜
+Fluid Pose with Arm Out : 流动伸臂姿势
+Twisting Motion : 扭转动作
+Hair Toss : 抛头发
+Spinning Around : 转圈动作
+Indirect Gaze : 侧视
+Angled Shoulder : 斜肩姿势
+Side Profile : 侧面轮廓
+Looking Down : 低头看
+Mysterious Look : 神秘表情
+Crouching Pose : 蹲姿
+Exaggerated Leaning : 夸张倚靠
+Dramatic Head Tilt : 戏剧性侧头
+Power Pose : 力量姿势
+Windblown Effect : 风吹效果
+Hug from Behind : 背后拥抱
+Piggyback : 背驮
+Frontal Hug : 正面拥抱
+Side by Side : 并肩站立
+Intertwined Arms : 挽臂
+Natural Walking : 自然行走
+Casual Sitting : 随意坐姿
+Relaxed Standing : 放松站立
+Playful Interaction : 玩乐互动
+Candid Movement : 自然动作
+Low Angle Shot : 低角度拍摄
+High Angle View : 高角度俯视
+Three-Quarter Profile : 四分之三侧面
+Full Length Shot : 全身拍摄
+Perspective Shot : 透视拍摄
+Thinking Position : 思考
+Over-the-Shoulder Look : 回眸一笑
+Sitting Cross-legged : 盘腿坐
+Leaning on a Wall : 靠墙站
+Hands in Pockets : 双手插兜
+Looking Up : 抬头望天
+Covering Face Slightly : 轻遮面部
+Lying on Stomach : 趴着拍
+Lying on Back with Legs Up Wall : 躺着抬腿
+Sitting on the Edge : 坐在边缘
+Walking Toward the Camera : 走向镜头
+Back to Camera : 背对镜头
+Candid Laugh : 自然大笑
+Hair Flip : 甩头发
+Hand on Chin : 手托下巴
+Close-up Hands or Eyes : 特写
+Crossing Arms : 抱臂
+Mirror Selfie Pose : 镜子自拍
+Bending Slightly Forward : 前倾
+Jumping or Action Shot : 跳跃或动态照

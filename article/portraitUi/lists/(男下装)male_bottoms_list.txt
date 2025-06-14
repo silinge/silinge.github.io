@@ -1,70 +1,253 @@
-Jeans: 牛仔裤
-Chino (Cotton Twill Trousers): 卡其裤 (棉质斜纹裤)
-Shorts: 短裤
-Cargo Pants: 工装裤
-Sweatpants: 运动裤 (休闲棉裤)
-Jogger Pants: 束脚运动裤
-Dress Pants (Suit Trousers): 西裤
-Khakis: 卡其裤
-Track Pants: 运动长裤 (田径裤)
-Cargo Shorts: 工装短裤
-Bermuda Shorts: 百慕大短裤
-Swim Trunks: 泳裤
-Boxer Briefs (Underwear): 平角内裤
-Trunks (Shorter Swimwear): 短款泳裤
-Work Pants (Utility Pants): 工作裤 (多功能裤)
-Carpenter Pants: 木匠裤
-Hiking Pants: 登山裤
-Breeches (Equestrian/Riding Pants): 马裤 (骑行裤)
-Overalls (Dungarees): 背带裤
-Waxed Cotton Trousers (Countrywear): 涂蜡棉布裤 (乡村风格)
-Fishing Pants (Quick-dry): 钓鱼裤 (速干)
-Tactical Pants (Military-inspired): 战术裤 (军事风格)
-Kilt (Scottish Tartan Skirt): 苏格兰短裙
-Hakama (Japanese Pleated Trousers): 袴 (日式褶裥裤)
-Dhoti (Indian Loincloth): 印度腰布 (兜提)
-Lungi (South Asian Wrapped Garment): 隆基 (南亚裹身服)
-Sarong (Southeast Asian Wrapped Skirt): 纱笼 (东南亚裹裙)
-Sherwani Pajama (South Asian Formal Set): 谢尔瓦尼睡衣套装 (南亚正装)
-Shalwar (Loose South Asian Trousers): 沙尔瓦裤 (南亚宽松裤)
-Aladdin Pants (Harem-style): 阿拉丁裤 (哈伦裤风格)
-Thai Fisherman Pants (Wide-leg Wrap): 泰式渔夫裤 (阔腿裹裤)
-Plus Fours (1920s Golf Trousers): 灯笼裤 (1920年代高尔夫裤)
-Knickerbockers (19th-century Cuffed Trousers): 灯笼裤 (19世纪束口裤)
-Breeches (18th-century Knee-length): 及膝裤 (18世纪)
-Pantaloons (Colonial-era Tight Fit): 紧身长裤 (殖民时代)
-Oxford Bags (1930s Wide-leg Trousers): 牛津袋裤 (1930年代阔腿裤)
-Zoot Suit Pants (1940s High-waisted): 佐特西装裤 (1940年代高腰裤)
-Sailor Trousers (Nautical Wide-leg): 水手裤 (航海风阔腿裤)
-Cycling Bib Shorts: 骑行背带短裤
-Compression Tights: 压缩紧身裤
-Baseball Pants (Stirrup Style): 棒球裤 (马蹬款式)
-Rugby Shorts: 橄榄球短裤
-Board Shorts (Surf Style): 沙滩裤 (冲浪风格)
-Climbing Pants (Gusseted Crotch): 攀岩裤 (裆部加固)
-Ski Pants (Insulated): 滑雪裤 (保暖)
-Motocross Pants (Padded): 越野摩托车裤 (带护垫)
-Corduroy Pants: 灯芯绒裤
-Linen Trousers: 亚麻裤
-Seersucker Pants: 泡泡纱裤
-Leather Pants: 皮裤
-Denim Overalls: 牛仔背带裤
-Pleated Trousers: 褶裥裤
-Flat Front Trousers: 平面前襟裤
-Wide-leg Pants: 阔腿裤
-Cropped Ankle Pants: 九分裤 (露踝裤)
-Jodhpurs (Horse-riding Tapered): 马裤 (骑马用锥形裤)
-Parachute Pants (1980s Hip-hop Style): 降落伞裤 (1980年代嘻哈风格)
-Palazzo Pants (Ultra-wide Leg): 阔腿裤 (超宽裤腿)
-Gaucho Pants (South American Flared): 高乔裤 (南美喇叭裤)
-Karakul Trousers (Central Asian Wool): 卡拉库尔羊毛裤 (中亚)
-Samurai Hakama (Traditional Japanese): 武士袴 (传统日式)
-Gho (Bhutanese Knee-length Robe): 帼 (不丹及膝长袍，下半部分类似裤装)
-Kameez Shalwar (Pakistani Matching Set): 卡米兹沙尔瓦套装 (巴基斯坦)
-Dashiki Pants (African Print Trousers): 达西奇裤 (非洲印花裤)
-Patiala Salwar (Indian Baggy Trousers): 帕蒂亚拉沙尔瓦裤 (印度宽松裤)
-Tuxedo Pants (Formal Satin Stripe): 晚礼服裤 (侧边缎条)
-Tailored Culottes (Knee-length): 定制及膝中裤
-Drop-crotch Pants (Avant-garde): 低裆裤 (前卫风格)
-Jacquard Pattern Trousers: 提花图案裤
-Velvet Pants (Evening Wear): 天鹅绒裤 (晚装)
+Jeans : 牛仔裤
+Chinos : 卡其裤
+Shorts : 短裤
+Cargo Pants : 工装裤
+Sweatpants : 运动裤
+Jogger Pants : 束脚运动裤
+Dress Pants : 西裤
+Track Pants : 运动长裤
+Cargo Shorts : 工装短裤
+Bermuda Shorts : 百慕大短裤
+Swim Trunks : 泳裤
+Board Shorts : 沙滩裤
+Boxer Shorts : 平角短裤
+Work Pants : 工作裤
+Carpenter Pants : 木匠裤
+Hiking Pants : 登山裤
+Overalls : 背带裤
+Fishing Pants : 钓鱼裤
+Tactical Pants : 战术裤
+Climbing Pants : 攀岩裤
+Ski Pants : 滑雪裤
+Motocross Pants : 越野摩托车裤
+Corduroy Pants : 灯芯绒裤
+Linen Trousers : 亚麻裤
+Seersucker Pants : 泡泡纱裤
+Leather Pants : 皮裤
+Pleated Trousers : 褶裥裤
+Flat Front Trousers : 平面前襟裤
+Wide-leg Pants : 阔腿裤
+Cropped Pants : 九分裤
+Tuxedo Pants : 晚礼服裤
+Drop-crotch Pants : 低裆裤
+Jacquard Trousers : 提花图案裤
+Velvet Pants : 天鹅绒裤
+Compression Tights : 压缩紧身裤
+Cycling Shorts : 骑行短裤
+Baseball Pants : 棒球裤
+Rugby Shorts : 橄榄球短裤
+Basketball Shorts : 篮球短裤
+Soccer Shorts : 足球短裤
+Tennis Shorts : 网球短裤
+Golf Pants : 高尔夫裤
+Running Shorts : 跑步短裤
+Gym Shorts : 健身短裤
+Athletic Shorts : 运动短裤
+Mesh Shorts : 网眼短裤
+Performance Pants : 功能性长裤
+Moisture-Wicking Pants : 速干裤
+Breathable Shorts : 透气短裤
+Stretch Pants : 弹力裤
+Slim Fit Jeans : 修身牛仔裤
+Straight Leg Jeans : 直筒牛仔裤
+Bootcut Jeans : 喇叭牛仔裤
+Skinny Jeans : 紧身牛仔裤
+Relaxed Fit Jeans : 宽松牛仔裤
+Tapered Jeans : 锥形牛仔裤
+Raw Denim : 原色牛仔布
+Distressed Jeans : 做旧牛仔裤
+Ripped Jeans : 破洞牛仔裤
+Acid Wash Jeans : 酸洗牛仔裤
+Stone Wash Jeans : 石磨牛仔裤
+Dark Wash Jeans : 深色牛仔裤
+Light Wash Jeans : 浅色牛仔裤
+High-Waisted Pants : 高腰裤
+Low-Rise Pants : 低腰裤
+Mid-Rise Pants : 中腰裤
+Belted Pants : 腰带裤
+Drawstring Pants : 抽绳裤
+Elastic Waist Pants : 松紧腰裤
+Button Fly Jeans : 纽扣门襟牛仔裤
+Zip Fly Pants : 拉链门襟裤
+Side Stripe Pants : 侧条纹裤
+Pinstripe Trousers : 细条纹西裤
+Houndstooth Pants : 千鸟格裤
+Check Pattern Pants : 格纹裤
+Solid Color Pants : 纯色裤
+Printed Pants : 印花裤
+Camouflage Pants : 迷彩裤
+Scottish Kilt : 苏格兰式短裙
+Japanese Hakama : 日式袴
+Indian Dhoti : 印度式腰布
+South Asian Lungi : 南亚式隆基
+Southeast Asian Sarong : 东南亚式纱笼
+Pakistani Shalwar : 巴基斯坦式沙尔瓦裤
+Middle Eastern Sirwal : 中东式宽松裤
+Thai Fisherman Pants : 泰式渔夫裤
+Aladdin Pants : 阿拉丁裤
+Harem Pants : 哈伦裤
+Afghan Pants : 阿富汗式宽松裤
+Turkish Shalvar : 土耳其式沙尔瓦裤
+Chinese Tang Pants : 中式唐裤
+Korean Hanbok Pants : 韩式韩服裤
+Moroccan Pants : 摩洛哥式长裤
+Egyptian Galabiya Pants : 埃及式加拉比亚裤
+Peruvian Pants : 秘鲁式长裤
+Mexican Charro Pants : 墨西哥式查罗裤
+Gaucho Pants : 南美式高乔裤
+Mongolian Deel Pants : 蒙古式德勒裤
+Tibetan Chuba Pants : 藏式楚巴裤
+Bhutanese Gho Pants : 不丹式帼裤
+Plus Fours : 英式灯笼裤
+Knickerbockers : 欧式灯笼裤
+Oxford Bags : 英式牛津袋裤
+Zoot Suit Pants : 美式佐特西装裤
+Sailor Pants : 美式水手裤
+Military Fatigues : 军式作训裤
+Combat Pants : 战斗裤
+BDU Pants : 美军作战服裤
+ACU Pants : 美军通用迷彩裤
+Utility Pants : 多功能裤
+Mechanic Pants : 机械师裤
+Chef Pants : 厨师裤
+Medical Scrubs : 医用手术裤
+Laboratory Pants : 实验室裤
+Uniform Pants : 制服裤
+School Uniform Pants : 校服裤
+Security Pants : 保安裤
+Fire-Resistant Pants : 阻燃裤
+High-Visibility Pants : 高可见度裤
+Reflective Pants : 反光裤
+Waterproof Pants : 防水裤
+Windproof Pants : 防风裤
+Insulated Pants : 保暖裤
+Thermal Pants : 保暖内裤
+Long Johns : 棉毛裤
+Base Layer Pants : 基础层裤
+Mid Layer Pants : 中间层裤
+Shell Pants : 外壳层裤
+Softshell Pants : 软壳裤
+Hardshell Pants : 硬壳裤
+Gore-Tex Pants : 戈尔特斯裤
+Neoprene Pants : 氯丁橡胶裤
+Waders : 防水连体裤
+Hip Waders : 齐腰防水裤
+Chest Waders : 齐胸防水裤
+Wetsuit Pants : 潜水服裤
+Drysuit Pants : 干式潜水服裤
+Surfing Pants : 冲浪裤
+Diving Pants : 潜水裤
+Sailing Pants : 帆船裤
+Kayaking Pants : 皮划艇裤
+Canoeing Pants : 独木舟裤
+Rowing Pants : 赛艇裤
+Triathlon Pants : 铁人三项裤
+Marathon Pants : 马拉松裤
+Cycling Pants : 骑行裤
+Mountain Biking Pants : 山地自行车裤
+Road Cycling Pants : 公路自行车裤
+BMX Pants : BMX自行车裤
+Skateboarding Pants : 滑板裤
+Snowboarding Pants : 滑雪板裤
+Cross-Country Ski Pants : 越野滑雪裤
+Downhill Ski Pants : 高山滑雪裤
+Freestyle Ski Pants : 自由式滑雪裤
+Ice Hockey Pants : 冰球裤
+Figure Skating Pants : 花样滑冰裤
+Speed Skating Pants : 速度滑冰裤
+Roller Skating Pants : 轮滑裤
+Inline Skating Pants : 直排轮滑裤
+Wrestling Singlet : 摔跤连体衣
+Boxing Shorts : 拳击短裤
+MMA Shorts : 综合格斗短裤
+Martial Arts Pants : 武术裤
+Karate Gi Pants : 空手道服裤
+Judo Gi Pants : 柔道服裤
+Taekwondo Pants : 跆拳道裤
+Kung Fu Pants : 功夫裤
+Tai Chi Pants : 太极裤
+Yoga Pants : 瑜伽裤
+Pilates Pants : 普拉提裤
+Dance Pants : 舞蹈裤
+Ballet Tights : 芭蕾舞紧身裤
+Jazz Dance Pants : 爵士舞裤
+Hip-Hop Pants : 嘻哈舞裤
+Breakdance Pants : 霹雳舞裤
+Contemporary Dance Pants : 现代舞裤
+Ballroom Dance Pants : 交谊舞裤
+Latin Dance Pants : 拉丁舞裤
+Tango Pants : 探戈舞裤
+Flamenco Pants : 弗拉明戈舞裤
+Folk Dance Pants : 民族舞裤
+Traditional Dance Pants : 传统舞蹈裤
+Ceremonial Pants : 礼仪裤
+Formal Pants : 正装裤
+Semi-Formal Pants : 半正装裤
+Casual Pants : 休闲裤
+Business Casual Pants : 商务休闲裤
+Smart Casual Pants : 时尚休闲裤
+Weekend Pants : 周末裤
+Vacation Pants : 度假裤
+Beach Pants : 海滩裤
+Resort Pants : 度假村裤
+Tropical Pants : 热带裤
+Summer Pants : 夏季裤
+Winter Pants : 冬季裤
+Spring Pants : 春季裤
+Fall Pants : 秋季裤
+All-Season Pants : 四季裤
+Transitional Pants : 过渡季裤
+Layering Pants : 叠穿裤
+Convertible Pants : 可转换裤
+Zip-Off Pants : 可脱卸裤腿裤
+Roll-Up Pants : 可卷起裤
+Adjustable Pants : 可调节裤
+Reversible Pants : 双面穿裤
+Quick-Dry Pants : 快干裤
+Anti-Odor Pants : 抗菌除臭裤
+UV Protection Pants : 防紫外线裤
+Sun Protection Pants : 防晒裤
+Cooling Pants : 凉感裤
+Warming Pants : 保暖裤
+Temperature Regulating Pants : 调温裤
+Moisture Management Pants : 湿度管理裤
+Sweat-Resistant Pants : 防汗裤
+Stain-Resistant Pants : 防污裤
+Wrinkle-Free Pants : 免烫裤
+Easy Care Pants : 易护理裤
+Machine Washable Pants : 可机洗裤
+Dry Clean Only Pants : 只能干洗裤
+Sustainable Pants : 可持续裤
+Eco-Friendly Pants : 环保裤
+Organic Cotton Pants : 有机棉裤
+Recycled Material Pants : 再生材料裤
+Bamboo Pants : 竹纤维裤
+Hemp Pants : 大麻纤维裤
+Tencel Pants : 天丝裤
+Modal Pants : 莫代尔裤
+Merino Wool Pants : 美利奴羊毛裤
+Alpaca Wool Pants : 羊驼毛裤
+Cashmere Pants : 羊绒裤
+Silk Pants : 丝质裤
+Cotton Pants : 棉质裤
+Polyester Pants : 聚酯纤维裤
+Nylon Pants : 尼龙裤
+Spandex Pants : 氨纶裤
+Elastane Pants : 弹性纤维裤
+Lycra Pants : 莱卡裤
+Microfiber Pants : 微纤维裤
+Fleece Pants : 抓绒裤
+Terry Pants : 毛圈裤
+Flannel Pants : 法兰绒裤
+Twill Pants : 斜纹裤
+Canvas Pants : 帆布裤
+Denim Pants : 丹宁裤
+Chambray Pants : 青年布裤
+Poplin Pants : 府绸裤
+Gabardine Pants : 华达呢裤
+Worsted Pants : 精纺毛料裤
+Flannel Wool Pants : 法兰绒羊毛裤
+Tweed Pants : 粗花呢裤
+Herringbone Pants : 人字纹裤
+Plaid Pants : 格子裤
+Tartan Pants : 苏格兰格纹裤
