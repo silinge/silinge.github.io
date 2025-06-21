@@ -72,7 +72,6 @@ Skipping Pose: 轻快跳跃姿势
 Smoking Pose: 吸烟姿势
 Standing Pose: 站姿
 Stretching Pose: 伸展姿势
-The Over-the-Shoulder Look Pose: 过肩回眸姿势
 Tilted Head Pose: 歪头姿势
 Touching Ear Pose: 摸耳朵姿势
 Touching Face Pose: 抚脸姿势
@@ -84,3 +83,58 @@ Walking Pose: 行走姿势
 Watercolor Makeup Pose: 水彩妆容姿势
 Waving Hand Pose: 挥手姿势
 Yoga Pose: 瑜伽姿势
+Crossed Arms Pose: 双臂交叉姿势
+Blowing a Kiss Pose: 飞吻姿势
+Peace Sign Pose: 比“V”手势姿势
+Pointing Pose: 指向姿势
+Hands in Pockets Pose: 双手插兜姿势
+Leaning Forward Pose: 前倾姿势
+Leaning Backward Pose: 后仰姿势
+Squatting Pose: 蹲姿
+Piggyback Pose: 背人姿势
+Jumping for Joy Pose: 欢快跳跃姿势
+Shoulder Shrug Pose: 耸肩姿势
+Holding Flowers Pose: 拿花姿势
+Holding Book Pose: 拿书姿势
+Holding Umbrella Pose: 撑伞姿势
+Looking Down Pose: 低头姿势
+Looking Up Pose: 仰望姿势
+Covering Mouth Pose: 捂嘴姿势
+Covering Eyes Pose: 捂眼姿势
+Hand on Chin Pose: 托腮姿势
+Hand on Cheek Pose: 手扶脸颊姿势
+Hands Behind Back Pose: 双手背后姿势
+Hands Behind Head Pose: 双手抱头姿势
+Hands on Knees Pose: 双手扶膝姿势
+Holding Hat Pose: 扶帽子姿势
+Hugging Pose: 拥抱姿势
+Selfie Pose: 自拍姿势
+Side Profile Pose: 侧脸姿势
+Back to Camera Pose: 背对镜头姿势
+Looking Over Glasses Pose: 眼镜下方看姿势
+Holding Ball Pose: 拿球姿势
+Blowing Bubbles Pose: 吹泡泡姿势
+Holding Camera Pose: 拿相机姿势
+Holding Book Open Pose: 打开书本姿势
+Resting Head on Hands Pose: 头靠手姿势
+Hand on Forehead Pose: 手扶额头姿势
+Hands on Table Pose: 双手放桌上姿势
+Peeking Pose: 偷看姿势
+Hands Clasped Pose: 双手交握姿势
+Praying Pose: 祈祷姿势
+Victory Pose: 胜利姿势
+Hands on Shoulders Pose: 双手搭肩姿势
+Arms Crossed Behind Head Pose: 双臂交叉抱头姿势
+Hands on Waist Pose: 双手扶腰姿势
+Finger on Lips Pose: 手指放唇前姿势
+Hands Framing Face Pose: 双手托脸姿势
+Kicking Pose: 踢腿姿势
+Holding Pillow Pose: 抱枕姿势
+Lying on Stomach Pose: 趴卧姿势
+Looking Through Fingers Pose: 手指间看姿势
+Holding Coffee Cup Pose: 拿咖啡杯姿势
+Leaning on Table Pose: 倚桌姿势
+Holding Book to Chest Pose: 书本抱胸姿势
+Looking at Watch Pose: 看手表姿势
+Holding Balloons Pose: 拿气球姿势
+Blowing Dandelion Pose: 吹蒲公英姿势
