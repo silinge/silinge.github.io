@@ -1,8 +1,8 @@
 Anime Makeup: 动漫妆
 Artistic Makeup: 艺术妆
 Avant-garde Makeup: 前卫妆
-Bohemian Makeup: 波西米亚妆
-Boho Makeup: 波西米亚风妆容
+Bohemian Makeup: 艺术复古波西米亚妆
+Boho Makeup: 简约波西米亚风妆容
 Classic Makeup: 经典妆
 Cut Crease Makeup: 截断式眼妆
 Dewy Makeup: 水光妆
@@ -16,5 +16,5 @@ Natural Makeup: 自然妆
 Party Makeup: 派对妆
 Retro Makeup: 复古妆
 Sunset Eye Makeup: 日落眼妆
-Vintage Makeup: 复古妆
+Vintage Makeup:怀旧妆
 Watercolor Makeup: 水彩妆
