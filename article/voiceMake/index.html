@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>法语单词朗读动画生成器 — CDN 版本（带导出）</title>
+<style>
+  body{font-family: Arial, "Microsoft YaHei", sans-serif; margin:18px; background:#f6f8fa; color:#111;}
+  h1{margin:0 0 12px}
+  .row{display:flex; gap:16px; flex-wrap:wrap;}
+  .col{flex:1; min-width:300px;}
+  label{display:inline-block; width:110px;}
+  input[type="text"]{width:calc(100% - 120px); padding:6px; margin-bottom:8px;}
+  button{padding:8px 12px; margin:6px 6px 6px 0;}
+  #canvasWrap{border:1px solid #ddd; background:#fff; display:inline-block; overflow:hidden; margin-top:12px;}
+  .preview-16-9{width:640px; height:360px;}
+  .preview-9-16{width:360px; height:640px;}
+  canvas{display:block; width:100%; height:100%;}
+  #log{width:100%; height:240px; background:#0b1220; color:#9fff9f; padding:8px; overflow:auto; font-family:monospace; font-size:13px; white-space:pre-wrap;}
+  .small{font-size:13px; color:#555;}
+  .test-row{margin-top:8px;}
+</style>
+</head>
+<body>
+  <h1>法语单词朗读动画生成器（CDN + 导出）</h1>
+
+  <div class="row">
+    <div class="col">
+      <div><label>法语单词</label><input id="inp-word" type="text" value="etudiant"></div>
+      <div><label>英文意义</label><input id="inp-meaning" type="text" value="student"></div>
+      <div><label>法语例句</label><input id="inp-fr" type="text" value="Je suis etudiant"></div>
+      <div><label>英文例句</label><input id="inp-en" type="text" value="I'm a student"></div>
+      <div><label>中文例句</label><input id="inp-zh" type="text" value="我是一名学生"></div>
+
+      <div style="margin-top:8px;">
+        <button id="btn-submit">提交</button>
+        <button id="btn-generate">生成并播放</button>
+        <button id="btn-playpause">播放/暂停</button>
+        <button id="btn-toggle">切换比例 (16:9)</button>
+        <button id="btn-export">导出 MP4 / WebM</button>
+        <label class="small">停留(ms)：<input id="inp-hold" type="number" value="900" style="width:90px"></label>
+      </div>
+
+      <div class="test-row">
+        <strong>测试单元</strong><br>
+        <button id="test-mespeak">测试 TTS (meSpeak)</button>
+        <button id="test-ffmpeg">测试 FFmpeg 加载</button>
+        <button id="test-render">测试 渲染静态预览</button>
+        <button id="test-export-short">测试 导出短样本（录制示例）</button>
+      </div>
+
+      <p class="small">**注意**：请通过 HTTP 服务访问此页面（例如 <code>python -m http.server</code> 或 <code>npx http-server</code>）。</p>
+    </div>
+
+    <div class="col">
+      <div id="canvasWrap" class="preview-16-9">
+        <canvas id="mainCanvas"></canvas>
+      </div>
+      <div style="margin-top:8px;"><strong>状态：</strong> <span id="status">初始化...</span></div>
+    </div>
+  </div>
+
+  <h3>调试日志</h3>
+  <div id="log"></div>
+
+  <!-- CDN 依赖（最新稳定分发） -->
+  <!-- Anime.js (IIFE/global build) -->
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <!-- @ffmpeg/ffmpeg browser bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.7/dist/ffmpeg.min.js"></script>
+  <!-- meSpeak (客户端 TTS，可返回 raw audio) -->
+  <script src="https://cdn.jsdelivr.net/npm/mespeak@1.2.1/mespeak.min.js"></script>
+  
+  <script>
+  (function(){
+    // ---------- constants (CDN paths used) ----------
+    const FFMPEG_CORE_URL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.4/dist/ffmpeg-core.js';
+
+    // ---------- logging ----------
+    const logEl = document.getElementById('log');
+    function log(...args){
+      const t = new Date().toLocaleTimeString();
+      const msg = `[${t}] ` + args.map(a => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' ');
+      console.log(msg);
+      logEl.textContent = msg + '\n' + logEl.textContent;
+      document.getElementById('status').textContent = msg.split(' ').slice(1,6).join(' ');
+    }
+
+    // ---------- canvas / preview ----------
+    const canvasWrap = document.getElementById('canvasWrap');
+    const canvas = document.getElementById('mainCanvas');
+    const ctx = canvas.getContext('2d');
+    let exportW = 1920, exportH = 1080;
+    let previewMode = '16:9';
+    function applyPreview(mode){
+      previewMode = mode;
+      if(mode === '9:16'){
+        exportW = 1080; exportH = 1920;
+        canvas.width = exportW; canvas.height = exportH;
+        canvasWrap.classList.remove('preview-16-9'); canvasWrap.classList.add('preview-9-16');
+        canvasWrap.style.width = '360px'; canvasWrap.style.height = '640px';
+      } else {
+        exportW = 1920; exportH = 1080;
+        canvas.width = exportW; canvas.height = exportH;
+        canvasWrap.classList.remove('preview-9-16'); canvasWrap.classList.add('preview-16-9');
+        canvasWrap.style.width = '640px'; canvasWrap.style.height = '360px';
+      }
+      log('切换预览', mode, `导出 ${exportW}x${exportH}`);
+    }
+    applyPreview('16:9');
+
+    // ---------- data / sequence ----------
+    function readInputs(){
+      return {
+        word: document.getElementById('inp-word').value.trim(),
+        meaning: document.getElementById('inp-meaning').value.trim(),
+        fr: document.getElementById('inp-fr').value.trim(),
+        en: document.getElementById('inp-en').value.trim(),
+        zh: document.getElementById('inp-zh').value.trim(),
+        hold: Math.max(200, parseInt(document.getElementById('inp-hold').value,10)||900)
+      };
+    }
+
+    function buildSequence(){
+      const d = readInputs();
+      // order & display: word, phonetic (under word), fr sentence, english meaning, english sentence, chinese sentence
+      const phon = d.word ? '/' + d.word + '/' : '';
+      const seq = [
+        { text: d.word, type:'word', fontRatio:0.07, speak:true, lang:'fr' },
+        { text: phon,  type:'phon', fontRatio:0.04, speak:false },
+        { text: d.fr,   type:'fr', fontRatio:0.055, speak:true, lang:'fr' },
+        { text: d.meaning, type:'mean', fontRatio:0.045, speak:false },
+        { text: d.en,   type:'en', fontRatio:0.045, speak:false },
+        { text: d.zh,   type:'zh', fontRatio:0.045, speak:false }
+      ];
+      return seq;
+    }
+
+    // ---------- meSpeak init & helpers ----------
+    let mespeakReady = false;
+    async function initMeSpeak() {
+      try {
+        log('尝试初始化 meSpeak...');
+        
+        // 检查meSpeak是否已加载
+        if (typeof meSpeak === 'undefined') {
+          log('meSpeak 未加载');
+          return false;
+        }
+        
+        // meSpeak通常会自动加载默认配置，我们只需要确保它已准备就绪
+        mespeakReady = true;
+        log('meSpeak 初始化完成');
+        return true;
+      } catch(e){
+        log('meSpeak 初始化异常：', e.message || e);
+        return false;
+      }
+    }
+    
+    // Initialize meSpeak
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        initMeSpeak();
+      }, 500);
+    });
+
+    // synthesize via meSpeak -> returns ArrayBuffer (wav) encoded
+    function synthesizeMeSpeakDataUrl(text){
+      try {
+        // 检查meSpeak是否就绪
+        if (typeof meSpeak === 'undefined') {
+          log('meSpeak 未加载');
+          return null;
+        }
+        
+        // 使用默认语音合成（meSpeak会自动选择合适的语言）
+        const dataUrl = meSpeak.speak(text, {rawdata:'data-url', speed:150});
+        if(!dataUrl){
+          log('meSpeak.speak 返回失败');
+          return null;
+        }
+        return dataUrl;
+      } catch(err){
+        log('meSpeak.speak 异常：', err.message || err);
+        return null;
+      }
+    }
+
+    function dataUrlToArrayBuffer(dataUrl){
+      try {
+        // data:audio/wav;base64,AAA...
+        const parts = dataUrl.split(',');
+        const b64 = parts[1];
+        const binary = atob(b64);
+        const len = binary.length;
+        const u8 = new Uint8Array(len);
+        for(let i=0;i<len;i++) u8[i] = binary.charCodeAt(i);
+        return u8.buffer;
+      } catch(e) {
+        log('dataUrlToArrayBuffer 错误：', e.message || e);
+        return null;
+      }
+    }
+
+    // ---------- AudioContext / play & capture ----------
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    async function playAudioBufferAndConnectToDest(arrayBuffer, dest){
+      if(!arrayBuffer) return;
+      try {
+        // decode
+        const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0));
+        return new Promise((resolve)=>{
+          const src = audioCtx.createBufferSource();
+          src.buffer = audioBuffer;
+          src.connect(audioCtx.destination); // preview to speakers
+          if(dest) src.connect(dest); // for recording
+          src.onended = ()=>{ resolve(); };
+          src.start();
+        });
+      } catch(e) {
+        log('播放音频错误：', e.message || e);
+      }
+    }
+
+    // ---------- rendering & playback sequence ----------
+    let playing = false;
+    let playAbort = false;
+    function clearCanvas(){
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#111';
+      ctx.textAlign = 'center';
+    }
+
+    function drawLine(text, y, sizePx, weight='400'){
+      ctx.font = `${weight} ${sizePx}px sans-serif`;
+      ctx.fillStyle = '#111';
+      ctx.fillText(text, canvas.width/2, y);
+    }
+
+    async function playSequenceToDestination(destStream){
+      if(playing){ log('已在播放中'); return; }
+      playing = true;
+      playAbort = false;
+      const seq = buildSequence();
+      clearCanvas();
+      const paddingTop = Math.round(canvas.height * 0.12);
+      const lineGap = Math.round(canvas.height * 0.12);
+      let y = paddingTop;
+      for(const item of seq){
+        if(playAbort) break;
+        if(!item.text) { y += lineGap; continue; }
+        const fontPx = Math.max(12, Math.floor(canvas.height * (item.fontRatio||0.05)));
+        const weight = (item.type==='word') ? '700' : '400';
+        drawLine(item.text, y + fontPx/2, fontPx, weight);
+        y += lineGap;
+
+        // if speak true -> synthesize via meSpeak, decode & play into destStream
+        if(item.speak){
+          const dataUrl = synthesizeMeSpeakDataUrl(item.text);
+          if(!dataUrl){
+            log('meSpeak 无法合成音频：', item.text);
+            await new Promise(r => setTimeout(r, 600));
+          } else {
+            const ab = dataUrlToArrayBuffer(dataUrl);
+            if (!ab) {
+              log('音频数据转换失败：', item.text);
+              await new Promise(r => setTimeout(r, 600));
+            } else {
+              // if destStream provided -> connect to MediaStreamDestination
+              let destNode = null;
+              if(destStream){
+                // destStream is AudioNode destination (MediaStreamDestination)
+                destNode = destStream;
+              }
+              await playAudioBufferAndConnectToDest(ab, destNode);
+            }
+          }
+        } else {
+          // non-spoken lines: just wait hold time
+          await new Promise(r => setTimeout(r, readInputs().hold));
+        }
+      }
+      playing = false;
+      log('序列播放完成');
+    }
+
+    function stopPlayback(){
+      playAbort = true;
+      try { speechSynthesis.cancel(); } catch(e){} // safety (we don't use speechSynthesis now)
+      log('播放已停止');
+    }
+
+    // ---------- FFmpeg detection & init ----------
+    let ffmpegInstance = null;
+    let ffmpegReady = false;
+    let ffmpegLoaded = false;
+    
+    async function findAndInitFFmpeg(){
+      log('检测 FFmpeg 全局对象...');
+      
+      try {
+        // 确保FFmpeg库已加载
+        if (typeof FFmpeg === 'undefined') {
+          log('FFmpeg 库未加载');
+          return false;
+        }
+        
+        // 检查是否已经加载过
+        if (ffmpegLoaded) {
+          ffmpegReady = true;
+          log('FFmpeg 已经加载');
+          return true;
+        }
+        
+        // 使用新版 @ffmpeg/ffmpeg API (0.12.x)
+        const { fetchFile, createFFmpeg } = FFmpeg;
+        ffmpegInstance = createFFmpeg({
+          log: false,
+          corePath: FFMPEG_CORE_URL
+        });
+        
+        log('尝试加载 FFmpeg...');
+        await ffmpegInstance.load();
+        ffmpegLoaded = true;
+        ffmpegReady = true;
+        log('FFmpeg 已加载就绪');
+        return true;
+      } catch(err) {
+        log('FFmpeg load() 报错：', err.message || err);
+        return false;
+      }
+    }
+
+    // try auto-init (non-blocking)
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        findAndInitFFmpeg();
+      }, 1000);
+    });
+
+    // ---------- export pipeline ----------
+    async function exportAnimation(){
+      // build static first
+      buildSequence();
+      clearCanvas();
+      // For export, we need: a MediaStream from canvas + an audio MediaStream (from AudioContext)
+      // Create MediaStreamDestination for meSpeak playback
+      await audioCtx.resume().catch(()=>{});
+      const dest = audioCtx.createMediaStreamDestination();
+
+      // Start recording combined stream
+      const canvasStream = canvas.captureStream(30);
+      // add audio tracks from dest.stream
+      const combined = new MediaStream();
+      canvasStream.getVideoTracks().forEach(t => combined.addTrack(t));
+      dest.stream.getAudioTracks().forEach(t => combined.addTrack(t));
+
+      // pick supported mime
+      let mime = 'video/webm;codecs=vp9,opus';
+      if(!MediaRecorder.isTypeSupported(mime)) mime = 'video/webm;codecs=vp8,opus';
+      if(!MediaRecorder.isTypeSupported(mime)) mime = 'video/webm';
+      log('选择 MediaRecorder mime:', mime);
+
+      const recorder = new MediaRecorder(combined, { mimeType: mime });
+      const chunks = [];
+      recorder.ondataavailable = e => { if(e.data && e.data.size) chunks.push(e.data); };
+      recorder.onstop = async () => {
+        log('录制结束，chunks:', chunks.length);
+        const webmBlob = new Blob(chunks, { type: mime });
+        // if ffmpeg ready, transcode to mp4
+        if(ffmpegReady && ffmpegInstance){
+          try {
+            log('使用 ffmpeg 在浏览器内转码为 MP4（如果失败会回退）...');
+            const arrayBuffer = await webmBlob.arrayBuffer();
+            try {
+              // 新版API写入文件
+              ffmpegInstance.FS('writeFile', 'input.webm', new Uint8Array(arrayBuffer));
+              // 转码为MP4
+              await ffmpegInstance.run('-i', 'input.webm', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-c:a', 'aac', '-b:a', '128k', 'output.mp4');
+              const data = ffmpegInstance.FS('readFile', 'output.mp4');
+              const mp4Blob = new Blob([data.buffer], { type: 'video/mp4' });
+              const url = URL.createObjectURL(mp4Blob);
+              download(url, `french_animation_${Date.now()}.mp4`);
+              log('MP4 转码成功，触发下载');
+              return;
+            } catch(err) {
+              log('ffmpeg 转码失败，尝试替代方法：', err.message || err);
+              throw err;
+            }
+          } catch(err){
+            log('ffmpeg 转码失败，回退到 WebM 下载：', err.message || err);
+          }
+        } else {
+          log('ffmpeg 未就绪，提供 WebM 下载');
+        }
+        // fallback: download webm
+        const url = URL.createObjectURL(webmBlob);
+        download(url, `french_animation_${Date.now()}.webm`);
+        log('WebM 下载触发');
+      };
+
+      recorder.start(1000);
+      // play sequence and route into dest (we pass dest as AudioNode)
+      await playSequenceToDestination(dest);
+      // small delay to ensure final audio finishes in recording
+      await new Promise(r => setTimeout(r, 400));
+      if(recorder.state !== 'inactive') recorder.stop();
+    }
+
+    function download(url, filename){
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    // ---------- test helpers ----------
+    document.getElementById('btn-submit').addEventListener('click', ()=>{
+      const seq = buildSequence();
+      clearCanvas();
+      // immediate static draw
+      let y = Math.round(canvas.height * 0.12);
+      for(const item of seq){
+        if(!item.text) continue;
+        const fontPx = Math.max(12, Math.floor(canvas.height * item.fontRatio));
+        drawLine(item.text, y + fontPx/2, fontPx, item.type==='word'?'700':'400');
+        y += Math.round(canvas.height * 0.12);
+      }
+      log('已提交并绘制静态预览');
+    });
+
+    document.getElementById('btn-generate').addEventListener('click', async ()=>{
+      try { await audioCtx.resume(); } catch(e){}
+      await playSequenceToDestination(null); // null -> play to speakers only
+    });
+
+    document.getElementById('btn-playpause').addEventListener('click', ()=>{
+      if(playing){ stopPlayback(); } else { playSequenceToDestination(null); }
+    });
+
+    document.getElementById('btn-toggle').addEventListener('click', ()=>{
+      applyPreview(previewMode === '16:9' ? '9:16' : '16:9');
+    });
+
+    document.getElementById('btn-export').addEventListener('click', async ()=>{
+      log('导出按钮点击（开始导出流程）');
+      // ensure ffmpeg attempt has been made before export
+      if(!ffmpegReady){ log('ffmpeg 还未就绪或尚未加载，页面会尝试加载（可能需要一点时间）'); await findAndInitFFmpeg(); }
+      await exportAnimation();
+    });
+
+    // test mespeak
+    document.getElementById('test-mespeak').addEventListener('click', async ()=>{
+      log('测试 meSpeak 合成...');
+      await audioCtx.resume().catch(()=>{});
+      
+      const url = synthesizeMeSpeakDataUrl('Bonjour, je suis étudiant');
+      if(!url){ log('meSpeak 合成失败'); return; }
+      const ab = dataUrlToArrayBuffer(url);
+      if (!ab) {
+        log('音频数据转换失败');
+        return;
+      }
+      await playAudioBufferAndConnectToDest(ab, null);
+      log('meSpeak 测试播放完成');
+    });
+
+    // test ffmpeg load
+    document.getElementById('test-ffmpeg').addEventListener('click', async ()=>{
+      log('手动测试 FFmpeg 初始化');
+      const ok = await findAndInitFFmpeg();
+      log('FFmpeg 初始化结果：', ok);
+    });
+
+    // test render
+    document.getElementById('test-render').addEventListener('click', ()=>{
+      const seq = buildSequence();
+      clearCanvas();
+      let y = Math.round(canvas.height * 0.12);
+      for(const item of seq){
+        if(!item.text) continue;
+        const fontPx = Math.max(12, Math.floor(canvas.height * item.fontRatio));
+        drawLine(item.text, y + fontPx/2, fontPx, item.type==='word'?'700':'400');
+        y += Math.round(canvas.height * 0.12);
+      }
+      log('渲染测试完成');
+    });
+
+    // test short export (short demo recording)
+    document.getElementById('test-export-short').addEventListener('click', async ()=>{
+      log('短样本导出测试（会录制并尝试转码）');
+      if(!ffmpegReady) await findAndInitFFmpeg();
+      // record small sequence (make hold short)
+      const prevHold = document.getElementById('inp-hold').value;
+      document.getElementById('inp-hold').value = '600';
+      await exportAnimation();
+      document.getElementById('inp-hold').value = prevHold;
+    });
+
+    // initial static draw
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        document.getElementById('btn-submit').click();
+        log('页面就绪（尝试自动加载 FFmpeg 与 meSpeak）');
+      }, 1500);
+    });
+
+  })();
+  </script>
+</body>
+</html>

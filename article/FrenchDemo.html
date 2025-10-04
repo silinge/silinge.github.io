@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Word Animation</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#container {
+  width: auto;
+  height: 90vh;
+  max-height: 864px;
+  aspect-ratio: 9/16;
+  position: relative;
+  background: #e3f2fd;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+#svg-animation { width: 100%; height: 100%; }
+
+.word-text {
+  font-size: 80px;
+  font-weight: bold;
+  fill: #0d47a1;
+  text-anchor: middle;
+}
+.ipa-text {
+  font-size: 40px;
+  fill: #1976d2;
+  text-anchor: middle;
+}
+.meaning-text {
+  font-size: 50px;
+  fill: #2e7d32;
+  text-anchor: middle;
+}
+.sentence-fr {
+  font-size: 40px;
+  fill: #000;
+  text-anchor: middle;
+}
+.sentence-en {
+  font-size: 36px;
+  fill: #424242;
+  text-anchor: middle;
+}
+
+.subtitle-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.65);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  width: 90%;
+  text-align: center;
+  z-index: 10;
+}
+#top-subtitles { top: 20px; }
+#bottom-subtitles { bottom: 20px; }
+
+#en-subtitles { font-size: 2.5vmin; font-weight: bold; display: block; }
+#cn-subtitles { font-size: 2.2vmin; display: block; }
+
+#export-controls {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+button {
+  padding: 12px 18px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  background: #007bff;
+  cursor: pointer;
+}
+button:hover { background: #0056b3; }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <svg id="svg-animation" viewBox="0 0 1080 1920">
+    <text id="word" class="word-text" x="540" y="400"></text>
+    <text id="ipa" class="ipa-text" x="540" y="480"></text>
+    <text id="meaning" class="meaning-text" x="540" y="600"></text>
+    <text id="sentence-fr" class="sentence-fr" x="540" y="1000"></text>
+    <text id="sentence-en" class="sentence-en" x="540" y="1080"></text>
+  </svg>
+
+  <div id="top-subtitles" class="subtitle-container">
+    <span id="en-subtitles"></span>
+  </div>
+  <div id="bottom-subtitles" class="subtitle-container">
+    <span id="cn-subtitles"></span>
+  </div>
+</div>
+
+<div id="export-controls">
+  <button id="export-video">导出视频</button>
+  <button id="export-srt">导出字幕</button>
+</div>
+
+<canvas id="capture-canvas" width="1080" height="1920" style="display:none;"></canvas>
+
+<script>
+// === 数据配置 ===
+const word = "chapeau";
+const ipa = "[ʃa.po]";
+const meaning = "hat";
+const frSentence = "J'ai acheté un nouveau chapeau.";
+const enSentence = "I bought a new hat.";
+
+// === 设置文本 ===
+document.getElementById('word').textContent = word;
+document.getElementById('ipa').textContent = ipa;
+document.getElementById('meaning').textContent = meaning;
+document.getElementById('sentence-fr').textContent = frSentence;
+document.getElementById('sentence-en').textContent = enSentence;
+
+// === 字幕 ===
+const subtitles = [
+  {en:`${word} (${ipa})`, cn:`${word} (${ipa})`},
+  {en:`Meaning: ${meaning}`, cn:`意思: ${meaning}`},
+  {en:frSentence, cn:enSentence},
+  {en:`Remember: ${word}`, cn:`记住: ${word}`}
+];
+const subtitleTimings = [];
+const enSub = document.getElementById('en-subtitles');
+const cnSub = document.getElementById('cn-subtitles');
+
+function showSub(i){
+  enSub.textContent = subtitles[i].en;
+  cnSub.textContent = subtitles[i].cn;
+}
+
+// === 动画 ===
+const tl = gsap.timeline({paused:true});
+tl.call(()=>{showSub(0); speak(word);});
+tl.from("#word",{scale:0, duration:1, ease:"back.out(2)"});
+tl.from("#ipa",{opacity:0, y:20, duration:0.8});
+tl.call(()=>{showSub(1);});
+tl.from("#meaning",{opacity:0, y:30, duration:1});
+tl.call(()=>{showSub(2); speak(frSentence);});
+tl.from("#sentence-fr",{opacity:0, y:50, duration:1});
+tl.from("#sentence-en",{opacity:0, y:50, duration:1});
+tl.call(()=>{showSub(3);});
+tl.to("#word",{scale:1.2, yoyo:true, repeat:1, duration:0.5});
+tl.vars.onComplete = ()=>tl.restart();
+tl.play();
+
+// === TTS ===
+function speak(text){
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'fr-FR';
+  speechSynthesis.speak(utter);
+}
+
+// === 视频导出 ===
+const canvas = document.getElementById('capture-canvas');
+const ctx = canvas.getContext('2d');
+const svg = document.getElementById('svg-animation');
+const img = new Image();
+
+function drawFrame(){
+  const svgData = new XMLSerializer().serializeToString(svg);
+  const dataUri = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+  img.src = dataUri;
+  ctx.drawImage(img,0,0,canvas.width,canvas.height);
+}
+
+document.getElementById('export-video').addEventListener('click',()=>{
+  const stream = canvas.captureStream(30);
+  const rec = new MediaRecorder(stream,{mimeType:"video/webm"});
+  const chunks = [];
+  rec.ondataavailable = e=>chunks.push(e.data);
+  rec.onstop=()=>{
+    const blob = new Blob(chunks,{type:"video/webm"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${word}.webm`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+  gsap.ticker.add(drawFrame);
+  tl.restart();
+  rec.start();
+  setTimeout(()=>{rec.stop(); gsap.ticker.remove(drawFrame);},tl.duration()*1000+500);
+});
+
+// === 导出 SRT ===
+function formatTime(sec){
+  const s = Math.floor(sec%60).toString().padStart(2,'0');
+  return `00:00:${s},000`;
+}
+document.getElementById('export-srt').addEventListener('click',()=>{
+  let srt="";
+  subtitles.forEach((s,i)=>{
+    srt+=`${i+1}\n${formatTime(i*3)} --> ${formatTime((i+1)*3)}\n${s.en}\n${s.cn}\n\n`;
+  });
+  const blob = new Blob([srt],{type:'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${word}.srt`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>

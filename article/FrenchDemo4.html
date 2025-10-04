@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Word Animation MP4</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.6/dist/ffmpeg.min.js"></script>
+<style>
+body{background:#f8f9fa;margin:0;display:flex;flex-direction:column;align-items:center;}
+#container{width:auto;height:80vh;aspect-ratio:9/16;position:relative;background:#e3f2fd;border-radius:12px;overflow:hidden;}
+#svg-animation{width:100%;height:100%;}
+.word-text{font-size:80px;font-weight:bold;fill:#0d47a1;text-anchor:middle;}
+.ipa-text{font-size:40px;fill:#1976d2;text-anchor:middle;}
+.meaning-text{font-size:50px;fill:#2e7d32;text-anchor:middle;}
+.sentence-fr{font-size:40px;fill:#000;text-anchor:middle;}
+.sentence-en,.sentence-cn{font-size:32px;fill:#424242;text-anchor:middle;}
+.subtitle-container{position:absolute;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.65);color:white;padding:10px 20px;border-radius:8px;width:90%;text-align:center;z-index:10;}
+#top-subtitles{top:20px;} #bottom-subtitles{bottom:20px;}
+button{padding:8px 16px;margin:5px;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<div id="container">
+  <svg id="svg-animation" viewBox="0 0 1080 1920">
+    <text id="word" class="word-text" x="540" y="400"></text>
+    <text id="ipa" class="ipa-text" x="540" y="480"></text>
+    <text id="meaning" class="meaning-text" x="540" y="600"></text>
+    <text id="sentence-fr" class="sentence-fr" x="540" y="1000"></text>
+    <text id="sentence-en" class="sentence-en" x="540" y="1080"></text>
+    <text id="sentence-cn" class="sentence-cn" x="540" y="1140"></text>
+  </svg>
+
+  <div id="top-subtitles" class="subtitle-container">
+    <span id="en-subtitles"></span>
+  </div>
+  <div id="bottom-subtitles" class="subtitle-container">
+    <span id="cn-subtitles"></span>
+  </div>
+</div>
+
+<div>
+  <button id="play-btn">▶ 播放</button>
+  <button id="pause-btn">⏸ 暂停</button>
+  <button id="export-video">导出 MP4</button>
+</div>
+
+<canvas id="capture-canvas" width="1080" height="1920" style="display:none;"></canvas>
+
+<script>
+const word="chapeau",ipa="[ʃa.po]",meaning="hat",
+frSentence="J'ai acheté un nouveau chapeau.",
+enSentence="I bought a new hat.",cnSentence="我买了一顶新帽子。";
+
+document.getElementById('word').textContent=word;
+document.getElementById('ipa').textContent=ipa;
+document.getElementById('meaning').textContent=meaning;
+document.getElementById('sentence-fr').textContent=frSentence;
+document.getElementById('sentence-en').textContent=enSentence;
+document.getElementById('sentence-cn').textContent=cnSentence;
+
+const subtitles=[
+  {en:`${word} (${ipa})`,cn:`${word} (${ipa})`},
+  {en:`Meaning: ${meaning}`,cn:`意思: ${meaning}`},
+  {en:frSentence,cn:cnSentence},
+  {en:`Remember: ${word}`,cn:`记住: ${word}`}
+];
+const enSub=document.getElementById('en-subtitles'),
+cnSub=document.getElementById('cn-subtitles');
+function showSub(i){enSub.textContent=subtitles[i].en;cnSub.textContent=subtitles[i].cn;}
+
+const tl=gsap.timeline({paused:true});
+tl.call(()=>{showSub(0);playAudio('tts-word');});
+tl.from("#word",{scale:0,duration:1,ease:"back.out(2)"});
+tl.from("#ipa",{opacity:0,y:20,duration:0.8});
+tl.call(()=>{showSub(1);});
+tl.from("#meaning",{opacity:0,y:30,duration:1});
+tl.call(()=>{showSub(2);playAudio('tts-sentence');});
+tl.from("#sentence-fr",{opacity:0,y:50,duration:1});
+tl.from("#sentence-en",{opacity:0,y:50,duration:1});
+tl.from("#sentence-cn",{opacity:0,y:50,duration:1});
+tl.call(()=>{showSub(3);});
+
+document.getElementById('play-btn').onclick=()=>tl.restart();
+document.getElementById('pause-btn').onclick=()=>tl.pause();
+
+// ======= 使用Google TTS URL代替SpeechSynthesis =======
+const audioWord=new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=${encodeURIComponent(word)}&tl=fr`);
+const audioSentence=new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=${encodeURIComponent(frSentence)}&tl=fr`);
+function playAudio(id){ if(id==='tts-word') audioWord.play(); if(id==='tts-sentence') audioSentence.play(); }
+
+// ====== 导出 MP4 ======
+document.getElementById('export-video').onclick=async()=>{
+  const { createFFmpeg, fetchFile } = FFmpeg;
+  const ffmpeg = createFFmpeg({ log: true });
+  await ffmpeg.load();
+
+  const canvas=document.getElementById('capture-canvas');
+  const ctx=canvas.getContext('2d');
+  const svg=document.getElementById('svg-animation');
+  const img=new Image();
+  const fps=30,totalFrames=Math.ceil(tl.duration()*fps);
+  const frames=[];
+  tl.restart();
+  for(let i=0;i<totalFrames;i++){
+    tl.time(i/fps);
+    const svgData=new XMLSerializer().serializeToString(svg);
+    img.src='data:image/svg+xml;base64,'+btoa(unescape(encodeURIComponent(svgData)));
+    ctx.fillStyle="#e3f2fd";ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(img,0,0,canvas.width,canvas.height);
+    const blob=await new Promise(r=>canvas.toBlob(r,'image/jpeg',0.92));
+    const buf=new Uint8Array(await blob.arrayBuffer());
+    ffmpeg.FS('writeFile',`frame${String(i).padStart(4,'0')}.jpg`,buf);
+  }
+
+  // 下载 TTS 音频
+  const audioData = await fetchFile(await (await fetch(audioSentence.src)).arrayBuffer());
+  await ffmpeg.FS('writeFile','audio.mp3', audioData);
+
+  await ffmpeg.run(
+    '-r','30','-i','frame%04d.jpg',
+    '-i','audio.mp3',
+    '-c:v','libx264','-pix_fmt','yuv420p',
+    '-c:a','aac','output.mp4'
+  );
+
+  const data=ffmpeg.FS('readFile','output.mp4');
+  const url=URL.createObjectURL(new Blob([data.buffer],{type:'video/mp4'}));
+  const a=document.createElement('a');
+  a.href=url;a.download=`${word}.mp4`;a.click();
+};
+</script>
+</body>
+</html>

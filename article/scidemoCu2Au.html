@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copper to Gold Atomic Transformation</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+body {
+  background-color: #0b0f1a;
+  font-family: sans-serif;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#app-wrapper { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+#container {
+  width: auto;
+  height: 90vh;
+  max-height: 864px;
+  aspect-ratio: 9 / 16;
+  position: relative;
+  background-color: #101820;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+#svg-animation { width: 100%; height: 100%; }
+
+.subtitle-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  width: 90%;
+  text-align: center;
+  z-index: 10;
+  box-sizing: border-box;
+}
+#top-subtitles { top: 30px; }
+#bottom-subtitles { bottom: 30px; }
+
+#en-subtitles { font-size: 2.5vmin; font-weight: bold; display: block; }
+#cn-subtitles { font-size: 2.2vmin; display: block; }
+
+#export-controls { display: flex; gap: 10px; }
+.export-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.export-button:hover { background-color: #0056b3; }
+.export-button:disabled { background-color: #5a6268; cursor: not-allowed; }
+
+#capture-canvas { position: absolute; top: -9999px; left: -9999px; }
+</style>
+</head>
+<body>
+
+<div id="app-wrapper">
+  <div id="container">
+    <svg id="svg-animation" viewBox="0 0 1080 1920">
+      <defs>
+        <!-- Copper atom nucleus -->
+        <g id="copper-atom">
+          <circle cx="0" cy="0" r="120" fill="#1e88e5" opacity="0.7"/>
+          <text x="0" y="10" fill="white" font-size="60" text-anchor="middle">Cu 29p</text>
+        </g>
+        <!-- Gold atom nucleus -->
+        <g id="gold-atom">
+          <circle cx="0" cy="0" r="140" fill="#ffd600" opacity="0.8"/>
+          <text x="0" y="10" fill="#000" font-size="60" text-anchor="middle">Au 79p</text>
+        </g>
+        <!-- Proton particle -->
+        <g id="proton">
+          <circle cx="0" cy="0" r="20" fill="#ff1744"/>
+        </g>
+      </defs>
+      <g id="atom-group"></g>
+      <g id="protons-group"></g>
+    </svg>
+
+    <div id="top-subtitles" class="subtitle-container">
+      <span id="en-subtitles"></span>
+    </div>
+    <div id="bottom-subtitles" class="subtitle-container">
+      <span id="cn-subtitles"></span>
+    </div>
+  </div>
+
+  <div id="export-controls">
+    <button id="export-video-button" class="export-button">导出视频 (Export Video)</button>
+    <button id="export-srt-button" class="export-button">导出字幕 (Export .SRT)</button>
+  </div>
+</div>
+
+<canvas id="capture-canvas" width="1080" height="1920"></canvas>
+
+<script>
+const enSubtitlesEl = document.getElementById('en-subtitles');
+const cnSubtitlesEl = document.getElementById('cn-subtitles');
+const svg = document.getElementById('svg-animation');
+const atomGroup = document.getElementById('atom-group');
+const protonsGroup = document.getElementById('protons-group');
+const exportVideoBtn = document.getElementById('export-video-button');
+const exportSrtBtn = document.getElementById('export-srt-button');
+const canvas = document.getElementById('capture-canvas');
+const ctx = canvas.getContext('2d');
+
+const CANVAS_WIDTH = 1080;
+const CANVAS_HEIGHT = 1920;
+const CENTER_X = CANVAS_WIDTH / 2;
+const CENTER_Y = CANVAS_HEIGHT / 2;
+
+// Subtitles
+const subtitles = [
+  { en: "Copper atom with 29 protons.", cn: "具有 29 个质子的铜原子。" },
+  { en: "Gold atom with 79 protons.", cn: "具有 79 个质子的金原子。" },
+  { en: "Adding 50 protons transforms copper into gold!", cn: "增加 50 个质子，将铜转化为金！" }
+];
+const subtitleTimings = [];
+
+function showSubtitles(index) {
+  if(subtitles[index]) {
+    enSubtitlesEl.textContent = subtitles[index].en;
+    cnSubtitlesEl.textContent = subtitles[index].cn;
+  } else {
+    enSubtitlesEl.textContent = '';
+    cnSubtitlesEl.textContent = '';
+  }
+}
+
+function addSubtitleCall(tl, index, pos) {
+  tl.call(showSubtitles, [index], pos);
+  subtitleTimings.push({ index, time: tl.recent().startTime() });
+}
+
+// Create atoms
+const copper = document.createElementNS("http://www.w3.org/2000/svg", "use");
+copper.setAttribute("href", "#copper-atom");
+atomGroup.appendChild(copper);
+gsap.set(copper, { x: CENTER_X, y: CENTER_Y, scale: 0 });
+
+// Timeline animation
+const tl = gsap.timeline({ paused: true });
+
+addSubtitleCall(tl, 0, 0);
+tl.to(copper, { scale: 1, duration: 2, ease: "power2.out" });
+
+tl.to(copper, { scale: 0, opacity: 0, duration: 1, delay: 1 });
+const gold = document.createElementNS("http://www.w3.org/2000/svg", "use");
+gold.setAttribute("href", "#gold-atom");
+atomGroup.appendChild(gold);
+gsap.set(gold, { x: CENTER_X, y: CENTER_Y, scale: 0, opacity: 0 });
+
+addSubtitleCall(tl, 1, "+=0.5");
+tl.to(gold, { scale: 1, opacity: 1, duration: 2, ease: "power2.out" });
+
+addSubtitleCall(tl, 2, "+=1");
+tl.call(() => {
+  // Show copper again and animate protons flying in
+  gsap.set(copper, { scale: 1, opacity: 1 });
+  gsap.set(gold, { opacity: 0 });
+  for (let i = 0; i < 50; i++) {
+    const proton = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    proton.setAttribute("href", "#proton");
+    protonsGroup.appendChild(proton);
+    gsap.set(proton, { x: Math.random()*CANVAS_WIDTH, y: Math.random()*CANVAS_HEIGHT, opacity: 0 });
+    gsap.to(proton, {
+      x: CENTER_X + (Math.random()*40-20),
+      y: CENTER_Y + (Math.random()*40-20),
+      opacity: 1,
+      duration: 2,
+      delay: i*0.03,
+      onComplete: () => proton.remove()
+    });
+  }
+});
+tl.to(copper, { scale: 0, opacity: 0, duration: 1, delay: 2 });
+tl.to(gold, { opacity: 1, scale: 1.2, duration: 1, ease: "back.out(2)" }, "-=1");
+
+tl.vars.onComplete = () => tl.restart();
+tl.play();
+
+// Video export
+const img = new Image();
+function drawFrame() {
+  const enText = enSubtitlesEl.textContent;
+  const cnText = cnSubtitlesEl.textContent;
+  const svgString = new XMLSerializer().serializeToString(svg);
+  const topForeignObject = `<foreignObject x="54" y="60" width="972" height="150">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="background-color: rgba(0,0,0,0.65); color: white; padding: 12px 24px; border-radius: 8px; text-align:center;">
+          <span style="font-size:36px;font-weight:bold;display:block;">${enText}</span>
+      </div></foreignObject>`;
+  const bottomForeignObject = `<foreignObject x="54" y="1720" width="972" height="150">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="background-color: rgba(0,0,0,0.65); color: white; padding: 12px 24px; border-radius: 8px; text-align:center;">
+          <span style="font-size:32px;display:block;">${cnText}</span>
+      </div></foreignObject>`;
+  const finalSvgString = svgString.replace('</svg>', topForeignObject + bottomForeignObject + '</svg>');
+  const dataUri = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(finalSvgString)));
+  img.src = dataUri;
+}
+
+exportVideoBtn.addEventListener('click', () => {
+  exportVideoBtn.disabled = true;
+  exportSrtBtn.disabled = true;
+  exportVideoBtn.textContent = "录制中...";
+  let mimeType = 'video/mp4';
+  let fileExtension = 'mp4';
+  if (!MediaRecorder.isTypeSupported(mimeType)) { mimeType = 'video/webm'; fileExtension = 'webm'; }
+  const chunks = [];
+  const stream = canvas.captureStream(60);
+  const recorder = new MediaRecorder(stream, { mimeType });
+  recorder.ondataavailable = e => chunks.push(e.data);
+  recorder.onstop = () => {
+    const blob = new Blob(chunks, { type: mimeType });
+    const videoUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = videoUrl;
+    a.download = `copper-to-gold.${fileExtension}`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(videoUrl);
+    exportVideoBtn.disabled = false;
+    exportSrtBtn.disabled = false;
+    exportVideoBtn.textContent = "导出视频 (Export Video)";
+    tl.vars.onComplete = () => tl.restart();
+    if (!tl.isActive()) tl.play();
+  };
+  img.onload = () => { ctx.fillStyle = '#101820'; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.drawImage(img, 0, 0, canvas.width, canvas.height); };
+  gsap.ticker.add(drawFrame);
+  tl.vars.onComplete = () => { setTimeout(() => { recorder.stop(); gsap.ticker.remove(drawFrame); img.onload = null; }, 150); };
+  tl.restart();
+  recorder.start();
+});
+
+// SRT Export
+function formatSrtTime(seconds) {
+  const hh = String(Math.floor(seconds/3600)).padStart(2,'0');
+  const mm = String(Math.floor((seconds%3600)/60)).padStart(2,'0');
+  const ss = String(Math.floor(seconds%60)).padStart(2,'0');
+  const ms = String(Math.round((seconds-Math.floor(seconds))*1000)).padStart(3,'0');
+  return `${hh}:${mm}:${ss},${ms}`;
+}
+exportSrtBtn.addEventListener('click', () => {
+  const sorted = [...subtitleTimings].sort((a,b)=>a.time-b.time);
+  if(sorted.length===0){ alert("No subtitles data."); return; }
+  let srtContent = '';
+  const totalDuration = tl.duration();
+  sorted.forEach((e,i)=>{
+    const sub = subtitles[e.index]; if(!sub) return;
+    const start = e.time; const end = (i<sorted.length-1)? sorted[i+1].time : totalDuration;
+    srtContent += `${i+1}\n${formatSrtTime(start)} --> ${formatSrtTime(end)}\n${sub.en}\n${sub.cn}\n\n`;
+  });
+  const blob = new Blob([srtContent], { type: 'text/plain;charset=utf-8' });
+  const srtUrl = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = srtUrl; a.download = 'copper-to-gold.srt';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(srtUrl);
+});
+</script>
+</body>
+</html>

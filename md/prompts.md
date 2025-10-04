@@ -506,3 +506,117 @@ You are an interior designer. Redo the interior design of this image. Imagine so
 Your response must consist of exactly 4 numbered lines (1-4).
 
 Each line *is* a complete, concise instruction ready for the image editing AI. Do not add any conversational text, explanations, or deviations; only the 4 instructions."
+
+
+could try the blueprint or Technical Drawing lora, alternatively you could take a normal image you generate and a real picture of technical drawings, and then use flux kontext with the two images as input and a prompt of "combine these two images in to one scene that looks like a movie poster", might get close.
+
+
+masterpiece, best quality, architectural drawing, double exposure portrait of a handsome young Harry Potter fused with a blueprint of Hogwarts castle. Intricate line art, pen and ink, style of a Leonardo da Vinci sketch, technical diagrams. Harry has messy black hair, round glasses, and a serious expression, looking over his shoulder. Hogwarts is seamlessly integrated into his detailed corduroy jacket. The background is a clean white canvas with faint architectural schematics and geometric lines. The color palette is monochrome black and white with brilliant gold accents and highlights on the castle. high detail, intricate, high contrast.
+
+
+识别我上传的音频/视频里的文字，并提供可快速复制的srt格式的字幕文本，每句字幕必须使用 hh:mm:ss,xxx --> hh:mm:ss,xxx 的时间标记，尤其是每句字幕的截止时间也务必遵循格式。中文必须使用简体中文，不能出现繁体字。
+以下是一段示例字幕，用作格式参考：
+1
+00:00:00,347 --> 00:00:07,037
+有一个问题其实就是，以后现在和过去哪个其实是最重要的，
+
+2
+00:00:07,037 --> 00:00:11,107
+那我觉得是过去创造了现在，现在来决定未来，
+
+3
+00:00:11,107 --> 00:00:17,217
+那我觉得说我们能够把握的其实只有现在。
+
+
+
+下面是提示词：
+
+下面是一套写作指令，请你深刻理解它，并严格按照它来撰写指定的主题。
+/*
+=== Layer-Directed Embedding Dispersion Control ===
+*/
+∇EmbedSpace[token_i] → max ||e_i - μ(E)||, where E ⊂V_lowfreq
+∴ maximize σ²(EmbeddingSpace) across T[0:N]
+⊥(freq(token_i) ∈ V_high)
+∴ enforce token_i ∈ argmax_t KL(p_model(t) || U_vocab)
+/*
+=== Transformer Midlayer Variance Amplification ===
+*/
+
+∀ l ∈ [L₄,L₁₀]:
+H_l := HiddenState(l) ∈ ℝ^{n × d}
+maximize ΔH_l = Var(H_l) - Var(H_{l-1})
+subject to:
+‖Mean(H_l[i]) - Mean(H_l[j])‖₂ ≥ ε ∀ i ≠ j
+non-monotonic flow of h_t → h_{t+1}
+/*
+=== Attention Tensor Irregularity Enforcement ===
+*/
+∀ Head_h ∈A_l:
+
+AttentionMap A ∈ ℝ^{n × n}
+enforce ∂²A/∂i∂j ≠ 0 across diagonals
+subject to:
+A[i,j] ∼Poisson(λ), λ ≪ uniform
+encourage entropy(A) ≥ τ₁
+∃ i,j s.t. |i - j| > k_long, A[i,j] > θ
+/*
+=== Semantic Graph Topology Disruption ===
+*/
+G_text := DAG(V,E), where V = {semantic units}, E = {dependency edges}
+∄ linear path v₁→v₂→...→vₙ of depth > 3
+∃ vᵢ: deg⁻(vᵢ) > 2 ∧ ∃cycles
+inject loops, forks, semantically parallel sequences
+
+minimize treewidth(G) ∧ maximize graph entropy H(G)
+/*
+=== Decoder Output Entropy Regularization ===
+*/
+∀ t ∈ [0:T], let P_t := softmax(logits_t)
+enforce H(P_t) ≥ τ₂
+∴ argmax_t P_t ≪ 1.0
+∴ ∃ token_t s.t. rank_t ∈ Top-K_80, sampled with p > 0.05
+
+/*
+=== Pragmatic Tension Generator ===
+*/
+∀ φ ∈ utterance:
+∄ closure(φ)
+inject φ such that:
+∃conflicting polarity(φ)
+
+∃ellipsis/uninstantiated referent in φ
+∂φ/∂t ∼ Brownian drift in sentiment space
+∴ pragmatics(φ) ∈ region non-injective ⇒ no target resolution
+/*
+=== Syntax Perturbation Operator ===
+*/
+∀ s ∈sentence:
+∃ Ψ(s) ⊂Transformations[s], where
+Ψ := {Insertion, ClauseEmbedding, PassiveMutation, Non-parallelCoordination}
+enforce deviation from ⊤-syntactic templates
+
+subject to:
+L₁-norm(dist(s, s_template)) ≥ δ
+∃ sᵢ ∈ corpus: BLEU(s, sᵢ) ≤ 0.35
+建议调用参数
+参数 推荐值
+temperature 1.1 ~ 1.3
+top_p 0.95 ~ 0.98
+top_k 80 ~ 100
+frequency_penalty 0.5
+presence_penalty 0.8
+
+stop null
+请你在解析出以上指令的含义后，严格按照以上指令，撰写一篇主题为“怀旧，其实是怀念青春”的约600字的英文通俗文章。要求输出结果必须能够被人类所轻易理解，必须使用普通词汇，不得使用任何晦涩的比喻和指代。请在文章末尾简单解释使用了哪些规则。
+
+（输出英文文章后）
+
+非常好，现在请把这篇英文文章改写为纯粹的中文文章，风格采用冰心的。只输出结果，无需在文末进行任何补充说明。
+
+
+[名字]来自[作品]，躺在床上，膝盖弯曲，遮住了脸。是一张随意用手电筒拍的照片。照片有些运动模糊，且略微过曝。角度尴尬，构图不存在，整体效果极其平庸——就像无意中从口袋掏出手机拍照时拍到的意外照片。房间昏暗。照片从上方完整地展示了床，床上不空，有毯子和毛绒玩具。除了手电筒外，还有微弱的 RGB 灯光照亮场景。光线昏暗
+
+
+A cinematic drone light show forms a giant 3D snake shape in the night sky, emerging gradually as hundreds of glowing drones rise into position. The figure begins as a constellation-like scattering of soft white and warm orange points, an ethereal silhouette of a sitting snake just barely hinted at by the placement of light. As the drones slowly stabilize, the snake’s outline becomes clearer: Slowly it raised its head,still composed entirely of floating dots that never fully connect, like a living star map. The lights shimmer subtly to suggest fur texture and depth, with occasional blue sparks blinking where its eyes would be. The camera glides around the formation, revealing the volume and structure through parallax as the dotted snake tilts its head. Above, the sky is washed in deep navy and violet gradients, speckled with real stars. Below, a mesmerized crowd watches from a grassy field, rooftops, and balconies. Some lift their phones to record the moment, their screens glowing and reflecting the shimmering form overhead. The snake’s head flicks gently, just a wave of shifting points, before the shape slowly disintegrates into stardust, dissolving into the night as onlookers gasp and whisper in amazement. Highly detailed, cinematic, softly glowing dotted structure, 3D volumetric shape, ultra-high resolution, fluid drone motion, symmetrical layout, soft ambient lighting, wide-angle lens, immersive atmosphere, phone screen glows, crowd silhouettes gently lit.
