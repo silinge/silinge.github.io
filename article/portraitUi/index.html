@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>人像描述词生成器</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>人像描述词生成器</h1>
@@ -26,11 +28,20 @@
         <button id="copyJsonBtn">复制JSON</button>
         <button id="generateEnumerateEnBtn">生成英文穷举JSON</button>
         <button id="generateEnumerateZhBtn">生成中文穷举JSON</button>
+        <div class="button-group-no-quote" style="margin-top: 10px;">
+            <button id="generateNoQuoteEnJsonBtn">生成无引号英文JSON</button>
+            <button id="generateNoQuoteZhJsonBtn">生成无引号中文JSON</button>
+            <button id="copyNoQuoteJsonBtn">复制无引号JSON</button>
+            <button id="generateNoQuoteEnumerateEnBtn">生成无引号英文穷举JSON</button>
+            <button id="generateNoQuoteEnumerateZhBtn">生成无引号中文穷举JSON</button>
+        </div>
         <div id="jsonOutput"></div>
         <div class="credits">
-            感谢 <a href="https://github.com/florestefano1975/comfyui-portrait-master" target="_blank">comfyui-portrait-master</a> 项目提供的描述词列表文件，我添加了几个条目，增加了一些翻译内容。
+            感谢 <a href="https://github.com/florestefano1975/comfyui-portrait-master"
+                target="_blank">comfyui-portrait-master</a> 项目提供的描述词列表文件，我添加了几个条目，增加了一些翻译内容。
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

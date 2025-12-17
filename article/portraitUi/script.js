@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const generateEnumerateEnBtn = document.getElementById('generateEnumerateEnBtn');
     const generateEnumerateZhBtn = document.getElementById('generateEnumerateZhBtn');
 
+    // New buttons for no-quote JSON
+    const generateNoQuoteEnJsonBtn = document.getElementById('generateNoQuoteEnJsonBtn');
+    const generateNoQuoteZhJsonBtn = document.getElementById('generateNoQuoteZhJsonBtn');
+    const copyNoQuoteJsonBtn = document.getElementById('copyNoQuoteJsonBtn');
+    const generateNoQuoteEnumerateEnBtn = document.getElementById('generateNoQuoteEnumerateEnBtn');
+    const generateNoQuoteEnumerateZhBtn = document.getElementById('generateNoQuoteEnumerateZhBtn');
+
     const selectElements = {};
 
     // 创建年龄选项（18-120）
@@ -38,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function createDropdowns() {
         dropdownContainer.innerHTML = ''; // Clear existing dropdowns
-        
+
         // 创建性别选择器
         const genderLabel = document.createElement('label');
         genderLabel.textContent = 'gender:';
@@ -99,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const chineseCategory = categoryMatch ? categoryMatch[1] : fileNameWithoutExt;
             const englishCategory = categoryMatch ? categoryMatch[2].replace(/[_-]/g, ' ').trim() : fileNameWithoutExt.replace(/[_-]/g, ' ').trim(); // Apply replace to fileNameWithoutExt as well
             console.log('English category:', englishCategory); // Add log here
-            
+
             const label = document.createElement('label');
             label.textContent = `${chineseCategory}:${englishCategory}`;
             label.htmlFor = englishCategory;
@@ -422,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    function generateJson(lang) {
+    function generateJson(lang, noQuotes = false) {
         const result = {};
         let isValid = true;
 
@@ -473,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 key = category;
             }
-            
+
             let value;
             if (lang === 'zh') {
                 // 对于中文，使用选项文本的中文部分
@@ -505,11 +512,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     mixedRaceValue = nationality2Chinese;
                 }
             } else {
-                 if (nationality1Value !== 'none' && nationality1Value !== '') {
-                     mixedRaceValue = `${nationality1Value}/${nationality2Value}`;
-                 } else {
-                     mixedRaceValue = nationality2Value;
-                 }
+                if (nationality1Value !== 'none' && nationality1Value !== '') {
+                    mixedRaceValue = `${nationality1Value}/${nationality2Value}`;
+                } else {
+                    mixedRaceValue = nationality2Value;
+                }
             }
             result[lang === 'zh' ? '混合国籍' : 'Mixed race'] = mixedRaceValue;
             // 移除原始的 nationality 和 nationality2nd 字段
@@ -520,24 +527,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             delete result['nationality2nd']; // Always delete nationality2nd (English key)
         } else if (nationality1Value !== 'none' && nationality1Value !== '') {
-             // 如果 nationality2nd 为 none，但 nationality1 不为 none，则保留 nationality1
-             if (lang === 'zh') {
-                 result[nationality1Select.dataset.chineseCategory] = nationality1Select.options[nationality1Select.selectedIndex].textContent.split(':')[1]?.trim();
-             } else {
-                 result['nationality'] = nationality1Value;
-             }
-             delete result['nationality2nd']; // 确保 nationality2nd 不存在
+            // 如果 nationality2nd 为 none，但 nationality1 不为 none，则保留 nationality1
+            if (lang === 'zh') {
+                result[nationality1Select.dataset.chineseCategory] = nationality1Select.options[nationality1Select.selectedIndex].textContent.split(':')[1]?.trim();
+            } else {
+                result['nationality'] = nationality1Value;
+            }
+            delete result['nationality2nd']; // 确保 nationality2nd 不存在
         } else {
-             // 如果两个都为 none，则移除两个字段
-             delete result['nationality'];
-             delete result['nationality2nd'];
+            // 如果两个都为 none，则移除两个字段
+            delete result['nationality'];
+            delete result['nationality2nd'];
         }
 
 
         if (isValid) {
-            jsonOutput.textContent = JSON.stringify(result, null, 2);
+            if (noQuotes) {
+                jsonOutput.textContent = formatObjectNoQuotes(result);
+            } else {
+                jsonOutput.textContent = JSON.stringify(result, null, 2);
+            }
         } else {
             jsonOutput.textContent = '';
+        }
+    }
+
+    function formatObjectNoQuotes(obj) {
+        if (Array.isArray(obj)) {
+            return `[\n${obj.map(item => formatObjectNoQuotes(item)).join(',\n')}\n]`;
+        } else if (typeof obj === 'object' && obj !== null) {
+            const entries = Object.entries(obj).map(([key, value]) => {
+                const formattedValue = (typeof value === 'object') ? formatObjectNoQuotes(value) : value;
+                return `${key}: ${formattedValue}`;
+            });
+            return `{\n  ${entries.join(',\n  ')}\n}`;
+        } else {
+            return obj;
         }
     }
 
@@ -558,12 +583,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function showCopyNotification(zhText, enText) {
-    console.log('showCopyNotification function entered'); // Add log here
-    console.log('showCopyNotification called'); // Add log here
+        console.log('showCopyNotification function entered'); // Add log here
+        console.log('showCopyNotification called'); // Add log here
         const notification = document.createElement('span');
         notification.textContent = navigator.language.startsWith('zh') ? zhText : enText;
         notification.classList.add('copy-notification');
-        
+
         // Position the notification relative to the copy button
         const rect = copyJsonBtn.getBoundingClientRect();
         notification.style.position = 'fixed';
@@ -592,7 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Generate JSON for enumeration
-    async function generateEnumerationJson(language) {
+    async function generateEnumerationJson(language, noQuotes = false) {
         const selectedValues = {};
         const enumerationTarget1 = enumerationSelect.value;
         const enumerationTarget2 = enumerationSelect2.value; // Get second enumeration target
@@ -742,7 +767,11 @@ document.addEventListener('DOMContentLoaded', () => {
             allGeneratedJson.push(selectedValues);
         }
 
-        jsonOutput.textContent = allGeneratedJson.map(obj => JSON.stringify(obj, null, 2)).join('\n\n');
+        if (noQuotes) {
+            jsonOutput.textContent = allGeneratedJson.map(obj => formatObjectNoQuotes(obj)).join('\n\n');
+        } else {
+            jsonOutput.textContent = allGeneratedJson.map(obj => JSON.stringify(obj, null, 2)).join('\n\n');
+        }
     }
 
     generateEnJsonBtn.addEventListener('click', () => generateJson('en'));
@@ -756,6 +785,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     generateEnumerateEnBtn.addEventListener('click', () => generateEnumerationJson('en'));
     generateEnumerateZhBtn.addEventListener('click', () => generateEnumerationJson('zh'));
+
+    // Event listeners for no-quote buttons
+    generateNoQuoteEnJsonBtn.addEventListener('click', () => generateJson('en', true));
+    generateNoQuoteZhJsonBtn.addEventListener('click', () => generateJson('zh', true));
+    generateNoQuoteEnumerateEnBtn.addEventListener('click', () => generateEnumerationJson('en', true));
+    generateNoQuoteEnumerateZhBtn.addEventListener('click', () => generateEnumerationJson('zh', true));
+
+    copyNoQuoteJsonBtn.addEventListener('click', copyJsonToClipboard);
 
     // Initial call to create dropdowns when the DOM is fully loaded
     createDropdowns();
