@@ -1,6 +1,6 @@
 {
     "links": [
-        {"name": "bangbang", "url": "https://bang.360.cn/youpin?from=index", "category": "shopping"},
+        {"name": "bangbang", "url": "https://tcbang.cn/youpin?from=index", "category": "shopping"},
         {"name": "appinn", "url": "https://www.appinn.com/", "category": "software"},
         {"name": "FreeCode", "url": "https://www.freecodecamp.org/chinese/learn", "category": "study"},
         {"name": "kuaikk", "url": "https://www.weibo.com/u/1659643027", "category": "social"},

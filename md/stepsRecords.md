@@ -3,6 +3,19 @@ pip install --upgrade open-webui
 .\venv\Scripts\activate
 open-webui serve
 
+ @creative-writing-skills\ 使用 creative-writing-skills 参考@lists.md 主体设定 创作探案小说作品集。首先创建故事内容
+大纲，每个单元故事的主体思路，存储到units.md,然后创建完整小说内容。存储到finalnovel.md,
+注意文本格式，避免存储不必要的符号。
+
+使用 creative-writing-skills 参考@lists.md 主体设定和写作要求，联网搜索必要的信息
+    （如世界各地的地理人文风情信息，中国各地的名菜信息）
+      创作探案小说作品集。最终成品小说保存为finalnovel31.md
+
+ollama serve
+ccr start  // 默认监听 3456 端口
+ccr activate
+ccr code  // 一键启动并进入 Claude Code 界面
+npm update -g claude-code-router
 http://localhost:8080
 
 pip install huggingface_hub[hf_xet]
