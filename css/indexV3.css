@@ -98,3 +98,23 @@ body {
     color: #666;
     margin-top: 50px;
 }
+
+/* 移动版样式 */
+@media (max-width: 768px) {
+    .links-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .link-item {
+        padding: 10px;
+    }
+
+    .link-name {
+        font-size: 1.2em;
+    }
+
+    .link-category {
+        font-size: 0.8em;
+    }
+}

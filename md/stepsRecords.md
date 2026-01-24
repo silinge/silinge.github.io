@@ -2,15 +2,44 @@ OLLAMA_MODELS = F:\lmstudioModels
 pip install --upgrade open-webui 
 .\venv\Scripts\activate
 open-webui serve
+alias c='claude --continue'       # 继续上次
+alias cr='claude --resume'        # 选历史会话
+alias cc='claude --dangerously-skip-permissions'  # 自动化脚本专用，极危
+python gradio_demo.py --pretrained-dir "./pretrained_models/FireRedTTS2"
 
+  所有文件都保存在 C:\Users\William\Documents\8sn\ 目录下，下次启动Claude时：
+
+  1. 直接说"继续完成案件4"即可
+  2. 或者用 @创作进度.md 让Claude读取进度
+  3. Claude会自动参考已完成的案件1-3的风格继续创作
+@creative-writing-skills\ 使用 creative-writing-skills 参考@创作进度.md 继续创作案件6
+
+
+
+  你随时可以查看 创作进度.md 了解整体进度和待完成的案件列表！
  @creative-writing-skills\ 使用 creative-writing-skills 参考@lists.md 主体设定 创作探案小说作品集。首先创建故事内容
 大纲，每个单元故事的主体思路，存储到units.md,然后创建完整小说内容。存储到finalnovel.md,
 注意文本格式，避免存储不必要的符号。
 
-使用 creative-writing-skills 参考@lists.md 主体设定和写作要求，联网搜索必要的信息
-    （如世界各地的地理人文风情信息，中国各地的名菜信息）
-      创作探案小说作品集。最终成品小说保存为finalnovel31.md
+ @creative-writing-skills\ 使用 creative-writing-skills 参考@lists.md 主体设定和写作要求，联网搜索必要的信息（如世界各地的地理人文风情信息，中国各地的名菜信息）
+      创作探案小说作品集。最终成品小说保存为finalnovel32.md
 
+ @creative-writing-skills\ 学习领悟 creative-writing-skills， 参考@lists.md 主体设定和写作要求但不限于这些要求，联网搜索必要的信息
+（如世界各地的地理人文风情信息，中国各地的名菜做法，背景故事，趣闻等，特殊处理技巧，烹饪中的科学原理），充分发挥想象力和创造力，合理联系搜集到的信息，自由发散演绎，创作探案小说作品集。每完成一个案件内容创作，立即保存到序号-案件名.md文档中。注意前后情节的衔接，然后继续下一个案件创作，如此重复，直到完成。     
+
+
+
+@creative-writing-skills\ 学习领悟 creative-writing-skills， 参考@lists.md 主体设定和写作要求但不限于这些要求，联网搜索必要的信息
+（如世界各地的地理人文风情信息，中国各地的名菜做法，背景故事，趣闻等，特殊处理技巧，烹饪中的科学原理），充分发挥想象力和创造力，合理联系搜集到的信息，自由发散演绎，创作探案小说作品集。现在执行第一个任务，规划行进路线，选取要去到的国家和城市名称，选取每个城市要遇到的中国名菜的名菜，将路线和菜名的规划 [序号+国家+城市+菜名]，总计六个大洲20条以上的地点规划，逐一存入routelist.md文档中。
+
+@creative-writing-skills\ 学习领悟 creative-writing-skills， 参考@lists.md  主体设定，严格遵守@routelistone.md 和写作要求但不限于这些要求，联网搜索必要的信息
+（如世界各地的地理人文风情信息，中国各地的名菜做法，背景故事，趣闻等，特殊处理技巧，烹饪中的科学原理），充分发挥想象力和创造力，合理联系搜集到的信息，自由发散演绎，为24个城市+名菜 分别设计不同案件大纲(序号+案件类型+主体情节思路)，要求随机选用不同的案件类型，不能全部是谋杀案，也不能完全是投毒的手法，将故事大纲最终保存到outlines.md中。
+
+
+ 读取@routelist.md,联网获取充分信息，参考狄仁杰探案，马普尔小姐探案，福尔摩斯小说等设计
+  ，保持路线和指定的菜品不变，增加案件类型，如逃犯冒名顶替，伪装他人身份/改名换姓被识破，阴谋抢劫城市银行或者著名博
+  物馆，伪造遗嘱，杀人之后伪装成意外(假装动物行凶，投毒假装食物中毒【某两种相似的蘑菇，一种有毒另一种五毒】)，按照
+  路线菜品逐一选择设计案件类型，构成案件集的主体大纲逐条记录，存储到outlines.md中。
 ollama serve
 ccr start  // 默认监听 3456 端口
 ccr activate
@@ -18,6 +47,11 @@ ccr code  // 一键启动并进入 Claude Code 界面
 npm update -g claude-code-router
 http://localhost:8080
 
+
+netstat -ano | findstr 3456
+taskkill /PID 7808 /F
+pip freeze > requirements.txt
+pip uninstall -r requirements.txt -y
 pip install huggingface_hub[hf_xet]
 yt-dlp -f "bestvideo" https://www.youtube.com/watch?v=sldKyeGx4Pk
 yt-dlp https://www.youtube.com/watch?v=sldKyeGx4Pk --list-formats
